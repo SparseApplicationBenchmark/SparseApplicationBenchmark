@@ -23,6 +23,8 @@ This statement was written by hand.
 
 def benchmark_fastsv(xp, adjacency_matrix):
     edges = xp.from_benchmark(adjacency_matrix)
+    edges = xp.lazy(edges)
+
     (n, m) = edges.shape
     assert n == m
 
@@ -31,24 +33,27 @@ def benchmark_fastsv(xp, adjacency_matrix):
     # for edge traversal
     rows, cols = xp.nonzero(edges)
 
+    f, rows, cols = xp.compute([f, rows, cols])
     while True:
+        f = xp.lazy(f)
+
         f_next = xp.copy(f)
 
         # step 1 (stochastic hooking)
-        for u, v in zip(rows, cols, strict=True):
-            if f_next[f[u]] > f[f[v]]:
-                f_next[f[u]] = f[f[v]]
+        mask = f_next[f[rows]] > f[f[cols]]
+        f_next[f[rows][mask]] = f[f[cols]][mask]
 
         # step 2 (aggressive hooking)
-        for u, v in zip(rows, cols, strict=True):
-            if f_next[u] > f[f[v]]:
-                f_next[u] = f[f[v]]
+        mask = f_next[rows] > f[f[cols]]
+        f_next[rows[mask]] = f[f[cols]][mask]
 
         # step 3 (shortcutting)
         f_next = xp.minimum(f_next, f[f])
 
         f_prev = f
         f = f_next
+
+        f, f_prev = xp.compute([f, f_prev])
 
         if xp.all(f[f] == f_prev[f_prev]):
             break
