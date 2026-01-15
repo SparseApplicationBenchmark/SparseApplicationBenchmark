@@ -87,13 +87,16 @@ def benchmark_cp_als(xp, X_bench, rank, max_iter=100):
         )
     )
 
-    epsilon2 = 1e-6
     for _iteration in range(max_iter):
-        print(_iteration, '/', max_iter)
+        print(_iteration, "/", max_iter)
         (A, B, C, D) = xp.lazy((A, B, C, D))
         # Update A
         mttkrp_result = xp.einsum(
-            "mttkrp_result[i, r] += X[i, j, k, l] * B[j, r] * C[k, r] * D[l, r]", X=X, B=B, C=C, D=D
+            "mttkrp_result[i, r] += X[i, j, k, l] * B[j, r] * C[k, r] * D[l, r]",
+            X=X,
+            B=B,
+            C=C,
+            D=D,
         )
         DtD = xp.einsum("DtD[r, s] += D[l, r] * D[l, s]", D=D)
         CtC = xp.einsum("CtC[r, s] += C[k, r] * C[k, s]", C=C)
@@ -106,7 +109,11 @@ def benchmark_cp_als(xp, X_bench, rank, max_iter=100):
 
         # Update B
         mttkrp_result = xp.einsum(
-            "mttkrp_result[j, r] += X[i, j, k, l] * A[i, r] * C[k, r] * D[l, r]", X=X, A=A, C=C, D=D
+            "mttkrp_result[j, r] += X[i, j, k, l] * A[i, r] * C[k, r] * D[l, r]",
+            X=X,
+            A=A,
+            C=C,
+            D=D,
         )
         AtA = xp.einsum("AtA[r, s] += A[i, r] * A[i, s]", A=A)
         G = xp.multiply(xp.multiply(DtD, CtC), AtA)
@@ -116,7 +123,11 @@ def benchmark_cp_als(xp, X_bench, rank, max_iter=100):
 
         # Update C
         mttkrp_result = xp.einsum(
-            "mttkrp_result[k, r] += X[i, j, k, l] * A[i, r] * B[j, r] * D[l, r]", X=X, A=A, B=B, D=D
+            "mttkrp_result[k, r] += X[i, j, k, l] * A[i, r] * B[j, r] * D[l, r]",
+            X=X,
+            A=A,
+            B=B,
+            D=D,
         )
         BtB = xp.einsum("BtB[r, s] += B[j, r] * B[j, s]", B=B)
         G = xp.multiply(xp.multiply(DtD, BtB), AtA)
@@ -126,7 +137,11 @@ def benchmark_cp_als(xp, X_bench, rank, max_iter=100):
 
         # Update D
         mttkrp_result = xp.einsum(
-            "mttkrp_result[l, r] += X[i, j, k, l] * A[i, r] * B[j, r] * C[k, r]", X=X, A=A, B=B, C=C
+            "mttkrp_result[l, r] += X[i, j, k, l] * A[i, r] * B[j, r] * C[k, r]",
+            X=X,
+            A=A,
+            B=B,
+            C=C,
         )
         CtC = xp.einsum("CtC[r, s] += C[k, r] * C[k, s]", C=C)
         G = xp.multiply(xp.multiply(CtC, BtB), AtA)
@@ -150,7 +165,9 @@ def benchmark_cp_als(xp, X_bench, rank, max_iter=100):
     D_norms = xp.sqrt(D_norms_sq)
 
     # Computing lambda
-    lambda_vals = xp.multiply(xp.multiply(xp.multiply(A_norms, B_norms), C_norms), D_norms)
+    lambda_vals = xp.multiply(
+        xp.multiply(xp.multiply(A_norms, B_norms), C_norms), D_norms
+    )
 
     A_norms_2d = xp.expand_dims(A_norms, 0)
     B_norms_2d = xp.expand_dims(B_norms, 0)
@@ -195,7 +212,9 @@ def dg_cp_als_sparse_small():
     i_idx, j_idx, k_idx, l_idx = np.unravel_index(all_indices, (dim1, dim2, dim3, dim4))
 
     values = np.random.default_rng(0).random(nnz).astype(np.float32)
-    X_bin = BinsparseFormat.from_coo((i_idx, j_idx, k_idx, l_idx), values, (dim1, dim2, dim3, dim4))
+    X_bin = BinsparseFormat.from_coo(
+        (i_idx, j_idx, k_idx, l_idx), values, (dim1, dim2, dim3, dim4)
+    )
     max_iter = 50
 
     return (X_bin, rank, max_iter)

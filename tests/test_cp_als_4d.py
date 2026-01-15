@@ -11,7 +11,8 @@ from sparseappbench.frameworks.numpy_framework import NumpyFramework
 
 @pytest.mark.parametrize("xp", [NumpyFramework(), CheckerFramework()])
 def test_cp_als_basic(xp):
-    """Testing that CP-ALS in 4D runs without errors and produces correct output shapes"""
+    """Testing that CP-ALS in 4D runs without
+    errors and produces correct output shapes"""
     X_bin, rank, max_iter = dg_cp_als_sparse_small()
 
     A_bin, B_bin, C_bin, D_bin, lambda_bin = benchmark_cp_als(
@@ -31,7 +32,8 @@ def test_cp_als_basic(xp):
 
 @pytest.mark.parametrize("xp", [NumpyFramework()])
 def test_cp_als_reconstruction_error(xp):
-    """Tests that CP-ALS in 4D produces low reconstruction error on a factorizable tensor"""
+    """Tests that CP-ALS in 4D produces low
+    reconstruction error on a factorizable tensor"""
     X_bin, rank, max_iter = dg_cp_als_factorizable_small()
 
     A_bin, B_bin, C_bin, D_bin, lambda_bin = benchmark_cp_als(
@@ -60,7 +62,11 @@ def test_cp_als_reconstruction_error(xp):
     Y_reconstructed = np.zeros(len(X_values), dtype=np.float32)
     for r in range(rank):
         Y_reconstructed += (
-            lambda_vals[r] * A_vals[i_idx, r] * B_vals[j_idx, r] * C_vals[k_idx, r] * D_vals[l_idx, r]
+            lambda_vals[r]
+            * A_vals[i_idx, r]
+            * B_vals[j_idx, r]
+            * C_vals[k_idx, r]
+            * D_vals[l_idx, r]
         )
 
     X_norm = np.linalg.norm(X_values)
