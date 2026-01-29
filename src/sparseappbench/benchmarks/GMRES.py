@@ -1,3 +1,13 @@
+import os
+
+import numpy as np
+from scipy.io import mmread
+from scipy.sparse import random
+
+import ssgetpy
+
+from ..binsparse_format import BinsparseFormat
+
 """
 Name: GMRES (Generalized Minimal Residual Method)
 
@@ -30,7 +40,8 @@ https://www.netlib.org/templates/templates.pdf
 https://www.netlib.org/utk/people/JackDongarra/PAPERS/sparse-bench.pdf
 
 Statement on the use of Generative AI: No generative AI was used to construct
-the benchmark function. This statement is written by hand.
+the benchmark function. Generative AI might have been used to construct tests.
+This statement is written by hand.
 """
 
 
@@ -51,10 +62,9 @@ def gmres(
         H = xp.zeros((restart + 1, restart), dtype=float)
         Q[:, 0] = rcurr
 
+        x_cycle_start = x0
         for i in range(restart):
-            x0 = xp.lazy(x0)
-            rcurr = xp.lazy(rcurr)
-
+            x0 = xp.lazy((x0, rcurr))
             rcurr = A @ Q[:, i]
 
             # Orthogonalization process without extra loop.
@@ -76,7 +86,7 @@ def gmres(
 
             H_reduced = H[: i + 2, : i + 1]
             coeffs, _, _, _ = xp.linalg.lstsq(H_reduced, e1, rcond=None)
-            x0 = x0 + Q[:, : i + 1] @ coeffs
+            x0 = x_cycle_start + Q[:, : i + 1] @ coeffs
 
             r0 = b - A @ x0
             r0_norm = xp.compute(xp.linalg.norm(r0))[()]
@@ -90,3 +100,72 @@ def gmres(
 
     xsol = xp.compute(x0)
     return xp.to_benchmark(xsol)
+
+
+def generate_gmres_data(source, has_b_file=False):
+    matrices = ssgetpy.search(name=source)
+    if not matrices:
+        raise ValueError(f"No matrix found with name '{source}'")
+    matrix = matrices[0]
+    (path, archive) = matrix.download(extract=True)
+    matrix_path = os.path.join(path, matrix.name + ".mtx")
+    if matrix_path and os.path.exists(matrix_path):
+        A = mmread(matrix_path)
+    else:
+        raise FileNotFoundError(f"Matrix file not found at {matrix_path}")
+    rng = np.random.default_rng(0)
+    A = A.tocoo()
+
+    if has_b_file:
+        matrix_path = os.path.join(path, matrix.name + "_b.mtx")
+        if matrix_path and os.path.exists(matrix_path):
+            b = mmread(matrix_path)
+        else:
+            raise FileNotFoundError(f"Matrix file not found at {matrix_path}")
+        if not isinstance(b, np.ndarray):
+            b = b.toarray() if hasattr(b, "toarray") else np.asarray(b)
+        b = b.flatten()
+    else:
+        x = random(
+            A.shape[1], 1, density=0.1, format="coo", dtype=np.float64, random_state=rng
+        )
+        b = A @ x
+        b = b.toarray().flatten()
+    x = np.zeros(A.shape[1])
+
+    A_bin = BinsparseFormat.from_coo((A.row, A.col), A.data, A.shape)
+    b_bin = BinsparseFormat.from_numpy(b)
+    x_bin = BinsparseFormat.from_numpy(x)
+    return (A_bin, b_bin, x_bin)
+
+
+def dg_gmres_sparse_1():
+    return generate_gmres_data("mesh3em5")
+
+
+def dg_gmres_sparse_2():
+    return generate_gmres_data("Trefethen_200")
+
+
+def dg_gmres_sparse_3():
+    return generate_gmres_data("Chem97ZtZ")
+
+
+def dg_gmres_sparse_4():
+    return generate_gmres_data("Trefethen_500")
+
+
+def dg_gmres_sparse_5():
+    return generate_gmres_data("Trefethen_700")
+
+
+def dg_gmres_sparse_6():
+    return generate_gmres_data("fv1")
+
+
+def dg_gmres_sparse_7():
+    return generate_gmres_data("fv2")
+
+
+def dg_gmres_sparse_8():
+    return generate_gmres_data("Trefethen_20000")
