@@ -20,6 +20,24 @@ def test_slicot_problem_registry_matches_published_table():
     assert mna_5.outputs == 9
 
 
+def test_list_slicot_identity_e_problems_tracks_mat_defaults():
+    assert slicot.list_slicot_identity_e_problems() == [
+        "eady.mat",
+        "CDplayer.mat",
+        "fom.mat",
+        "random.mat",
+        "pde.mat",
+        "heat-cont.mat",
+        "Orr-Som.mat",
+        "iss.mat",
+        "build.mat",
+        "beam.mat",
+    ]
+    assert "Orr-Som.mat" not in slicot.list_slicot_identity_e_problems(
+        require_b=True
+    )
+
+
 @pytest.mark.parametrize(
     ("source_name", "expected"),
     [

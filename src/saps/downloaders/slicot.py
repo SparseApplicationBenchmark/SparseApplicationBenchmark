@@ -16,6 +16,21 @@ SLICOT_BENCH_DATA_BASE_URL = (
     "https://www.slicot.org/objects/software/shared/bench-data"
 )
 SLICOT_ALL_DATA_ARCHIVE = "All-Data.zip"
+SLICOT_IDENTITY_E_PROBLEMS = (
+    "eady.mat",
+    "CDplayer.mat",
+    "fom.mat",
+    "random.mat",
+    "pde.mat",
+    "heat-cont.mat",
+    "Orr-Som.mat",
+    "iss.mat",
+    "build.mat",
+    "beam.mat",
+)
+SLICOT_IDENTITY_E_WITH_INPUT_PROBLEMS = tuple(
+    name for name in SLICOT_IDENTITY_E_PROBLEMS if name != "Orr-Som.mat"
+)
 
 
 @dataclass(frozen=True)
@@ -145,6 +160,20 @@ SLICOT_PROBLEMS: tuple[SlicotProblem, ...] = (
 def list_slicot_problems() -> list[str]:
     """Return known SLICOT model-reduction MAT filenames."""
     return [problem.mat_filename for problem in SLICOT_PROBLEMS]
+
+
+def list_slicot_identity_e_problems(*, require_b: bool = False) -> list[str]:
+    """Return SLICOT problems whose MAT files omit ``E``.
+
+    SLICOT defines a missing ``E`` matrix as the identity. Set *require_b* to
+    omit the Orr-Somerfeld example, which has no input matrix ``B``.
+    """
+    names = (
+        SLICOT_IDENTITY_E_WITH_INPUT_PROBLEMS
+        if require_b
+        else SLICOT_IDENTITY_E_PROBLEMS
+    )
+    return list(names)
 
 
 def normalize_slicot_source_name(source_name: str) -> str:

@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 import numpy as np
 
 from binsparse import BinsparseTensor
-from binsparse.conversions import from_numpy, to_numpy
+from binsparse.conversions import from_numpy, from_scipy, to_numpy, to_scipy
 
 from saps.benchmark import (
     Benchmark,
@@ -15,10 +15,20 @@ from saps.benchmark import (
     Generator,
     Ref,
 )
+from saps.downloaders.slicot import (
+    SLICOT_BENCHMARK_PAGE_URL,
+    list_slicot_identity_e_problems,
+    load_slicot_problem,
+    slicot_problem_metadata,
+    slicot_source_url,
+)
 
 
 def _dense_binsparse_array(array: BinsparseTensor):
-    return to_numpy(array)
+    try:
+        return to_numpy(array)
+    except TypeError:
+        return to_scipy(array).toarray()
 
 
 def _step_input(t):
@@ -114,6 +124,14 @@ def _brusselator_derivatives(t, u_vec, n, a, alpha, C, brusselator_cb):
     non_lin[1::2] = -uv2
 
     return (lin + non_lin).tolist()
+
+
+def _linear_system_derivatives(t, state, A, B, input_value):
+    """Linear state-space derivatives for dx/dt = A x + B u."""
+    state_array = np.asarray(state)
+    input_dtype = np.result_type(B.dtype, type(input_value), float)
+    input_array = np.full(B.shape[1], input_value, dtype=input_dtype)
+    return (A @ state_array + B @ input_array).tolist()
 
 
 # ---------------------------------------------------------------------------
@@ -274,6 +292,61 @@ class BrusselatorDataset(Dataset):
     @property
     def concepts(self) -> str:
         return "<ccs2012></ccs2012>"
+
+
+class SLICOTDataset(Dataset):
+    def __init__(
+        self,
+        source_name: str,
+        *,
+        suites: list[str] | None = None,
+        t_max: float = 0.1,
+        step: float = 0.01,
+        input_value: float = 1.0,
+    ):
+        self.source_name = source_name
+        self.problem = slicot_problem_metadata(source_name)
+        self._suites = suites or []
+        self.t_max = t_max
+        self.step = step
+        self.input_value = input_value
+
+    @property
+    def name(self) -> str:
+        return f"slicot_{self.problem.name}".replace("-", "_").lower()
+
+    @property
+    def pretty_name(self) -> str:
+        return f"SLICOT {self.problem.title}"
+
+    @property
+    def description(self) -> str:
+        if self.problem.description:
+            return f"SLICOT model-reduction ODE: {self.problem.description}."
+        return "SLICOT model-reduction ODE."
+
+    @property
+    def suites(self) -> list[str]:
+        return self._suites
+
+    @property
+    def concepts(self) -> str:
+        return "<ccs2012></ccs2012>"
+
+    @property
+    def metadata(self) -> dict[str, object]:
+        data = super().metadata
+        data.update(
+            {
+                "source_name": self.problem.mat_filename,
+                "source_url": slicot_source_url(self.problem.mat_filename),
+                "source_order": self.problem.order,
+                "source_inputs": self.problem.inputs,
+                "source_outputs": self.problem.outputs,
+                "assumed_E": "identity",
+            }
+        )
+        return data
 
 
 # ---------------------------------------------------------------------------
@@ -581,6 +654,140 @@ class BrusselatorGenerator(Generator[BrusselatorDataset]):
             inputs=[
                 from_numpy(dataset.C),
                 from_numpy(np.asarray(dataset.brusselator_cb)),
+            ],
+            meta=meta,
+        )
+
+
+class SLICOTGenerator(Generator[SLICOTDataset]):
+    @property
+    def name(self) -> str:
+        return "slicot_ode"
+
+    @property
+    def pretty_name(self) -> str:
+        return "SLICOT Model-Reduction ODE"
+
+    @property
+    def description(self) -> str:
+        return (
+            "Loads SLICOT model-reduction problems without explicit E matrices, "
+            "preserving stored sparse matrices, treating E as the identity, and "
+            "defaulting missing B to a normalized single-input vector."
+        )
+
+    @property
+    def suites(self) -> list[str]:
+        return []
+
+    @property
+    def concepts(self) -> str:
+        return "<ccs2012></ccs2012>"
+
+    @property
+    def authors(self) -> list[Contributor]:
+        return []
+
+    @property
+    def references(self) -> list[Ref]:
+        return [
+            Ref(
+                title=(
+                    "Benchmark examples for model reduction of linear time "
+                    "invariant dynamical systems"
+                ),
+                authors=[],
+                url=SLICOT_BENCHMARK_PAGE_URL,
+            )
+        ]
+
+    @property
+    def ai_disclosure(self) -> str:
+        return "Generative AI was used to implement this generator."
+
+    @property
+    def motivation(self) -> str:
+        return (
+            "SLICOT model-reduction examples provide realistic linear dynamical "
+            "systems for ODE integration benchmarks."
+        )
+
+    @property
+    def datasets(self) -> list[SLICOTDataset]:
+        return [
+            SLICOTDataset(source_name, suites=["standard"])
+            for source_name in list_slicot_identity_e_problems()
+        ]
+
+    def generate(self, dataset: SLICOTDataset):
+        from scipy import sparse as scipy_sparse
+
+        variables, source_meta = load_slicot_problem(dataset.source_name)
+        if "E" in variables:
+            raise ValueError(
+                f"SLICOT {dataset.source_name} has an explicit E matrix; "
+                "SLICOTGenerator only supports identity-E systems"
+            )
+        if "A" not in variables:
+            raise ValueError(f"SLICOT {dataset.source_name} must define A")
+
+        A_value = variables["A"]
+        if scipy_sparse.issparse(A_value):
+            A = A_value.tocoo(copy=False)
+        else:
+            A = np.asarray(A_value)
+            if A.ndim != 2:
+                raise ValueError(
+                    f"SLICOT {dataset.source_name} variable A must be two-dimensional"
+                )
+        if A.shape[0] != A.shape[1]:
+            raise ValueError(f"SLICOT {dataset.source_name} A must be square")
+
+        if "B" in variables:
+            B_value = variables["B"]
+            if scipy_sparse.issparse(B_value):
+                B = B_value.tocoo(copy=False)
+            else:
+                B = np.asarray(B_value)
+                if B.ndim != 2:
+                    raise ValueError(
+                        f"SLICOT {dataset.source_name} variable B must be "
+                        "two-dimensional"
+                    )
+            assumed_B = None
+        else:
+            B = np.ones((A.shape[0], 1), dtype=np.result_type(A.dtype, float))
+            B /= np.sqrt(A.shape[0])
+            assumed_B = "normalized_uniform_vector"
+
+        if B.shape[0] != A.shape[0]:
+            raise ValueError(
+                f"SLICOT {dataset.source_name} B rows must match A dimension"
+            )
+
+        meta = {
+            "span": (0, dataset.t_max),
+            "y0": [0.0] * A.shape[0],
+            "step": dataset.step,
+            "input_value": dataset.input_value,
+            "source_name": dataset.problem.mat_filename,
+            "source_title": dataset.problem.title,
+            "source_url": source_meta["source_url"],
+            "source_page_url": source_meta["source_page_url"],
+            "source_order": dataset.problem.order,
+            "source_inputs": dataset.problem.inputs,
+            "source_outputs": dataset.problem.outputs,
+            "num_states": A.shape[0],
+            "input_dimension": B.shape[1],
+            "assumed_E": "identity",
+            "assumed_B": assumed_B,
+            "A_storage": "sparse" if scipy_sparse.issparse(A) else "dense",
+            "B_storage": "sparse" if scipy_sparse.issparse(B) else "dense",
+        }
+        return DataInstance(
+            inputs=[
+                from_scipy(A) if scipy_sparse.issparse(A) else from_numpy(A),
+                from_scipy(B) if scipy_sparse.issparse(B) else from_numpy(B),
             ],
             meta=meta,
         )
@@ -943,3 +1150,65 @@ class BrusselatorRK4(_BrusselatorMixin, _RK4Base):
     @property
     def pretty_name(self):
         return "Brusselator — RK4"
+
+
+# ---------------------------------------------------------------------------
+# SLICOT concrete benchmarks
+# ---------------------------------------------------------------------------
+
+
+class _SLICOTMixin:
+    @property
+    def description(self):
+        return "SLICOT identity-E linear model-reduction ODE."
+
+    @property
+    def generators(self):
+        return [SLICOTGenerator()]
+
+    @property
+    def references(self):
+        return [
+            Ref(
+                title=(
+                    "Benchmark examples for model reduction of linear time "
+                    "invariant dynamical systems"
+                ),
+                authors=[],
+                url=SLICOT_BENCHMARK_PAGE_URL,
+            )
+        ]
+
+    def _dydt(self, t, y, data, meta):
+        A, B = data
+        return _linear_system_derivatives(t, y, A, B, meta["input_value"])
+
+
+class SLICOTForwardEuler(_SLICOTMixin, _ForwardEulerBase):
+    @property
+    def name(self):
+        return "slicot_forward_euler"
+
+    @property
+    def pretty_name(self):
+        return "SLICOT Linear Systems — Forward Euler"
+
+
+class SLICOTBackwardEuler(_SLICOTMixin, _BackwardEulerBase):
+    @property
+    def name(self):
+        return "slicot_backward_euler"
+
+    @property
+    def pretty_name(self):
+        return "SLICOT Linear Systems — Backward Euler"
+
+
+class SLICOTRK4(_SLICOTMixin, _RK4Base):
+    @property
+    def name(self):
+        return "slicot_rk4"
+
+    @property
+    def pretty_name(self):
+        return "SLICOT Linear Systems — RK4"
