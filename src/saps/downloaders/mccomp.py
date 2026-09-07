@@ -24,37 +24,54 @@ MCCOMP_SOURCE_PATHS = tuple(
     for index in range(1, 11)
 )
 
-def parse_dimacs(text):
-    lines = [line.strip() for line in text.strip().split("\n")]
-    cleaned = [line for line in lines if not line.startswith("c") and line]
+def parse_dimacs(text: str) -> tuple[int, list[list[int]]]:
+    lines = [line.strip() for line in text.splitlines()]
+    cleaned = [line for line in lines if line and not line.startswith("c")]
 
+    header_index = None
     num_vars = 0
     num_clauses = 0
-    rest = []
-
     for i, line in enumerate(cleaned):
-        if line.startswith("p cnf"):
-            parts = line.split()
+        parts = line.split()
+        if len(parts) >= 4 and parts[:2] == ["p", "cnf"]:
+            if len(parts) != 4:
+                raise ValueError(f"Malformed DIMACS problem line: {line!r}")
             num_vars = int(parts[2])
             num_clauses = int(parts[3])
-
-            rest = " ".join(cleaned[i + 1 :]).split()
+            if num_vars < 0 or num_clauses < 0:
+                raise ValueError("DIMACS variable and clause counts must be nonnegative")
+            header_index = i
             break
 
-    clauses = []
-    current_clause = []
-    idx = 0
+    if header_index is None:
+        raise ValueError("DIMACS input is missing a 'p cnf' problem line")
 
-    while len(clauses) < num_clauses and idx < len(rest):
-        val = int(rest[idx])
+    clauses: list[list[int]] = []
+    current_clause: list[int] = []
+    tokens = " ".join(cleaned[header_index + 1 :]).split()
+    for token in tokens:
+        if token == "%":
+            break
 
-        if val == 0:
+        literal = int(token)
+        if literal == 0:
             clauses.append(current_clause)
             current_clause = []
         else:
-            current_clause.append(val)
+            if abs(literal) > num_vars:
+                raise ValueError(
+                    f"DIMACS literal {literal} exceeds declared variable count "
+                    f"{num_vars}"
+                )
+            current_clause.append(literal)
 
-        idx += 1
+    if current_clause:
+        raise ValueError("DIMACS clause is missing a terminating 0")
+
+    if len(clauses) != num_clauses:
+        raise ValueError(
+            f"DIMACS declared {num_clauses} clauses but parsed {len(clauses)}"
+        )
 
     return num_vars, clauses
 

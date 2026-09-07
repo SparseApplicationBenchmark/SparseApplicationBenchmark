@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import numpy as np
+import pytest
 
 from binsparse.conversions import to_numpy
 
@@ -10,10 +11,15 @@ from saps.benchmarks.model_counting import (
     MCCompBenchmark,
     MCCompGenerator,
     MCCompMCGenerator,
+    clauses_to_einsum as mc_clauses_to_einsum,
     fetch_mccomp_instance,
     parse_mccomp_exact,
 )
-from saps.benchmarks.weighted_model_counting import MCCompPWMCGenerator, parse_format
+from saps.benchmarks.weighted_model_counting import (
+    MCCompPWMCGenerator,
+    clauses_to_einsum as wmc_clauses_to_einsum,
+    parse_format,
+)
 from saps.downloaders.mccomp import (
     parse_dimacs,
     download_mccomp_instance,
@@ -37,6 +43,49 @@ def test_shared_dimacs_parser_handles_model_counting_instance():
 
     assert num_vars == 3
     assert clauses == [[1, -3], [2, 3, -1]]
+
+
+def test_shared_dimacs_parser_accepts_whitespace_and_multiline_clauses():
+    num_vars, clauses = parse_dimacs(
+        """\
+        c comments may appear before the header
+        p   cnf   4   2
+        1 -2
+        3 0
+        4
+        -1 0
+        %
+        """
+    )
+
+    assert num_vars == 4
+    assert clauses == [[1, -2, 3], [4, -1]]
+
+
+def test_shared_dimacs_parser_rejects_missing_problem_line():
+    with pytest.raises(ValueError, match="missing a 'p cnf'"):
+        parse_dimacs("c no header\n1 0\n")
+
+
+def test_shared_dimacs_parser_rejects_clause_count_mismatch():
+    with pytest.raises(ValueError, match="declared 2 clauses but parsed 1"):
+        parse_dimacs("p cnf 1 2\n1 0\n")
+
+
+def test_shared_dimacs_parser_rejects_unterminated_clause():
+    with pytest.raises(ValueError, match="missing a terminating 0"):
+        parse_dimacs("p cnf 1 1\n1\n")
+
+
+def test_shared_dimacs_parser_rejects_out_of_range_literals():
+    with pytest.raises(ValueError, match="exceeds declared variable count"):
+        parse_dimacs("p cnf 1 1\n2 0\n")
+
+
+def test_empty_dimacs_clause_builds_false_formula():
+    assert parse_dimacs("p cnf 2 1\n0\n") == (2, [[]])
+    assert mc_clauses_to_einsum([[]]) == "s[] += False"
+    assert wmc_clauses_to_einsum([[]], 2) == "s[] += False"
 
 
 def test_weighted_parser_reuses_dimacs_clause_shape():

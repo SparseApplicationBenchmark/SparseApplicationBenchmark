@@ -62,6 +62,8 @@ def parse_format(text):
 def clauses_to_einsum(clauses, num_vars):
     if len(clauses) == 0:
         return None
+    if any(len(clause) == 0 for clause in clauses):
+        return "s[] += False"
 
     clause_strings = []
     for clause in clauses:

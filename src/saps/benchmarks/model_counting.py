@@ -29,6 +29,8 @@ from saps.downloaders.mccomp import (
 def clauses_to_einsum(clauses):
     if len(clauses) == 0:
         return None
+    if any(len(clause) == 0 for clause in clauses):
+        return "s[] += False"
 
     clause_strings = []
     for clause in clauses:
