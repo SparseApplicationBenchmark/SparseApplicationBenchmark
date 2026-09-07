@@ -12,7 +12,7 @@
       "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10010583.10010717.10010721.10010727</concept_id>\n<concept_desc>Hardware~Theorem proving and SAT solving</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003648.10003662</concept_id>\n<concept_desc>Mathematics of computing~Probabilistic inference problems</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010583.10010717.10010721.10003791</concept_id>\n<concept_desc>Hardware~Model checking</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
       "description": "Benchmarks Model Counting Algorithm using einsum operations.",
       "file": "src/saps/benchmarks/model_counting.py",
-      "freshness": "79ef2eccbd1d1095a01de805101c47a6d90cb23ece3ca9eab4bcf2b4b6d91d2e",
+      "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to write the benchmark function itself.\n        Generative AI was used to debug code. This statement was written by hand.",
@@ -27,7 +27,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "3 variables, 2 clauses",
               "file": "src/saps/benchmarks/model_counting.py",
-              "freshness": "79ef2eccbd1d1095a01de805101c47a6d90cb23ece3ca9eab4bcf2b4b6d91d2e",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
               "name": "test_1",
               "pretty_name": "Test 1: Standard SAT",
               "suites": [
@@ -50,7 +50,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "V1 and not V1",
               "file": "src/saps/benchmarks/model_counting.py",
-              "freshness": "79ef2eccbd1d1095a01de805101c47a6d90cb23ece3ca9eab4bcf2b4b6d91d2e",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
               "name": "test_2",
               "pretty_name": "Test 2: Contradiction",
               "suites": [
@@ -73,7 +73,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Forces all 3 variables to be true",
               "file": "src/saps/benchmarks/model_counting.py",
-              "freshness": "79ef2eccbd1d1095a01de805101c47a6d90cb23ece3ca9eab4bcf2b4b6d91d2e",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
               "name": "test_3",
               "pretty_name": "Test 3: Single Solution",
               "suites": [
@@ -96,7 +96,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "No clauses, 2 variables",
               "file": "src/saps/benchmarks/model_counting.py",
-              "freshness": "79ef2eccbd1d1095a01de805101c47a6d90cb23ece3ca9eab4bcf2b4b6d91d2e",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
               "name": "test_4",
               "pretty_name": "Test 4: Empty Formula",
               "suites": [
@@ -117,7 +117,7 @@
           ],
           "description": "Parses standard DIMACS CNF test strings into sparse arrays for model counting.",
           "file": "src/saps/benchmarks/model_counting.py",
-          "freshness": "79ef2eccbd1d1095a01de805101c47a6d90cb23ece3ca9eab4bcf2b4b6d91d2e",
+          "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
           "motivation": "Uses a predefined set of formulas to verify correctness.",
           "name": "mc_generator",
           "pretty_name": "Model Counting Generator",
@@ -134,6 +134,272 @@
             "test",
             "theorem-proving-and-sat-solving",
             "trace"
+          ],
+          "topics": []
+        },
+        {
+          "ai_disclosure": "Generative AI was used to implement this generator.",
+          "authors": [],
+          "cacheable": true,
+          "concepts": "<ccs2012></ccs2012>",
+          "datasets": [
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_1",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_1",
+              "pretty_name": "MCComp Track1_MC/random_mc_1",
+              "source_path": "Track1_MC/random_mc_1.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_1.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_2",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_2",
+              "pretty_name": "MCComp Track1_MC/random_mc_2",
+              "source_path": "Track1_MC/random_mc_2.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_2.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_3",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_3",
+              "pretty_name": "MCComp Track1_MC/random_mc_3",
+              "source_path": "Track1_MC/random_mc_3.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_3.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_4",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_4",
+              "pretty_name": "MCComp Track1_MC/random_mc_4",
+              "source_path": "Track1_MC/random_mc_4.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_4.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_5",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_5",
+              "pretty_name": "MCComp Track1_MC/random_mc_5",
+              "source_path": "Track1_MC/random_mc_5.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_5.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_6",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_6",
+              "pretty_name": "MCComp Track1_MC/random_mc_6",
+              "source_path": "Track1_MC/random_mc_6.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_6.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_7",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_7",
+              "pretty_name": "MCComp Track1_MC/random_mc_7",
+              "source_path": "Track1_MC/random_mc_7.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_7.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_8",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_8",
+              "pretty_name": "MCComp Track1_MC/random_mc_8",
+              "source_path": "Track1_MC/random_mc_8.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_8.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_9",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_9",
+              "pretty_name": "MCComp Track1_MC/random_mc_9",
+              "source_path": "Track1_MC/random_mc_9.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_9.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp_mc.track1_mc_random_mc_10",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_10",
+              "pretty_name": "MCComp Track1_MC/random_mc_10",
+              "source_path": "Track1_MC/random_mc_10.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_10.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "hardware",
+                "mathematics-of-computing",
+                "model-checking",
+                "probabilistic-inference-problems",
+                "standard",
+                "theorem-proving-and-sat-solving"
+              ],
+              "topics": [],
+              "track": "Track1_MC"
+            }
+          ],
+          "description": "Loads exact model counting CNF instances from MCComp Track1.",
+          "file": "src/saps/benchmarks/model_counting.py",
+          "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+          "motivation": "Track1 instances have exact integer model counts, so they can be run by the existing unweighted model-counting einsum benchmark.",
+          "name": "mccomp_mc",
+          "pretty_name": "Model Counting Competition Track1 Generator",
+          "references": [
+            ". \"Model Counting Competition test instances\", URL: https://github.com/arijitsh/mccomp-test-instances."
+          ],
+          "suites": [],
+          "tags": [
+            "hardware",
+            "mathematics-of-computing",
+            "model-checking",
+            "probabilistic-inference-problems",
+            "theorem-proving-and-sat-solving"
           ],
           "topics": []
         }
@@ -26797,7 +27063,7 @@
       "concepts": "<ccs2012></ccs2012>",
       "description": "Benchmarks Weighted Model Counting Algorithm using einsum operations.",
       "file": "src/saps/benchmarks/weighted_model_counting.py",
-      "freshness": "9d3a12a79031adb60c125e0e528fe13f950f9dd580268bcc7e0d07e4cc724578",
+      "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to write the benchmark function itself. Generative AI was used to debug code. This statement was written by hand.",
@@ -26812,7 +27078,7 @@
               "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10010583.10010717.10010721.10010727</concept_id>\n<concept_desc>Hardware~Theorem proving and SAT solving</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003648.10003662</concept_id>\n<concept_desc>Mathematics of computing~Probabilistic inference problems</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010583.10010717.10010721.10003791</concept_id>\n<concept_desc>Hardware~Model checking</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
               "description": "(V1 or V2) and (not V1 or V2)",
               "file": "src/saps/benchmarks/weighted_model_counting.py",
-              "freshness": "9d3a12a79031adb60c125e0e528fe13f950f9dd580268bcc7e0d07e4cc724578",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
               "name": "test_1",
               "pretty_name": "Test 1: Satisfiable",
               "suites": [
@@ -26841,7 +27107,7 @@
               "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10010583.10010717.10010721.10010727</concept_id>\n<concept_desc>Hardware~Theorem proving and SAT solving</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003648.10003662</concept_id>\n<concept_desc>Mathematics of computing~Probabilistic inference problems</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010583.10010717.10010721.10003791</concept_id>\n<concept_desc>Hardware~Model checking</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
               "description": "V1 and not V1",
               "file": "src/saps/benchmarks/weighted_model_counting.py",
-              "freshness": "9d3a12a79031adb60c125e0e528fe13f950f9dd580268bcc7e0d07e4cc724578",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
               "name": "test_2",
               "pretty_name": "Test 2: Unsatisfiable",
               "suites": [
@@ -26870,7 +27136,7 @@
               "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10010583.10010717.10010721.10010727</concept_id>\n<concept_desc>Hardware~Theorem proving and SAT solving</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003648.10003662</concept_id>\n<concept_desc>Mathematics of computing~Probabilistic inference problems</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010583.10010717.10010721.10003791</concept_id>\n<concept_desc>Hardware~Model checking</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
               "description": "p cnf 2 0",
               "file": "src/saps/benchmarks/weighted_model_counting.py",
-              "freshness": "9d3a12a79031adb60c125e0e528fe13f950f9dd580268bcc7e0d07e4cc724578",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
               "name": "test_3",
               "pretty_name": "Test 3: No Clauses",
               "suites": [
@@ -26899,7 +27165,7 @@
               "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10010583.10010717.10010721.10010727</concept_id>\n<concept_desc>Hardware~Theorem proving and SAT solving</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003648.10003662</concept_id>\n<concept_desc>Mathematics of computing~Probabilistic inference problems</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010583.10010717.10010721.10003791</concept_id>\n<concept_desc>Hardware~Model checking</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
               "description": "V1 or V2 (default weights)",
               "file": "src/saps/benchmarks/weighted_model_counting.py",
-              "freshness": "9d3a12a79031adb60c125e0e528fe13f950f9dd580268bcc7e0d07e4cc724578",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
               "name": "test_4",
               "pretty_name": "Test 4: Default Weights",
               "suites": [
@@ -26928,7 +27194,7 @@
               "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10010583.10010717.10010721.10010727</concept_id>\n<concept_desc>Hardware~Theorem proving and SAT solving</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003648.10003662</concept_id>\n<concept_desc>Mathematics of computing~Probabilistic inference problems</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010583.10010717.10010721.10003791</concept_id>\n<concept_desc>Hardware~Model checking</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
               "description": "(V1 or V2) and (not V2 or V3)",
               "file": "src/saps/benchmarks/weighted_model_counting.py",
-              "freshness": "9d3a12a79031adb60c125e0e528fe13f950f9dd580268bcc7e0d07e4cc724578",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
               "name": "test_5",
               "pretty_name": "Test 5: 3-Var Formula",
               "suites": [
@@ -26957,7 +27223,7 @@
               "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10010583.10010717.10010721.10010727</concept_id>\n<concept_desc>Hardware~Theorem proving and SAT solving</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003648.10003662</concept_id>\n<concept_desc>Mathematics of computing~Probabilistic inference problems</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010583.10010717.10010721.10003791</concept_id>\n<concept_desc>Hardware~Model checking</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
               "description": "\n                    (V1 or not V2 or V3) and (not V1 or V4 or V5) and\n                    (V2 or not V5 or V6) and (not V3 or V7 or not V8)\n                    and (V4 or not V9 or V10) and (not V6 or V11 or V12)\n                    and (V8 or not V13 or V14) and (V10 or V15 or not V16)\n                    and (not V12 or not V17 or V18) and (V14 or V19 or not V20)\n                    and (not V15 or V16 or V20) and (V17 or not V18 or V19)\n                ",
               "file": "src/saps/benchmarks/weighted_model_counting.py",
-              "freshness": "9d3a12a79031adb60c125e0e528fe13f950f9dd580268bcc7e0d07e4cc724578",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
               "name": "test_6",
               "pretty_name": "Test 6: 20-Var Formula",
               "suites": [
@@ -26984,7 +27250,7 @@
           ],
           "description": "Parses DIMACS CNF test strings into sparse arrays.",
           "file": "src/saps/benchmarks/weighted_model_counting.py",
-          "freshness": "9d3a12a79031adb60c125e0e528fe13f950f9dd580268bcc7e0d07e4cc724578",
+          "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
           "motivation": "Uses a predefined set of formulas to verify correctness.",
           "name": "wmc_generator",
           "pretty_name": "Weighted Model Counting Generator",
@@ -26997,6 +27263,216 @@
             "test",
             "trace"
           ],
+          "topics": []
+        },
+        {
+          "ai_disclosure": "Generative AI was used to implement this generator.",
+          "authors": [],
+          "cacheable": true,
+          "concepts": "<ccs2012></ccs2012>",
+          "datasets": [
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_1",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_1",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_1",
+              "source_path": "Track4_PWMC/random_pwmc_1.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_1.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_2",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_2",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_2",
+              "source_path": "Track4_PWMC/random_pwmc_2.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_2.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_3",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_3",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_3",
+              "source_path": "Track4_PWMC/random_pwmc_3.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_3.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_4",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_4",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_4",
+              "source_path": "Track4_PWMC/random_pwmc_4.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_4.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_5",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_5",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_5",
+              "source_path": "Track4_PWMC/random_pwmc_5.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_5.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_6",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_6",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_6",
+              "source_path": "Track4_PWMC/random_pwmc_6.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_6.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_7",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_7",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_7",
+              "source_path": "Track4_PWMC/random_pwmc_7.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_7.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_8",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_8",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_8",
+              "source_path": "Track4_PWMC/random_pwmc_8.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_8.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_9",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_9",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_9",
+              "source_path": "Track4_PWMC/random_pwmc_9.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_9.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp_pwmc.track4_pwmc_random_pwmc_10",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/weighted_model_counting.py",
+              "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+              "name": "track4_pwmc_random_pwmc_10",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_10",
+              "source_path": "Track4_PWMC/random_pwmc_10.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_10.cnf",
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "standard"
+              ],
+              "topics": [],
+              "track": "Track4_PWMC"
+            }
+          ],
+          "description": "Loads projected weighted model counting CNF instances from MCComp Track4.",
+          "file": "src/saps/benchmarks/weighted_model_counting.py",
+          "freshness": "08563da947bc5ed021d428397c8df3d3e5d7d9081206038fd182d47b2f6f43bf",
+          "motivation": "Track4 instances provide weighted CNF formulas from a standard model-counting corpus.",
+          "name": "mccomp_pwmc",
+          "pretty_name": "Model Counting Competition Track4 Generator",
+          "references": [
+            ". \"Model Counting Competition test instances\", URL: https://github.com/arijitsh/mccomp-test-instances."
+          ],
+          "suites": [],
+          "tags": [],
           "topics": []
         }
       ],
@@ -43782,7 +44258,7 @@
       "concepts": "\n        <ccs2012>\n<concept>\n<concept_id>10002950.10003705.10011686</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software performance</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003714.10003715</concept_id>\n<concept_desc>Mathematics of computing~Numerical analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003714.10003715</concept_id>\n<concept_desc>Mathematics of computing~Numerical analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010147.10010257.10010293.10010309</concept_id>\n<concept_desc>Computing methodologies~Factorization methods</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
       "description": "Computes the CP decomposition using Alternating Least Squares (ALS). Factorizes an N-D tensor X into factor matrices such that: $X \\approx \\sum_{r=1}^{R} \\lambda_r \\cdot a_r \\circ b_r \\circ ...$ where $\\circ$ denotes the outer product, R is the rank, and $\\lambda$ are the weights. Handwritten code based on the standard CP-ALS algorithm from Kolda and Bader (2009). ",
       "file": "src/saps/benchmarks/cp_als.py",
-      "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+      "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to construct the benchmark function itself. Generative AI was used to debug some parts of the code. This statement was written by hand.",
@@ -43793,12 +44269,12 @@
           "concepts": "<ccs2012></ccs2012>",
           "datasets": [
             {
-              "asv_param": "cp_factorizable.cp_factorizeable_tiny",
+              "asv_param": "cp_factorizable.cp_factorizeable_3d_tiny",
               "concepts": "<ccs2012></ccs2012>",
               "description": "n = 3, rank = 2, shape = (6, 6, 6)",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
-              "name": "cp_factorizeable_tiny",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
+              "name": "cp_factorizeable_3d_tiny",
               "pretty_name": "Tiny Factorizeable CP Tensor",
               "suites": [
                 "test",
@@ -43816,12 +44292,12 @@
               "topics": []
             },
             {
-              "asv_param": "cp_factorizable.cp_factorizeable_small",
+              "asv_param": "cp_factorizable.cp_factorizeable_3d_small",
               "concepts": "<ccs2012></ccs2012>",
               "description": "n = 3, rank = 3, shape = (20, 20, 20)",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
-              "name": "cp_factorizeable_small",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
+              "name": "cp_factorizeable_3d_small",
               "pretty_name": "Small Factorizeable CP Tensor",
               "suites": [],
               "tags": [
@@ -43838,7 +44314,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "n = 4, rank = 1, shape = (5, 5, 5, 5)",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp_factorizeable_4d_tiny",
               "pretty_name": "Tiny 4D Factorizeable CP Tensor",
               "suites": [
@@ -43861,7 +44337,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "n = 4, rank = 4, shape = (20, 20, 20, 20)",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp_factorizeable_4d_small",
               "pretty_name": "Small 4D Factorizeable CP Tensor",
               "suites": [],
@@ -43879,7 +44355,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "n = 5, rank = 2, shape = (4, 4, 4, 4, 4)",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp_factorizeable_5d_tiny",
               "pretty_name": "Tiny 5D Factorizeable CP Tensor",
               "suites": [
@@ -43902,7 +44378,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "n = 5, rank = 5, shape = (10, 10, 10, 10, 10)",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp_factorizeable_5d_small",
               "pretty_name": "Small 5D Factorizeable CP Tensor",
               "suites": [],
@@ -43918,7 +44394,7 @@
           ],
           "description": "\n            Generating small factorizable tensors by creating random factor matrices\n            and reconstructing the tensor from them (tensor should decompose easily\n            with low reconstruction error).\n            ",
           "file": "src/saps/benchmarks/cp_als.py",
-          "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+          "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
           "motivation": "",
           "name": "cp_factorizable",
           "pretty_name": "Factorizable Tensor for CP Decomposition",
@@ -43944,7 +44420,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor matmul_2_2_2, n = 3, rank = 2.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_matmul_2_2_2",
               "pretty_name": "CP3 FROSTT matmul_2_2_2",
               "suites": [],
@@ -43963,7 +44439,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor matmul_3_3_3, n = 3, rank = 2.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_matmul_3_3_3",
               "pretty_name": "CP3 FROSTT matmul_3_3_3",
               "suites": [],
@@ -43982,7 +44458,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor matmul_4_3_2, n = 3, rank = 2.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_matmul_4_3_2",
               "pretty_name": "CP3 FROSTT matmul_4_3_2",
               "suites": [],
@@ -44001,7 +44477,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor matmul_4_4_3, n = 3, rank = 2.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_matmul_4_4_3",
               "pretty_name": "CP3 FROSTT matmul_4_4_3",
               "suites": [],
@@ -44020,7 +44496,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor matmul_4_4_4, n = 3, rank = 2.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_matmul_4_4_4",
               "pretty_name": "CP3 FROSTT matmul_4_4_4",
               "suites": [],
@@ -44039,7 +44515,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor matmul_5_5_5, n = 3, rank = 3.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_matmul_5_5_5",
               "pretty_name": "CP3 FROSTT matmul_5_5_5",
               "suites": [],
@@ -44058,7 +44534,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor matmul_6_3_3, n = 3, rank = 3.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_matmul_6_3_3",
               "pretty_name": "CP3 FROSTT matmul_6_3_3",
               "suites": [],
@@ -44077,7 +44553,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor nell_2, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_nell_2",
               "pretty_name": "CP3 FROSTT nell_2",
               "suites": [],
@@ -44096,7 +44572,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor vast_2015_mc1_3d, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_vast_2015_mc1_3d",
               "pretty_name": "CP3 FROSTT vast_2015_mc1_3d",
               "suites": [],
@@ -44115,7 +44591,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor nell_1, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_nell_1",
               "pretty_name": "CP3 FROSTT nell_1",
               "suites": [],
@@ -44134,7 +44610,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor flickr_3d, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_flickr_3d",
               "pretty_name": "CP3 FROSTT flickr_3d",
               "suites": [],
@@ -44153,7 +44629,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor delicious_3d, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_delicious_3d",
               "pretty_name": "CP3 FROSTT delicious_3d",
               "suites": [],
@@ -44172,7 +44648,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor amazon_reviews, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_amazon_reviews",
               "pretty_name": "CP3 FROSTT amazon_reviews",
               "suites": [],
@@ -44191,7 +44667,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor patents, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_patents",
               "pretty_name": "CP3 FROSTT patents",
               "suites": [],
@@ -44210,7 +44686,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor reddit_2015, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_reddit_2015",
               "pretty_name": "CP3 FROSTT reddit_2015",
               "suites": [],
@@ -44229,7 +44705,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor fb_m, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_fb_m",
               "pretty_name": "CP3 FROSTT fb_m",
               "suites": [],
@@ -44248,7 +44724,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor darpa, n = 3, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp3_frostt_darpa",
               "pretty_name": "CP3 FROSTT darpa",
               "suites": [],
@@ -44267,7 +44743,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor toy, n = 4, rank = 2.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp4_frostt_toy",
               "pretty_name": "CP4 FROSTT toy",
               "suites": [],
@@ -44286,7 +44762,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor nips, n = 4, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp4_frostt_nips",
               "pretty_name": "CP4 FROSTT nips",
               "suites": [],
@@ -44305,7 +44781,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor uber_pickups, n = 4, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp4_frostt_uber_pickups",
               "pretty_name": "CP4 FROSTT uber_pickups",
               "suites": [],
@@ -44324,7 +44800,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor chicago_crime_comm, n = 4, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp4_frostt_chicago_crime_comm",
               "pretty_name": "CP4 FROSTT chicago_crime_comm",
               "suites": [],
@@ -44343,7 +44819,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor enron, n = 4, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp4_frostt_enron",
               "pretty_name": "CP4 FROSTT enron",
               "suites": [],
@@ -44362,7 +44838,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor flickr_4d, n = 4, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp4_frostt_flickr_4d",
               "pretty_name": "CP4 FROSTT flickr_4d",
               "suites": [],
@@ -44381,7 +44857,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor delicious_4d, n = 4, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp4_frostt_delicious_4d",
               "pretty_name": "CP4 FROSTT delicious_4d",
               "suites": [],
@@ -44400,7 +44876,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor lbnl_network, n = 5, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp5_frostt_lbnl_network",
               "pretty_name": "CP5 FROSTT lbnl_network",
               "suites": [],
@@ -44419,7 +44895,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor chicago_crime_geo, n = 5, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp5_frostt_chicago_crime_geo",
               "pretty_name": "CP5 FROSTT chicago_crime_geo",
               "suites": [],
@@ -44438,7 +44914,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor vast_2015_mc1_5d, n = 5, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp5_frostt_vast_2015_mc1_5d",
               "pretty_name": "CP5 FROSTT vast_2015_mc1_5d",
               "suites": [],
@@ -44457,7 +44933,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "FROSTT tensor lanl2, n = 5, rank = 10.",
               "file": "src/saps/benchmarks/cp_als.py",
-              "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+              "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
               "name": "cp5_frostt_lanl2",
               "pretty_name": "CP5 FROSTT lanl2",
               "suites": [],
@@ -44474,7 +44950,7 @@
           ],
           "description": "Real sparse tensors downloaded from FROSTT (frostt.io), factorized directly. No dense reconstruction check is performed since these tensors are stored in genuinely sparse (COO) form.",
           "file": "src/saps/benchmarks/cp_als.py",
-          "freshness": "1990e2427be846c3db7d49c7854b6474635d489c5adc01a5d49288876e8cd362",
+          "freshness": "72ff51ad77707d63f1209f12a65a308e70e91633cb0b12b702f36ce7f594ab9e",
           "motivation": "Real sparse tensors from FROSTT exercise CP-ALS's MTTKRP kernel against genuinely irregular sparsity patterns, unlike the synthetic low-rank-by-construction tensors generated elsewhere in this file.",
           "name": "cp_frostt_inputs",
           "pretty_name": "FROSTT Sparse Tensor Generator for CP-ALS",
@@ -45996,11 +46472,7 @@
       "concepts": "\n        <ccs2012>\n        <concept>\n        <concept_id>10010147.10010257.10010293.10010294</concept_id>\n        <concept_desc>Computing methodologies~Neural networks</concept_desc>\n        <concept_significance>500</concept_significance>\n        </concept>\n        <concept>\n        <concept_id>10002950.10003624.10003633.10010917</concept_id>\n        <concept_desc>Mathematics of computing~Graph algorithms</concept_desc>\n        <concept_significance>500</concept_significance>\n        </concept>\n        </ccs2012>\n        ",
       "description": "Computes a 2-layer Graph Convolutional Network forward pass: h1 = ReLU(adjacency @ features @ weights1 + bias1) output = adjacency @ h1 @ weights2 + bias2 Implementation based on Scorch (Yan et al., 2024).",
       "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-      "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-      "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+      "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to construct the benchmark function itself. Generative AI was used to help implement and audit OGB input plumbing, tests, documentation, and debugging.",
@@ -46016,11 +46488,7 @@
               "description": "SuiteSparse matrix test_gcn_3node.",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 8,
               "name": "test_gcn_3node",
               "out_dim": 1,
@@ -46046,11 +46514,7 @@
               "description": "SuiteSparse matrix test_gcn_simple_2node.",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 8,
               "name": "test_gcn_simple_2node",
               "out_dim": 1,
@@ -46076,11 +46540,7 @@
               "description": "SuiteSparse matrix test_gcn_simple_3node_line.",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 8,
               "name": "test_gcn_simple_3node_line",
               "out_dim": 1,
@@ -46106,11 +46566,7 @@
               "description": "SuiteSparse matrix test_gcn_with_relu_activation.",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 8,
               "name": "test_gcn_with_relu_activation",
               "out_dim": 1,
@@ -46133,11 +46589,7 @@
           ],
           "description": "Small inlined GCN forward-pass examples.",
           "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-          "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-          "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+          "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
           "motivation": "Uses small graph examples to verify the GCN forward pass.",
           "name": "gcn_test_inputs",
           "pretty_name": "GCN Test Input Generator",
@@ -46174,11 +46626,7 @@
               "description": "Small social network graph.",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 8,
               "name": "dg_gcn_social_1",
               "out_dim": 1,
@@ -46199,11 +46647,7 @@
               "description": "Medium social network graph.",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 8,
               "name": "dg_gcn_social_2",
               "out_dim": 1,
@@ -46224,11 +46668,7 @@
               "description": "Larger social network graph.",
               "feature_dim": 8,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 16,
               "name": "dg_gcn_social_3",
               "out_dim": 1,
@@ -46249,11 +46689,7 @@
               "description": "Small road network graph.",
               "feature_dim": 8,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 4,
               "name": "dg_gcn_road_1",
               "out_dim": 1,
@@ -46274,11 +46710,7 @@
               "description": "Small molecular graph. - Email network.",
               "feature_dim": 4,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 8,
               "name": "dg_gcn_molecular_1",
               "out_dim": 1,
@@ -46299,11 +46731,7 @@
               "description": "Medium molecular graph - PDDB protein structure.",
               "feature_dim": 6,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 12,
               "name": "dg_gcn_molecular_2",
               "out_dim": 1,
@@ -46324,11 +46752,7 @@
               "description": "Large citation network graph (AIDS-like size).",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 32,
               "name": "dg_gcn_citation_1",
               "out_dim": 1,
@@ -46349,11 +46773,7 @@
               "description": "Original small structural engineering matrix (for backward compatibility).",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-              "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 8,
               "name": "dg_gcn_bcsstk01",
               "out_dim": 1,
@@ -46371,11 +46791,7 @@
           ],
           "description": "Generates random weights for a 2-layer Graph Convolutional Network.",
           "file": "src/saps/benchmarks/gcn.py",
-<<<<<<< HEAD
-          "freshness": "f2efbdef36727526e75fd36e05fb9195e32e40e1c2f26679813bd07746b753cd",
-=======
-          "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
->>>>>>> main
+          "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
           "motivation": "Graphs are widely used for abstracting systems of interacting objects, such as social networks (Easley et al., 2010), knowledge graphs (Nickel et al., 2015), molecular graphs (Wu et al., 2018), and biological networks (Barabasi & Oltvai, 2004), as well as for modeling 3D objects (Simonovsky & Komodakis, 2017), manifolds (Bronstein et al., 2017), and source code (Allamanis et al., 2017). Machine learning (ML), especially deep learning, on graphs is an emerging field (Hamilton et al., 2017b; Bronstein et al., 2017). W. Hu et al. To represent a graph, an adjaceny matrix is used, which is inherently sparse.",
           "name": "gcn_weights",
           "pretty_name": "Graph Convolutional Network Weights",
@@ -46405,7 +46821,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Citation network of arXiv Computer Science papers for node-property prediction.",
               "file": "src/saps/benchmarks/gcn.py",
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 256,
               "name": "ogbn_arxiv",
               "pretty_name": "GCN ogbn-arxiv",
@@ -46427,7 +46843,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Amazon product co-purchasing network for large-scale node-property prediction.",
               "file": "src/saps/benchmarks/gcn.py",
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 256,
               "name": "ogbn_products",
               "pretty_name": "GCN ogbn-products",
@@ -46449,7 +46865,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Protein-protein association network with species labels and averaged edge-feature node inputs.",
               "file": "src/saps/benchmarks/gcn.py",
-              "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
+              "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
               "hidden_dim": 256,
               "name": "ogbn_proteins",
               "pretty_name": "GCN ogbn-proteins",
@@ -46469,7 +46885,7 @@
           ],
           "description": "Loads full OGB node-property graphs for 2-layer GCN inference.",
           "file": "src/saps/benchmarks/gcn.py",
-          "freshness": "b687d0d21efbbec717f34707359dd1e668eb603071a7d706d44e149e7f0b681d",
+          "freshness": "430bbb327ae014f621a0c434f66104b6480c0471b070dfe7385180c01327f4b9",
           "motivation": "Uses complete real-world node features and graph structure from the Open Graph Benchmark instead of synthesized GCN inputs. SAPS caching is disabled because its JSON/hex representation would expand these very large graphs substantially; OGB maintains the source-data cache instead.",
           "name": "gcn_ogb_inputs",
           "pretty_name": "Open Graph Benchmark GCN Inputs",
@@ -46522,11 +46938,7 @@
       "concepts": "\n        <ccs2012>\n        <concept>\n        <concept_id>10010147.10010257.10010293.10010294</concept_id>\n        <concept_desc>Computing methodologies~Neural networks</concept_desc>\n        <concept_significance>500</concept_significance>\n        </concept>\n        <concept>\n        <concept_id>10002950.10003624.10003633.10010917</concept_id>\n        <concept_desc>Mathematics of computing~Graph algorithms</concept_desc>\n        <concept_significance>500</concept_significance>\n        </concept>\n        </ccs2012>\n        ",
       "description": "\nBenchmarks 2-layer GCN training loop (forward, backward, weight updates).\n\nEach iteration:\n    Forward pass:\n        Z1 = A @ X\n        H1_pre = Z1 @ W1 + b1\n        H1 = ReLU(H1_pre)\n        Z2 = A @ H1\n        Y = Z2 @ W2 + b2\n\n    Backward pass (MSE loss):\n        dY = (2/N) * (Y - T)\n        dW2 = Z2.T @ dY\n        db2 = sum(dY, axis=0)\n        dZ2 = dY @ W2.T\n        dH1 = A.T @ dZ2\n        dH1_pre = dH1 * (H1_pre > 0)\n        dW1 = Z1.T @ dH1_pre\n        db1 = sum(dH1_pre, axis=0)\n\n    Weight updates:\n        W1 = W1 - lr * dW1\n        b1 = b1 - lr * db1\n        W2 = W2 - lr * dW2\n        b2 = b2 - lr * db2\n        ",
       "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-      "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-      "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+      "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to construct the benchmark function itself. Generative AI might have been used to construct tests. This statement was written by hand.",
@@ -46542,11 +46954,7 @@
               "description": "SuiteSparse matrix test_gcn_backward_2node.",
               "feature_dim": 1,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 4,
               "learning_rate": 0.01,
               "name": "test_gcn_backward_2node",
@@ -46574,11 +46982,7 @@
               "description": "SuiteSparse matrix test_gcn_backward_multidim.",
               "feature_dim": 1,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 4,
               "learning_rate": 0.01,
               "name": "test_gcn_backward_multidim",
@@ -46606,11 +47010,7 @@
               "description": "SuiteSparse matrix test_gcn_backward_degree_loss.",
               "feature_dim": 1,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 4,
               "learning_rate": 0.01,
               "name": "test_gcn_backward_degree_loss",
@@ -46638,11 +47038,7 @@
               "description": "SuiteSparse matrix test_gcn_backward_degree_test_graph_loss.",
               "feature_dim": 1,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 4,
               "learning_rate": 0.01,
               "name": "test_gcn_backward_degree_test_graph_loss",
@@ -46667,11 +47063,7 @@
           ],
           "description": "Small inlined GCN training examples.",
           "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-          "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-          "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+          "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
           "motivation": "Uses small graph examples to verify the GCN training loop.",
           "name": "gcn_backward_test_inputs",
           "pretty_name": "GCN Backward Test Input Generator",
@@ -46707,11 +47099,7 @@
               "description": "Small social network graph.",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 8,
               "learning_rate": 0.01,
               "name": "dg_gcn_social_1",
@@ -46734,11 +47122,7 @@
               "description": "Medium social network graph.",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 8,
               "learning_rate": 0.01,
               "name": "dg_gcn_social_2",
@@ -46761,11 +47145,7 @@
               "description": "Larger social network graph.",
               "feature_dim": 8,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 16,
               "learning_rate": 0.01,
               "name": "dg_gcn_social_3",
@@ -46788,11 +47168,7 @@
               "description": "Small road network graph.",
               "feature_dim": 8,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 4,
               "learning_rate": 0.01,
               "name": "dg_gcn_road_1",
@@ -46815,11 +47191,7 @@
               "description": "Small molecular graph. - Email network.",
               "feature_dim": 4,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 8,
               "learning_rate": 0.01,
               "name": "dg_gcn_molecular_1",
@@ -46842,11 +47214,7 @@
               "description": "Medium molecular graph - PDDB protein structure.",
               "feature_dim": 6,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 12,
               "learning_rate": 0.01,
               "name": "dg_gcn_molecular_2",
@@ -46869,11 +47237,7 @@
               "description": "Large citation network graph (AIDS-like size).",
               "feature_dim": 16,
               "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 32,
               "learning_rate": 0.01,
               "name": "dg_gcn_citation_1",
@@ -46889,41 +47253,11 @@
                 "neural-networks"
               ],
               "topics": []
-<<<<<<< HEAD
-            },
-            {
-              "asv_param": "gcn_weights.dg_gcn_bcsstk01",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "Original small structural engineering matrix (for backward compatibility).",
-              "feature_dim": 16,
-              "file": "src/saps/benchmarks/gcn_backward.py",
-              "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-              "hidden_dim": 8,
-              "learning_rate": 0.01,
-              "name": "dg_gcn_bcsstk01",
-              "num_iterations": 10,
-              "out_dim": 1,
-              "pretty_name": "GCN dg_gcn_bcsstk01",
-              "source_name": "HB/bcsstk01",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "graph-algorithms",
-                "mathematics-of-computing",
-                "neural-networks"
-              ],
-              "topics": []
-=======
->>>>>>> main
             }
           ],
           "description": "Generates random weights for a 2-layer Graph Convolutional Network.",
           "file": "src/saps/benchmarks/gcn_backward.py",
-<<<<<<< HEAD
-          "freshness": "c8a02fd3d51a9d7afe575ca3c796a24f1b2aaf2bf54fed12ed2abd2caf790d71",
-=======
-          "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
->>>>>>> main
+          "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
           "motivation": "Graphs are widely used for abstracting systems of interacting objects, such as social networks (Easley et al., 2010), knowledge graphs (Nickel et al., 2015), molecular graphs (Wu et al., 2018), and biological networks (Barabasi & Oltvai, 2004), as well as for modeling 3D objects (Simonovsky & Komodakis, 2017), manifolds (Bronstein et al., 2017), and source code (Allamanis et al., 2017). Machine learning (ML), especially deep learning, on graphs is an emerging field (Hamilton et al., 2017b; Bronstein et al., 2017). W. Hu et al. To represent a graph, an adjaceny matrix is used, which is inherently sparse.",
           "name": "gcn_weights",
           "pretty_name": "Graph Convolutional Network Weights",
@@ -46953,7 +47287,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Citation network of arXiv Computer Science papers for node-property prediction.",
               "file": "src/saps/benchmarks/gcn_backward.py",
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 256,
               "learning_rate": 0.01,
               "name": "ogbn_arxiv",
@@ -46977,7 +47311,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Amazon product co-purchasing network for large-scale node-property prediction.",
               "file": "src/saps/benchmarks/gcn_backward.py",
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 256,
               "learning_rate": 0.01,
               "name": "ogbn_products",
@@ -47001,7 +47335,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Protein-protein association network with species labels and averaged edge-feature node inputs.",
               "file": "src/saps/benchmarks/gcn_backward.py",
-              "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
+              "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
               "hidden_dim": 256,
               "learning_rate": 0.01,
               "name": "ogbn_proteins",
@@ -47023,7 +47357,7 @@
           ],
           "description": "Loads full OGB node-property graphs for 2-layer GCN training.",
           "file": "src/saps/benchmarks/gcn_backward.py",
-          "freshness": "1018265ecc2a82c12243da9092c06b5dc1edfcc5c52b93d110eaf01a0f77df6f",
+          "freshness": "4eebe954a5a9b21aee4f389c163f2b2fec21b5b29260ac92aa31f65e8e76efc7",
           "motivation": "Uses complete real-world node features, graph structure, and labels from the Open Graph Benchmark for the GCN training loop. SAPS caching is disabled for these benchmark-specific training tensors because the shared OGB shell generator caches the prepared source graph.",
           "name": "gcn_backward_ogb_inputs",
           "pretty_name": "Open Graph Benchmark GCN Backward Inputs",
@@ -51856,17 +52190,10 @@
               ],
               "tags": [
                 "computing-methodologies",
-                "dense",
                 "factorization-methods",
-                "fancy-ops",
-                "index-ops",
-                "large-query",
-                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
-                "shape-ops",
-                "tensor",
                 "test",
                 "trace"
               ],
@@ -51902,18 +52229,10 @@
               ],
               "tags": [
                 "computing-methodologies",
-                "dense",
                 "factorization-methods",
-                "fancy-ops",
-                "high-dimensional",
-                "index-ops",
-                "large-query",
-                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
-                "shape-ops",
-                "tensor",
                 "test",
                 "trace"
               ],
@@ -52651,606 +52970,6 @@
       ]
     },
     {
-<<<<<<< HEAD
-=======
-      "ai_disclosure": "No generative AI was used to construct the benchmark function. Generative AI might have been used to construct tests. This statement is written by hand.",
-      "asv_ids": {
-        "peakmem": "HOSVD_4d.HOSVD4DBenchmark.peakmem_hosvd_4d",
-        "time": "HOSVD_4d.HOSVD4DBenchmark.time_hosvd_4d"
-      },
-      "authors": [
-        "Aadharsh Rajkumar <arajkumar34@gatech.edu>"
-      ],
-      "concepts": "\n        <ccs2012>\n<concept>\n<concept_id>10002950.10003705.10011686</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software performance</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003714.10003715</concept_id>\n<concept_desc>Mathematics of computing~Numerical analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003714.10003715</concept_id>\n<concept_desc>Mathematics of computing~Numerical analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010147.10010257.10010293.10010309</concept_id>\n<concept_desc>Computing methodologies~Factorization methods</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
-      "description": "This code implements the Tucker Decomposition or HOSVD algorithm for decomposing high-order tensors into a core-tensor that can be projected onto factor matrices along each mode. A typical 3D tensor will have 3 modes (row, column, and frontal) and thus 3 factor matrices. The algorithm starts by finding the initial factor matrices by performing SVD on matrix unfoldings along each mode. Certain columns in these factor matrices are selected based on the ranks parameter. Then, the algorithm iteratively updates each factor matrix by projecting the original tensor onto other factor matrices. The iteration continues until max iterations is reached or the change in factor matrices becomes insignificant. The resulting factor matrices and the core tensor are returned by the benchmark function.",
-      "file": "src/saps/benchmarks/HOSVD_4d.py",
-      "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-      "generators": [
-        {
-          "ai_disclosure": "No generative AI was used to construct the benchmark function. Generative AI might have been used to construct tests. This statement is written by hand.",
-          "authors": [
-            "Aadharsh Rajkumar <arajkumar34@gatech.edu>"
-          ],
-          "cacheable": false,
-          "concepts": "<ccs2012></ccs2012>",
-          "datasets": [
-            {
-              "asv_param": "hosvd_4d_dense_inputs.small_dense_4d",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "random_small Small Dense 4D HOSVD Tensor Dense low-rank 4D tensor using random factor matrices.",
-              "file": "src/saps/benchmarks/HOSVD_4d.py",
-              "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-              "name": "small_dense_4d",
-              "pretty_name": "Small dense 4d HOSVD Tensor",
-              "ranks": [
-                3,
-                3,
-                3,
-                3
-              ],
-              "seed": 42,
-              "shape": [
-                10,
-                10,
-                10,
-                10
-              ],
-              "suites": [
-                "test",
-                "trace"
-              ],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "test",
-                "trace"
-              ],
-              "topics": []
-            }
-          ],
-          "description": "Generates a dense low-rank 4D tensor using random factor matrices.",
-          "file": "src/saps/benchmarks/HOSVD_4d.py",
-          "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-          "motivation": "The data for this benchmark was created by randomly generating factor matrices that were both sparse and dense. These factor matrices were used to construct a factorizable matrix.",
-          "name": "hosvd_4d_dense_inputs",
-          "pretty_name": "Dense Low-Rank 4D HOSVD Input Generator",
-          "references": [
-            "Tamara G. Kolda, Brett W. Bader. \"Tensor Decompositions and Applications\", SIAM Review, Society for Industrial & Applied Mathematics (SIAM), Vol. 51, No. 3, pp. 455-500, 2009, URL: https://doi.org/10.1137/07070111x, DOI: 10.1137/07070111x.",
-            "Evgeni Rustik, Emiliya Viktoriia, Aliona Tatyana. \"Harnessing Tensor Decomposition for High-Dimensional Machine Learning\", Institute of Electrical and Electronics Engineers (IEEE), 2025, URL: https://doi.org/10.36227/techrxiv.174417403.38431928/v1, DOI: 10.36227/techrxiv.174417403.38431928/v1."
-          ],
-          "suites": [],
-          "tags": [
-            "computing-methodologies",
-            "factorization-methods",
-            "mathematical-software-performance",
-            "mathematics-of-computing",
-            "numerical-analysis"
-          ],
-          "topics": []
-        },
-        {
-          "ai_disclosure": "No generative AI was used to construct the benchmark function. Generative AI might have been used to construct tests. This statement is written by hand.",
-          "authors": [
-            "Aadharsh Rajkumar <arajkumar34@gatech.edu>"
-          ],
-          "cacheable": true,
-          "concepts": "<ccs2012></ccs2012>",
-          "datasets": [
-            {
-              "asv_param": "hosvd_4d_sparse_inputs.small_sparse_4d",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "sparse_small Small Sparse 4D HOSVD Tensor Sparse low-rank 4D tensor using random factor matrices.",
-              "file": "src/saps/benchmarks/HOSVD_4d.py",
-              "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-              "name": "small_sparse_4d",
-              "pretty_name": "Small sparse 4d HOSVD Tensor",
-              "ranks": [
-                3,
-                3,
-                3,
-                3
-              ],
-              "seed": 42,
-              "shape": [
-                20,
-                20,
-                20,
-                20
-              ],
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis"
-              ],
-              "topics": []
-            }
-          ],
-          "description": "Generates a sparse low-rank 4D tensor using random factor matrices.",
-          "file": "src/saps/benchmarks/HOSVD_4d.py",
-          "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-          "motivation": "The data for this benchmark was created by randomly generating factor matrices that were both sparse and dense. These factor matrices were used to construct a factorizable matrix.",
-          "name": "hosvd_4d_sparse_inputs",
-          "pretty_name": "Sparse Low-Rank 4D HOSVD Input Generator",
-          "references": [
-            "Tamara G. Kolda, Brett W. Bader. \"Tensor Decompositions and Applications\", SIAM Review, Society for Industrial & Applied Mathematics (SIAM), Vol. 51, No. 3, pp. 455-500, 2009, URL: https://doi.org/10.1137/07070111x, DOI: 10.1137/07070111x.",
-            "Evgeni Rustik, Emiliya Viktoriia, Aliona Tatyana. \"Harnessing Tensor Decomposition for High-Dimensional Machine Learning\", Institute of Electrical and Electronics Engineers (IEEE), 2025, URL: https://doi.org/10.36227/techrxiv.174417403.38431928/v1, DOI: 10.36227/techrxiv.174417403.38431928/v1."
-          ],
-          "suites": [],
-          "tags": [
-            "computing-methodologies",
-            "factorization-methods",
-            "mathematical-software-performance",
-            "mathematics-of-computing",
-            "numerical-analysis"
-          ],
-          "topics": []
-        },
-        {
-          "ai_disclosure": "No generative AI was used to write the HOSVD algorithm itself, which predates this generator. This generator and its FROSTT data-fetching were written by a generative AI assistant (Claude) at the user's direction.",
-          "authors": [],
-          "cacheable": false,
-          "concepts": "<ccs2012></ccs2012>",
-          "datasets": [
-            {
-              "asv_param": "hosvd_4d_frostt_inputs.hosvd_4d_frostt_toy",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor toy, ranks = (2, 2, 2, 2).",
-              "file": "src/saps/benchmarks/HOSVD_4d.py",
-              "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-              "name": "hosvd_4d_frostt_toy",
-              "pretty_name": "HOSVD 4D FROSTT toy",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            },
-            {
-              "asv_param": "hosvd_4d_frostt_inputs.hosvd_4d_frostt_nips",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor nips, ranks = (5, 5, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_4d.py",
-              "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-              "name": "hosvd_4d_frostt_nips",
-              "pretty_name": "HOSVD 4D FROSTT nips",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            },
-            {
-              "asv_param": "hosvd_4d_frostt_inputs.hosvd_4d_frostt_uber_pickups",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor uber_pickups, ranks = (5, 5, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_4d.py",
-              "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-              "name": "hosvd_4d_frostt_uber_pickups",
-              "pretty_name": "HOSVD 4D FROSTT uber_pickups",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            },
-            {
-              "asv_param": "hosvd_4d_frostt_inputs.hosvd_4d_frostt_chicago_crime_comm",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor chicago_crime_comm, ranks = (5, 5, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_4d.py",
-              "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-              "name": "hosvd_4d_frostt_chicago_crime_comm",
-              "pretty_name": "HOSVD 4D FROSTT chicago_crime_comm",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            },
-            {
-              "asv_param": "hosvd_4d_frostt_inputs.hosvd_4d_frostt_enron",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor enron, ranks = (5, 5, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_4d.py",
-              "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-              "name": "hosvd_4d_frostt_enron",
-              "pretty_name": "HOSVD 4D FROSTT enron",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            },
-            {
-              "asv_param": "hosvd_4d_frostt_inputs.hosvd_4d_frostt_flickr_4d",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor flickr_4d, ranks = (5, 5, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_4d.py",
-              "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-              "name": "hosvd_4d_frostt_flickr_4d",
-              "pretty_name": "HOSVD 4D FROSTT flickr_4d",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            },
-            {
-              "asv_param": "hosvd_4d_frostt_inputs.hosvd_4d_frostt_delicious_4d",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor delicious_4d, ranks = (5, 5, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_4d.py",
-              "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-              "name": "hosvd_4d_frostt_delicious_4d",
-              "pretty_name": "HOSVD 4D FROSTT delicious_4d",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            }
-          ],
-          "description": "Real 4th-order sparse tensors downloaded from FROSTT (frostt.io), decomposed directly. No dense reconstruction check is performed since these tensors are stored in genuinely sparse (COO) form.",
-          "file": "src/saps/benchmarks/HOSVD_4d.py",
-          "freshness": "2265670ff5b81bdefc51d4bdd1dd13659c00172191a9dc553f56d257df3bd4aa",
-          "motivation": "Real sparse tensors from FROSTT exercise HOSVD's per-mode unfolding against genuinely irregular sparsity patterns. toy, nips, and uber_pickups are cheap; chicago_crime_comm, enron, flickr_4d, and delicious_4d all have at least one mode unfolding that is heavy (or, for flickr_4d/delicious_4d, completely infeasible) to densify for SVD with the current algorithm, so select datasets by name rather than running this whole generator unfiltered.",
-          "name": "hosvd_4d_frostt_inputs",
-          "pretty_name": "FROSTT Sparse Tensor Generator for 4D HOSVD",
-          "references": [
-            "Shaden Smith, Jee W. Choi, Jiajia Li, Richard Vuduc, Jongsoo Park, Xing Liu, George Karypis. \"FROSTT: The Formidable Repository of Open Sparse Tensors and Tools\", 2017, URL: http://frostt.io/."
-          ],
-          "suites": [
-            "standard"
-          ],
-          "tags": [
-            "computing-methodologies",
-            "factorization-methods",
-            "mathematical-software-performance",
-            "mathematics-of-computing",
-            "numerical-analysis",
-            "standard"
-          ],
-          "topics": []
-        }
-      ],
-      "motivation": "Tensor decomposition are essential for efficiently analyzing multi-dimensional data and can cut out noise during preprocessing. Tensor decomposition has applications in signal processing, computer vision, numerical linear algebra, and many other fields. HOSVD or Tucker Decomposition is one of the most widely used methods for tensor decomposition on high-level tensors, which are tensors with 3 or more dimensions.",
-      "name": "hosvd_4d",
-      "pretty_name": "High-Order SVD (Tucker Decomposition) for 4D Tensors",
-      "references": [
-        "Tamara G. Kolda, Brett W. Bader. \"Tensor Decompositions and Applications\", SIAM Review, Society for Industrial & Applied Mathematics (SIAM), Vol. 51, No. 3, pp. 455-500, 2009, URL: https://doi.org/10.1137/07070111x, DOI: 10.1137/07070111x.",
-        "Evgeni Rustik, Emiliya Viktoriia, Aliona Tatyana. \"Harnessing Tensor Decomposition for High-Dimensional Machine Learning\", Institute of Electrical and Electronics Engineers (IEEE), 2025, URL: https://doi.org/10.36227/techrxiv.174417403.38431928/v1, DOI: 10.36227/techrxiv.174417403.38431928/v1."
-      ],
-      "suites": [],
-      "tags": [
-        "computing-methodologies",
-        "factorization-methods",
-        "mathematical-software-performance",
-        "mathematics-of-computing",
-        "numerical-analysis"
-      ],
-      "topics": [
-        "computing-methodologies",
-        "factorization-methods",
-        "mathematical-software-performance",
-        "mathematics-of-computing",
-        "numerical-analysis"
-      ]
-    },
-    {
-      "ai_disclosure": "No generative AI was used to construct the benchmark function. Generative AI might have been used to construct tests. This statement is written by hand.",
-      "asv_ids": {
-        "peakmem": "HOSVD_5d.HOSVD5DBenchmark.peakmem_hosvd_5d",
-        "time": "HOSVD_5d.HOSVD5DBenchmark.time_hosvd_5d"
-      },
-      "authors": [
-        "Aadharsh Rajkumar <arajkumar34@gatech.edu>"
-      ],
-      "concepts": "\n        <ccs2012>\n<concept>\n<concept_id>10002950.10003705.10011686</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software performance</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003714.10003715</concept_id>\n<concept_desc>Mathematics of computing~Numerical analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003714.10003715</concept_id>\n<concept_desc>Mathematics of computing~Numerical analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010147.10010257.10010293.10010309</concept_id>\n<concept_desc>Computing methodologies~Factorization methods</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
-      "description": "This code implements the Tucker Decomposition or HOSVD algorithm for decomposing high-order tensors into a core-tensor that can be projected onto factor matrices along each mode. A typical 3D tensor will have 3 modes (row, column, and frontal) and thus 3 factor matrices. The algorithm starts by finding the initial factor matrices by performing SVD on matrix unfoldings along each mode. Certain columns in these factor matrices are selected based on the ranks parameter. Then, the algorithm iteratively updates each factor matrix by projecting the original tensor onto other factor matrices. The iteration continues until max iterations is reached or the change in factor matrices becomes insignificant. The resulting factor matrices and the core tensor are returned by the benchmark function.",
-      "file": "src/saps/benchmarks/HOSVD_5d.py",
-      "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-      "generators": [
-        {
-          "ai_disclosure": "No generative AI was used to construct the benchmark function. Generative AI might have been used to construct tests. This statement is written by hand.",
-          "authors": [
-            "Aadharsh Rajkumar <arajkumar34@gatech.edu>"
-          ],
-          "cacheable": false,
-          "concepts": "<ccs2012></ccs2012>",
-          "datasets": [
-            {
-              "asv_param": "hosvd_5d_dense_inputs.small_dense_5d",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "random_small Small Dense 5D HOSVD Tensor Dense low-rank 5D tensor using random factor matrices.",
-              "file": "src/saps/benchmarks/HOSVD_5d.py",
-              "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-              "name": "small_dense_5d",
-              "pretty_name": "Small dense 5d HOSVD Tensor",
-              "ranks": [
-                3,
-                3,
-                3,
-                3,
-                3
-              ],
-              "seed": 42,
-              "shape": [
-                10,
-                10,
-                10,
-                10,
-                10
-              ],
-              "suites": [
-                "test",
-                "trace"
-              ],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "test",
-                "trace"
-              ],
-              "topics": []
-            }
-          ],
-          "description": "Generates a dense low-rank 5D tensor using random factor matrices.",
-          "file": "src/saps/benchmarks/HOSVD_5d.py",
-          "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-          "motivation": "The data for this benchmark was created by randomly generating factor matrices that were both sparse and dense. These factor matrices were used to construct a factorizable matrix.",
-          "name": "hosvd_5d_dense_inputs",
-          "pretty_name": "Dense Low-Rank 5D HOSVD Input Generator",
-          "references": [
-            "Tamara G. Kolda, Brett W. Bader. \"Tensor Decompositions and Applications\", SIAM Review, Society for Industrial & Applied Mathematics (SIAM), Vol. 51, No. 3, pp. 455-500, 2009, URL: https://doi.org/10.1137/07070111x, DOI: 10.1137/07070111x.",
-            "Evgeni Rustik, Emiliya Viktoriia, Aliona Tatyana. \"Harnessing Tensor Decomposition for High-Dimensional Machine Learning\", Institute of Electrical and Electronics Engineers (IEEE), 2025, URL: https://doi.org/10.36227/techrxiv.174417403.38431928/v1, DOI: 10.36227/techrxiv.174417403.38431928/v1."
-          ],
-          "suites": [],
-          "tags": [
-            "computing-methodologies",
-            "factorization-methods",
-            "mathematical-software-performance",
-            "mathematics-of-computing",
-            "numerical-analysis"
-          ],
-          "topics": []
-        },
-        {
-          "ai_disclosure": "No generative AI was used to construct the benchmark function. Generative AI might have been used to construct tests. This statement is written by hand.",
-          "authors": [
-            "Aadharsh Rajkumar <arajkumar34@gatech.edu>"
-          ],
-          "cacheable": true,
-          "concepts": "<ccs2012></ccs2012>",
-          "datasets": [
-            {
-              "asv_param": "hosvd_5d_sparse_inputs.small_sparse_5d",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "sparse_small Small Sparse 5D HOSVD Tensor Sparse low-rank 5D tensor using random factor matrices.",
-              "file": "src/saps/benchmarks/HOSVD_5d.py",
-              "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-              "name": "small_sparse_5d",
-              "pretty_name": "Small sparse 5d HOSVD Tensor",
-              "ranks": [
-                3,
-                3,
-                3,
-                3,
-                3
-              ],
-              "seed": 42,
-              "shape": [
-                20,
-                20,
-                20,
-                20,
-                20
-              ],
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis"
-              ],
-              "topics": []
-            }
-          ],
-          "description": "Generates a sparse low-rank 5D tensor using random factor matrices.",
-          "file": "src/saps/benchmarks/HOSVD_5d.py",
-          "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-          "motivation": "The data for this benchmark was created by randomly generating factor matrices that were both sparse and dense. These factor matrices were used to construct a factorizable matrix.",
-          "name": "hosvd_5d_sparse_inputs",
-          "pretty_name": "Sparse Low-Rank 5D HOSVD Input Generator",
-          "references": [
-            "Tamara G. Kolda, Brett W. Bader. \"Tensor Decompositions and Applications\", SIAM Review, Society for Industrial & Applied Mathematics (SIAM), Vol. 51, No. 3, pp. 455-500, 2009, URL: https://doi.org/10.1137/07070111x, DOI: 10.1137/07070111x.",
-            "Evgeni Rustik, Emiliya Viktoriia, Aliona Tatyana. \"Harnessing Tensor Decomposition for High-Dimensional Machine Learning\", Institute of Electrical and Electronics Engineers (IEEE), 2025, URL: https://doi.org/10.36227/techrxiv.174417403.38431928/v1, DOI: 10.36227/techrxiv.174417403.38431928/v1."
-          ],
-          "suites": [],
-          "tags": [
-            "computing-methodologies",
-            "factorization-methods",
-            "mathematical-software-performance",
-            "mathematics-of-computing",
-            "numerical-analysis"
-          ],
-          "topics": []
-        },
-        {
-          "ai_disclosure": "No generative AI was used to write the HOSVD algorithm itself, which predates this generator. This generator and its FROSTT data-fetching were written by a generative AI assistant (Claude) at the user's direction.",
-          "authors": [],
-          "cacheable": false,
-          "concepts": "<ccs2012></ccs2012>",
-          "datasets": [
-            {
-              "asv_param": "hosvd_5d_frostt_inputs.hosvd_5d_frostt_lbnl_network",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor lbnl_network, ranks = (5, 5, 5, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_5d.py",
-              "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-              "name": "hosvd_5d_frostt_lbnl_network",
-              "pretty_name": "HOSVD 5D FROSTT lbnl_network",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            },
-            {
-              "asv_param": "hosvd_5d_frostt_inputs.hosvd_5d_frostt_chicago_crime_geo",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor chicago_crime_geo, ranks = (5, 5, 5, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_5d.py",
-              "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-              "name": "hosvd_5d_frostt_chicago_crime_geo",
-              "pretty_name": "HOSVD 5D FROSTT chicago_crime_geo",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            },
-            {
-              "asv_param": "hosvd_5d_frostt_inputs.hosvd_5d_frostt_vast_2015_mc1_5d",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor vast_2015_mc1_5d, ranks = (5, 5, 2, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_5d.py",
-              "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-              "name": "hosvd_5d_frostt_vast_2015_mc1_5d",
-              "pretty_name": "HOSVD 5D FROSTT vast_2015_mc1_5d",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            },
-            {
-              "asv_param": "hosvd_5d_frostt_inputs.hosvd_5d_frostt_lanl2",
-              "concepts": "<ccs2012></ccs2012>",
-              "description": "FROSTT tensor lanl2, ranks = (5, 5, 5, 5, 5).",
-              "file": "src/saps/benchmarks/HOSVD_5d.py",
-              "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-              "name": "hosvd_5d_frostt_lanl2",
-              "pretty_name": "HOSVD 5D FROSTT lanl2",
-              "suites": [],
-              "tags": [
-                "computing-methodologies",
-                "factorization-methods",
-                "mathematical-software-performance",
-                "mathematics-of-computing",
-                "numerical-analysis",
-                "standard"
-              ],
-              "topics": []
-            }
-          ],
-          "description": "Real 5th-order sparse tensors downloaded from FROSTT (frostt.io), decomposed directly. No dense reconstruction check is performed since these tensors are stored in genuinely sparse (COO) form.",
-          "file": "src/saps/benchmarks/HOSVD_5d.py",
-          "freshness": "9cbfcc7805d7f8709d6855807bb215bafb30379b84e6add3a52957bb2938ddd4",
-          "motivation": "Real sparse tensors from FROSTT exercise HOSVD's per-mode unfolding against genuinely irregular sparsity patterns. lbnl_network's mode unfoldings are astronomically large (its 5th mode alone has 868,131 entries) and cannot be densified for SVD with the current algorithm; chicago_crime_geo and vast_2015_mc1_5d are smaller but still heavy.",
-          "name": "hosvd_5d_frostt_inputs",
-          "pretty_name": "FROSTT Sparse Tensor Generator for 5D HOSVD",
-          "references": [
-            "Shaden Smith, Jee W. Choi, Jiajia Li, Richard Vuduc, Jongsoo Park, Xing Liu, George Karypis. \"FROSTT: The Formidable Repository of Open Sparse Tensors and Tools\", 2017, URL: http://frostt.io/."
-          ],
-          "suites": [
-            "standard"
-          ],
-          "tags": [
-            "computing-methodologies",
-            "factorization-methods",
-            "mathematical-software-performance",
-            "mathematics-of-computing",
-            "numerical-analysis",
-            "standard"
-          ],
-          "topics": []
-        }
-      ],
-      "motivation": "Tensor decomposition are essential for efficiently analyzing multi-dimensional data and can cut out noise during preprocessing. Tensor decomposition has applications in signal processing, computer vision, numerical linear algebra, and many other fields. HOSVD or Tucker Decomposition is one of the most widely used methods for tensor decomposition on high-level tensors, which are tensors with 3 or more dimensions.",
-      "name": "hosvd_5d",
-      "pretty_name": "High-Order SVD (Tucker Decomposition) for 5D Tensors",
-      "references": [
-        "Tamara G. Kolda, Brett W. Bader. \"Tensor Decompositions and Applications\", SIAM Review, Society for Industrial & Applied Mathematics (SIAM), Vol. 51, No. 3, pp. 455-500, 2009, URL: https://doi.org/10.1137/07070111x, DOI: 10.1137/07070111x.",
-        "Evgeni Rustik, Emiliya Viktoriia, Aliona Tatyana. \"Harnessing Tensor Decomposition for High-Dimensional Machine Learning\", Institute of Electrical and Electronics Engineers (IEEE), 2025, URL: https://doi.org/10.36227/techrxiv.174417403.38431928/v1, DOI: 10.36227/techrxiv.174417403.38431928/v1."
-      ],
-      "suites": [],
-      "tags": [
-        "computing-methodologies",
-        "factorization-methods",
-        "mathematical-software-performance",
-        "mathematics-of-computing",
-        "numerical-analysis"
-      ],
-      "topics": [
-        "computing-methodologies",
-        "factorization-methods",
-        "mathematical-software-performance",
-        "mathematics-of-computing",
-        "numerical-analysis"
-      ]
-    },
-    {
->>>>>>> main
       "ai_disclosure": "No generative AI was used to write the benchmark function itself. Generative AI was used to debug code. This statement was written by hand.",
       "asv_ids": {
         "peakmem": "preconditioned_cg.JacobiPreconditionedCGBenchmark.peakmem_jacobi_preconditioned_cg",
@@ -58479,7 +58198,7 @@
       "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10002951.10003317.10003347.10003356</concept_id>\n<concept_desc>Information systems~Clustering and classification</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002951.10003317.10003347.10003350</concept_id>\n<concept_desc>Information systems~Recommender systems</concept_desc>\n<concept_significance>300</concept_significance>\n</concept>\n<concept>\n<concept_id>10002951.10003317</concept_id>\n<concept_desc>Information systems~Information retrieval</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_desc>Computing methodologies~\nMachine learning algorithms</concept_desc>\n</concept>\n<concept>\n<concept_id>10010147.10010257.10010258.10010260.10003697</concept_id>\n<concept_desc>Computing methodologies~Cluster analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010147.10010257.10010258.10010260.10010271</concept_id>\n<concept_desc>Computing methodologies~Dimensionality reduction and manifold learning</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_desc>Mathematics of computing~\nDimensionality reduction</concept_desc>\n</concept>\n<concept>\n<concept_desc>Theory of computation~\nNearest neighbor algorithms</concept_desc>\n</concept>\n</ccs2012>\n",
       "description": "Benchmarks Johnson-Lindenstrauss projection followed by k-nearest-neighbor ranking in projected space.",
       "file": "src/saps/benchmarks/approx_nn.py",
-      "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+      "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to construct the benchmark function itself. Generative AI might have been used to construct tests.",
@@ -58495,7 +58214,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "test dense data and query matrices with sparse random projection.",
               "file": "src/saps/benchmarks/approx_nn.py",
-              "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+              "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
               "name": "test_jl_preserves_distance",
               "pretty_name": "test JL ANN",
               "suites": [
@@ -58523,7 +58242,7 @@
           ],
           "description": "Small JL approximate nearest-neighbor example.",
           "file": "src/saps/benchmarks/approx_nn.py",
-          "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+          "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
           "motivation": "Provide a small JL ANN example for benchmark correctness checks.",
           "name": "jl_projection_test_inputs",
           "pretty_name": "JL Projection Test Input Generator",
@@ -58567,7 +58286,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Small random dense data and query matrices with sparse random projection.",
               "file": "src/saps/benchmarks/approx_nn.py",
-              "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+              "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
               "name": "small",
               "pretty_name": "Small JL ANN",
               "suites": [],
@@ -58592,7 +58311,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Medium random dense data and query matrices with sparse random projection.",
               "file": "src/saps/benchmarks/approx_nn.py",
-              "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+              "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
               "name": "medium",
               "pretty_name": "Medium JL ANN",
               "suites": [],
@@ -58617,7 +58336,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Large random dense data and query matrices with sparse random projection.",
               "file": "src/saps/benchmarks/approx_nn.py",
-              "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+              "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
               "name": "large",
               "pretty_name": "Large JL ANN",
               "suites": [],
@@ -58640,7 +58359,7 @@
           ],
           "description": "Generates uniformly random data/query matrices and sparse random projection matrices for JL approximate nearest-neighbor.",
           "file": "src/saps/benchmarks/approx_nn.py",
-          "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+          "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
           "motivation": "Sparse Johnson-Lindenstrauss projection is a fundamental primitive in randomized numerical linear algebra, and is used in many applications such as approximate nearest neighbor search.",
           "name": "jl_projection_inputs",
           "pretty_name": "JL Projection Input Generator",
@@ -58678,7 +58397,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "JL approximate nearest-neighbor on mnist.",
               "file": "src/saps/benchmarks/approx_nn.py",
-              "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+              "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
               "name": "mnist",
               "pretty_name": "JL ANN mnist",
               "suites": [
@@ -58706,7 +58425,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "JL approximate nearest-neighbor on cifar10.",
               "file": "src/saps/benchmarks/approx_nn.py",
-              "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+              "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
               "name": "cifar10",
               "pretty_name": "JL ANN cifar10",
               "suites": [
@@ -58732,7 +58451,7 @@
           ],
           "description": "Loads OpenML image datasets for JL approximate nearest-neighbor.",
           "file": "src/saps/benchmarks/approx_nn.py",
-          "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+          "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
           "motivation": "MNIST and CIFAR-10 provide dense image feature matrices from OpenML for approximate nearest-neighbor search.",
           "name": "jl_approx_nn_openml",
           "pretty_name": "JL ANN OpenML Generator",
@@ -58770,7 +58489,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "JL approximate nearest-neighbor on netflix.",
               "file": "src/saps/benchmarks/approx_nn.py",
-              "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+              "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
               "name": "netflix",
               "pretty_name": "JL ANN netflix",
               "suites": [
@@ -58796,7 +58515,7 @@
           ],
           "description": "Loads Netflix Prize ratings for JL approximate nearest-neighbor.",
           "file": "src/saps/benchmarks/approx_nn.py",
-          "freshness": "a3ad38cade12d9c767c655d783c7e647a7fca07d0090a4ee3d2fc3435f6b3e91",
+          "freshness": "a881ab1c8daee106dd5e518143ad18087f0fad48a29343d97feae5b6562ce810",
           "motivation": "The Netflix Prize dataset provides a ~480K users \u00d7 17,770 movies sparse ratings matrix. Uses sparse JL projection due to the dataset's sparsity.",
           "name": "jl_approx_nn_netflix",
           "pretty_name": "JL ANN Netflix Generator",
@@ -60093,6 +59812,647 @@
       ]
     },
     {
+      "ai_disclosure": "",
+      "asv_ids": {
+        "peakmem": "model_counting.MCCompBenchmark.peakmem_mccomp_shell",
+        "time": "model_counting.MCCompBenchmark.time_mccomp_shell"
+      },
+      "authors": [],
+      "concepts": "<ccs2012></ccs2012>",
+      "description": "",
+      "file": "src/saps/benchmarks/model_counting.py",
+      "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+      "generators": [
+        {
+          "ai_disclosure": "Generative AI was used to implement this generator.",
+          "authors": [],
+          "cacheable": true,
+          "concepts": "<ccs2012></ccs2012>",
+          "datasets": [
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_1",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_1",
+              "pretty_name": "MCComp Track1_MC/random_mc_1",
+              "source_path": "Track1_MC/random_mc_1.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_1.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_2",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_2",
+              "pretty_name": "MCComp Track1_MC/random_mc_2",
+              "source_path": "Track1_MC/random_mc_2.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_2.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_3",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_3",
+              "pretty_name": "MCComp Track1_MC/random_mc_3",
+              "source_path": "Track1_MC/random_mc_3.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_3.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_4",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_4",
+              "pretty_name": "MCComp Track1_MC/random_mc_4",
+              "source_path": "Track1_MC/random_mc_4.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_4.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_5",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_5",
+              "pretty_name": "MCComp Track1_MC/random_mc_5",
+              "source_path": "Track1_MC/random_mc_5.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_5.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_6",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_6",
+              "pretty_name": "MCComp Track1_MC/random_mc_6",
+              "source_path": "Track1_MC/random_mc_6.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_6.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_7",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_7",
+              "pretty_name": "MCComp Track1_MC/random_mc_7",
+              "source_path": "Track1_MC/random_mc_7.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_7.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_8",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_8",
+              "pretty_name": "MCComp Track1_MC/random_mc_8",
+              "source_path": "Track1_MC/random_mc_8.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_8.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_9",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_9",
+              "pretty_name": "MCComp Track1_MC/random_mc_9",
+              "source_path": "Track1_MC/random_mc_9.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_9.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track1_mc_random_mc_10",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition exact model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track1_mc_random_mc_10",
+              "pretty_name": "MCComp Track1_MC/random_mc_10",
+              "source_path": "Track1_MC/random_mc_10.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track1_MC/random_mc_10.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track1_MC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_1",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_1",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_1",
+              "source_path": "Track3_PMC/random_pmc_1.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_1.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_2",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_2",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_2",
+              "source_path": "Track3_PMC/random_pmc_2.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_2.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_3",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_3",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_3",
+              "source_path": "Track3_PMC/random_pmc_3.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_3.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_4",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_4",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_4",
+              "source_path": "Track3_PMC/random_pmc_4.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_4.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_5",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_5",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_5",
+              "source_path": "Track3_PMC/random_pmc_5.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_5.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_6",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_6",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_6",
+              "source_path": "Track3_PMC/random_pmc_6.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_6.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_7",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_7",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_7",
+              "source_path": "Track3_PMC/random_pmc_7.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_7.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_8",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_8",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_8",
+              "source_path": "Track3_PMC/random_pmc_8.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_8.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_9",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_9",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_9",
+              "source_path": "Track3_PMC/random_pmc_9.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_9.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track3_pmc_random_pmc_10",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track3_pmc_random_pmc_10",
+              "pretty_name": "MCComp Track3_PMC/random_pmc_10",
+              "source_path": "Track3_PMC/random_pmc_10.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track3_PMC/random_pmc_10.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track3_PMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_1",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_1",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_1",
+              "source_path": "Track4_PWMC/random_pwmc_1.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_1.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_2",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_2",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_2",
+              "source_path": "Track4_PWMC/random_pwmc_2.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_2.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_3",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_3",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_3",
+              "source_path": "Track4_PWMC/random_pwmc_3.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_3.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_4",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_4",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_4",
+              "source_path": "Track4_PWMC/random_pwmc_4.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_4.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_5",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_5",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_5",
+              "source_path": "Track4_PWMC/random_pwmc_5.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_5.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_6",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_6",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_6",
+              "source_path": "Track4_PWMC/random_pwmc_6.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_6.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_7",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_7",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_7",
+              "source_path": "Track4_PWMC/random_pwmc_7.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_7.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_8",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_8",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_8",
+              "source_path": "Track4_PWMC/random_pwmc_8.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_8.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_9",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_9",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_9",
+              "source_path": "Track4_PWMC/random_pwmc_9.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_9.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track4_pwmc_random_pwmc_10",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition projected weighted model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track4_pwmc_random_pwmc_10",
+              "pretty_name": "MCComp Track4_PWMC/random_pwmc_10",
+              "source_path": "Track4_PWMC/random_pwmc_10.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track4_PWMC/random_pwmc_10.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track4_PWMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_1",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_1",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_1",
+              "source_path": "Track5B_AMC/random_amc_1.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_1.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_2",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_2",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_2",
+              "source_path": "Track5B_AMC/random_amc_2.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_2.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_3",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_3",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_3",
+              "source_path": "Track5B_AMC/random_amc_3.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_3.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_4",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_4",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_4",
+              "source_path": "Track5B_AMC/random_amc_4.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_4.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_5",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_5",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_5",
+              "source_path": "Track5B_AMC/random_amc_5.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_5.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_6",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_6",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_6",
+              "source_path": "Track5B_AMC/random_amc_6.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_6.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_7",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_7",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_7",
+              "source_path": "Track5B_AMC/random_amc_7.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_7.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_8",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_8",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_8",
+              "source_path": "Track5B_AMC/random_amc_8.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_8.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_9",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_9",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_9",
+              "source_path": "Track5B_AMC/random_amc_9.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_9.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            },
+            {
+              "asv_param": "mccomp.track5b_amc_random_amc_10",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Model Counting Competition algebraic model counting instance.",
+              "file": "src/saps/benchmarks/model_counting.py",
+              "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+              "name": "track5b_amc_random_amc_10",
+              "pretty_name": "MCComp Track5B_AMC/random_amc_10",
+              "source_path": "Track5B_AMC/random_amc_10.cnf",
+              "source_url": "https://github.com/arijitsh/mccomp-test-instances/blob/main/Track5B_AMC/random_amc_10.cnf",
+              "suites": [],
+              "tags": [],
+              "topics": [],
+              "track": "Track5B_AMC"
+            }
+          ],
+          "description": "Downloads and parses DIMACS CNF instances from the Model Counting Competition test-instance repository.",
+          "file": "src/saps/benchmarks/model_counting.py",
+          "freshness": "5e7c18de75cd463e54bf3fcbc4d8a226c496c0930816985938e7e896d73f2383",
+          "motivation": "Model counting competition instances provide standard CNF inputs for evaluating exact, projected, weighted, and algebraic counting workloads.",
+          "name": "mccomp",
+          "pretty_name": "Model Counting Competition Test Instances",
+          "references": [
+            ". \"Model Counting Competition test instances\", URL: https://github.com/arijitsh/mccomp-test-instances."
+          ],
+          "suites": [],
+          "tags": [],
+          "topics": []
+        }
+      ],
+      "motivation": "",
+      "name": "mccomp_shell",
+      "pretty_name": "Model Counting Competition Test Instances",
+      "references": [],
+      "suites": [],
+      "tags": [],
+      "topics": []
+    },
+    {
       "ai_disclosure": "No generative AI was used to write the benchmark function itself. Generative AI was used to debug code. This statement was written by hand.",
       "asv_ids": {
         "peakmem": "mcl_benchmark.MCLBenchmark.peakmem_mcl",
@@ -60722,7 +61082,7 @@
       "concepts": "<ccs2012></ccs2012>",
       "description": "",
       "file": "src/saps/benchmarks/ogb.py",
-      "freshness": "c34b415ab6d943787bb8ab31fa42440e08b46a43b59c4ef1323ffadde607b8d6",
+      "freshness": "ef13ee25073ec5a3983f41fd3e7640d14e399bbe67ccd9312877d61bc3e22920",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to construct the source datasets. Generative AI was used to help implement and audit the OGB downloader, input generator, tests, documentation, and debugging.",
@@ -60735,7 +61095,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Citation network of arXiv Computer Science papers for node-property prediction.",
               "file": "src/saps/benchmarks/ogb.py",
-              "freshness": "c34b415ab6d943787bb8ab31fa42440e08b46a43b59c4ef1323ffadde607b8d6",
+              "freshness": "ef13ee25073ec5a3983f41fd3e7640d14e399bbe67ccd9312877d61bc3e22920",
               "name": "ogbn_arxiv",
               "pretty_name": "ogbn-arxiv",
               "source_name": "ogbn-arxiv",
@@ -60748,7 +61108,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Amazon product co-purchasing network for large-scale node-property prediction.",
               "file": "src/saps/benchmarks/ogb.py",
-              "freshness": "c34b415ab6d943787bb8ab31fa42440e08b46a43b59c4ef1323ffadde607b8d6",
+              "freshness": "ef13ee25073ec5a3983f41fd3e7640d14e399bbe67ccd9312877d61bc3e22920",
               "name": "ogbn_products",
               "pretty_name": "ogbn-products",
               "source_name": "ogbn-products",
@@ -60761,7 +61121,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Protein-protein association network with species labels and averaged edge-feature node inputs.",
               "file": "src/saps/benchmarks/ogb.py",
-              "freshness": "c34b415ab6d943787bb8ab31fa42440e08b46a43b59c4ef1323ffadde607b8d6",
+              "freshness": "ef13ee25073ec5a3983f41fd3e7640d14e399bbe67ccd9312877d61bc3e22920",
               "name": "ogbn_proteins",
               "pretty_name": "ogbn-proteins",
               "source_name": "ogbn-proteins",
@@ -60772,7 +61132,7 @@
           ],
           "description": "Downloads, prepares, and caches homogeneous Open Graph Benchmark node-property datasets. Benchmark-specific generators compose this generator so each OGB graph is downloaded and cached once.",
           "file": "src/saps/benchmarks/ogb.py",
-          "freshness": "c34b415ab6d943787bb8ab31fa42440e08b46a43b59c4ef1323ffadde607b8d6",
+          "freshness": "ef13ee25073ec5a3983f41fd3e7640d14e399bbe67ccd9312877d61bc3e22920",
           "motivation": "Large OGB graphs can be reused by several graph-learning benchmarks. Sharing a cacheable generator for the prepared source graph avoids redundant downloads while allowing child benchmark generators to keep their benchmark-specific inputs uncached.",
           "name": "ogb_nodeprop",
           "pretty_name": "Open Graph Benchmark Node Property Datasets",
@@ -60802,7 +61162,7 @@
       "concepts": "<ccs2012></ccs2012>",
       "description": "",
       "file": "src/saps/benchmarks/openml.py",
-      "freshness": "b2a4cf445a6d8bb34cba20983a71c1d0c3d62fdb1f9b81fff5481a130f70952b",
+      "freshness": "ad84bbc262f4aff3fffe1a5ff167062e27ba916baa59647ad3e1c3242d57151f",
       "generators": [
         {
           "ai_disclosure": "Generative AI was used to implement this generator.",
@@ -60816,7 +61176,7 @@
               "data_id": 554,
               "description": "OpenML copy of the MNIST 28x28 handwritten digit image dataset.",
               "file": "src/saps/benchmarks/openml.py",
-              "freshness": "b2a4cf445a6d8bb34cba20983a71c1d0c3d62fdb1f9b81fff5481a130f70952b",
+              "freshness": "ad84bbc262f4aff3fffe1a5ff167062e27ba916baa59647ad3e1c3242d57151f",
               "name": "mnist",
               "openml_name": "mnist_784",
               "pretty_name": "MNIST",
@@ -60832,7 +61192,7 @@
               "data_id": 40927,
               "description": "OpenML copy of the CIFAR-10 32x32 color image dataset.",
               "file": "src/saps/benchmarks/openml.py",
-              "freshness": "b2a4cf445a6d8bb34cba20983a71c1d0c3d62fdb1f9b81fff5481a130f70952b",
+              "freshness": "ad84bbc262f4aff3fffe1a5ff167062e27ba916baa59647ad3e1c3242d57151f",
               "name": "cifar10",
               "openml_name": "CIFAR_10",
               "pretty_name": "CIFAR-10",
@@ -60845,7 +61205,7 @@
           ],
           "description": "Downloads, prepares, and caches dense OpenML datasets. Benchmark-specific generators compose this generator so each OpenML dataset is downloaded and cached once.",
           "file": "src/saps/benchmarks/openml.py",
-          "freshness": "b2a4cf445a6d8bb34cba20983a71c1d0c3d62fdb1f9b81fff5481a130f70952b",
+          "freshness": "ad84bbc262f4aff3fffe1a5ff167062e27ba916baa59647ad3e1c3242d57151f",
           "motivation": "Several benchmarks use the same OpenML image datasets. Sharing a cacheable generator for the prepared feature matrix avoids redundant downloads and redundant cached copies.",
           "name": "openml_dataset",
           "pretty_name": "OpenML Datasets",
@@ -61254,10 +61614,10 @@
       "concepts": "\n        <ccs2012>\n<concept>\n<concept_id>10010147.10010371.10010382.10010383</concept_id>\n<concept_desc>Computing methodologies~Image processing</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010147.10010371.10010382.10010236</concept_id>\n<concept_desc>Computing methodologies~Computational photography</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010405.10010444.10010087.10010096</concept_id>\n<concept_desc>Applied computing~Imaging</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
       "description": "Benchmark implementation for Particule_Simulation_Algorithm using sparse array operations. This benchmark evaluates performance characteristics and numerical properties.",
       "file": "src/saps/benchmarks/particle_sim.py",
-      "freshness": "8424b73a765554a06eac5a257f1e7d421de8dbd19bd937814784475eab49bbca",
+      "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
       "generators": [
         {
-          "ai_disclosure": "No generative AI was used for the benchmark function itself. Generative AI might have been used to construct tests. This statement was written by hand.",
+          "ai_disclosure": "Generative AI was used to construct this generator and its dataset structures. This statement was written by hand.",
           "authors": [
             "Richard Wan <rwan41@gatech.edu>"
           ],
@@ -61267,11 +61627,24 @@
             {
               "asv_param": "particle_sim_test_inputs.test_particle_sim_two_particles_within_cutoff",
               "concepts": "<ccs2012></ccs2012>",
-              "description": "Particle simulation input test_particle_sim_two_particles_within_cutoff.",
+              "description": "Particle Simulation with 2 particles, 50 steps.",
               "file": "src/saps/benchmarks/particle_sim.py",
-              "freshness": "8424b73a765554a06eac5a257f1e7d421de8dbd19bd937814784475eab49bbca",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 2,
               "name": "test_particle_sim_two_particles_within_cutoff",
+              "num_steps": 50,
+              "parameters": {
+                "boundary_model": "reflective_box",
+                "cutoff": 0.01,
+                "dt": 0.0005,
+                "force_model": "cs267_repulsive",
+                "gravitational_constant": 1.0,
+                "softening": 0.0001
+              },
               "pretty_name": "test_particle_sim_two_particles_within_cutoff",
+              "source_columns": null,
+              "source_path": null,
+              "source_wrap": false,
               "suites": [
                 "test",
                 "trace"
@@ -61290,11 +61663,24 @@
             {
               "asv_param": "particle_sim_test_inputs.test_particle_sim_wall_bounce",
               "concepts": "<ccs2012></ccs2012>",
-              "description": "Particle simulation input test_particle_sim_wall_bounce.",
+              "description": "Particle Simulation with 1 particles, 50 steps.",
               "file": "src/saps/benchmarks/particle_sim.py",
-              "freshness": "8424b73a765554a06eac5a257f1e7d421de8dbd19bd937814784475eab49bbca",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 1,
               "name": "test_particle_sim_wall_bounce",
+              "num_steps": 50,
+              "parameters": {
+                "boundary_model": "reflective_box",
+                "cutoff": 0.01,
+                "dt": 0.0005,
+                "force_model": "cs267_repulsive",
+                "gravitational_constant": 1.0,
+                "softening": 0.0001
+              },
               "pretty_name": "test_particle_sim_wall_bounce",
+              "source_columns": null,
+              "source_path": null,
+              "source_wrap": false,
               "suites": [
                 "test",
                 "trace"
@@ -61313,11 +61699,24 @@
             {
               "asv_param": "particle_sim_test_inputs.test_particle_sim_random_10",
               "concepts": "<ccs2012></ccs2012>",
-              "description": "Particle simulation input test_particle_sim_random_10.",
+              "description": "Particle Simulation with 10 particles, 50 steps.",
               "file": "src/saps/benchmarks/particle_sim.py",
-              "freshness": "8424b73a765554a06eac5a257f1e7d421de8dbd19bd937814784475eab49bbca",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 10,
               "name": "test_particle_sim_random_10",
+              "num_steps": 50,
+              "parameters": {
+                "boundary_model": "reflective_box",
+                "cutoff": 0.01,
+                "dt": 0.0005,
+                "force_model": "cs267_repulsive",
+                "gravitational_constant": 1.0,
+                "softening": 0.0001
+              },
               "pretty_name": "test_particle_sim_random_10",
+              "source_columns": null,
+              "source_path": null,
+              "source_wrap": false,
               "suites": [
                 "test",
                 "trace"
@@ -61336,11 +61735,24 @@
             {
               "asv_param": "particle_sim_test_inputs.test_particle_sim_random_50",
               "concepts": "<ccs2012></ccs2012>",
-              "description": "Particle simulation input test_particle_sim_random_50.",
+              "description": "Particle Simulation with 50 particles, 50 steps.",
               "file": "src/saps/benchmarks/particle_sim.py",
-              "freshness": "8424b73a765554a06eac5a257f1e7d421de8dbd19bd937814784475eab49bbca",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 50,
               "name": "test_particle_sim_random_50",
+              "num_steps": 50,
+              "parameters": {
+                "boundary_model": "reflective_box",
+                "cutoff": 0.01,
+                "dt": 0.0005,
+                "force_model": "cs267_repulsive",
+                "gravitational_constant": 1.0,
+                "softening": 0.0001
+              },
               "pretty_name": "test_particle_sim_random_50",
+              "source_columns": null,
+              "source_path": null,
+              "source_wrap": false,
               "suites": [
                 "test",
                 "trace"
@@ -61357,10 +61769,10 @@
               "topics": []
             }
           ],
-          "description": "Small deterministic particle simulation examples.",
+          "description": "Small deterministic particle simulation examples using the CS267-style repulsive force parameters: cutoff 0.01, softening 0.0001 from the CS267 min_r = cutoff / 100 constant, dt 0.0005, G 1.0, and scalar mass tensor 0.01.",
           "file": "src/saps/benchmarks/particle_sim.py",
-          "freshness": "8424b73a765554a06eac5a257f1e7d421de8dbd19bd937814784475eab49bbca",
-          "motivation": "Provide small particle examples for benchmark correctness checks.",
+          "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+          "motivation": "Provide small particle examples for benchmark correctness checks while exercising the same CS267-derived cutoff, minimum-radius softening, time step, and unit gravitational constant used by the synthetic and EWAP repulsive-force datasets.",
           "name": "particle_sim_test_inputs",
           "pretty_name": "Particle Simulation Test Input Generator",
           "references": [
@@ -61378,6 +61790,319 @@
             "imaging",
             "test",
             "trace"
+          ],
+          "topics": []
+        },
+        {
+          "ai_disclosure": "Generative AI was used to construct this generator and its dataset structures. This statement was written by hand.",
+          "authors": [],
+          "cacheable": false,
+          "concepts": "<ccs2012></ccs2012>",
+          "datasets": [
+            {
+              "asv_param": "synthetic_berkeley_cs267_particle.cs267_hw2_n1000_seed1",
+              "concepts": "<ccs2012></ccs2012>",
+              "density": 0.0005,
+              "description": "CS267 homework-style particle initialization extended to a shuffled near-cubic grid with random velocities in [-1, 1]. The cutoff, softening, dt, density, and scalar mass tensor come from the CS267-style benchmark setup, with softening standing in for the CS267 min_r constant.",
+              "file": "src/saps/benchmarks/particle_sim.py",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 1000,
+              "name": "cs267_hw2_n1000_seed1",
+              "num_steps": 1000,
+              "parameters": {
+                "boundary_model": "reflective_box",
+                "cutoff": 0.01,
+                "dt": 0.0005,
+                "force_model": "cs267_repulsive",
+                "gravitational_constant": 1.0,
+                "softening": 0.0001
+              },
+              "pretty_name": "CS267 HW2 Initial Conditions (N=1000)",
+              "seed": 1,
+              "source_columns": null,
+              "source_path": null,
+              "source_wrap": false,
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "applied-computing",
+                "computational-photography",
+                "computing-methodologies",
+                "image-processing",
+                "imaging",
+                "standard"
+              ],
+              "topics": []
+            }
+          ],
+          "description": "Generates synthetic initial conditions for particle simulation benchmarks. The force parameters follow the Berkeley CS267 homework constants where available: cutoff 0.01, softening 0.0001 as the benchmark name for CS267 min_r = cutoff / 100, dt 0.0005, and a scalar mass tensor 0.01; G 1.0 is used as the benchmark unit scale.",
+          "file": "src/saps/benchmarks/particle_sim.py",
+          "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+          "motivation": "The CS267 homework initializes particles on a shuffled regular grid with random velocities so baseline implementations can focus on the short-range force calculation. Its cutoff, min_r, density, and time step constants drive this generator; min_r is recorded as softening so the benchmark can share one radius-regularization parameter across repulsive and gravitational datasets.",
+          "name": "synthetic_berkeley_cs267_particle",
+          "pretty_name": "Synthetic Berkeley CS267 Particle Generator",
+          "references": [
+            "CS 267 Staff. \"CS267 HW2-1: Parallelizing a Particle Simulation\", URL: https://sites.google.com/lbl.gov/cs267-spr2025/hw-2-1.",
+            "CS 267 Staff. \"CS267 HW2-1 Starter Code\", URL: https://github.com/Berkeley-CS267/hw2-1."
+          ],
+          "suites": [],
+          "tags": [
+            "applied-computing",
+            "computational-photography",
+            "computing-methodologies",
+            "image-processing",
+            "imaging"
+          ],
+          "topics": []
+        },
+        {
+          "ai_disclosure": "Generative AI was used to construct this generator and its dataset structures. This statement was written by hand.",
+          "authors": [],
+          "cacheable": false,
+          "concepts": "<ccs2012></ccs2012>",
+          "datasets": [
+            {
+              "asv_param": "ewap_particle_sim.ewap_seq_eth",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "ETH EWAP seq_eth pedestrian trajectories loaded in dataset coordinates with z and vz preserved from the source column. The force parameters are the CS267-style repulsive benchmark constants because EWAP does not provide simulation constants.",
+              "file": "src/saps/benchmarks/particle_sim.py",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 0,
+              "name": "ewap_seq_eth",
+              "num_steps": 50,
+              "parameters": {
+                "boundary_model": "reflective_box",
+                "cutoff": 0.01,
+                "dt": 0.0005,
+                "force_model": "cs267_repulsive",
+                "gravitational_constant": 1.0,
+                "softening": 0.0001
+              },
+              "pretty_name": "ETH EWAP ETH Scene",
+              "source_columns": null,
+              "source_path": null,
+              "source_scene": "seq_eth",
+              "source_wrap": false,
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "applied-computing",
+                "computational-photography",
+                "computing-methodologies",
+                "image-processing",
+                "imaging",
+                "standard"
+              ],
+              "topics": []
+            },
+            {
+              "asv_param": "ewap_particle_sim.ewap_seq_hotel",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "ETH EWAP seq_hotel pedestrian trajectories loaded in dataset coordinates with z and vz preserved from the source column. The force parameters are the CS267-style repulsive benchmark constants because EWAP does not provide simulation constants.",
+              "file": "src/saps/benchmarks/particle_sim.py",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 0,
+              "name": "ewap_seq_hotel",
+              "num_steps": 50,
+              "parameters": {
+                "boundary_model": "reflective_box",
+                "cutoff": 0.01,
+                "dt": 0.0005,
+                "force_model": "cs267_repulsive",
+                "gravitational_constant": 1.0,
+                "softening": 0.0001
+              },
+              "pretty_name": "ETH EWAP Hotel Scene",
+              "source_columns": null,
+              "source_path": null,
+              "source_scene": "seq_hotel",
+              "source_wrap": false,
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "applied-computing",
+                "computational-photography",
+                "computing-methodologies",
+                "image-processing",
+                "imaging",
+                "standard"
+              ],
+              "topics": []
+            }
+          ],
+          "description": "Loads ETH EWAP pedestrian trajectories as particle initial conditions. EWAP supplies positions and velocities only, so this generator uses the same CS267-style repulsive parameters as the synthetic dataset: cutoff 0.01, softening 0.0001, dt 0.0005, G 1.0, and scalar mass tensor 0.01.",
+          "file": "src/saps/benchmarks/particle_sim.py",
+          "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+          "motivation": "Pedestrian trajectories provide real-world 2D interaction data that can exercise the particle simulation benchmark without changing the source coordinate scale. Because the source data is not a physical N-body snapshot, the interaction parameters intentionally mirror the CS267-derived repulsive-force setup rather than being inferred from the EWAP files.",
+          "name": "ewap_particle_sim",
+          "pretty_name": "ETH EWAP Particle Simulation Generator",
+          "references": [
+            "OpenTraj Contributors. \"OpenTraj ETH Dataset\", URL: https://github.com/crowdbotp/OpenTraj/tree/master/datasets/ETH."
+          ],
+          "suites": [],
+          "tags": [
+            "applied-computing",
+            "computational-photography",
+            "computing-methodologies",
+            "image-processing",
+            "imaging"
+          ],
+          "topics": []
+        },
+        {
+          "ai_disclosure": "Generative AI was used to construct this generator and its dataset structures. This statement was written by hand.",
+          "authors": [],
+          "cacheable": false,
+          "concepts": "<ccs2012></ccs2012>",
+          "datasets": [
+            {
+              "asv_param": "particle_sim.nemo_plummer_128",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "NEMO Plummer-model equilibrium snapshot generated with mkplummer, using mass, position, and velocity columns. The dataset uses source masses, G 1.0 N-body units, dt 1/32, softening 0.05, and cutoff 1.0 for the preserved Plummer coordinate scale.",
+              "file": "src/saps/benchmarks/particle_sim.py",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 128,
+              "name": "nemo_plummer_128",
+              "num_steps": 50,
+              "parameters": {
+                "boundary_model": "unbounded",
+                "cutoff": 1.0,
+                "dt": 0.03125,
+                "force_model": "newtonian_gravity",
+                "gravitational_constant": 1.0,
+                "softening": 0.05
+              },
+              "pretty_name": "NEMO Plummer (N=128)",
+              "source_columns": [
+                "mass",
+                "x",
+                "y",
+                "z",
+                "vx",
+                "vy",
+                "vz"
+              ],
+              "source_path": "plummer/tab128.gz",
+              "source_wrap": false,
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "applied-computing",
+                "computational-photography",
+                "computing-methodologies",
+                "image-processing",
+                "imaging",
+                "standard"
+              ],
+              "topics": []
+            },
+            {
+              "asv_param": "particle_sim.nemo_plummer_1024",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "NEMO Plummer-model equilibrium snapshot generated with mkplummer, using mass, position, and velocity columns. The dataset uses source masses, G 1.0 N-body units, dt 1/32, softening 0.05, and cutoff 1.0 for the preserved Plummer coordinate scale.",
+              "file": "src/saps/benchmarks/particle_sim.py",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 1024,
+              "name": "nemo_plummer_1024",
+              "num_steps": 50,
+              "parameters": {
+                "boundary_model": "unbounded",
+                "cutoff": 1.0,
+                "dt": 0.03125,
+                "force_model": "newtonian_gravity",
+                "gravitational_constant": 1.0,
+                "softening": 0.05
+              },
+              "pretty_name": "NEMO Plummer (N=1024)",
+              "source_columns": [
+                "mass",
+                "x",
+                "y",
+                "z",
+                "vx",
+                "vy",
+                "vz"
+              ],
+              "source_path": "plummer/tab1024.gz",
+              "source_wrap": false,
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "applied-computing",
+                "computational-photography",
+                "computing-methodologies",
+                "image-processing",
+                "imaging",
+                "standard"
+              ],
+              "topics": []
+            },
+            {
+              "asv_param": "particle_sim.nemo_dubinski_m31",
+              "concepts": "<ccs2012></ccs2012>",
+              "description": "Dubinski Milky Way/Andromeda collision initial conditions from the NEMO archive, stored as mass and six phase-space coordinates. The dataset uses source masses, G 1.0 N-body units, dt 1/32, softening 0.05, and cutoff 20.0 for the larger preserved Dubinski coordinate scale.",
+              "file": "src/saps/benchmarks/particle_sim.py",
+              "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+              "n_particles": 81920,
+              "name": "nemo_dubinski_m31",
+              "num_steps": 10,
+              "parameters": {
+                "boundary_model": "unbounded",
+                "cutoff": 20.0,
+                "dt": 0.03125,
+                "force_model": "newtonian_gravity",
+                "gravitational_constant": 1.0,
+                "softening": 0.05
+              },
+              "pretty_name": "NEMO Dubinski MW/M31",
+              "source_columns": [
+                "mass",
+                "x",
+                "y",
+                "z",
+                "vx",
+                "vy",
+                "vz"
+              ],
+              "source_path": "dubinski/dubinski.tab.gz",
+              "source_wrap": false,
+              "suites": [
+                "standard"
+              ],
+              "tags": [
+                "applied-computing",
+                "computational-photography",
+                "computing-methodologies",
+                "image-processing",
+                "imaging",
+                "standard"
+              ],
+              "topics": []
+            }
+          ],
+          "description": "Loads real-world initial conditions for particle simulation benchmarks. NEMO datasets use source mass columns, unscaled archive coordinates, Newtonian gravity with G 1.0 in N-body units, dt 1/32, softening 0.05, and source-scale cutoffs selected for the benchmark datasets.",
+          "file": "src/saps/benchmarks/particle_sim.py",
+          "freshness": "c95ebe04ad91d94171b34f671e3bc2e6c26d6a6950fcea6bf02529864464d482",
+          "motivation": "The particle simulation is used to model particle interaction present in mechanics, biology, astronomy, and other fields on a simplitic level. For NEMO snapshots, masses come from the archive tables; G 1.0 follows the usual dimensionless N-body unit convention, softening 0.05 follows the NEMO eps-style softened-gravity setting, and cutoffs are chosen against the preserved source coordinate scale.",
+          "name": "particle_sim",
+          "pretty_name": "Particle Simulation Real Dataset Generator",
+          "references": [
+            "Peter Teuben. \"N-Body Data Archive\", URL: https://carma.astro.umd.edu/nemo/archive/.",
+            "M. C. Plummer. \"On the problem of distribution in globular star clusters\", Monthly Notices of the Royal Astronomical Society, Vol. 71, pp. 460, 1911.",
+            "John Dubinski, J. Christopher Mihos, Lars Hernquist. \"The return of the tidal tails in NGC 7252\", The Astrophysical Journal, Vol. 462, pp. 576, 1996."
+          ],
+          "suites": [],
+          "tags": [
+            "applied-computing",
+            "computational-photography",
+            "computing-methodologies",
+            "image-processing",
+            "imaging"
           ],
           "topics": []
         }
@@ -63863,7 +64588,7 @@
       "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10002951.10003317.10003347.10003356</concept_id>\n<concept_desc>Information systems~Clustering and classification</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002951.10003317.10003347.10003350</concept_id>\n<concept_desc>Information systems~Recommender systems</concept_desc>\n<concept_significance>300</concept_significance>\n</concept>\n<concept>\n<concept_desc>Computing methodologies~\nMachine learning algorithms</concept_desc>\n</concept>\n<concept>\n<concept_id>10010147.10010257.10010258.10010260.10003697</concept_id>\n<concept_desc>Computing methodologies~Cluster analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10010147.10010257.10010258.10010260.10010271</concept_id>\n<concept_desc>Computing methodologies~Dimensionality reduction and manifold learning</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_desc>Mathematics of computing~\nDimensionality reduction</concept_desc>\n</concept>\n</ccs2012>\n",
       "description": "Labels points into k clusters.",
       "file": "src/saps/benchmarks/rp_kmeans_clustering.py",
-      "freshness": "42264987305da1ee08699aaeddd99e4c65653e0795794e70b91bba81818e6abc",
+      "freshness": "e79e618d6d76fc4976828d6e1bb9ebd07569f04ed5a8026b332d42d1445f7933",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to implement benchmark functions.",
@@ -63880,7 +64605,7 @@
               "description": "Manual test points for random-projection k-means clustering.",
               "eps": 0.3,
               "file": "src/saps/benchmarks/rp_kmeans_clustering.py",
-              "freshness": "42264987305da1ee08699aaeddd99e4c65653e0795794e70b91bba81818e6abc",
+              "freshness": "e79e618d6d76fc4976828d6e1bb9ebd07569f04ed5a8026b332d42d1445f7933",
               "k": 3,
               "max_iter": 5,
               "name": "three_clusters",
@@ -63911,7 +64636,7 @@
               "description": "Manual test points for random-projection k-means clustering.",
               "eps": 0.2,
               "file": "src/saps/benchmarks/rp_kmeans_clustering.py",
-              "freshness": "42264987305da1ee08699aaeddd99e4c65653e0795794e70b91bba81818e6abc",
+              "freshness": "e79e618d6d76fc4976828d6e1bb9ebd07569f04ed5a8026b332d42d1445f7933",
               "k": 2,
               "max_iter": 5,
               "name": "two_clusters",
@@ -63938,7 +64663,7 @@
           ],
           "description": "Test points for this benchmark were created manually.",
           "file": "src/saps/benchmarks/rp_kmeans_clustering.py",
-          "freshness": "42264987305da1ee08699aaeddd99e4c65653e0795794e70b91bba81818e6abc",
+          "freshness": "e79e618d6d76fc4976828d6e1bb9ebd07569f04ed5a8026b332d42d1445f7933",
           "motivation": "Random Projections reduce dimensionality for k-means clustering. Input points can be high-dimensional and sparse, which are then projected on a random matrix.",
           "name": "rp_kmeans_inputs",
           "pretty_name": "Random Projection k-means Data Generator",
@@ -63975,7 +64700,7 @@
               "description": "RP k-means clustering on mnist.",
               "eps": 0.3,
               "file": "src/saps/benchmarks/rp_kmeans_clustering.py",
-              "freshness": "42264987305da1ee08699aaeddd99e4c65653e0795794e70b91bba81818e6abc",
+              "freshness": "e79e618d6d76fc4976828d6e1bb9ebd07569f04ed5a8026b332d42d1445f7933",
               "k": 10,
               "max_iter": 100,
               "name": "mnist",
@@ -64004,7 +64729,7 @@
               "description": "RP k-means clustering on cifar10.",
               "eps": 0.3,
               "file": "src/saps/benchmarks/rp_kmeans_clustering.py",
-              "freshness": "42264987305da1ee08699aaeddd99e4c65653e0795794e70b91bba81818e6abc",
+              "freshness": "e79e618d6d76fc4976828d6e1bb9ebd07569f04ed5a8026b332d42d1445f7933",
               "k": 10,
               "max_iter": 100,
               "name": "cifar10",
@@ -64029,7 +64754,7 @@
           ],
           "description": "Loads OpenML image datasets for RP k-means clustering.",
           "file": "src/saps/benchmarks/rp_kmeans_clustering.py",
-          "freshness": "42264987305da1ee08699aaeddd99e4c65653e0795794e70b91bba81818e6abc",
+          "freshness": "e79e618d6d76fc4976828d6e1bb9ebd07569f04ed5a8026b332d42d1445f7933",
           "motivation": "MNIST and CIFAR-10 provide dense image feature matrices from OpenML. k = 10 aligns with the ten classes in each dataset.",
           "name": "rp_kmeans_openml",
           "pretty_name": "RP k-means OpenML Generator",
@@ -64067,7 +64792,7 @@
               "description": "RP k-means clustering on netflix.",
               "eps": 0.3,
               "file": "src/saps/benchmarks/rp_kmeans_clustering.py",
-              "freshness": "42264987305da1ee08699aaeddd99e4c65653e0795794e70b91bba81818e6abc",
+              "freshness": "e79e618d6d76fc4976828d6e1bb9ebd07569f04ed5a8026b332d42d1445f7933",
               "k": 10,
               "max_iter": 100,
               "name": "netflix",
@@ -64092,7 +64817,7 @@
           ],
           "description": "Loads Netflix Prize ratings for RP k-means clustering.",
           "file": "src/saps/benchmarks/rp_kmeans_clustering.py",
-          "freshness": "42264987305da1ee08699aaeddd99e4c65653e0795794e70b91bba81818e6abc",
+          "freshness": "e79e618d6d76fc4976828d6e1bb9ebd07569f04ed5a8026b332d42d1445f7933",
           "motivation": "The Netflix Prize dataset provides a ~480K users \u00d7 17,770 movies sparse ratings matrix.",
           "name": "rp_kmeans_netflix",
           "pretty_name": "RP k-means Netflix Generator",
