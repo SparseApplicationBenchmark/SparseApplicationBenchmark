@@ -355,7 +355,7 @@ class GCareGenerator(Generator[GCareDataset]):
 
     @property
     def suites(self) -> list[str]:
-        return []
+        return ["standard"]
 
     @property
     def concepts(self) -> str:
@@ -2682,12 +2682,8 @@ class GCareYAGOGenerator(GCareGenerator):
 
 class SubgraphMatching(Benchmark):
     @property
-    def tag(self):
-        return "subgraph_matching"
-
-    @property
     def name(self):
-        return "Subgraph Matching Algorithm using einsum"
+        return "subgraph_matching"
 
     @property
     def pretty_name(self):
