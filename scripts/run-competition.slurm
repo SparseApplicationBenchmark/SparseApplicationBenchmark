@@ -2,8 +2,8 @@
 #SBATCH --job-name=saps-competition
 #SBATCH --nodes=1
 #SBATCH --mem=250G
-#SBATCH --time=12:00:00
-#SBATCH --array=0-64
+#SBATCH --time=1:00:00
+#SBATCH --array=0-4
 #SBATCH --output=/dev/null
 
 set -euo pipefail
@@ -39,7 +39,6 @@ benchmark_args=(
   --remote-storage-bucket "$REMOTE_STORAGE_BUCKET"
   --chunk-count "$task_count"
   --chunk-index "$task_index"
-  --tags standard
 )
 
 if [[ -n "${SAPS_COMPETITION_ARGS:-}" ]]; then

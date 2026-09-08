@@ -4,6 +4,8 @@
   "install_command": ["in-dir={env_dir} python -mpip install {build_dir} --force-reinstall"],
   "timeout": 100,
   "metrics": ["time"],
+  "tag": ["test"],
+  "re": ["^test_bfs_single_node$"],
   "saps_dir": "competition",
   "env_dir": "competition/env",
   "results_dir": "competition/results",
