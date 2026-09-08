@@ -2,7 +2,8 @@
 #SBATCH --job-name=saps-competition
 #SBATCH --nodes=1
 #SBATCH --mem=250G
-#SBATCH --time=24:00:00
+#SBATCH --time=12:00:00
+#SBATCH --array=0-64
 #SBATCH --output=/dev/null
 
 set -euo pipefail
@@ -20,13 +21,15 @@ export REMOTE_STORAGE_BUCKET="${REMOTE_STORAGE_BUCKET:-sparse-array-programming-
 
 competition_config="${SAPS_COMPETITION_CONFIG:-$repo_directory/competition.config.json}"
 
-job_id="${SLURM_JOB_ID:-local}"
+job_id="${SLURM_ARRAY_JOB_ID:-${SLURM_JOB_ID:-local}}"
+task_index="${SLURM_ARRAY_TASK_ID:-0}"
+task_count="${SLURM_ARRAY_TASK_COUNT:-1}"
 competition_directory="$repo_directory/competition"
-competition_run_directory="$competition_directory/run_$job_id"
-combined_results="$competition_directory/results_$job_id.json"
+competition_run_directory="$competition_directory/run_$job_id/task_$task_index"
+combined_results="$competition_directory/results_${job_id}_task_$task_index.json"
 
 mkdir -p "$competition_run_directory/logs"
-exec > >(tee -a "$competition_run_directory/logs/competition-$job_id.log") 2>&1
+exec > >(tee -a "$competition_run_directory/logs/competition-$job_id-$task_index.log") 2>&1
 
 benchmark_args=(
   --saps-dir "$competition_run_directory"
@@ -34,6 +37,8 @@ benchmark_args=(
   --results-dir "$competition_run_directory/results"
   --remote-storage-backend "$REMOTE_STORAGE_BACKEND"
   --remote-storage-bucket "$REMOTE_STORAGE_BUCKET"
+  --chunk-count "$task_count"
+  --chunk-index "$task_index"
   --tags standard
 )
 

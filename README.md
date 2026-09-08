@@ -67,9 +67,12 @@ SAPS_COMPETITION_ARGS="--tag standard --metrics time peakmem" \
   sbatch scripts/run-competition.slurm
 ```
 
-Slurm competition runs write ASV outputs under
-`competition/run_<slurm-job-id>/` and then combine the ASV result files into
-`competition/results_<slurm-job-id>.json`. To combine an existing run manually:
+The wrapper submits a 64-task array by default. Each task runs a deterministic
+set of the selected datasets and writes ASV outputs under
+`competition/run_<slurm-array-job-id>/task_<task-index>/`. Per-task combined
+results are written to
+`competition/results_<slurm-array-job-id>_task_<task-index>.json`. To combine
+the entire array after all tasks have completed:
 
 ```bash
 poetry run ./bin/combine_competition_results.py \
