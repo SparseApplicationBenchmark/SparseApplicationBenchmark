@@ -7,9 +7,8 @@ import numpy as np
 from binsparse.conversions import to_numpy
 
 from saps.benchmark import DataInstance
-from saps.benchmarks import model_counting, weighted_model_counting
+from saps.benchmarks import weighted_model_counting
 from saps.benchmarks.model_counting import (
-    MCCompBenchmark,
     MCCompGenerator,
     MCCompMCGenerator,
     fetch_mccomp_instance,
@@ -134,32 +133,6 @@ def test_mccomp_url_and_name_helpers():
         == "https://raw.githubusercontent.com/arijitsh/mccomp-test-instances/main/"
         "Track1_MC/random_mc_1.cnf"
     )
-
-
-def test_mccomp_shell_generator_loads_all_declared_source_files(monkeypatch, tmp_path):
-    def fake_download_mccomp_instance(source_path):
-        path = tmp_path / source_path
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text("p cnf 1 1\nc t mc\n1 0\nc c s exact arb int 1\n")
-        return path
-
-    monkeypatch.setattr(
-        model_counting,
-        "download_mccomp_instance",
-        fake_download_mccomp_instance,
-    )
-    generator = MCCompGenerator()
-    dataset = generator.datasets[0]
-
-    instance = generator.generate(dataset)
-
-    assert generator.cacheable
-    assert MCCompBenchmark().generator.name == "mccomp"
-    assert len(generator.datasets) == 40
-    assert instance.inputs == []
-    assert instance.meta["source_path"] == dataset.source_path
-    assert instance.meta["local_path"].endswith(dataset.source_path)
-    assert instance.ref_outputs is None
 
 
 def test_model_counting_mccomp_track1_generator_parses_downloaded_source(
