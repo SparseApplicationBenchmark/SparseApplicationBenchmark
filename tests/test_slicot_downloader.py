@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import zipfile
 
-import numpy as np
 import pytest
+
+import numpy as np
 
 from saps.downloaders import slicot
 

@@ -12,9 +12,7 @@ from typing import Any
 SLICOT_BENCHMARK_PAGE_URL = (
     "https://www.slicot.org/20-site/126-benchmark-examples-for-model-reduction"
 )
-SLICOT_BENCH_DATA_BASE_URL = (
-    "https://www.slicot.org/objects/software/shared/bench-data"
-)
+SLICOT_BENCH_DATA_BASE_URL = "https://www.slicot.org/objects/software/shared/bench-data"
 SLICOT_ALL_DATA_ARCHIVE = "All-Data.zip"
 
 
@@ -137,7 +135,9 @@ SLICOT_PROBLEMS: tuple[SlicotProblem, ...] = (
         3,
         3,
     ),
-    SlicotProblem("Building model", "build.mat", "motion problem in a building", 48, 1, 1),
+    SlicotProblem(
+        "Building model", "build.mat", "motion problem in a building", 48, 1, 1
+    ),
     SlicotProblem("Clamped beam model", "beam.mat", "Clamped beam model", 348, 1, 1),
 )
 

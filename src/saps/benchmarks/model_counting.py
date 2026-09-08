@@ -16,13 +16,13 @@ from saps.benchmark import (
     ShellBenchmark,
 )
 from saps.downloaders.mccomp import (
-    parse_dimacs,
     MCCOMP_REPOSITORY_URL,
     MCCOMP_TRACKS,
     download_mccomp_instance,
     list_mccomp_instances,
     mccomp_source_url,
     normalize_mccomp_source_path,
+    parse_dimacs,
 )
 
 
@@ -382,8 +382,7 @@ class MCCompMCGenerator(Generator[MCCompDataset]):
         exact_type, exact_value = parse_mccomp_exact(cnf_text)
         if exact_type != "int" or exact_value is None:
             raise ValueError(
-                "MCComp Track1 instance lacks an integer answer: "
-                f"{dataset.source_path}"
+                f"MCComp Track1 instance lacks an integer answer: {dataset.source_path}"
             )
 
         return DataInstance(
@@ -520,13 +519,13 @@ class ModelCounting(Benchmark):
 
     def check(self, param):
         for item in self._output:
-            assert isinstance(
-                item, BinsparseTensor
-            ), "Output must be in binsparse format"
+            assert isinstance(item, BinsparseTensor), (
+                "Output must be in binsparse format"
+            )
         if self._ref_outputs is None:
             return
         result = int(to_numpy(self._output[0]))
         expected = int(to_numpy(self._ref_outputs[0]))
-        assert (
-            result == expected
-        ), f"Test '{param.dataset.name}' failed: expected {expected}, got {result}"
+        assert result == expected, (
+            f"Test '{param.dataset.name}' failed: expected {expected}, got {result}"
+        )

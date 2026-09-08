@@ -1,18 +1,18 @@
 from __future__ import annotations
 
-import numpy as np
 import pytest
 
+import numpy as np
 from scipy import sparse as scipy_sparse
 
 from binsparse.conversions import to_numpy, to_scipy
 
 from saps.benchmarks import ode
 from saps.benchmarks.ode import (
+    SLICOTRK4,
     SLICOTDataset,
     SLICOTForwardEuler,
     SLICOTGenerator,
-    SLICOTRK4,
 )
 
 
@@ -61,7 +61,9 @@ def test_slicot_generator_loads_a_and_b_and_ignores_c_d(monkeypatch):
     np.testing.assert_array_equal(
         to_numpy(instance.inputs[0]), np.array([[0.0, 1.0], [-2.0, -3.0]])
     )
-    np.testing.assert_array_equal(to_numpy(instance.inputs[1]), np.array([[0.0], [1.0]]))
+    np.testing.assert_array_equal(
+        to_numpy(instance.inputs[1]), np.array([[0.0], [1.0]])
+    )
     assert instance.meta["source_name"] == "build.mat"
     assert instance.meta["assumed_E"] == "identity"
     assert instance.meta["assumed_B"] is None
@@ -88,7 +90,9 @@ def test_slicot_generator_preserves_stored_sparse_matrices(monkeypatch):
     assert scipy_sparse.issparse(to_scipy(instance.inputs[1]))
     np.testing.assert_array_equal(to_scipy(instance.inputs[0]).toarray(), A.toarray())
     np.testing.assert_array_equal(to_scipy(instance.inputs[1]).toarray(), B.toarray())
-    np.testing.assert_array_equal(ode._dense_binsparse_array(instance.inputs[0]), A.toarray())
+    np.testing.assert_array_equal(
+        ode._dense_binsparse_array(instance.inputs[0]), A.toarray()
+    )
 
 
 def test_slicot_generator_keeps_stored_dense_matrices_dense(monkeypatch):
@@ -124,7 +128,9 @@ def test_slicot_generator_defaults_missing_b_to_normalized_input(monkeypatch):
 
     instance = SLICOTGenerator().generate(SLICOTDataset("Orr-Som"))
 
-    np.testing.assert_allclose(to_numpy(instance.inputs[1]), np.ones((2, 1)) / np.sqrt(2))
+    np.testing.assert_allclose(
+        to_numpy(instance.inputs[1]), np.ones((2, 1)) / np.sqrt(2)
+    )
     assert instance.meta["source_name"] == "Orr-Som.mat"
     assert instance.meta["assumed_B"] == "normalized_uniform_vector"
     assert instance.meta["source_inputs"] == 1

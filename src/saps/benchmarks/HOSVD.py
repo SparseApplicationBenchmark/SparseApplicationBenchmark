@@ -189,9 +189,7 @@ class HOSVDDenseGenerator(Generator[HOSVDDataset]):
                 D = rng.random((dim4, ranks[3])).astype(np.float64)
                 E = rng.random((dim5, ranks[4])).astype(np.float64)
 
-                X_dense = np.einsum(
-                    "pqrst,ip,jq,kr,ls,mt->ijklm", G, A, B, C, D, E
-                )
+                X_dense = np.einsum("pqrst,ip,jq,kr,ls,mt->ijklm", G, A, B, C, D, E)
 
             case _:
                 raise ValueError(f"unsupported HOSVD tensor order {dataset.n}")
@@ -350,9 +348,7 @@ class HOSVDSparseGenerator(Generator[HOSVDDataset]):
                 D = get_sparse_factor(dim4, ranks[3], density=0.2)
                 E = get_sparse_factor(dim5, ranks[4], density=0.2)
 
-                X_dense = np.einsum(
-                    "pqrst,ip,jq,kr,ls,mt->ijklm", G, A, B, C, D, E
-                )
+                X_dense = np.einsum("pqrst,ip,jq,kr,ls,mt->ijklm", G, A, B, C, D, E)
 
                 indices = np.nonzero(X_dense)
                 values = X_dense[indices]
@@ -676,9 +672,7 @@ class HOSVDBenchmark(Benchmark):
                 # initial HOSVD by performing SVD on matrix unfoldings along each mode
                 initial_factors = [None] * num_modes
                 for mode in range(num_modes):
-                    perm = [mode] + list(range(mode)) + list(
-                        range(mode + 1, num_modes)
-                    )
+                    perm = [mode] + list(range(mode)) + list(range(mode + 1, num_modes))
                     unfold = xp.reshape(xp.transpose(X, perm), (dimensions[mode], -1))
 
                     U, _S, _Vt = xp.linalg.svd(unfold, full_matrices=False)
@@ -713,16 +707,16 @@ class HOSVDBenchmark(Benchmark):
                                 B=initial_factors[1],
                             )
 
-                        perm = [mode] + list(range(mode)) + list(
-                            range(mode + 1, num_modes)
+                        perm = (
+                            [mode]
+                            + list(range(mode))
+                            + list(range(mode + 1, num_modes))
                         )
                         unfold_update = xp.reshape(
                             xp.transpose(update, perm), (dimensions[mode], -1)
                         )
 
-                        U, _S, _Vt = xp.linalg.svd(
-                            unfold_update, full_matrices=False
-                        )
+                        U, _S, _Vt = xp.linalg.svd(unfold_update, full_matrices=False)
                         initial_factors[mode] = U[:, : ranks[mode]]
 
                     # stop iterations when solutions stop changing significantly
@@ -759,9 +753,7 @@ class HOSVDBenchmark(Benchmark):
                 # initial HOSVD by performing SVD on matrix unfoldings along each mode
                 initial_factors = [None] * num_modes
                 for mode in range(num_modes):
-                    perm = [mode] + list(range(mode)) + list(
-                        range(mode + 1, num_modes)
-                    )
+                    perm = [mode] + list(range(mode)) + list(range(mode + 1, num_modes))
                     unfold = xp.reshape(xp.transpose(X, perm), (dimensions[mode], -1))
 
                     U, _S, _Vt = xp.linalg.svd(unfold, full_matrices=False)
@@ -811,16 +803,16 @@ class HOSVDBenchmark(Benchmark):
                                 C=initial_factors[2],
                             )
 
-                        perm = [mode] + list(range(mode)) + list(
-                            range(mode + 1, num_modes)
+                        perm = (
+                            [mode]
+                            + list(range(mode))
+                            + list(range(mode + 1, num_modes))
                         )
                         unfold_update = xp.reshape(
                             xp.transpose(update, perm), (dimensions[mode], -1)
                         )
 
-                        U, _S, _Vt = xp.linalg.svd(
-                            unfold_update, full_matrices=False
-                        )
+                        U, _S, _Vt = xp.linalg.svd(unfold_update, full_matrices=False)
                         initial_factors[mode] = U[:, : ranks[mode]]
 
                     # stop iterations when solutions stop changing significantly
@@ -861,9 +853,7 @@ class HOSVDBenchmark(Benchmark):
                 # initial HOSVD by performing SVD on matrix unfoldings along each mode
                 initial_factors = [None] * num_modes
                 for mode in range(num_modes):
-                    perm = [mode] + list(range(mode)) + list(
-                        range(mode + 1, num_modes)
-                    )
+                    perm = [mode] + list(range(mode)) + list(range(mode + 1, num_modes))
                     unfold = xp.reshape(xp.transpose(X, perm), (dimensions[mode], -1))
 
                     U, _S, _Vt = xp.linalg.svd(unfold, full_matrices=False)
@@ -927,16 +917,16 @@ class HOSVDBenchmark(Benchmark):
                                 D=initial_factors[3],
                             )
 
-                        perm = [mode] + list(range(mode)) + list(
-                            range(mode + 1, num_modes)
+                        perm = (
+                            [mode]
+                            + list(range(mode))
+                            + list(range(mode + 1, num_modes))
                         )
                         unfold_update = xp.reshape(
                             xp.transpose(update, perm), (dimensions[mode], -1)
                         )
 
-                        U, _S, _Vt = xp.linalg.svd(
-                            unfold_update, full_matrices=False
-                        )
+                        U, _S, _Vt = xp.linalg.svd(unfold_update, full_matrices=False)
                         initial_factors[mode] = U[:, : ranks[mode]]
 
                     # stop iterations when solutions stop changing significantly

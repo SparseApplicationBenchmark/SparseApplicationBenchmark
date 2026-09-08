@@ -554,9 +554,7 @@ class _DescriptorDAEBenchmark(Benchmark):
 
     @property
     def ai_disclosure(self) -> str:
-        return (
-            "Generative AI was used to adapt the found benchmark code to the benchmark format, with minimal changes to the benchmark code itself."
-        )
+        return "Generative AI was used to adapt the found benchmark code to the benchmark format, with minimal changes to the benchmark code itself."
 
     @property
     def motivation(self) -> str:
@@ -646,7 +644,6 @@ class SlicotDAEBDF(_DescriptorDAEBenchmark):
         # No initial derivative is supplied; row zero is a placeholder.
         yp = [xp.zeros_like(y[0]), (y[1] - y[0]) / dt]
         yp.extend(
-            (3 * y[i] - 4 * y[i - 1] + y[i - 2]) / (2 * dt)
-            for i in range(2, len(y))
+            (3 * y[i] - 4 * y[i - 1] + y[i - 2]) / (2 * dt) for i in range(2, len(y))
         )
         return [time, xp.stack(y, axis=0), xp.stack(yp, axis=0)]

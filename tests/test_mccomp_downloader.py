@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-import numpy as np
 import pytest
+
+import numpy as np
 
 from binsparse.conversions import to_numpy
 
@@ -11,22 +12,26 @@ from saps.benchmarks.model_counting import (
     MCCompBenchmark,
     MCCompGenerator,
     MCCompMCGenerator,
-    clauses_to_einsum as mc_clauses_to_einsum,
     fetch_mccomp_instance,
     parse_mccomp_exact,
 )
+from saps.benchmarks.model_counting import (
+    clauses_to_einsum as mc_clauses_to_einsum,
+)
 from saps.benchmarks.weighted_model_counting import (
     MCCompPWMCGenerator,
-    clauses_to_einsum as wmc_clauses_to_einsum,
     parse_format,
 )
+from saps.benchmarks.weighted_model_counting import (
+    clauses_to_einsum as wmc_clauses_to_einsum,
+)
 from saps.downloaders.mccomp import (
-    parse_dimacs,
     download_mccomp_instance,
     list_mccomp_instances,
     mccomp_raw_url,
     mccomp_source_url,
     normalize_mccomp_source_path,
+    parse_dimacs,
 )
 
 

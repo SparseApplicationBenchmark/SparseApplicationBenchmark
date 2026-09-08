@@ -24,6 +24,7 @@ MCCOMP_SOURCE_PATHS = tuple(
     for index in range(1, 11)
 )
 
+
 def parse_dimacs(text: str) -> tuple[int, list[list[int]]]:
     lines = [line.strip() for line in text.splitlines()]
     cleaned = [line for line in lines if line and not line.startswith("c")]
@@ -39,7 +40,9 @@ def parse_dimacs(text: str) -> tuple[int, list[list[int]]]:
             num_vars = int(parts[2])
             num_clauses = int(parts[3])
             if num_vars < 0 or num_clauses < 0:
-                raise ValueError("DIMACS variable and clause counts must be nonnegative")
+                raise ValueError(
+                    "DIMACS variable and clause counts must be nonnegative"
+                )
             header_index = i
             break
 

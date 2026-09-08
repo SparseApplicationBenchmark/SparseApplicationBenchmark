@@ -16,13 +16,13 @@ from saps.benchmark import (
     Ref,
 )
 from saps.downloaders.mccomp import (
-    parse_dimacs,
     MCCOMP_REPOSITORY_URL,
     MCCOMP_TRACKS,
     download_mccomp_instance,
     list_mccomp_instances,
     mccomp_source_url,
     normalize_mccomp_source_path,
+    parse_dimacs,
 )
 
 
@@ -558,16 +558,16 @@ class WeightedModelCounting(Benchmark):
 
     def check(self, param):
         for item in self._output:
-            assert isinstance(
-                item, BinsparseTensor
-            ), "Output must be in binsparse format"
+            assert isinstance(item, BinsparseTensor), (
+                "Output must be in binsparse format"
+            )
         if self._ref_outputs is None:
             return
         result = float(to_numpy(self._output[0]))
         expected = float(to_numpy(self._ref_outputs[0]))
-        assert np.isclose(
-            result, expected, rtol=10e-8
-        ), f"Test '{param.dataset.name}' failed: expected {expected}, got {result}"
+        assert np.isclose(result, expected, rtol=10e-8), (
+            f"Test '{param.dataset.name}' failed: expected {expected}, got {result}"
+        )
 
 
 def _default_weighted_total(weights: dict[int, float], num_vars: int) -> float:
