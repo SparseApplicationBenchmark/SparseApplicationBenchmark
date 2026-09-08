@@ -179,7 +179,7 @@ class FiniteDifferenceGenerator(Generator[FiniteDifferenceDataset]):
             FiniteDifferenceDataset(
                 name="fd_realistic_scale",
                 pretty_name="Finite Difference Realistic Problem",
-                suites=[],
+                suites=["standard"],
                 Nx=250000,
                 dx=0.1,
                 Nt=1000,
