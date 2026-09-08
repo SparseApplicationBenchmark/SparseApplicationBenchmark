@@ -17,7 +17,6 @@ from saps.benchmark import (
 )
 from saps.downloaders.slicot import (
     SLICOT_BENCHMARK_PAGE_URL,
-    list_slicot_identity_e_problems,
     load_slicot_problem,
     slicot_problem_metadata,
     slicot_source_url,
@@ -715,8 +714,16 @@ class SLICOTGenerator(Generator[SLICOTDataset]):
     @property
     def datasets(self) -> list[SLICOTDataset]:
         return [
-            SLICOTDataset(source_name, suites=["standard"])
-            for source_name in list_slicot_identity_e_problems()
+            SLICOTDataset("eady.mat", suites=["standard"]),
+            SLICOTDataset("CDplayer.mat", suites=["standard"]),
+            SLICOTDataset("fom.mat", suites=["standard"]),
+            SLICOTDataset("random.mat", suites=["standard"]),
+            SLICOTDataset("pde.mat", suites=["standard"]),
+            SLICOTDataset("heat-cont.mat", suites=["standard"]),
+            SLICOTDataset("Orr-Som.mat", suites=["standard"]),
+            SLICOTDataset("iss.mat", suites=["standard"]),
+            SLICOTDataset("build.mat", suites=["standard"]),
+            SLICOTDataset("beam.mat", suites=["standard"]),
         ]
 
     def generate(self, dataset: SLICOTDataset):

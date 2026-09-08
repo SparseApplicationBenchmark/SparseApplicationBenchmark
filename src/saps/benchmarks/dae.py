@@ -436,26 +436,77 @@ class SlicotDAEGenerator(_DescriptorDAEGenerator):
     def datasets(self) -> list[DescriptorDAEDataset]:
         return [
             DescriptorDAEDataset(
-                problem.name,
-                source_name=problem.mat_filename,
-                pretty_name=f"SLICOT {problem.title}",
-                description=f"SLICOT {problem.description or problem.title}.",
+                "tline",
+                source_name="tline.mat",
+                pretty_name="SLICOT Transmission line model",
+                description="SLICOT example of a transmission line model.",
                 suites=["standard"],
                 t_max=0.02,
                 step=0.01,
-            )
-            for problem in slicot.SLICOT_PROBLEMS
-            # Verified against the MAT-file variables; enumeration needs no downloads.
-            if problem.mat_filename in {
-                "tline.mat",
-                "peec.mat",
-                "heat-disc.mat",
-                "MNA_1.mat",
-                "MNA_2.mat",
-                "MNA_3.mat",
-                "MNA_4.mat",
-                "MNA_5.mat",
-            }
+            ),
+            DescriptorDAEDataset(
+                "peec",
+                source_name="peec.mat",
+                pretty_name="SLICOT PEEC model",
+                description="SLICOT partial element equivalent circuit model.",
+                suites=["standard"],
+                t_max=0.02,
+                step=0.01,
+            ),
+            DescriptorDAEDataset(
+                "heat-disc",
+                source_name="heat-disc.mat",
+                pretty_name="SLICOT Heat equation (discrete case)",
+                description="SLICOT discretization of the previous equation.",
+                suites=["standard"],
+                t_max=0.02,
+                step=0.01,
+            ),
+            DescriptorDAEDataset(
+                "MNA_1",
+                source_name="MNA_1.mat",
+                pretty_name="SLICOT MNA example - 1",
+                description="SLICOT Modified Nodal Analysis model.",
+                suites=["standard"],
+                t_max=0.02,
+                step=0.01,
+            ),
+            DescriptorDAEDataset(
+                "MNA_2",
+                source_name="MNA_2.mat",
+                pretty_name="SLICOT MNA example - 2",
+                description="SLICOT Modified Nodal Analysis model.",
+                suites=["standard"],
+                t_max=0.02,
+                step=0.01,
+            ),
+            DescriptorDAEDataset(
+                "MNA_3",
+                source_name="MNA_3.mat",
+                pretty_name="SLICOT MNA example - 3",
+                description="SLICOT Modified Nodal Analysis model.",
+                suites=["standard"],
+                t_max=0.02,
+                step=0.01,
+            ),
+            DescriptorDAEDataset(
+                "MNA_4",
+                source_name="MNA_4.mat",
+                pretty_name="SLICOT MNA example - 4",
+                description="SLICOT Modified Nodal Analysis model.",
+                suites=["standard"],
+                t_max=0.02,
+                step=0.01,
+            ),
+            DescriptorDAEDataset(
+                "MNA_5",
+                source_name="MNA_5.mat",
+                pretty_name="SLICOT MNA example - 5",
+                description="SLICOT Modified Nodal Analysis model.",
+                suites=["standard"],
+                t_max=0.02,
+                step=0.01,
+            ),
         ]
 
 

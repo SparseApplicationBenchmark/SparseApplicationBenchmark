@@ -99,6 +99,22 @@ def test_slicot_datasets_exercise_bdf2():
     assert all(d.t_max > d.step for d in SlicotDAEGenerator().datasets)
 
 
+def test_slicot_dae_generator_uses_explicit_descriptor_problems():
+    datasets = SlicotDAEGenerator().datasets
+
+    assert [dataset.source_name for dataset in datasets] == [
+        "tline.mat",
+        "peec.mat",
+        "heat-disc.mat",
+        "MNA_1.mat",
+        "MNA_2.mat",
+        "MNA_3.mat",
+        "MNA_4.mat",
+        "MNA_5.mat",
+    ]
+    assert all(dataset.suites == ["standard"] for dataset in datasets)
+
+
 def test_lu_permutations():
     # Nontrivial row and column permutations expose gather/scatter mistakes.
     matrix = sp.csc_matrix(
