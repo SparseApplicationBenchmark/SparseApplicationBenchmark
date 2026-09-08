@@ -554,7 +554,10 @@ class _DescriptorDAEBenchmark(Benchmark):
 
     @property
     def ai_disclosure(self) -> str:
-        return "Generative AI was used to adapt the found benchmark code to the benchmark format, with minimal changes to the benchmark code itself."
+        return (
+            "Generative AI was used to adapt the found benchmark code to the "
+            "benchmark format, with minimal changes to the benchmark code itself."
+        )
 
     @property
     def motivation(self) -> str:

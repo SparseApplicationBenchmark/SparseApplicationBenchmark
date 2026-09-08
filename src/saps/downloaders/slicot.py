@@ -136,9 +136,21 @@ SLICOT_PROBLEMS: tuple[SlicotProblem, ...] = (
         3,
     ),
     SlicotProblem(
-        "Building model", "build.mat", "motion problem in a building", 48, 1, 1
+        "Building model",
+        "build.mat",
+        "motion problem in a building",
+        48,
+        1,
+        1,
     ),
-    SlicotProblem("Clamped beam model", "beam.mat", "Clamped beam model", 348, 1, 1),
+    SlicotProblem(
+        "Clamped beam model",
+        "beam.mat",
+        "Clamped beam model",
+        348,
+        1,
+        1,
+    ),
 )
 
 
