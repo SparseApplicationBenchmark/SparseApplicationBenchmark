@@ -138,6 +138,7 @@ class TransitiveReductionTestGenerator(Generator[TransitiveReductionDataset]):
             ref_outputs=[from_numpy(expected)],
         )
 
+
 class TransitiveReductionGAPGenerator(Generator[TransitiveReductionDataset]):
     @property
     def name(self) -> str:
@@ -251,7 +252,6 @@ class TransitiveReductionGAPGenerator(Generator[TransitiveReductionDataset]):
             raw = fetch_suitesparse_matrix(dataset.name)
             return DataInstance(inputs=[raw.inputs[0]], meta=raw.meta)
         raise ValueError(f"Unsupported transitive reduction dataset: {dataset.name}")
-
 
 
 class TransitiveReductionBenchmark(Benchmark):

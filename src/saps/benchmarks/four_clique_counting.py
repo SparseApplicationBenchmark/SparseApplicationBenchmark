@@ -155,7 +155,6 @@ class FourCliqueCountTestGenerator(Generator[GraphCountingDataset]):
                 ),
                 expected=np.array(0),
             ),
-            
         ]
 
     def generate(self, dataset: GraphCountingDataset) -> DataInstance:
@@ -210,7 +209,8 @@ class FourCliqueCountGenerator(Generator[GraphCountingDataset]):
 
     @property
     def datasets(self) -> list[GraphCountingDataset]:
-        # 4-clique counting is very expensive (6-way einsum); small graphs are good to start.
+        # 4-clique counting is very expensive (6-way einsum)
+        # Start with small graphs
         return [
             GraphCountingDataset(
                 name="snap-email-Eu-core-temporal-Dept3",
