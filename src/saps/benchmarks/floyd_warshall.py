@@ -473,7 +473,7 @@ class FloydWarshallGenerator(Generator[FloydWarshallDataset]):
                     "Directed roads with weights in the US, with 23.9M nodes and"
                     " 58.3M edges."
                 ),
-                suites=[],
+                suites=["standard"],
                 source="GAP/GAP-road",
                 symmetrize=False,
             ),
@@ -484,7 +484,7 @@ class FloydWarshallGenerator(Generator[FloydWarshallDataset]):
                     "Directed weighted social network topology of Twitter, with 61.6M"
                     " nodes and 1,468.4M edges."
                 ),
-                suites=[],
+                suites=["standard"],
                 source="GAP/GAP-twitter",
                 symmetrize=True,
             ),
@@ -495,7 +495,7 @@ class FloydWarshallGenerator(Generator[FloydWarshallDataset]):
                     "A web-crawl of the .sk domain, directed and weighted, with 50.6M"
                     " nodes and 1,949.4M edges."
                 ),
-                suites=[],
+                suites=["standard"],
                 source="GAP/GAP-web",
                 symmetrize=True,
             ),
@@ -508,7 +508,7 @@ class FloydWarshallGenerator(Generator[FloydWarshallDataset]):
                     " (A=0.57, B=C=0.19, D=0.05). Has 134.2M nodes and 2,111.6M"
                     " edges."
                 ),
-                suites=[],
+                suites=["standard"],
                 source="GAP/GAP-kron",
                 symmetrize=False,
             ),
@@ -520,7 +520,7 @@ class FloydWarshallGenerator(Generator[FloydWarshallDataset]):
                     " Erdos–Reyni model (Uniform Random) with 134.2M nodes and"
                     " 2,147.4M edges."
                 ),
-                suites=[],
+                suites=["standard"],
                 source="GAP/GAP-urand",
                 symmetrize=False,
             ),

@@ -374,7 +374,7 @@ class BetweennessCentralityGAPGenerator(Generator[BetweennessCentralityDataset])
                     "Directed roads with weights in the US, with 23.9M nodes and"
                     " 58.3M edges."
                 ),
-                suites=[],
+                suites=["standard"],
             ),
             BetweennessCentralityDataset(
                 name="GAP/GAP-twitter",
@@ -383,7 +383,7 @@ class BetweennessCentralityGAPGenerator(Generator[BetweennessCentralityDataset])
                     "Directed weighted social network topology of Twitter, with 61.6M"
                     " nodes and 1,468.4M edges."
                 ),
-                suites=[],
+                suites=["standard"],
             ),
             BetweennessCentralityDataset(
                 name="GAP/GAP-web",
@@ -392,7 +392,7 @@ class BetweennessCentralityGAPGenerator(Generator[BetweennessCentralityDataset])
                     "A web-crawl of the .sk domain, directed and weighted, with 50.6M"
                     " nodes and 1,949.4M edges."
                 ),
-                suites=[],
+                suites=["standard"],
             ),
             BetweennessCentralityDataset(
                 name="GAP/GAP-kron",
@@ -403,7 +403,7 @@ class BetweennessCentralityGAPGenerator(Generator[BetweennessCentralityDataset])
                     " (A=0.57, B=C=0.19, D=0.05). Has 134.2M nodes and 2,111.6M"
                     " edges."
                 ),
-                suites=[],
+                suites=["standard"],
             ),
             BetweennessCentralityDataset(
                 name="GAP/GAP-urand",
@@ -413,7 +413,7 @@ class BetweennessCentralityGAPGenerator(Generator[BetweennessCentralityDataset])
                     " Erdos–Reyni model (Uniform Random) with 134.2M nodes and"
                     " 2,147.4M edges."
                 ),
-                suites=[],
+                suites=["standard"],
             ),
         ]
 

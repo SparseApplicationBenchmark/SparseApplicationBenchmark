@@ -239,11 +239,11 @@ class MCLGenerator(Generator[MCLDataset]):
             MCLDataset("HB/nos2"),
             MCLDataset("HB/nos3"),
             MCLDataset("HB/dwt_59"),
-            MCLDataset("GAP/GAP-road"),
-            MCLDataset("GAP/GAP-twitter"),
-            MCLDataset("GAP/GAP-web"),
-            MCLDataset("GAP/GAP-kron"),
-            MCLDataset("GAP/GAP-urand"),
+            MCLDataset("GAP/GAP-road", suites=["standard"]),
+            MCLDataset("GAP/GAP-twitter", suites=["standard"]),
+            MCLDataset("GAP/GAP-web", suites=["standard"]),
+            MCLDataset("GAP/GAP-kron", suites=["standard"]),
+            MCLDataset("GAP/GAP-urand", suites=["standard"]),
         ]
 
     def generate(self, dataset: MCLDataset):
