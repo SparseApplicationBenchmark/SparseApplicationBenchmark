@@ -219,7 +219,7 @@ class FourCliqueCountGenerator(Generator[GraphCountingDataset]):
                     "Department 3 email network from the SNAP email-Eu-core"
                     " temporal dataset, with 89 nodes and 1,506 static edges."
                 ),
-                suites=[],
+                suites=["standard"],
             ),
             GraphCountingDataset(
                 name="snap-email-Eu-core-temporal-Dept4",
@@ -228,7 +228,7 @@ class FourCliqueCountGenerator(Generator[GraphCountingDataset]):
                     "Department 4 email network from the SNAP email-Eu-core"
                     " temporal dataset, with 142 nodes and 1,375 static edges."
                 ),
-                suites=[],
+                suites=["standard"],
             ),
             GraphCountingDataset(
                 name="GAP/GAP-road",
