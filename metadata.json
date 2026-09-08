@@ -21232,7 +21232,7 @@
       "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10002950.10003705</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003705.10011686</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software performance</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003624.10003633.10010917</concept_id>\n<concept_desc>Mathematics of computing~Graph algorithms</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003624.10003633.10003640</concept_id>\n<concept_desc>Mathematics of computing~Paths and connectivity problems</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
       "description": "4-clique Counting: A 4-clique must contain 6 edges that connect all 4 vertices. The einsum does the following: for a given vertex i, checks for existence of 3 edges to 3 other vertices, then checks for existence of 3 edges between those 3 vertices. This constitutes a 4-clique. Divide by 24 to avoid overcounting. These methods are implemented using the property that multiplying a graph's adjacency matrix by itself n times yields the number of walks of length n that begin at the vertex denoted by the row label and end at the vertex denoted by the column label.",
       "file": "src/saps/benchmarks/four_clique_counting.py",
-      "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+      "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
       "generators": [
         {
           "ai_disclosure": "Generative AI might have been used to construct tests. This statement was written by hand.",
@@ -21245,7 +21245,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Graph counting input test_4clique_count_complete_k3.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "test_4clique_count_complete_k3",
               "pretty_name": "test_4clique_count_complete_k3",
               "suites": [
@@ -21268,7 +21268,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Graph counting input test_4clique_count_single_k4.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "test_4clique_count_single_k4",
               "pretty_name": "test_4clique_count_single_k4",
               "suites": [
@@ -21291,7 +21291,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Graph counting input test_4clique_count_overlapping.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "test_4clique_count_overlapping",
               "pretty_name": "test_4clique_count_overlapping",
               "suites": [
@@ -21314,7 +21314,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Graph counting input test_4clique_snap_toy.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "test_4clique_snap_toy",
               "pretty_name": "test_4clique_snap_toy",
               "suites": [
@@ -21335,7 +21335,7 @@
           ],
           "description": "Small deterministic 4-clique-count examples.",
           "file": "src/saps/benchmarks/four_clique_counting.py",
-          "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+          "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
           "motivation": "Provide small graph examples for 4-clique-count correctness checks.",
           "name": "four_clique_count_test_inputs",
           "pretty_name": "4-Clique Count Test Input Generator",
@@ -21368,7 +21368,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Department 3 email network from the SNAP email-Eu-core temporal dataset, with 89 nodes and 1,506 static edges.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "snap-email-Eu-core-temporal-Dept3",
               "pretty_name": "SNAP email-Eu-core temporal Dept3",
               "suites": [],
@@ -21386,7 +21386,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Department 4 email network from the SNAP email-Eu-core temporal dataset, with 142 nodes and 1,375 static edges.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "snap-email-Eu-core-temporal-Dept4",
               "pretty_name": "SNAP email-Eu-core temporal Dept4",
               "suites": [],
@@ -21404,7 +21404,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Directed roads with weights in the US, with 23.9M nodes and 58.3M edges.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "GAP/GAP-road",
               "pretty_name": "GAP Road",
               "suites": [
@@ -21425,7 +21425,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Directed weighted social network topology of Twitter, with 61.6M nodes and 1,468.4M edges.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "GAP/GAP-twitter",
               "pretty_name": "GAP Twitter",
               "suites": [
@@ -21446,7 +21446,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "A web-crawl of the .sk domain, directed and weighted, with 50.6M nodes and 1,949.4M edges.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "GAP/GAP-web",
               "pretty_name": "GAP Web",
               "suites": [
@@ -21467,7 +21467,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Symmetric random undirected weighted graph generated by Kronecker synthetic graph generator with parameters (A=0.57, B=C=0.19, D=0.05). Has 134.2M nodes and 2,111.6M edges.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "GAP/GAP-kron",
               "pretty_name": "GAP Kron",
               "suites": [
@@ -21488,7 +21488,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Symmetric random undirected weighted graph generated by Erdos\u2013Reyni model (Uniform Random) with 134.2M nodes and 2,147.4M edges.",
               "file": "src/saps/benchmarks/four_clique_counting.py",
-              "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+              "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
               "name": "GAP/GAP-urand",
               "pretty_name": "GAP Urand",
               "suites": [
@@ -21507,7 +21507,7 @@
           ],
           "description": "Input generator for 4-clique counting benchmarks.",
           "file": "src/saps/benchmarks/four_clique_counting.py",
-          "freshness": "c26c9b6cd5bda68c9b71381156b8c507e148edc122e357e333362c60ee5dfe35",
+          "freshness": "568ac75e4a534104f64902087c32d6d4167bad5c3f1cc09d2e5578e88a82166e",
           "motivation": "Generate sparse graph inputs for 4-clique counting.",
           "name": "four_clique_count_inputs",
           "pretty_name": "4-Clique Count Input Generator",
@@ -75282,7 +75282,7 @@
       "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10002950.10003705</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003705.10011686</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software performance</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003624.10003633.10010917</concept_id>\n<concept_desc>Mathematics of computing~Graph algorithms</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003624.10003633.10003640</concept_id>\n<concept_desc>Mathematics of computing~Paths and connectivity problems</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
       "description": "Iterative transitive reduction on a sparse overlap graph, following the diBELLA reduction step.",
       "file": "src/saps/benchmarks/transitive_reduction.py",
-      "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+      "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to construct the benchmark function.",
@@ -75295,7 +75295,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Small overlap graph with expected transitive reduction output.",
               "file": "src/saps/benchmarks/transitive_reduction.py",
-              "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+              "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
               "name": "remove_long_direct_edge",
               "pretty_name": "Transitive Reduction remove_long_direct_edge",
               "suites": [
@@ -75318,7 +75318,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Small overlap graph with expected transitive reduction output.",
               "file": "src/saps/benchmarks/transitive_reduction.py",
-              "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+              "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
               "name": "keep_short_direct_edge",
               "pretty_name": "Transitive Reduction keep_short_direct_edge",
               "suites": [
@@ -75341,7 +75341,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Small overlap graph with expected transitive reduction output.",
               "file": "src/saps/benchmarks/transitive_reduction.py",
-              "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+              "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
               "name": "keep_when_indirect_is_long",
               "pretty_name": "Transitive Reduction keep_when_indirect_is_long",
               "suites": [
@@ -75364,7 +75364,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Small overlap graph with expected transitive reduction output.",
               "file": "src/saps/benchmarks/transitive_reduction.py",
-              "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+              "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
               "name": "remove_equal_direct_edge",
               "pretty_name": "Transitive Reduction remove_equal_direct_edge",
               "suites": [
@@ -75385,7 +75385,7 @@
           ],
           "description": "Small test graphs with expected reduced edges.",
           "file": "src/saps/benchmarks/transitive_reduction.py",
-          "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+          "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
           "motivation": "",
           "name": "transitive_reduction_test_inputs",
           "pretty_name": "Transitive Reduction Test Inputs",
@@ -75416,7 +75416,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Directed roads with weights in the US, with 23.9M nodes and 58.3M edges.",
               "file": "src/saps/benchmarks/transitive_reduction.py",
-              "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+              "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
               "name": "GAP/GAP-road",
               "pretty_name": "GAP Road",
               "suites": [
@@ -75437,7 +75437,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Directed weighted social network topology of Twitter, with 61.6M nodes and 1,468.4M edges.",
               "file": "src/saps/benchmarks/transitive_reduction.py",
-              "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+              "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
               "name": "GAP/GAP-twitter",
               "pretty_name": "GAP Twitter",
               "suites": [
@@ -75458,7 +75458,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "A web-crawl of the .sk domain, directed and weighted, with 50.6M nodes and 1,949.4M edges.",
               "file": "src/saps/benchmarks/transitive_reduction.py",
-              "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+              "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
               "name": "GAP/GAP-web",
               "pretty_name": "GAP Web",
               "suites": [
@@ -75479,7 +75479,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Symmetric random undirected weighted graph generated by Kronecker synthetic graph generator with parameters (A=0.57, B=C=0.19, D=0.05). Has 134.2M nodes and 2,111.6M edges.",
               "file": "src/saps/benchmarks/transitive_reduction.py",
-              "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+              "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
               "name": "GAP/GAP-kron",
               "pretty_name": "GAP Kron",
               "suites": [
@@ -75500,7 +75500,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Symmetric random undirected weighted graph generated by Erdos\u2013Reyni model (Uniform Random) with 134.2M nodes and 2,147.4M edges.",
               "file": "src/saps/benchmarks/transitive_reduction.py",
-              "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+              "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
               "name": "GAP/GAP-urand",
               "pretty_name": "GAP Urand",
               "suites": [
@@ -75519,7 +75519,7 @@
           ],
           "description": "Input GAP generator for transitive reduction benchmarks.",
           "file": "src/saps/benchmarks/transitive_reduction.py",
-          "freshness": "75a39ace1521e88bde1ed75a427e16edfaa917beaf087751b40d82ffe77eb075",
+          "freshness": "38fe34908ac4216c437837d9d5994facc3665833614531b77a33ca20a3e262c9",
           "motivation": "Generate GAP directed graph inputs for transitive reduction.",
           "name": "transitive_reduction_gap_inputs",
           "pretty_name": "Transitive Reduction GAP Input Generator",
