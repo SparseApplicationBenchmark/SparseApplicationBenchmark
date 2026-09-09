@@ -452,17 +452,17 @@
   "jl_projection_inputs.large": {
     "digest": "de53f1538f822caa3f25bf26176a62723f8e2f1e545bbeca12138919f5b10e8a",
     "file": "src/saps/benchmarks/approx_nn.py",
-    "freshness": "ac44157aeef03e20502f7087a0b49f6dd50f10b72b0a84f569740a45947ffaff"
+    "freshness": "a0b2aad77b1d389f650900cccce5b60aabe65caa7718a475f55e3f396e955b85"
   },
   "jl_projection_inputs.medium": {
     "digest": "219d4ee08de32ad3e2b21d3b1cd2ce8a871f4cf88cf47b03edc97f4b4fae06a5",
     "file": "src/saps/benchmarks/approx_nn.py",
-    "freshness": "ac44157aeef03e20502f7087a0b49f6dd50f10b72b0a84f569740a45947ffaff"
+    "freshness": "a0b2aad77b1d389f650900cccce5b60aabe65caa7718a475f55e3f396e955b85"
   },
   "jl_projection_inputs.small": {
     "digest": "0b5c2b5c62c1a976f6c6d6c01fb21f4337499496614d9e27404a72473565d106",
     "file": "src/saps/benchmarks/approx_nn.py",
-    "freshness": "ac44157aeef03e20502f7087a0b49f6dd50f10b72b0a84f569740a45947ffaff"
+    "freshness": "a0b2aad77b1d389f650900cccce5b60aabe65caa7718a475f55e3f396e955b85"
   },
   "lsqr_inputs.Maragal_5": {
     "digest": "667db072410cc6b3a2e682f5f6d2c7282020cccabb4316ee32c18fef83702942",
@@ -764,6 +764,56 @@
     "file": "src/saps/benchmarks/model_counting.py",
     "freshness": "4f3373add10b15963786786c89193058740eb6f0731934bab8dfc1416e719130"
   },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_1": {
+    "digest": "fb1ca2f871c2355d64f0a8b47f7e8951d2fef4e34c6186c08ba28cf32877b9c1",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_10": {
+    "digest": "764da3188262fb551421830db91cadb2b33e5eed570b6a4f1d733cb8f0e9763b",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_2": {
+    "digest": "6adfdc40649dfb742c1ab4743381b8906d96cca13631ad6ff1a823fbd9be5ff3",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_3": {
+    "digest": "dc182a33cd48be63d4444491fd5d140d83611b832c8bb24aa323e0e8ff166425",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_4": {
+    "digest": "f3860ef1f2d4d80cf067a3820689afb356f813321981080b6ec4e6569867ab60",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_5": {
+    "digest": "5040606bca5f67aed977f1b19a4611861d8964fa74f2221d53a35bd6194331f4",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_6": {
+    "digest": "b596c2196a7f2d728127c46a063678820cb7bb7a0486be0a39154dc11428ad52",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_7": {
+    "digest": "6ece6719f7bf0fbd5bbb596938e3db5cc1f6bb9313eae5b7a94907e05ef33909",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_8": {
+    "digest": "04a13f6c378f1182ec57d314d6257830347cedd10b622a8b8fb77690672dd6b4",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
+  "mccomp_pwmc.track4_pwmc_random_pwmc_9": {
+    "digest": "52653dd0c3edd86eb52d1da18cfbbf70293f46560ff75b90cbe1c0d197ac3dae",
+    "file": "src/saps/benchmarks/weighted_model_counting.py",
+    "freshness": "cb9effd16e6411bcf73028dcff2b7b853c54000f1c9ebfb9996174177ca06161"
+  },
   "mcl_inputs.Trefethen_200": {
     "digest": "7322f87c45f183d5e602b4ecc231b7763e957a4687a0cc521e4d3920ddf69d0e",
     "file": "src/saps/benchmarks/mcl_benchmark.py",
@@ -832,17 +882,27 @@
   "ogb_nodeprop.ogbn_arxiv": {
     "digest": "c1419dcbdce740e034695c823bba9b7683199603200dacf6a16c0be46ae2a817",
     "file": "src/saps/benchmarks/ogb.py",
-    "freshness": "8edbc73f0c4d14a7145ee355841c1022825c12e85cd7e3cfab10c0e073d27e56"
+    "freshness": "0733e4e9dc1683f21e825b8c9f9cbc0e834f2cff58e6ffb654632b613911c170"
   },
   "ogb_nodeprop.ogbn_products": {
     "digest": "83d474bcbf2f0e86d190d0acd27f6d4dbcdbe8247ae1f3be367c5686640d0995",
     "file": "src/saps/benchmarks/ogb.py",
-    "freshness": "8edbc73f0c4d14a7145ee355841c1022825c12e85cd7e3cfab10c0e073d27e56"
+    "freshness": "0733e4e9dc1683f21e825b8c9f9cbc0e834f2cff58e6ffb654632b613911c170"
+  },
+  "ogb_nodeprop.ogbn_proteins": {
+    "digest": "d3e76d3bbc2ce32c8968ce48606c09cb2ecfe0eff5f34ed4ee1c0e5158c5e435",
+    "file": "src/saps/benchmarks/ogb.py",
+    "freshness": "0733e4e9dc1683f21e825b8c9f9cbc0e834f2cff58e6ffb654632b613911c170"
+  },
+  "openml_dataset.cifar10": {
+    "digest": "dac690db71a732d4b1d3c83dae634f969b3dac9df7fa1eaf782f0c8f2427d1ae",
+    "file": "src/saps/benchmarks/openml.py",
+    "freshness": "6187fec122ab7067aebfdfc8b86cc90aa15d6f799e2712e13a1065bdec1ad99d"
   },
   "openml_dataset.mnist": {
     "digest": "daad55a33ba76984ee1899d7da92c31c07a0bbcafb49a937c89fea4924a9eca0",
     "file": "src/saps/benchmarks/openml.py",
-    "freshness": "d0347362e6c4b389b0f64025dd0fabb9a9414c0e14e4faa1565ac8e362cf45ca"
+    "freshness": "6187fec122ab7067aebfdfc8b86cc90aa15d6f799e2712e13a1065bdec1ad99d"
   },
   "pagerank_inputs.snap-ca-GrQc": {
     "digest": "62fa479f8b618cec74a33136fd25bca39f2d35eaae83e3c045cc2935617e2708",
@@ -974,6 +1034,11 @@
     "file": "src/saps/benchmarks/suitesparse.py",
     "freshness": "6cab9fc3cfa9a3e90f4d506ac7be5a3f99f24e2d95ee1f2931b141debbee1b1f"
   },
+  "suitesparse_matrix.GAP/GAP-kron": {
+    "digest": "c7f9367dcf268a3588845a2b010e35db570db7c94d7dbe7e6b8317efd8cf018a",
+    "file": "src/saps/benchmarks/suitesparse.py",
+    "freshness": "8ff096bee8f61e71f9a59501180b90830df772cf4f28535d75124997e9052103"
+  },
   "suitesparse_matrix.GAP/GAP-road": {
     "digest": "2051c4d2a423f51f75ba5bfec9735b7b6151d253f45a0d6eb4211dce46cdd210",
     "file": "src/saps/benchmarks/suitesparse.py",
@@ -981,6 +1046,11 @@
   },
   "suitesparse_matrix.GAP/GAP-twitter": {
     "digest": "3c9857ada20977cc9d0ac7c5b0b2ffd3b38428b6aebd326f2a7c9b2ca48cec26",
+    "file": "src/saps/benchmarks/suitesparse.py",
+    "freshness": "8ff096bee8f61e71f9a59501180b90830df772cf4f28535d75124997e9052103"
+  },
+  "suitesparse_matrix.GAP/GAP-urand": {
+    "digest": "98765b1eb141451daa22b7d2cee49587d9dd5802b2043143cd511d610590b080",
     "file": "src/saps/benchmarks/suitesparse.py",
     "freshness": "8ff096bee8f61e71f9a59501180b90830df772cf4f28535d75124997e9052103"
   },
@@ -1412,21 +1482,21 @@
   "transitive_closure_inputs.snap-ca-GrQc": {
     "digest": "62fa479f8b618cec74a33136fd25bca39f2d35eaae83e3c045cc2935617e2708",
     "file": "src/saps/benchmarks/transitive_closure.py",
-    "freshness": "aef9a6e01fb3b27fdb869b751906827dfc9075b2b44a6fb0cd400e529e3f5cbf"
+    "freshness": "92f36111f835f01c9697774b33912c1a7689d73146e9627412246fde04d8b500"
   },
   "transitive_closure_inputs.snap-email-Eu-core": {
     "digest": "60e8017091422dbe6cecf164079ffd94bd0e35c6a1d39a37e55921c452219ae4",
     "file": "src/saps/benchmarks/transitive_closure.py",
-    "freshness": "aef9a6e01fb3b27fdb869b751906827dfc9075b2b44a6fb0cd400e529e3f5cbf"
+    "freshness": "92f36111f835f01c9697774b33912c1a7689d73146e9627412246fde04d8b500"
   },
   "triangle_count_inputs.snap-ca-GrQc": {
     "digest": "62fa479f8b618cec74a33136fd25bca39f2d35eaae83e3c045cc2935617e2708",
     "file": "src/saps/benchmarks/triangle_counting.py",
-    "freshness": "bac3c05911b1f08b79c1353ea9ef864aac0317770cc9c4d21224eb88ef9816d6"
+    "freshness": "a5e5d5d409213f879df5bf8ec06e38596b28abbea20fe47a69e4f1b6ecc72a5e"
   },
   "triangle_count_inputs.snap-email-Eu-core": {
     "digest": "60e8017091422dbe6cecf164079ffd94bd0e35c6a1d39a37e55921c452219ae4",
     "file": "src/saps/benchmarks/triangle_counting.py",
-    "freshness": "bac3c05911b1f08b79c1353ea9ef864aac0317770cc9c4d21224eb88ef9816d6"
+    "freshness": "a5e5d5d409213f879df5bf8ec06e38596b28abbea20fe47a69e4f1b6ecc72a5e"
   }
 }
