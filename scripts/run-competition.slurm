@@ -15,6 +15,7 @@ if [[ -z "$repo_directory" ]]; then
   script_directory=$(cd -- "$(dirname -- "$0")" && pwd)
   repo_directory=$(cd -- "$script_directory/.." && pwd)
 fi
+repo_directory=$(git -C "$repo_directory" rev-parse --show-toplevel)
 
 export PATH="$HOME/.local/bin:$PATH"
 export AWS_PROFILE="${AWS_PROFILE:-dataset-upload}"

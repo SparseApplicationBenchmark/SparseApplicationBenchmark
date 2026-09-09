@@ -71,6 +71,7 @@ Slurm stdout and stderr logs go to the directory where you submit the job:
 `competition-%A_%a.log`, `upload-%j.log`, `trace-%A_%a.log`, or
 `finalize-metadata-%j.log`. The refresh launcher (`scripts/submit-refresh-jobs.sh`)
 also preserves the directory where you invoked it for all three jobs' logs.
+You can submit the Slurm scripts from the repository root or any subdirectory.
 
 The wrapper submits a 5-task array by default. Each task runs a deterministic
 set of the selected datasets and writes ASV outputs under

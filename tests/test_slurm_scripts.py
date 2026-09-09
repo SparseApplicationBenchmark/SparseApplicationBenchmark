@@ -8,6 +8,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -114,3 +116,56 @@ def test_competition_resume_uses_original_task_directory(tmp_path):
         assert "#SBATCH --output=" in text
         assert "#SBATCH --output=/dev/null" not in text
         assert "exec >" not in text
+
+
+@pytest.mark.parametrize(
+    "script_name,commands",
+    [
+        (
+            "run-competition.slurm",
+            ["run_benchmark.py", "combine_competition_results.py"],
+        ),
+        ("upload-dataset.slurm", ["run_benchmark.py"]),
+        ("trace-statistics.slurm", ["run_benchmark.py"]),
+        ("finalize-metadata.slurm", ["merge_statistics.py", "generate_metadata.py"]),
+    ],
+)
+def test_slurm_submission_from_scripts_directory(tmp_path, script_name, commands):
+    # Slurm runs a copied script, so its own location cannot identify the repo.
+    spooled_script = tmp_path / "slurm_script"
+    shutil.copy(ROOT / "scripts" / script_name, spooled_script)
+    record = tmp_path / "commands"
+    shell_env = tmp_path / "shell-env"
+    shell_env.write_text(
+        "poetry() {\n"
+        '  [[ "$PWD" == "$SAPS_TEST_ROOT" ]] || return 90\n'
+        '  [[ "$1" == run && -f "$2" ]] || return 91\n'
+        '  printf "%s\\n" "$2" >> "$SAPS_TEST_COMMANDS"\n'
+        "}\n"
+    )
+    trace_dir = tmp_path / "trace"
+    trace_dir.mkdir()
+    (trace_dir / "statistics-0.json").write_text("{}")
+    env = {
+        **os.environ,
+        "BASH_ENV": str(shell_env),
+        "SAPS_TEST_ROOT": str(ROOT),
+        "SAPS_TEST_COMMANDS": str(record),
+        "SLURM_SUBMIT_DIR": str(ROOT / "scripts"),
+        "SLURM_ARRAY_JOB_ID": "12345",
+        "SLURM_ARRAY_TASK_ID": "0",
+        "SLURM_ARRAY_TASK_COUNT": "5",
+        "SAPS_TRACE_CHUNK_COUNT": "1",
+        "SAPS_TRACE_OUTPUT_DIR": str(trace_dir),
+    }
+    env.pop("SAPS_REPO_DIRECTORY", None)
+    env.pop("SAPS_COMPETITION_ARGS", None)
+    subprocess.run(
+        ["bash", str(spooled_script)],
+        cwd=ROOT / "scripts",
+        env=env,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert record.read_text().splitlines() == [f"./bin/{name}" for name in commands]
