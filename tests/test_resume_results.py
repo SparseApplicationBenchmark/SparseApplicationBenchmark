@@ -158,3 +158,79 @@ def test_resume_merges_results_per_environment_and_skips_completed_runs(
     for env in environments:
         env.install_project.assert_not_called()
     assert saved == {path: path.read_bytes() for path in tmp_path.rglob("*.json")}
+
+
+@pytest.mark.parametrize("chunk_index", range(5))
+def test_competition_selects_jl_datasets_without_machine_prompts(
+    runner, monkeypatch, tmp_path, chunk_index
+):
+    import json
+    import sys
+
+    root = Path(runner.__file__).resolve().parents[1]
+    metadata = json.loads((root / "metadata.json").read_text())["benchmarks"]
+    benchmark = next(item for item in metadata if item["name"] == "jl_approx_nn")
+    params = [
+        dataset["asv_param"]
+        for generator in benchmark["generators"]
+        for dataset in generator["datasets"]
+    ]
+    name = benchmark["asv_ids"]["time"]
+    monkeypatch.setattr(
+        runner.Benchmarks,
+        "discover",
+        lambda conf, **kwargs: runner.Benchmarks(
+            conf, [{"name": name, "params": [params]}]
+        ),
+    )
+    monkeypatch.setattr(runner, "get_environments", lambda *args: [object()])
+    monkeypatch.setattr(
+        runner,
+        "get_repo",
+        lambda conf: SimpleNamespace(
+            get_hash_from_name=lambda name: "abcdef123456", get_date=lambda commit: 0
+        ),
+    )
+    machine_load = Mock(side_effect=AssertionError("Must not register a machine"))
+    monkeypatch.setattr(runner.Machine, "load", machine_load)
+    monkeypatch.setattr(
+        runner.Machine, "get_defaults", lambda: {"machine": "host", "cpu": "test"}
+    )
+    execute = Mock(return_value=0)
+    monkeypatch.setattr(runner, "_run_asv_benchmarks", execute)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "run_benchmark.py",
+            "--config",
+            str(root / "competition.config.json"),
+            "--saps-dir",
+            str(tmp_path),
+            "--env-dir",
+            str(tmp_path / "env"),
+            "--results-dir",
+            str(tmp_path / "results"),
+            "--machine",
+            "run_12345-task-0",
+            "--chunk-count",
+            "5",
+            "--chunk-index",
+            str(chunk_index),
+        ],
+    )
+
+    assert runner.main() == 0
+    kwargs = execute.call_args.kwargs
+    selected = kwargs["benchmarks"]
+    actual = [params[index] for index in selected.benchmark_selection.get(name, [])]
+    assert (
+        actual
+        == [
+            "jl_projection_inputs.small",
+            "jl_projection_inputs.medium",
+            "jl_projection_inputs.large",
+        ][chunk_index::5]
+    )
+    assert kwargs["machine_params"].machine == "run_12345-task-0"
+    machine_load.assert_not_called()

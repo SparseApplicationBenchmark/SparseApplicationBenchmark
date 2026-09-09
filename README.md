@@ -55,7 +55,6 @@ set of dependencies:
 ```bash
 poetry run ./bin/run_benchmark.py \
   --config competition.config.json \
-  --tag standard \
   --metrics time peakmem
 ```
 
@@ -63,7 +62,7 @@ On Slurm, use the wrapper script:
 
 ```bash
 sbatch scripts/run-competition.slurm
-SAPS_COMPETITION_ARGS="--tag standard --metrics time peakmem" \
+SAPS_COMPETITION_ARGS="--metrics time peakmem" \
   sbatch scripts/run-competition.slurm
 ```
 
@@ -73,7 +72,8 @@ Slurm stdout and stderr logs go to the directory where you submit the job:
 also preserves the directory where you invoked it for all three jobs' logs.
 You can submit the Slurm scripts from the repository root or any subdirectory.
 
-The wrapper submits a 5-task array by default. Each task runs a deterministic
+The competition config selects the three JL projection datasets. The wrapper
+submits a 5-task array by default, so two tasks have no datasets. Each task runs a deterministic
 set of the selected datasets and writes ASV outputs under
 `competition/run_<slurm-array-job-id>/task_<task-index>/`. Per-task combined
 results are written to

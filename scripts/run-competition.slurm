@@ -50,8 +50,6 @@ benchmark_args=(
   --remote-storage-bucket "$REMOTE_STORAGE_BUCKET"
   --chunk-count "$task_count"
   --chunk-index "$task_index"
-  --tag standard
-  --re "jl_projection_inputs"
 )
 
 if [[ -n "${SAPS_COMPETITION_ARGS:-}" ]]; then

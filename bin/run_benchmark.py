@@ -550,19 +550,9 @@ def main() -> int:
                 env_nobuild["SAPS_FRAMEWORK"]
             )
 
-    # ASV normally reads and rewrites ~/.asv-machine.json.  Concurrent Slurm
-    # array tasks can observe that file while another task has truncated it.
-    # Give each runner process private transient machine state instead.
-    machine_state_path = machine_files_dir / "asv-machine.json"
-    try:
-        machine_params = Machine.load(
-            machine_name=args.machine,
-            interactive=True,
-            use_defaults=True,
-            _path=str(machine_state_path),
-        )
-    finally:
-        machine_state_path.unlink(missing_ok=True)
+    # Read host details without ASV's interactive, shared machine registry.
+    machine_params = Machine()
+    machine_params.__dict__.update(Machine.get_defaults())
     if args.machine is not None:
         machine_params.machine = args.machine
 
@@ -624,6 +614,11 @@ def main() -> int:
     metadata = _filter_metadata(
         _load_metadata(persistent_metadata_path), dataset_predicate
     )
+    if not metadata:
+        log.warning(
+            f"No datasets match filters: tag={args.tag}, no_tag={args.no_tag}, "
+            f"re={args.re}, no_re={args.no_re}"
+        )
     trace_had_selected_datasets = bool(metadata)
     if args.trace_statistics:
         statistics = (
