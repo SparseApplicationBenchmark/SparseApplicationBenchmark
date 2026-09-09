@@ -167,6 +167,8 @@ def test_competition_selects_jl_datasets_without_machine_prompts(
     import json
     import sys
 
+    from saps.benchmarks.approx_nn import JLApproxNNGenerator
+
     root = Path(runner.__file__).resolve().parents[1]
     metadata = json.loads((root / "metadata.json").read_text())["benchmarks"]
     benchmark = next(item for item in metadata if item["name"] == "jl_approx_nn")
@@ -183,7 +185,20 @@ def test_competition_selects_jl_datasets_without_machine_prompts(
             conf, [{"name": name, "params": [params]}]
         ),
     )
-    monkeypatch.setattr(runner, "get_environments", lambda *args: [object()])
+
+    def get_environments(conf, *args):
+        for include in conf.include:
+            # ASV runs setup in a temporary working directory.
+            with monkeypatch.context() as worker:
+                worker.setenv(
+                    "SAPS_REPO_ROOT", include["env_nobuild"]["SAPS_REPO_ROOT"]
+                )
+                worker.chdir(tmp_path)
+                for dataset in JLApproxNNGenerator().datasets:
+                    assert dataset.file == "src/saps/benchmarks/approx_nn.py"
+        return [object()]
+
+    monkeypatch.setattr(runner, "get_environments", get_environments)
     monkeypatch.setattr(
         runner,
         "get_repo",

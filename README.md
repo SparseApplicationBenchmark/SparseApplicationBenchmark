@@ -73,8 +73,8 @@ also preserves the directory where you invoked it for all three jobs' logs.
 You can submit the Slurm scripts from the repository root or any subdirectory.
 
 The competition config selects the three JL projection datasets. The wrapper
-submits a 5-task array by default, so two tasks have no datasets. Each task runs a deterministic
-set of the selected datasets and writes ASV outputs under
+submits a 5-task array by default, so two tasks have no datasets. Each task runs a
+deterministic set of the selected datasets and writes ASV outputs under
 `competition/run_<slurm-array-job-id>/task_<task-index>/`. Per-task combined
 results are written to
 `competition/results_<slurm-array-job-id>_task_<task-index>.json`. To combine

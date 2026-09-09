@@ -545,10 +545,9 @@ def main() -> int:
         conf.matrix.get("env_nobuild", {}),
         *(include.get("env_nobuild", {}) for include in conf.include),
     ]:
-        if "SAPS_FRAMEWORK" in env_nobuild:
-            env_nobuild["SAPS_FRAMEWORK"] = _resolve_path_values(
-                env_nobuild["SAPS_FRAMEWORK"]
-            )
+        for key in ("SAPS_FRAMEWORK", "SAPS_REPO_ROOT"):
+            if key in env_nobuild:
+                env_nobuild[key] = _resolve_path_values(env_nobuild[key])
 
     # Read host details without ASV's interactive, shared machine registry.
     machine_params = Machine()
