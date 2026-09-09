@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from tempfile import TemporaryDirectory
 from typing import Any
 from uuid import uuid4
 
@@ -211,11 +212,13 @@ def _fetch_openml(data_id: int):
     _openml._download_data_to_bunch = download_with_cache_buster
     _openml.urlopen = urlopen_without_compression
     try:
-        return _openml.fetch_openml(
-            data_id=data_id,
-            as_frame=False,
-            parser="auto",
-        )
+        with TemporaryDirectory() as data_home:
+            return _openml.fetch_openml(
+                data_id=data_id,
+                data_home=data_home,
+                as_frame=False,
+                parser="auto",
+            )
     finally:
         _openml._download_data_to_bunch = original_download
         _openml.urlopen = original_urlopen

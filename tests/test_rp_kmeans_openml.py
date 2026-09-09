@@ -1,3 +1,4 @@
+from pathlib import Path
 from types import SimpleNamespace
 
 import numpy as np
@@ -65,6 +66,7 @@ def test_fetch_openml_cache_busts_dataset_download_without_compression(monkeypat
         headers.append(dict(request.header_items()))
 
     def fake_fetch_openml(**kwargs):
+        assert Path(kwargs["data_home"]).is_dir()
         _openml._download_data_to_bunch("https://openml.org/data/v1/download/1")
         return kwargs
 
@@ -75,6 +77,7 @@ def test_fetch_openml_cache_busts_dataset_download_without_compression(monkeypat
     result = _fetch_openml(40927)
 
     assert result["data_id"] == 40927
+    assert not Path(result["data_home"]).exists()
     assert urls[0].startswith("https://openml.org/data/v1/download/1?nocache=")
     assert headers == [{"Accept-encoding": "identity"}]
     assert _openml._download_data_to_bunch is fake_download
