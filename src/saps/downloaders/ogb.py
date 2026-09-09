@@ -55,21 +55,25 @@ def load_ogb_nodeprop_dataset(
     processed_path = dataset_dir / "processed" / "data_processed"
     raw_graph_path = dataset_dir / "raw" / "edge.csv.gz"
     needs_download = not processed_path.exists() and not raw_graph_path.exists()
-    auto_accept_download = name == "ogbn-products" and needs_download
     # PyTorch 2.6 rejects OGB's NumPy-based processed cache by default.
     torch_cache_variable = "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"
     previous_torch_cache_value = os.environ.get(torch_cache_variable)
     using_processed_cache = processed_path.exists()
     if using_processed_cache:
         os.environ[torch_cache_variable] = "1"
-    # OGB prompts before downloading Products.
+    # OGB prompts before large downloads.
     original_decide_download = ogb_dataset_module.decide_download
-    if auto_accept_download:
+    original_download_url = ogb_dataset_module.download_url
+    if needs_download:
         ogb_dataset_module.decide_download = lambda _url: True
+        ogb_dataset_module.download_url = lambda url, folder: original_download_url(
+            url.replace("http://", "https://", 1), folder
+        )
     try:
         dataset = NodePropPredDataset(name=name, root=str(root))
     finally:
         ogb_dataset_module.decide_download = original_decide_download
+        ogb_dataset_module.download_url = original_download_url
         if using_processed_cache:
             if previous_torch_cache_value is None:
                 os.environ.pop(torch_cache_variable, None)
