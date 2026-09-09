@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import Any
+from uuid import uuid4
 
 import numpy as np
 
@@ -186,17 +187,29 @@ class OpenMLDatasetGenerator(Generator[OpenMLDataset]):
 
 def _fetch_openml(data_id: int):
     try:
-        from sklearn.datasets import fetch_openml
+        from sklearn.datasets import _openml
     except ImportError as exc:
         raise RuntimeError(
             "OpenML-backed benchmarks require scikit-learn to fetch datasets."
         ) from exc
 
-    return fetch_openml(
-        data_id=data_id,
-        as_frame=False,
-        parser="auto",
-    )
+    original_download = _openml._download_data_to_bunch
+
+    def download_with_cache_buster(url: str, *args: Any, **kwargs: Any):
+        separator = "&" if "?" in url else "?"
+        return original_download(
+            f"{url}{separator}nocache={uuid4().hex}", *args, **kwargs
+        )
+
+    _openml._download_data_to_bunch = download_with_cache_buster
+    try:
+        return _openml.fetch_openml(
+            data_id=data_id,
+            as_frame=False,
+            parser="auto",
+        )
+    finally:
+        _openml._download_data_to_bunch = original_download
 
 
 class OpenMLDatasetBenchmark(ShellBenchmark):

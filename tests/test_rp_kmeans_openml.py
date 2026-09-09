@@ -9,6 +9,7 @@ from saps.benchmark import DataInstance
 from saps.benchmarks.openml import (
     OpenMLDatasetBenchmark,
     OpenMLDatasetGenerator,
+    _fetch_openml,
     fetch_openml_features,
 )
 from saps.benchmarks.rp_kmeans_clustering import (
@@ -46,6 +47,28 @@ def test_openml_shell_generator_scales_features_and_records_shape(monkeypatch):
     assert instance.meta["fetched_version"] == 1
     assert instance.meta["num_rows"] == 2
     assert instance.meta["num_features"] == 2
+
+
+def test_fetch_openml_cache_busts_dataset_download(monkeypatch):
+    from sklearn.datasets import _openml
+
+    urls = []
+
+    def fake_download(url, *args, **kwargs):
+        urls.append(url)
+
+    def fake_fetch_openml(**kwargs):
+        _openml._download_data_to_bunch("https://openml.org/data/v1/download/1")
+        return kwargs
+
+    monkeypatch.setattr(_openml, "_download_data_to_bunch", fake_download)
+    monkeypatch.setattr(_openml, "fetch_openml", fake_fetch_openml)
+
+    result = _fetch_openml(40927)
+
+    assert result["data_id"] == 40927
+    assert urls[0].startswith("https://openml.org/data/v1/download/1?nocache=")
+    assert _openml._download_data_to_bunch is fake_download
 
 
 def test_fetch_openml_features_uses_shared_cache(monkeypatch):
