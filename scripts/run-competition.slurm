@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=saps-competition
 #SBATCH --nodes=1
-#SBATCH --mem=250G
+#SBATCH --cpus-per-task=16
+#SBATCH --exclusive
+#SBATCH --mem=128G
 #SBATCH --time=1:00:00
 #SBATCH --array=0-4
 #SBATCH --output=/dev/null
