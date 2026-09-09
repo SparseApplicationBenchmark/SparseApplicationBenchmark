@@ -194,6 +194,7 @@ def _fetch_openml(data_id: int):
         ) from exc
 
     original_download = _openml._download_data_to_bunch
+    original_urlopen = _openml.urlopen
 
     def download_with_cache_buster(url: str, *args: Any, **kwargs: Any):
         separator = "&" if "?" in url else "?"
@@ -201,7 +202,14 @@ def _fetch_openml(data_id: int):
             f"{url}{separator}nocache={uuid4().hex}", *args, **kwargs
         )
 
+    def urlopen_without_compression(request: Any, *args: Any, **kwargs: Any):
+        if "nocache=" in request.full_url:
+            request.remove_header("Accept-encoding")
+            request.add_header("Accept-encoding", "identity")
+        return original_urlopen(request, *args, **kwargs)
+
     _openml._download_data_to_bunch = download_with_cache_buster
+    _openml.urlopen = urlopen_without_compression
     try:
         return _openml.fetch_openml(
             data_id=data_id,
@@ -210,6 +218,7 @@ def _fetch_openml(data_id: int):
         )
     finally:
         _openml._download_data_to_bunch = original_download
+        _openml.urlopen = original_urlopen
 
 
 class OpenMLDatasetBenchmark(ShellBenchmark):

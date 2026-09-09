@@ -49,26 +49,36 @@ def test_openml_shell_generator_scales_features_and_records_shape(monkeypatch):
     assert instance.meta["num_features"] == 2
 
 
-def test_fetch_openml_cache_busts_dataset_download(monkeypatch):
+def test_fetch_openml_cache_busts_dataset_download_without_compression(monkeypatch):
     from sklearn.datasets import _openml
 
     urls = []
+    headers = []
 
     def fake_download(url, *args, **kwargs):
         urls.append(url)
+        request = _openml.Request(url)
+        request.add_header("Accept-encoding", "gzip")
+        _openml.urlopen(request)
+
+    def fake_urlopen(request, *args, **kwargs):
+        headers.append(dict(request.header_items()))
 
     def fake_fetch_openml(**kwargs):
         _openml._download_data_to_bunch("https://openml.org/data/v1/download/1")
         return kwargs
 
     monkeypatch.setattr(_openml, "_download_data_to_bunch", fake_download)
+    monkeypatch.setattr(_openml, "urlopen", fake_urlopen)
     monkeypatch.setattr(_openml, "fetch_openml", fake_fetch_openml)
 
     result = _fetch_openml(40927)
 
     assert result["data_id"] == 40927
     assert urls[0].startswith("https://openml.org/data/v1/download/1?nocache=")
+    assert headers == [{"Accept-encoding": "identity"}]
     assert _openml._download_data_to_bunch is fake_download
+    assert _openml.urlopen is fake_urlopen
 
 
 def test_fetch_openml_features_uses_shared_cache(monkeypatch):
