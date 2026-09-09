@@ -3,6 +3,7 @@
   "environment_type": "virtualenv",
   "install_command": ["in-dir={env_dir} python -mpip install {build_dir} --force-reinstall"],
   "timeout": 100,
+  "resume": true,
   "metrics": ["time"],
   "tag": ["test"],
   "re": ["^test_bfs_single_node$"],

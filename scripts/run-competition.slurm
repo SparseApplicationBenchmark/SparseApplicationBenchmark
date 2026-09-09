@@ -4,7 +4,7 @@
 #SBATCH --mem=250G
 #SBATCH --time=1:00:00
 #SBATCH --array=0-4
-#SBATCH --output=/dev/null
+#SBATCH --output=competition-%A_%a.log
 
 set -euo pipefail
 
@@ -25,13 +25,21 @@ job_id="${SLURM_ARRAY_JOB_ID:-${SLURM_JOB_ID:-local}}"
 task_index="${SLURM_ARRAY_TASK_ID:-0}"
 task_count="${SLURM_ARRAY_TASK_COUNT:-1}"
 competition_directory="$repo_directory/competition"
-competition_run_directory="$competition_directory/run_$job_id/task_$task_index"
-combined_results="$competition_directory/results_${job_id}_task_$task_index.json"
-
-mkdir -p "$competition_run_directory/logs"
-exec > >(tee -a "$competition_run_directory/logs/competition-$job_id-$task_index.log") 2>&1
+competition_run_root="$competition_directory/run_$job_id"
+if (( $# > 0 )); then
+  if (( $# != 2 )) || [[ "$1" != "--resume" ]]; then
+    echo "usage: sbatch $0 [--resume RUN_DIRECTORY]" >&2
+    exit 2
+  fi
+  competition_run_root=$(cd -- "$2" && pwd -P)
+fi
+run_name="${competition_run_root##*/}"
+competition_run_directory="$competition_run_root/task_$task_index"
+combined_results="${competition_run_root%/*}/results_${run_name#run_}_task_$task_index.json"
 
 benchmark_args=(
+  --resume
+  --machine "$run_name-task-$task_index"
   --saps-dir "$competition_run_directory"
   --env-dir "$competition_run_directory/env"
   --results-dir "$competition_run_directory/results"

@@ -67,7 +67,12 @@ SAPS_COMPETITION_ARGS="--tag standard --metrics time peakmem" \
   sbatch scripts/run-competition.slurm
 ```
 
-The wrapper submits a 64-task array by default. Each task runs a deterministic
+Slurm stdout and stderr logs go to the directory where you submit the job:
+`competition-%A_%a.log`, `upload-%j.log`, `trace-%A_%a.log`, or
+`finalize-metadata-%j.log`. The refresh launcher (`scripts/submit-refresh-jobs.sh`)
+also preserves the directory where you invoked it for all three jobs' logs.
+
+The wrapper submits a 5-task array by default. Each task runs a deterministic
 set of the selected datasets and writes ASV outputs under
 `competition/run_<slurm-array-job-id>/task_<task-index>/`. Per-task combined
 results are written to
@@ -79,6 +84,21 @@ poetry run ./bin/combine_competition_results.py \
   --run-directory competition/run_12345 \
   --output competition/results_12345.json
 ```
+
+Competition runs filter out dataset/metric entries that already have saved
+results for each environment. To continue a Slurm run, submit the same array shape
+and configuration with its existing run directory:
+
+```bash
+sbatch --array=0-4 scripts/run-competition.slurm --resume competition/run_12345
+```
+
+Only missing or null results run again. Results are saved after each environment;
+work interrupted before it was saved runs again. New jobs use their own
+submission-directory logs while continuing results in the original run directory.
+For direct runner use, pass `--resume` with the same `--results-dir` and `--machine`.
+The competition config enables this automatically. Results from another commit,
+environment, or benchmark version are not reused.
 
 ## Configuration
 

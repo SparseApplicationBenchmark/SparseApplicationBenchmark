@@ -67,14 +67,10 @@ def _run_asv_benchmarks(
     results_dir=None,
     print_results=False,
     launch_method=None,
+    resume=False,
 ):
     failed = 0
     for env in environments:
-        Setup.perform_setup([env], parallel=1)
-        if install_project is not None:
-            conf, repo = install_project
-            env.install_project(conf, repo, commit_hash)
-
         params = dict(machine_params.__dict__)
         params["python"] = env.python
         params.update(env.requirements)
@@ -89,8 +85,20 @@ def _run_asv_benchmarks(
             env_vars=env.env_vars,
         )
 
+        selected_benchmarks = benchmarks
+        if resume:
+            results.load_data(results_dir)
+            selected_benchmarks = _filter_missing_results(benchmarks, results)
+        if not selected_benchmarks:
+            continue
+
+        Setup.perform_setup([env], parallel=1)
+        if install_project is not None:
+            conf, repo = install_project
+            env.install_project(conf, repo, commit_hash)
+
         run_benchmarks(
-            benchmarks=benchmarks,
+            benchmarks=selected_benchmarks,
             env=env,
             results=results,
             show_stderr=show_stderr,
@@ -137,6 +145,22 @@ def _filter_metadata(metadata: list[dict], dataset_predicate) -> list[dict]:
         if generators:
             filtered.append({**benchmark, "generators": generators})
     return filtered
+
+
+def _filter_missing_results(benchmarks: Benchmarks, results: Results) -> Benchmarks:
+    filtered = benchmarks.filter_out(set())
+    skips = set()
+    for name in results.get_result_keys(benchmarks):
+        values = results.get_result_value(name, benchmarks[name]["params"])
+        selected = benchmarks.benchmark_selection[name]
+        if selected is None:
+            selected = range(len(values))
+        missing = [index for index in selected if values[index] is None]
+        if missing:
+            filtered._benchmark_selection[name] = missing
+        else:
+            skips.add(name)
+    return filtered.filter_out(skips)
 
 
 def _metadata_to_asv_benchmarks(
@@ -225,6 +249,11 @@ def main() -> int:
         "--results-dir",
         default=None,
         help="Directory where ASV writes benchmark results",
+    )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Run only dataset/metric entries missing from saved results.",
     )
     parser.add_argument(
         "--re",
@@ -534,6 +563,8 @@ def main() -> int:
         )
     finally:
         machine_state_path.unlink(missing_ok=True)
+    if args.machine is not None:
+        machine_params.machine = args.machine
 
     # Normal benchmark runs retain the conventional machine metadata.  Cache
     # and trace workers only need it in memory and may execute concurrently.
@@ -743,7 +774,7 @@ def main() -> int:
     print(f"Discovered {len(benchmarks)} benchmark entries")
     print(f"Using timeout: {timeout} seconds")
 
-    _run_asv_benchmarks(
+    failed = _run_asv_benchmarks(
         benchmarks=benchmarks,
         environments=environments,
         machine_params=machine_params,
@@ -755,8 +786,9 @@ def main() -> int:
         install_project=(conf, repo),
         results_dir=results_dir,
         print_results=True,
+        resume=args.resume,
     )
-    return 0
+    return 0 if failed == 0 else 1
 
 
 if __name__ == "__main__":
