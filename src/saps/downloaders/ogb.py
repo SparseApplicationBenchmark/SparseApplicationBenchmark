@@ -34,7 +34,6 @@ def load_ogb_nodeprop_dataset(
     name: str,
     *,
     data_dir: str | Path | None = None,
-    allow_large_download: bool | None = None,
 ) -> OGBNodePropData:
     """Download (if needed) and prepare a homogeneous OGB node dataset.
 
@@ -56,17 +55,6 @@ def load_ogb_nodeprop_dataset(
     processed_path = dataset_dir / "processed" / "data_processed"
     raw_graph_path = dataset_dir / "raw" / "edge.csv.gz"
     needs_download = not processed_path.exists() and not raw_graph_path.exists()
-    if (
-        name == "ogbn-products"
-        and needs_download
-        and not _allow_large_download(allow_large_download)
-    ):
-        raise RuntimeError(
-            "Downloading ogbn-products requires more than 1 GB and OGB normally "
-            "prompts for confirmation. Set SAPS_ALLOW_LARGE_DOWNLOADS=1 or pass "
-            "allow_large_download=True to permit the noninteractive download."
-        )
-
     auto_accept_download = name == "ogbn-products" and needs_download
     # PyTorch 2.6 rejects OGB's NumPy-based processed cache by default.
     torch_cache_variable = "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"
@@ -247,16 +235,6 @@ def _node_features(
     degree = np.bincount(targets, minlength=num_nodes).astype(np.float32)
     np.divide(features, degree[:, None], out=features, where=degree[:, None] != 0)
     return features, "mean_edge_feat"
-
-
-def _allow_large_download(explicit: bool | None) -> bool:
-    if explicit is not None:
-        return explicit
-    return os.environ.get("SAPS_ALLOW_LARGE_DOWNLOADS", "").lower() in {
-        "1",
-        "true",
-        "yes",
-    }
 
 
 def _default_data_dir() -> Path:
