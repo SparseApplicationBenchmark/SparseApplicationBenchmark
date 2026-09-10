@@ -151,9 +151,9 @@ def _phase1(xp, A, b, max_iter, tol=1e-9):
 
     basis, Binv, xB, status, _ = _run_pivots(xp, A_aug, b, c_aug, basis, Binv, max_iter)
     if status == "continue":
-    # Phase 1 ran out of iterations, so nothing has been learned about
-    # feasibility yet. Falling through to the test below would report a
-    # budget that was too small as a property of the problem.
+        # Phase 1 ran out of iterations, so nothing has been learned about
+        # feasibility yet. Falling through to the test below would report a
+        # budget that was too small as a property of the problem.
         return None, None, "iteration_limit"
 
     onehot_basis = _onehot_rows(xp, basis, n + m)
