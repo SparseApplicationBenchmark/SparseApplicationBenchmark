@@ -1268,4 +1268,1651 @@ INFO:root:GMRES.GMRESBenchmark.time_gmres
    ================================================= ============
 INFO:root:...nford.BellmanFordBenchmark.time_bellman_ford
 
-·· ...nford.BellmanFordBenchmark.time_bellman_ford
+·· ...nford.BellmanFordBenchmark.time_bellman_ford       2/330 failedINFO:root:============================================================== ========
+                           dataset                                     
+-------------------------------------------------------------- --------
+   bellman_ford_test_inputs.test_bellman_ford_tribes_src_0       n/a   
+ bellman_ford_test_inputs.test_bellman_ford_chesapeake_src_0     n/a   
+ bellman_ford_test_inputs.test_bellman_ford_chesapeake_src_10    n/a   
+ bellman_ford_test_inputs.test_bellman_ford_chesapeake_src_38    n/a   
+     bellman_ford_test_inputs.test_bellman_ford_snap_toy         n/a   
+    bellman_ford_inputs.snap-email-Eu-core-temporal-Dept3        n/a   
+    bellman_ford_inputs.snap-email-Eu-core-temporal-Dept4        n/a   
+    bellman_ford_inputs.snap-email-Eu-core-temporal-Dept2        n/a   
+    bellman_ford_inputs.snap-email-Eu-core-temporal-Dept1        n/a   
+            bellman_ford_inputs.snap-email-Eu-core               n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_4795720            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_21003853            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_417968             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_6496511            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_6648699            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_9811073            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_22247478            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_5720252            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_12366459            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_20413729            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_4217374            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_2674749            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_22085557            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_19445040            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_2360788            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_19115968            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_7758767            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_13468234            n/a   
+          bellman_ford_gap_inputs.GAP/GAP-road_30367             n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_18599547            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_7526108            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_16836280            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_12742067            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_7697995            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_5876443            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_9616340            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_2497673            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_10052290            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_12493057            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_1670855            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_2760679            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_2460941            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_8489650            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_5005225            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_8744645            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_8512023            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_21912165            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_1105390            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_15432163            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_1600177            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_19079469            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_16516637            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_20202566            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_21372803            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_2898009            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_8491277            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_18798317            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_23757560            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_17161819            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_23180739            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_10997085            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_3730630            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_1079068            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_15426822            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_12190925            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_1155218            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_10693488            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_14434835            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_19963339            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_3486185            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_18383269            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_20269908            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-road_12370764            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-road_7843140            n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_12441072          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_54488257          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_25451915          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_57714473          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_14839494          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_32081104          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_52957357          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_50444380          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_49590701          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_20127816          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_34939333          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_48251001          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_19524253          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_43676726          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_33055508          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_15244687          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_24946738          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_6479472           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_26077682          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_22023875          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_22081915          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_40034162          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_49496014          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_42847507          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_52409557          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_55445388          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_22028097          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_48766648          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_44521241          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_60135542          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_28528671          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_9678012           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_40020306          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_31625735          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_37446892          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_51788952          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_52584255          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_20346696          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_48387909          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_37337427          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_50501084          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_30130061          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_41185893          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_56495703          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_45663305          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_33359460          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_48143058          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_33291513          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_53461445         failed 
+       bellman_ford_gap_inputs.GAP/GAP-twitter_29340610          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_34148498          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_49171806          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_35550696          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_14521507          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_51633218          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_46823382          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_19396273          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_19871750          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_36862677          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_49539126          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_34016452          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_36567395          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_55487793          n/a   
+       bellman_ford_gap_inputs.GAP/GAP-twitter_14391370          n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_10219452            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_44758211            n/a   
+          bellman_ford_gap_inputs.GAP/GAP-web_890671             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_13843756            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_14168062            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_20906930            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_12189584            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_26352335            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_43500686            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_8987024             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_5699762             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_41436455            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_5030727             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_40735218            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_16533563            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_28700166            n/a   
+          bellman_ford_gap_inputs.GAP/GAP-web_64711              n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_39634750            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_16037779            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_27152739            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_16404061            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_20491963            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_5322423             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_21420953            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_26622109            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_5882875             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_18091040            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_10665896            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_18634422            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_18138715            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_2355535             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_32885205            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_40657440            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_35196167            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_45544426            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_6175519             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_40058318            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_50626230            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_36571019            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_49397052            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_23434265            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_2299444             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_32873823            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_25978282            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_2461715             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_22787314            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_30759947            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_7428894             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_39173870            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_43194209            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_26361509            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_39747211            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_30670029            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_41483033            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_9358666             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_9945008             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_3355244             n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_33831269            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_45124744            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_16137877            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_11235448            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_37509144            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_27402414            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-web_39546083            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_2338012            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_31997659            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_23590940            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_43400604            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_75337937            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_169867             n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_104041220           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_94177942            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_32871357            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_56230002            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_69883037            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_9346345            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_48915358            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_122571173           n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_6183279            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_86323663            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_106725780           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_92389938            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_16210738            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_59816700            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_111669929           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_102831411           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_113384800           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_43872564            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_80508827            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_26105648            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_8807516            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_118452455           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_121818859           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_42361928            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_29493053            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_98461503            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_71931337            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_103808468           n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_4092345            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_115276241           n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_4649343            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_76656189            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_31312001            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_111334127           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_100962918           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_41823215            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_22631240            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_42848461            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_79485148            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_106818742           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_73347974            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_78848445            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_109920510          failed 
+        bellman_ford_gap_inputs.GAP/GAP-kron_121492133           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_101037296           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_15438600            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_4584784            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_124503845           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_87241743            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_108297008           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_33955082            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_79934823            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_8608481            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_82435063            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_46579271            n/a   
+         bellman_ford_gap_inputs.GAP/GAP-kron_515421             n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_121530467           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-kron_127978736           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_27691419           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_121280314           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_2413431            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_37512113           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_38390877           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_56651037           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_128461248           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_33029842           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_71406328           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_117872827           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_24351938           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_15444519           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_127526281           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_112279428           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_13631649           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_110379302           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_44800623           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_77768193           n/a   
+         bellman_ford_gap_inputs.GAP/GAP-urand_175347            n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_107397389           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_43457209           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_97215940           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_73575165           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_44449715           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_33931724           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_55526610           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_14422051           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_58043873           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_72137329           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_9647840            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_15940695           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_14209952           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_49020883           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_28901138           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_50493273           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_49150069           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_126525082           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_6382740            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_89108297           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_9239735            n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_110168548           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_95370259           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_116653530           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_123410703           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_16733665           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_49030282           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_108545121           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_99095665           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_133850077           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_63499301           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_21541382           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_6230751            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_89077456           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_70392765           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_6670455            n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_61746271           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_83349535           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_115272184           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_20129908           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_106148553           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_117042375           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_71431187           n/a   
+        bellman_ford_gap_inputs.GAP/GAP-urand_45287808           n/a   
+       bellman_ford_gap_inputs.GAP/GAP-urand_107702120           n/a   
+============================================================== ========
+For parameters: bellman_ford_gap_inputs.GAP/GAP-twitter_53461445
+INFO root: Dataset suitesparse_matrix.GAP/GAP-twitter found in cache.
+Traceback (most recent call last):
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/server.py", line 179, in _run_server
+    _run(run_args)
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/run.py", line 66, in _run
+    skip = benchmark.do_setup()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/time.py", line 121, in do_setup
+    result = Benchmark.do_setup(self)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 723, in do_setup
+    setup(*self._build_params())
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/saps/benchmark.py", line 402, in setup
+    param.generator.cached_generate(param.dataset)
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/saps/benchmark.py", line 298, in cached_generate
+    return self.generate(dataset)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/scratch1/7/wahrens6/SparseArrayProgrammingSuite/src/saps/benchmarks/bellmanford.py", line 581, in generate
+    inputs=[_adjacency_to_distance(raw.inputs[0], keep_weights=True)],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/scratch1/7/wahrens6/SparseArrayProgrammingSuite/src/saps/benchmarks/bellmanford.py", line 591, in _adjacency_to_distance
+    distances = np.full(shape, np.inf, dtype=float)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/numpy/_core/numeric.py", line 386, in full
+    a = empty(shape, dtype, order, device=device)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 26.9 PiB for an array with shape (61578415, 61578415) and data type float64
+
+For parameters: bellman_ford_gap_inputs.GAP/GAP-kron_109920510
+INFO root: Dataset suitesparse_matrix.GAP/GAP-kron found in cache.
+
+
+asv: benchmark timed out (timeout 60s)
+
+·· ============================================================== ========
+                              dataset                                     
+   -------------------------------------------------------------- --------
+      bellman_ford_test_inputs.test_bellman_ford_tribes_src_0       n/a   
+    bellman_ford_test_inputs.test_bellman_ford_chesapeake_src_0     n/a   
+    bellman_ford_test_inputs.test_bellman_ford_chesapeake_src_10    n/a   
+    bellman_ford_test_inputs.test_bellman_ford_chesapeake_src_38    n/a   
+        bellman_ford_test_inputs.test_bellman_ford_snap_toy         n/a   
+       bellman_ford_inputs.snap-email-Eu-core-temporal-Dept3        n/a   
+       bellman_ford_inputs.snap-email-Eu-core-temporal-Dept4        n/a   
+       bellman_ford_inputs.snap-email-Eu-core-temporal-Dept2        n/a   
+       bellman_ford_inputs.snap-email-Eu-core-temporal-Dept1        n/a   
+               bellman_ford_inputs.snap-email-Eu-core               n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_4795720            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_21003853            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_417968             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_6496511            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_6648699            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_9811073            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_22247478            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_5720252            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_12366459            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_20413729            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_4217374            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_2674749            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_22085557            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_19445040            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_2360788            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_19115968            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_7758767            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_13468234            n/a   
+             bellman_ford_gap_inputs.GAP/GAP-road_30367             n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_18599547            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_7526108            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_16836280            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_12742067            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_7697995            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_5876443            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_9616340            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_2497673            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_10052290            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_12493057            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_1670855            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_2760679            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_2460941            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_8489650            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_5005225            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_8744645            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_8512023            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_21912165            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_1105390            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_15432163            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_1600177            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_19079469            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_16516637            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_20202566            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_21372803            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_2898009            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_8491277            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_18798317            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_23757560            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_17161819            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_23180739            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_10997085            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_3730630            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_1079068            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_15426822            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_12190925            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_1155218            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_10693488            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_14434835            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_19963339            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_3486185            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_18383269            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_20269908            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-road_12370764            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-road_7843140            n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_12441072          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_54488257          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_25451915          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_57714473          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_14839494          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_32081104          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_52957357          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_50444380          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_49590701          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_20127816          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_34939333          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_48251001          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_19524253          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_43676726          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_33055508          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_15244687          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_24946738          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_6479472           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_26077682          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_22023875          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_22081915          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_40034162          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_49496014          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_42847507          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_52409557          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_55445388          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_22028097          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_48766648          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_44521241          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_60135542          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_28528671          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_9678012           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_40020306          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_31625735          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_37446892          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_51788952          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_52584255          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_20346696          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_48387909          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_37337427          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_50501084          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_30130061          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_41185893          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_56495703          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_45663305          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_33359460          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_48143058          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_33291513          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_53461445         failed 
+          bellman_ford_gap_inputs.GAP/GAP-twitter_29340610          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_34148498          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_49171806          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_35550696          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_14521507          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_51633218          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_46823382          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_19396273          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_19871750          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_36862677          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_49539126          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_34016452          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_36567395          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_55487793          n/a   
+          bellman_ford_gap_inputs.GAP/GAP-twitter_14391370          n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_10219452            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_44758211            n/a   
+             bellman_ford_gap_inputs.GAP/GAP-web_890671             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_13843756            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_14168062            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_20906930            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_12189584            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_26352335            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_43500686            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_8987024             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_5699762             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_41436455            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_5030727             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_40735218            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_16533563            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_28700166            n/a   
+             bellman_ford_gap_inputs.GAP/GAP-web_64711              n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_39634750            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_16037779            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_27152739            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_16404061            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_20491963            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_5322423             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_21420953            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_26622109            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_5882875             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_18091040            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_10665896            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_18634422            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_18138715            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_2355535             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_32885205            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_40657440            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_35196167            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_45544426            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_6175519             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_40058318            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_50626230            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_36571019            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_49397052            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_23434265            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_2299444             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_32873823            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_25978282            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_2461715             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_22787314            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_30759947            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_7428894             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_39173870            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_43194209            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_26361509            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_39747211            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_30670029            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_41483033            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_9358666             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_9945008             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_3355244             n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_33831269            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_45124744            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_16137877            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_11235448            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_37509144            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_27402414            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-web_39546083            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_2338012            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_31997659            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_23590940            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_43400604            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_75337937            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_169867             n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_104041220           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_94177942            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_32871357            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_56230002            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_69883037            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_9346345            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_48915358            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_122571173           n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_6183279            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_86323663            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_106725780           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_92389938            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_16210738            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_59816700            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_111669929           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_102831411           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_113384800           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_43872564            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_80508827            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_26105648            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_8807516            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_118452455           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_121818859           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_42361928            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_29493053            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_98461503            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_71931337            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_103808468           n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_4092345            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_115276241           n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_4649343            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_76656189            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_31312001            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_111334127           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_100962918           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_41823215            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_22631240            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_42848461            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_79485148            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_106818742           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_73347974            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_78848445            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_109920510          failed 
+           bellman_ford_gap_inputs.GAP/GAP-kron_121492133           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_101037296           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_15438600            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_4584784            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_124503845           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_87241743            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_108297008           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_33955082            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_79934823            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_8608481            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_82435063            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_46579271            n/a   
+            bellman_ford_gap_inputs.GAP/GAP-kron_515421             n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_121530467           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-kron_127978736           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_27691419           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_121280314           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_2413431            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_37512113           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_38390877           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_56651037           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_128461248           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_33029842           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_71406328           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_117872827           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_24351938           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_15444519           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_127526281           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_112279428           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_13631649           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_110379302           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_44800623           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_77768193           n/a   
+            bellman_ford_gap_inputs.GAP/GAP-urand_175347            n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_107397389           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_43457209           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_97215940           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_73575165           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_44449715           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_33931724           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_55526610           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_14422051           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_58043873           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_72137329           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_9647840            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_15940695           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_14209952           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_49020883           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_28901138           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_50493273           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_49150069           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_126525082           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_6382740            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_89108297           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_9239735            n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_110168548           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_95370259           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_116653530           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_123410703           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_16733665           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_49030282           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_108545121           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_99095665           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_133850077           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_63499301           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_21541382           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_6230751            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_89077456           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_70392765           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_6670455            n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_61746271           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_83349535           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_115272184           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_20129908           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_106148553           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_117042375           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_71431187           n/a   
+           bellman_ford_gap_inputs.GAP/GAP-urand_45287808           n/a   
+          bellman_ford_gap_inputs.GAP/GAP-urand_107702120           n/a   
+   ============================================================== ========
+   For parameters: bellman_ford_gap_inputs.GAP/GAP-twitter_53461445
+   INFO root: Dataset suitesparse_matrix.GAP/GAP-twitter found in cache.
+   Traceback (most recent call last):
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/server.py", line 179, in _run_server
+       _run(run_args)
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/run.py", line 66, in _run
+       skip = benchmark.do_setup()
+              ^^^^^^^^^^^^^^^^^^^^
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/time.py", line 121, in do_setup
+       result = Benchmark.do_setup(self)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 723, in do_setup
+       setup(*self._build_params())
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/saps/benchmark.py", line 402, in setup
+       param.generator.cached_generate(param.dataset)
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/saps/benchmark.py", line 298, in cached_generate
+       return self.generate(dataset)
+              ^^^^^^^^^^^^^^^^^^^^^^
+     File "/storage/scratch1/7/wahrens6/SparseArrayProgrammingSuite/src/saps/benchmarks/bellmanford.py", line 581, in generate
+       inputs=[_adjacency_to_distance(raw.inputs[0], keep_weights=True)],
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     File "/storage/scratch1/7/wahrens6/SparseArrayProgrammingSuite/src/saps/benchmarks/bellmanford.py", line 591, in _adjacency_to_distance
+       distances = np.full(shape, np.inf, dtype=float)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/numpy/_core/numeric.py", line 386, in full
+       a = empty(shape, dtype, order, device=device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   numpy._core._exceptions._ArrayMemoryError: Unable to allocate 26.9 PiB for an array with shape (61578415, 61578415) and data type float64
+   
+   For parameters: bellman_ford_gap_inputs.GAP/GAP-kron_109920510
+   INFO root: Dataset suitesparse_matrix.GAP/GAP-kron found in cache.
+   
+   
+   asv: benchmark timed out (timeout 60s)
+INFO:root:cg.CGBenchmark.time_cg_solver
+
+·· cg.CGBenchmark.time_cg_solver                         1/163 failedINFO:root:============================================== ========
+                   dataset                             
+---------------------------------------------- --------
+     cg_test_inputs.test_3x3_tridiagonal         n/a   
+        cg_test_inputs.test_3x3_dense            n/a   
+     cg_test_inputs.test_4x4_tridiagonal         n/a   
+  cg_test_inputs.test_3x3_indefinite_sparse      n/a   
+  cg_test_inputs.test_3x3_scaled_tridiagonal     n/a   
+        cg_test_inputs.test_5x5_sparse           n/a   
+          cg_inputs.Andrews/Andrews              n/a   
+           cg_inputs.Andrianov/ins2              n/a   
+          cg_inputs.Andrianov/net100             n/a   
+          cg_inputs.Andrianov/net125             n/a   
+          cg_inputs.Andrianov/net150             n/a   
+          cg_inputs.Andrianov/net25              n/a   
+          cg_inputs.Andrianov/net50              n/a   
+          cg_inputs.Andrianov/net75              n/a   
+            cg_inputs.Bai/bfwb398                n/a   
+             cg_inputs.Bai/bfwb62                n/a   
+            cg_inputs.Bai/bfwb782                n/a   
+             cg_inputs.Bai/dw256B                n/a   
+             cg_inputs.Bai/dwb512                n/a   
+            cg_inputs.Bai/odepb400               n/a   
+            cg_inputs.Bindel/ted_B               n/a   
+       cg_inputs.Bindel/ted_B_unscaled           n/a   
+          cg_inputs.Boeing/crystm01              n/a   
+          cg_inputs.Boeing/crystm02              n/a   
+          cg_inputs.Boeing/crystm03              n/a   
+      cg_inputs.Botonakis/thermomech_TC          n/a   
+      cg_inputs.Botonakis/thermomech_dM          n/a   
+     cg_inputs.Bourchtein/atmosmodd__rhs1        n/a   
+     cg_inputs.Bourchtein/atmosmodj__rhs1        n/a   
+     cg_inputs.Bourchtein/atmosmodl__rhs1        n/a   
+     cg_inputs.Bourchtein/atmosmodm__rhs1        n/a   
+         cg_inputs.Brunetiere/thermal            n/a   
+        cg_inputs.Cunningham/m3plates            n/a   
+          cg_inputs.Cunningham/qa8fm             n/a   
+       cg_inputs.FEMLAB/poisson2D__rhs0          n/a   
+          cg_inputs.FEMLAB/problem1              n/a   
+             cg_inputs.FIDAP/ex29                n/a   
+             cg_inputs.FIDAP/ex37                n/a   
+             cg_inputs.FIDAP/ex5                 n/a   
+             cg_inputs.FIDAP/ex7                 n/a   
+         cg_inputs.GHS_indef/blockqp1            n/a   
+          cg_inputs.GHS_indef/laser              n/a   
+          cg_inputs.GHS_indef/qpband             n/a   
+         cg_inputs.GHS_psdef/jnlbrng1            n/a   
+         cg_inputs.GHS_psdef/minsurfo            n/a   
+         cg_inputs.GHS_psdef/obstclae            n/a   
+             cg_inputs.Grund/meg4                n/a   
+          cg_inputs.Grund/poli__rhs0             n/a   
+            cg_inputs.HB/bcspwr01                n/a   
+            cg_inputs.HB/bcspwr02                n/a   
+            cg_inputs.HB/bcsstk01                n/a   
+            cg_inputs.HB/bcsstk02                n/a   
+            cg_inputs.HB/bcsstm01                n/a   
+            cg_inputs.HB/bcsstm02                n/a   
+            cg_inputs.HB/bcsstm03                n/a   
+            cg_inputs.HB/bcsstm04                n/a   
+            cg_inputs.HB/bcsstm05                n/a   
+            cg_inputs.HB/bcsstm06                n/a   
+            cg_inputs.HB/bcsstm08                n/a   
+            cg_inputs.HB/bcsstm09                n/a   
+            cg_inputs.HB/bcsstm11                n/a   
+            cg_inputs.HB/bcsstm19                n/a   
+            cg_inputs.HB/bcsstm20                n/a   
+            cg_inputs.HB/bcsstm21                n/a   
+            cg_inputs.HB/bcsstm22                n/a   
+             cg_inputs.HB/can_144                n/a   
+             cg_inputs.HB/can_24                 n/a   
+             cg_inputs.HB/can_61                 n/a   
+             cg_inputs.HB/can_62                 n/a   
+             cg_inputs.HB/can_73                 n/a   
+             cg_inputs.HB/can_96                 n/a   
+             cg_inputs.HB/dwt_59                 n/a   
+             cg_inputs.HB/dwt_66                 n/a   
+             cg_inputs.HB/dwt_72                 n/a   
+            cg_inputs.HB/fs_541_1                n/a   
+            cg_inputs.HB/gr_30_30                n/a   
+             cg_inputs.HB/lap_25                 n/a   
+              cg_inputs.HB/nos4                  n/a   
+         cg_inputs.HB/orani678__rhs1             n/a   
+         cg_inputs.HB/orani678__rhs10            n/a   
+         cg_inputs.HB/orani678__rhs11            n/a   
+         cg_inputs.HB/orani678__rhs12            n/a   
+         cg_inputs.HB/orani678__rhs14            n/a   
+         cg_inputs.HB/orani678__rhs15            n/a   
+         cg_inputs.HB/orani678__rhs16            n/a   
+         cg_inputs.HB/orani678__rhs17            n/a   
+         cg_inputs.HB/orani678__rhs18            n/a   
+         cg_inputs.HB/orani678__rhs19            n/a   
+         cg_inputs.HB/orani678__rhs2             n/a   
+         cg_inputs.HB/orani678__rhs3             n/a   
+         cg_inputs.HB/orani678__rhs4             n/a   
+         cg_inputs.HB/orani678__rhs5             n/a   
+         cg_inputs.HB/orani678__rhs6             n/a   
+         cg_inputs.HB/orani678__rhs62            n/a   
+         cg_inputs.HB/orani678__rhs7             n/a   
+         cg_inputs.HB/orani678__rhs8             n/a   
+             cg_inputs.HB/watt_1                 n/a   
+             cg_inputs.HB/watt_2                 n/a   
+          cg_inputs.Hamm/add32__rhs0             n/a   
+               cg_inputs.MKS/fp                  n/a   
+           cg_inputs.MathWorks/Muu               n/a   
+        cg_inputs.MathWorks/tomography           n/a   
+      cg_inputs.MaxPlanck/shallow_water1         n/a   
+      cg_inputs.MaxPlanck/shallow_water2        failed 
+          cg_inputs.Mulvey/finan512              n/a   
+        cg_inputs.Nasa/nasa2146__rhs0            n/a   
+          cg_inputs.Nemeth/nemeth02              n/a   
+          cg_inputs.Nemeth/nemeth03              n/a   
+          cg_inputs.Nemeth/nemeth04              n/a   
+          cg_inputs.Nemeth/nemeth05              n/a   
+          cg_inputs.Nemeth/nemeth06              n/a   
+          cg_inputs.Nemeth/nemeth07              n/a   
+          cg_inputs.Nemeth/nemeth08              n/a   
+          cg_inputs.Nemeth/nemeth09              n/a   
+          cg_inputs.Nemeth/nemeth10              n/a   
+          cg_inputs.Nemeth/nemeth11              n/a   
+          cg_inputs.Nemeth/nemeth12              n/a   
+          cg_inputs.Nemeth/nemeth13              n/a   
+          cg_inputs.Nemeth/nemeth16              n/a   
+          cg_inputs.Nemeth/nemeth17              n/a   
+          cg_inputs.Nemeth/nemeth18              n/a   
+          cg_inputs.Nemeth/nemeth19              n/a   
+          cg_inputs.Nemeth/nemeth20              n/a   
+          cg_inputs.Nemeth/nemeth21              n/a   
+          cg_inputs.Nemeth/nemeth22              n/a   
+          cg_inputs.Nemeth/nemeth23              n/a   
+          cg_inputs.Nemeth/nemeth24              n/a   
+          cg_inputs.Nemeth/nemeth25              n/a   
+          cg_inputs.Nemeth/nemeth26              n/a   
+             cg_inputs.Norris/fv1                n/a   
+             cg_inputs.Norris/fv2                n/a   
+          cg_inputs.Oberwolfach/LF10             n/a   
+         cg_inputs.Oberwolfach/LFAT5             n/a   
+             cg_inputs.PARSEC/Si2                n/a   
+           cg_inputs.Pothen/mesh1e1              n/a   
+          cg_inputs.Pothen/mesh1em1              n/a   
+          cg_inputs.Pothen/mesh1em6              n/a   
+           cg_inputs.Pothen/mesh2e1              n/a   
+          cg_inputs.Pothen/mesh2em5              n/a   
+           cg_inputs.Pothen/mesh3e1              n/a   
+          cg_inputs.Pothen/mesh3em5              n/a   
+           cg_inputs.Pothen/sphere2              n/a   
+         cg_inputs.Precima/analytics             n/a   
+          cg_inputs.Sandia/ASIC_100k             n/a   
+         cg_inputs.Sandia/ASIC_100ks             n/a   
+         cg_inputs.Sandia/ASIC_320ks             n/a   
+        cg_inputs.Sandia/adder_dcop_61           n/a   
+        cg_inputs.Sandia/adder_dcop_62           n/a   
+        cg_inputs.Sandia/adder_dcop_63           n/a   
+        cg_inputs.Sandia/adder_dcop_64           n/a   
+        cg_inputs.Sandia/adder_dcop_65           n/a   
+        cg_inputs.Sandia/adder_dcop_66           n/a   
+        cg_inputs.Sandia/adder_dcop_67           n/a   
+        cg_inputs.Sandia/adder_dcop_68           n/a   
+        cg_inputs.Sandia/adder_dcop_69           n/a   
+     cg_inputs.Schenk_AFE/af_shell3__rhs0        n/a   
+     cg_inputs.Schenk_AFE/af_shell4__rhs0        n/a   
+     cg_inputs.Schenk_AFE/af_shell7__rhs0        n/a   
+     cg_inputs.Schenk_AFE/af_shell8__rhs0        n/a   
+      cg_inputs.VDOL/hangGlider_1__rhs0          n/a   
+ cg_inputs.VDOL/tumorAntiAngiogenesis_1__rhs0    n/a   
+ cg_inputs.VDOL/tumorAntiAngiogenesis_2__rhs0    n/a   
+              cg_inputs.VLSI/ss1                 n/a   
+============================================== ========
+For parameters: cg_inputs.MaxPlanck/shallow_water2
+INFO root: Dataset suitesparse_matrix.MaxPlanck/shallow_water2 found in cache.
+INFO root: Dataset suitesparse_matrix.MaxPlanck/shallow_water2 found in cache.
+
+
+asv: benchmark timed out (timeout 60s)
+
+·· ============================================== ========
+                      dataset                             
+   ---------------------------------------------- --------
+        cg_test_inputs.test_3x3_tridiagonal         n/a   
+           cg_test_inputs.test_3x3_dense            n/a   
+        cg_test_inputs.test_4x4_tridiagonal         n/a   
+     cg_test_inputs.test_3x3_indefinite_sparse      n/a   
+     cg_test_inputs.test_3x3_scaled_tridiagonal     n/a   
+           cg_test_inputs.test_5x5_sparse           n/a   
+             cg_inputs.Andrews/Andrews              n/a   
+              cg_inputs.Andrianov/ins2              n/a   
+             cg_inputs.Andrianov/net100             n/a   
+             cg_inputs.Andrianov/net125             n/a   
+             cg_inputs.Andrianov/net150             n/a   
+             cg_inputs.Andrianov/net25              n/a   
+             cg_inputs.Andrianov/net50              n/a   
+             cg_inputs.Andrianov/net75              n/a   
+               cg_inputs.Bai/bfwb398                n/a   
+                cg_inputs.Bai/bfwb62                n/a   
+               cg_inputs.Bai/bfwb782                n/a   
+                cg_inputs.Bai/dw256B                n/a   
+                cg_inputs.Bai/dwb512                n/a   
+               cg_inputs.Bai/odepb400               n/a   
+               cg_inputs.Bindel/ted_B               n/a   
+          cg_inputs.Bindel/ted_B_unscaled           n/a   
+             cg_inputs.Boeing/crystm01              n/a   
+             cg_inputs.Boeing/crystm02              n/a   
+             cg_inputs.Boeing/crystm03              n/a   
+         cg_inputs.Botonakis/thermomech_TC          n/a   
+         cg_inputs.Botonakis/thermomech_dM          n/a   
+        cg_inputs.Bourchtein/atmosmodd__rhs1        n/a   
+        cg_inputs.Bourchtein/atmosmodj__rhs1        n/a   
+        cg_inputs.Bourchtein/atmosmodl__rhs1        n/a   
+        cg_inputs.Bourchtein/atmosmodm__rhs1        n/a   
+            cg_inputs.Brunetiere/thermal            n/a   
+           cg_inputs.Cunningham/m3plates            n/a   
+             cg_inputs.Cunningham/qa8fm             n/a   
+          cg_inputs.FEMLAB/poisson2D__rhs0          n/a   
+             cg_inputs.FEMLAB/problem1              n/a   
+                cg_inputs.FIDAP/ex29                n/a   
+                cg_inputs.FIDAP/ex37                n/a   
+                cg_inputs.FIDAP/ex5                 n/a   
+                cg_inputs.FIDAP/ex7                 n/a   
+            cg_inputs.GHS_indef/blockqp1            n/a   
+             cg_inputs.GHS_indef/laser              n/a   
+             cg_inputs.GHS_indef/qpband             n/a   
+            cg_inputs.GHS_psdef/jnlbrng1            n/a   
+            cg_inputs.GHS_psdef/minsurfo            n/a   
+            cg_inputs.GHS_psdef/obstclae            n/a   
+                cg_inputs.Grund/meg4                n/a   
+             cg_inputs.Grund/poli__rhs0             n/a   
+               cg_inputs.HB/bcspwr01                n/a   
+               cg_inputs.HB/bcspwr02                n/a   
+               cg_inputs.HB/bcsstk01                n/a   
+               cg_inputs.HB/bcsstk02                n/a   
+               cg_inputs.HB/bcsstm01                n/a   
+               cg_inputs.HB/bcsstm02                n/a   
+               cg_inputs.HB/bcsstm03                n/a   
+               cg_inputs.HB/bcsstm04                n/a   
+               cg_inputs.HB/bcsstm05                n/a   
+               cg_inputs.HB/bcsstm06                n/a   
+               cg_inputs.HB/bcsstm08                n/a   
+               cg_inputs.HB/bcsstm09                n/a   
+               cg_inputs.HB/bcsstm11                n/a   
+               cg_inputs.HB/bcsstm19                n/a   
+               cg_inputs.HB/bcsstm20                n/a   
+               cg_inputs.HB/bcsstm21                n/a   
+               cg_inputs.HB/bcsstm22                n/a   
+                cg_inputs.HB/can_144                n/a   
+                cg_inputs.HB/can_24                 n/a   
+                cg_inputs.HB/can_61                 n/a   
+                cg_inputs.HB/can_62                 n/a   
+                cg_inputs.HB/can_73                 n/a   
+                cg_inputs.HB/can_96                 n/a   
+                cg_inputs.HB/dwt_59                 n/a   
+                cg_inputs.HB/dwt_66                 n/a   
+                cg_inputs.HB/dwt_72                 n/a   
+               cg_inputs.HB/fs_541_1                n/a   
+               cg_inputs.HB/gr_30_30                n/a   
+                cg_inputs.HB/lap_25                 n/a   
+                 cg_inputs.HB/nos4                  n/a   
+            cg_inputs.HB/orani678__rhs1             n/a   
+            cg_inputs.HB/orani678__rhs10            n/a   
+            cg_inputs.HB/orani678__rhs11            n/a   
+            cg_inputs.HB/orani678__rhs12            n/a   
+            cg_inputs.HB/orani678__rhs14            n/a   
+            cg_inputs.HB/orani678__rhs15            n/a   
+            cg_inputs.HB/orani678__rhs16            n/a   
+            cg_inputs.HB/orani678__rhs17            n/a   
+            cg_inputs.HB/orani678__rhs18            n/a   
+            cg_inputs.HB/orani678__rhs19            n/a   
+            cg_inputs.HB/orani678__rhs2             n/a   
+            cg_inputs.HB/orani678__rhs3             n/a   
+            cg_inputs.HB/orani678__rhs4             n/a   
+            cg_inputs.HB/orani678__rhs5             n/a   
+            cg_inputs.HB/orani678__rhs6             n/a   
+            cg_inputs.HB/orani678__rhs62            n/a   
+            cg_inputs.HB/orani678__rhs7             n/a   
+            cg_inputs.HB/orani678__rhs8             n/a   
+                cg_inputs.HB/watt_1                 n/a   
+                cg_inputs.HB/watt_2                 n/a   
+             cg_inputs.Hamm/add32__rhs0             n/a   
+                  cg_inputs.MKS/fp                  n/a   
+              cg_inputs.MathWorks/Muu               n/a   
+           cg_inputs.MathWorks/tomography           n/a   
+         cg_inputs.MaxPlanck/shallow_water1         n/a   
+         cg_inputs.MaxPlanck/shallow_water2        failed 
+             cg_inputs.Mulvey/finan512              n/a   
+           cg_inputs.Nasa/nasa2146__rhs0            n/a   
+             cg_inputs.Nemeth/nemeth02              n/a   
+             cg_inputs.Nemeth/nemeth03              n/a   
+             cg_inputs.Nemeth/nemeth04              n/a   
+             cg_inputs.Nemeth/nemeth05              n/a   
+             cg_inputs.Nemeth/nemeth06              n/a   
+             cg_inputs.Nemeth/nemeth07              n/a   
+             cg_inputs.Nemeth/nemeth08              n/a   
+             cg_inputs.Nemeth/nemeth09              n/a   
+             cg_inputs.Nemeth/nemeth10              n/a   
+             cg_inputs.Nemeth/nemeth11              n/a   
+             cg_inputs.Nemeth/nemeth12              n/a   
+             cg_inputs.Nemeth/nemeth13              n/a   
+             cg_inputs.Nemeth/nemeth16              n/a   
+             cg_inputs.Nemeth/nemeth17              n/a   
+             cg_inputs.Nemeth/nemeth18              n/a   
+             cg_inputs.Nemeth/nemeth19              n/a   
+             cg_inputs.Nemeth/nemeth20              n/a   
+             cg_inputs.Nemeth/nemeth21              n/a   
+             cg_inputs.Nemeth/nemeth22              n/a   
+             cg_inputs.Nemeth/nemeth23              n/a   
+             cg_inputs.Nemeth/nemeth24              n/a   
+             cg_inputs.Nemeth/nemeth25              n/a   
+             cg_inputs.Nemeth/nemeth26              n/a   
+                cg_inputs.Norris/fv1                n/a   
+                cg_inputs.Norris/fv2                n/a   
+             cg_inputs.Oberwolfach/LF10             n/a   
+            cg_inputs.Oberwolfach/LFAT5             n/a   
+                cg_inputs.PARSEC/Si2                n/a   
+              cg_inputs.Pothen/mesh1e1              n/a   
+             cg_inputs.Pothen/mesh1em1              n/a   
+             cg_inputs.Pothen/mesh1em6              n/a   
+              cg_inputs.Pothen/mesh2e1              n/a   
+             cg_inputs.Pothen/mesh2em5              n/a   
+              cg_inputs.Pothen/mesh3e1              n/a   
+             cg_inputs.Pothen/mesh3em5              n/a   
+              cg_inputs.Pothen/sphere2              n/a   
+            cg_inputs.Precima/analytics             n/a   
+             cg_inputs.Sandia/ASIC_100k             n/a   
+            cg_inputs.Sandia/ASIC_100ks             n/a   
+            cg_inputs.Sandia/ASIC_320ks             n/a   
+           cg_inputs.Sandia/adder_dcop_61           n/a   
+           cg_inputs.Sandia/adder_dcop_62           n/a   
+           cg_inputs.Sandia/adder_dcop_63           n/a   
+           cg_inputs.Sandia/adder_dcop_64           n/a   
+           cg_inputs.Sandia/adder_dcop_65           n/a   
+           cg_inputs.Sandia/adder_dcop_66           n/a   
+           cg_inputs.Sandia/adder_dcop_67           n/a   
+           cg_inputs.Sandia/adder_dcop_68           n/a   
+           cg_inputs.Sandia/adder_dcop_69           n/a   
+        cg_inputs.Schenk_AFE/af_shell3__rhs0        n/a   
+        cg_inputs.Schenk_AFE/af_shell4__rhs0        n/a   
+        cg_inputs.Schenk_AFE/af_shell7__rhs0        n/a   
+        cg_inputs.Schenk_AFE/af_shell8__rhs0        n/a   
+         cg_inputs.VDOL/hangGlider_1__rhs0          n/a   
+    cg_inputs.VDOL/tumorAntiAngiogenesis_1__rhs0    n/a   
+    cg_inputs.VDOL/tumorAntiAngiogenesis_2__rhs0    n/a   
+                 cg_inputs.VLSI/ss1                 n/a   
+   ============================================== ========
+   For parameters: cg_inputs.MaxPlanck/shallow_water2
+   INFO root: Dataset suitesparse_matrix.MaxPlanck/shallow_water2 found in cache.
+   INFO root: Dataset suitesparse_matrix.MaxPlanck/shallow_water2 found in cache.
+   
+   
+   asv: benchmark timed out (timeout 60s)
+INFO:root:...delCounting.time_Model Counting using einsum
+
+·· ...delCounting.time_Model Counting using einsum                 okINFO:root:================================== ============
+             dataset                           
+---------------------------------- ------------
+       mc_generator.test_1             n/a     
+       mc_generator.test_2             n/a     
+       mc_generator.test_3             n/a     
+       mc_generator.test_4             n/a     
+ mccomp_mc.track1_mc_random_mc_1       n/a     
+ mccomp_mc.track1_mc_random_mc_2       n/a     
+ mccomp_mc.track1_mc_random_mc_3       n/a     
+ mccomp_mc.track1_mc_random_mc_4       n/a     
+ mccomp_mc.track1_mc_random_mc_5    356±0.09ms 
+ mccomp_mc.track1_mc_random_mc_6       n/a     
+ mccomp_mc.track1_mc_random_mc_7       n/a     
+ mccomp_mc.track1_mc_random_mc_8       n/a     
+ mccomp_mc.track1_mc_random_mc_9       n/a     
+ mccomp_mc.track1_mc_random_mc_10      n/a     
+================================== ============
+
+·· ================================== ============
+                dataset                           
+   ---------------------------------- ------------
+          mc_generator.test_1             n/a     
+          mc_generator.test_2             n/a     
+          mc_generator.test_3             n/a     
+          mc_generator.test_4             n/a     
+    mccomp_mc.track1_mc_random_mc_1       n/a     
+    mccomp_mc.track1_mc_random_mc_2       n/a     
+    mccomp_mc.track1_mc_random_mc_3       n/a     
+    mccomp_mc.track1_mc_random_mc_4       n/a     
+    mccomp_mc.track1_mc_random_mc_5    356±0.09ms 
+    mccomp_mc.track1_mc_random_mc_6       n/a     
+    mccomp_mc.track1_mc_random_mc_7       n/a     
+    mccomp_mc.track1_mc_random_mc_8       n/a     
+    mccomp_mc.track1_mc_random_mc_9       n/a     
+    mccomp_mc.track1_mc_random_mc_10      n/a     
+   ================================== ============
+INFO:root:...SLICOTForwardEuler.time_slicot_forward_euler
+
+·· ...SLICOTForwardEuler.time_slicot_forward_euler        1/10 failedINFO:root:============================= ========
+           dataset                    
+----------------------------- --------
+    slicot_ode.slicot_eady      n/a   
+  slicot_ode.slicot_cdplayer    n/a   
+    slicot_ode.slicot_fom       n/a   
+   slicot_ode.slicot_random     n/a   
+    slicot_ode.slicot_pde      failed 
+ slicot_ode.slicot_heat_cont    n/a   
+  slicot_ode.slicot_orr_som     n/a   
+    slicot_ode.slicot_iss       n/a   
+   slicot_ode.slicot_build      n/a   
+    slicot_ode.slicot_beam      n/a   
+============================= ========
+For parameters: slicot_ode.slicot_pde
+INFO root: Dataset slicot_ode.slicot_pde found in cache.
+Traceback (most recent call last):
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/run.py", line 73, in _run
+    result = benchmark.do_run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 758, in do_run
+    return self.run(*self._build_params())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/time.py", line 235, in run
+    samples, number = self.benchmark_timing(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/time.py", line 357, in benchmark_timing
+    timing = timer.timeit(number)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/pace-apps/spack/packages/linux-rhel9-x86_64_v3/gcc-11.3.1/python-3.12.5-5sase6atfv2x5tf7dy5x5sqfzyguhsia/lib/python3.12/timeit.py", line 180, in timeit
+    timing = self.inner(it, self.timer)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<timeit-src>", line 3, in inner
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 734, in redo_setup
+    self.do_teardown()
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 742, in do_teardown
+    teardown(*self._build_params())
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/saps/benchmark.py", line 476, in teardown
+    self.check(param)
+  File "/storage/scratch1/7/wahrens6/SparseArrayProgrammingSuite/src/saps/benchmarks/ode.py", line 858, in check
+    assert error < self._error_tolerance()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/server.py", line 179, in _run_server
+    _run(run_args)
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/run.py", line 80, in _run
+    benchmark.do_teardown()
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 742, in do_teardown
+    teardown(*self._build_params())
+  File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/saps/benchmark.py", line 476, in teardown
+    self.check(param)
+  File "/storage/scratch1/7/wahrens6/SparseArrayProgrammingSuite/src/saps/benchmarks/ode.py", line 858, in check
+    assert error < self._error_tolerance()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+·· ============================= ========
+              dataset                    
+   ----------------------------- --------
+       slicot_ode.slicot_eady      n/a   
+     slicot_ode.slicot_cdplayer    n/a   
+       slicot_ode.slicot_fom       n/a   
+      slicot_ode.slicot_random     n/a   
+       slicot_ode.slicot_pde      failed 
+    slicot_ode.slicot_heat_cont    n/a   
+     slicot_ode.slicot_orr_som     n/a   
+       slicot_ode.slicot_iss       n/a   
+      slicot_ode.slicot_build      n/a   
+       slicot_ode.slicot_beam      n/a   
+   ============================= ========
+   For parameters: slicot_ode.slicot_pde
+   INFO root: Dataset slicot_ode.slicot_pde found in cache.
+   Traceback (most recent call last):
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/run.py", line 73, in _run
+       result = benchmark.do_run()
+                ^^^^^^^^^^^^^^^^^^
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 758, in do_run
+       return self.run(*self._build_params())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/time.py", line 235, in run
+       samples, number = self.benchmark_timing(
+                         ^^^^^^^^^^^^^^^^^^^^^^
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/time.py", line 357, in benchmark_timing
+       timing = timer.timeit(number)
+                ^^^^^^^^^^^^^^^^^^^^
+     File "/storage/pace-apps/spack/packages/linux-rhel9-x86_64_v3/gcc-11.3.1/python-3.12.5-5sase6atfv2x5tf7dy5x5sqfzyguhsia/lib/python3.12/timeit.py", line 180, in timeit
+       timing = self.inner(it, self.timer)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+     File "<timeit-src>", line 3, in inner
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 734, in redo_setup
+       self.do_teardown()
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 742, in do_teardown
+       teardown(*self._build_params())
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/saps/benchmark.py", line 476, in teardown
+       self.check(param)
+     File "/storage/scratch1/7/wahrens6/SparseArrayProgrammingSuite/src/saps/benchmarks/ode.py", line 858, in check
+       assert error < self._error_tolerance()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   AssertionError
+   
+   During handling of the above exception, another exception occurred:
+   
+   Traceback (most recent call last):
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/server.py", line 179, in _run_server
+       _run(run_args)
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/run.py", line 80, in _run
+       benchmark.do_teardown()
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/asv_runner/benchmarks/_base.py", line 742, in do_teardown
+       teardown(*self._build_params())
+     File "/tmp/saps-competition-13075438-4/env/chunk-4/c6e6c30cd4da42ee650d557ff6858c92/lib/python3.12/site-packages/saps/benchmark.py", line 476, in teardown
+       self.check(param)
+     File "/storage/scratch1/7/wahrens6/SparseArrayProgrammingSuite/src/saps/benchmarks/ode.py", line 858, in check
+       assert error < self._error_tolerance()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   AssertionError
+INFO:root:...e_sim.ParticleSimBenchmark.time_particle_sim
+
+·· ...e_sim.ParticleSimBenchmark.time_particle_sim                 okINFO:root:======================================================================== ===========
+                                dataset                                             
+------------------------------------------------------------------------ -----------
+ particle_sim_test_inputs.test_particle_sim_two_particles_within_cutoff      n/a    
+         particle_sim_test_inputs.test_particle_sim_wall_bounce              n/a    
+          particle_sim_test_inputs.test_particle_sim_random_10               n/a    
+          particle_sim_test_inputs.test_particle_sim_random_50               n/a    
+        synthetic_berkeley_cs267_particle.cs267_hw2_n1000_seed1              n/a    
+                     ewap_particle_sim.ewap_seq_eth                          n/a    
+                    ewap_particle_sim.ewap_seq_hotel                      146±0.3ms 
+                     particle_sim.nemo_plummer_128                           n/a    
+                     particle_sim.nemo_plummer_1024                          n/a    
+                     particle_sim.nemo_dubinski_m31                          n/a    
+======================================================================== ===========
+
+·· ======================================================================== ===========
+                                   dataset                                             
+   ------------------------------------------------------------------------ -----------
+    particle_sim_test_inputs.test_particle_sim_two_particles_within_cutoff      n/a    
+            particle_sim_test_inputs.test_particle_sim_wall_bounce              n/a    
+             particle_sim_test_inputs.test_particle_sim_random_10               n/a    
+             particle_sim_test_inputs.test_particle_sim_random_50               n/a    
+           synthetic_berkeley_cs267_particle.cs267_hw2_n1000_seed1              n/a    
+                        ewap_particle_sim.ewap_seq_eth                          n/a    
+                       ewap_particle_sim.ewap_seq_hotel                      146±0.3ms 
+                        particle_sim.nemo_plummer_128                           n/a    
+                        particle_sim.nemo_plummer_1024                          n/a    
+                        particle_sim.nemo_dubinski_m31                          n/a    
+   ======================================================================== ===========
+INFO:root:...nedCGBenchmark.time_jacobi_preconditioned_cg
+
+·· ...nedCGBenchmark.time_jacobi_preconditioned_cg       1/161 failedINFO:root:===================================================== =========
+                       dataset                                 
+----------------------------------------------------- ---------
+               jacobi_cg_inputs.test_A0                  n/a   
+               jacobi_cg_inputs.test_A1                  n/a   
+               jacobi_cg_inputs.test_A2                  n/a   
+               jacobi_cg_inputs.test_A3                  n/a   
+               jacobi_cg_inputs.test_A4                  n/a   
+               jacobi_cg_inputs.test_A5                  n/a   
+           jacobi_cg_inputs.Andrews/Andrews              n/a   
+           jacobi_cg_inputs.Andrianov/ins2               n/a   
+          jacobi_cg_inputs.Andrianov/net100              n/a   
+          jacobi_cg_inputs.Andrianov/net125              n/a   
+          jacobi_cg_inputs.Andrianov/net150              n/a   
+           jacobi_cg_inputs.Andrianov/net25              n/a   
+           jacobi_cg_inputs.Andrianov/net50              n/a   
+           jacobi_cg_inputs.Andrianov/net75              n/a   
+             jacobi_cg_inputs.Bai/bfwb398                n/a   
+             jacobi_cg_inputs.Bai/bfwb62                 n/a   
+             jacobi_cg_inputs.Bai/bfwb782                n/a   
+             jacobi_cg_inputs.Bai/dw256B                 n/a   
+             jacobi_cg_inputs.Bai/dwb512                 n/a   
+            jacobi_cg_inputs.Bai/mhd3200b                n/a   
+            jacobi_cg_inputs.Bai/mhd4800b                n/a   
+             jacobi_cg_inputs.Bai/mhdb416                n/a   
+            jacobi_cg_inputs.Bindel/ted_B                n/a   
+        jacobi_cg_inputs.Bindel/ted_B_unscaled           n/a   
+           jacobi_cg_inputs.Boeing/bcsstk34              n/a   
+           jacobi_cg_inputs.Boeing/bcsstm39              n/a   
+           jacobi_cg_inputs.Boeing/crystm01              n/a   
+           jacobi_cg_inputs.Boeing/crystm02              n/a   
+           jacobi_cg_inputs.Boeing/crystm03            3.64±0s 
+           jacobi_cg_inputs.Boeing/msc00726              n/a   
+      jacobi_cg_inputs.Botonakis/FEM_3D_thermal1         n/a   
+      jacobi_cg_inputs.Botonakis/FEM_3D_thermal2         n/a   
+       jacobi_cg_inputs.Botonakis/thermomech_TC          n/a   
+       jacobi_cg_inputs.Botonakis/thermomech_dM          n/a   
+     jacobi_cg_inputs.Bourchtein/atmosmodd__rhs1         n/a   
+     jacobi_cg_inputs.Bourchtein/atmosmodj__rhs1         n/a   
+     jacobi_cg_inputs.Bourchtein/atmosmodl__rhs1         n/a   
+     jacobi_cg_inputs.Bourchtein/atmosmodm__rhs1         n/a   
+         jacobi_cg_inputs.Brunetiere/thermal             n/a   
+          jacobi_cg_inputs.Cunningham/qa8fm              n/a   
+       jacobi_cg_inputs.FEMLAB/poisson2D__rhs0           n/a   
+           jacobi_cg_inputs.FEMLAB/problem1              n/a   
+             jacobi_cg_inputs.FIDAP/ex29                 n/a   
+             jacobi_cg_inputs.FIDAP/ex37                 n/a   
+              jacobi_cg_inputs.FIDAP/ex5                 n/a   
+              jacobi_cg_inputs.FIDAP/ex7                 n/a   
+       jacobi_cg_inputs.Freescale/circuit5M_dc           n/a   
+         jacobi_cg_inputs.GHS_psdef/jnlbrng1             n/a   
+         jacobi_cg_inputs.GHS_psdef/minsurfo             n/a   
+         jacobi_cg_inputs.GHS_psdef/obstclae             n/a   
+         jacobi_cg_inputs.GHS_psdef/wathen100            n/a   
+         jacobi_cg_inputs.GHS_psdef/wathen120            n/a   
+          jacobi_cg_inputs.Grund/poli__rhs0              n/a   
+          jacobi_cg_inputs.Guettel/TEM27623              n/a   
+             jacobi_cg_inputs.HB/bcspwr01                n/a   
+             jacobi_cg_inputs.HB/bcspwr02                n/a   
+             jacobi_cg_inputs.HB/bcsstk01                n/a   
+             jacobi_cg_inputs.HB/bcsstk02                n/a   
+             jacobi_cg_inputs.HB/bcsstk04                n/a   
+             jacobi_cg_inputs.HB/bcsstk08                n/a   
+             jacobi_cg_inputs.HB/bcsstk22                n/a   
+             jacobi_cg_inputs.HB/bcsstm02                n/a   
+             jacobi_cg_inputs.HB/bcsstm05                n/a   
+             jacobi_cg_inputs.HB/bcsstm06                n/a   
+             jacobi_cg_inputs.HB/bcsstm07                n/a   
+             jacobi_cg_inputs.HB/bcsstm08                n/a   
+             jacobi_cg_inputs.HB/bcsstm09                n/a   
+             jacobi_cg_inputs.HB/bcsstm11                n/a   
+             jacobi_cg_inputs.HB/bcsstm19                n/a   
+             jacobi_cg_inputs.HB/bcsstm20                n/a   
+             jacobi_cg_inputs.HB/bcsstm21                n/a   
+             jacobi_cg_inputs.HB/bcsstm22                n/a   
+             jacobi_cg_inputs.HB/bcsstm23                n/a   
+             jacobi_cg_inputs.HB/bcsstm24                n/a   
+             jacobi_cg_inputs.HB/bcsstm25                n/a   
+             jacobi_cg_inputs.HB/bcsstm26                n/a   
+             jacobi_cg_inputs.HB/can_144                 n/a   
+              jacobi_cg_inputs.HB/can_24                 n/a   
+              jacobi_cg_inputs.HB/can_61                 n/a   
+              jacobi_cg_inputs.HB/can_62                 n/a   
+              jacobi_cg_inputs.HB/can_73                 n/a   
+              jacobi_cg_inputs.HB/can_96                 n/a   
+              jacobi_cg_inputs.HB/dwt_59                 n/a   
+              jacobi_cg_inputs.HB/dwt_66                 n/a   
+              jacobi_cg_inputs.HB/dwt_72                 n/a   
+             jacobi_cg_inputs.HB/fs_541_1                n/a   
+             jacobi_cg_inputs.HB/gr_30_30                n/a   
+             jacobi_cg_inputs.HB/jpwh_991                n/a   
+              jacobi_cg_inputs.HB/lap_25                 n/a   
+              jacobi_cg_inputs.HB/lund_a                 n/a   
+              jacobi_cg_inputs.HB/lund_b                 n/a   
+               jacobi_cg_inputs.HB/nos4                  n/a   
+               jacobi_cg_inputs.HB/nos6                  n/a   
+               jacobi_cg_inputs.HB/nos7                  n/a   
+          jacobi_cg_inputs.HB/orani678__rhs1             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs10             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs11             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs12             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs14             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs15             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs16             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs17             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs18             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs19             n/a   
+          jacobi_cg_inputs.HB/orani678__rhs2             n/a   
+          jacobi_cg_inputs.HB/orani678__rhs3             n/a   
+          jacobi_cg_inputs.HB/orani678__rhs4             n/a   
+          jacobi_cg_inputs.HB/orani678__rhs5             n/a   
+          jacobi_cg_inputs.HB/orani678__rhs6             n/a   
+         jacobi_cg_inputs.HB/orani678__rhs62             n/a   
+          jacobi_cg_inputs.HB/orani678__rhs7             n/a   
+          jacobi_cg_inputs.HB/orani678__rhs8             n/a   
+              jacobi_cg_inputs.HB/watt_1                 n/a   
+          jacobi_cg_inputs.Hamm/add32__rhs0              n/a   
+          jacobi_cg_inputs.Lourakis/bundle1              n/a   
+            jacobi_cg_inputs.MathWorks/Muu               n/a   
+        jacobi_cg_inputs.MathWorks/tomography            n/a   
+      jacobi_cg_inputs.MaxPlanck/shallow_water1          n/a   
+      jacobi_cg_inputs.MaxPlanck/shallow_water2          n/a   
+           jacobi_cg_inputs.Mulvey/finan512              n/a   
+         jacobi_cg_inputs.Nasa/nasa2146__rhs0            n/a   
+           jacobi_cg_inputs.Nemeth/nemeth02              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth03              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth04              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth05              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth06              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth07              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth08              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth09              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth10              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth11              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth12              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth13              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth16              n/a   
+           jacobi_cg_inputs.Nemeth/nemeth17              n/a   
+             jacobi_cg_inputs.Norris/fv1                 n/a   
+             jacobi_cg_inputs.Norris/fv2                 n/a   
+          jacobi_cg_inputs.Oberwolfach/LF10              n/a   
+          jacobi_cg_inputs.Oberwolfach/LFAT5             n/a   
+             jacobi_cg_inputs.PARSEC/Si2                 n/a   
+            jacobi_cg_inputs.Pothen/bodyy4               n/a   
+           jacobi_cg_inputs.Pothen/mesh1e1               n/a   
+           jacobi_cg_inputs.Pothen/mesh1em1              n/a   
+           jacobi_cg_inputs.Pothen/mesh1em6              n/a   
+           jacobi_cg_inputs.Pothen/mesh2e1               n/a   
+           jacobi_cg_inputs.Pothen/mesh2em5              n/a   
+           jacobi_cg_inputs.Pothen/mesh3e1               n/a   
+           jacobi_cg_inputs.Pothen/mesh3em5              n/a   
+           jacobi_cg_inputs.Pothen/sphere2               n/a   
+          jacobi_cg_inputs.Sandia/ASIC_100ks             n/a   
+          jacobi_cg_inputs.Sandia/ASIC_320ks             n/a   
+          jacobi_cg_inputs.Sandia/ASIC_680ks             n/a   
+     jacobi_cg_inputs.Schenk_AFE/af_shell3__rhs0         n/a   
+     jacobi_cg_inputs.Schenk_AFE/af_shell4__rhs0         n/a   
+     jacobi_cg_inputs.Schenk_AFE/af_shell7__rhs0         n/a   
+     jacobi_cg_inputs.Schenk_AFE/af_shell8__rhs0         n/a   
+       jacobi_cg_inputs.Um/2cubes_sphere__rhs0          failed 
+       jacobi_cg_inputs.VDOL/hangGlider_1__rhs0          n/a   
+ jacobi_cg_inputs.VDOL/tumorAntiAngiogenesis_1__rhs0     n/a   
+ jacobi_cg_inputs.VDOL/tumorAntiAngiogenesis_2__rhs0     n/a   
+              jacobi_cg_inputs.VLSI/ss1                  n/a   
+===================================================== =========
+For parameters: jacobi_cg_inputs.Boeing/crystm03
+INFO root: Dataset suitesparse_matrix.Boeing/crystm03 found in cache.
+INFO root: Dataset suitesparse_matrix.Boeing/crystm03 found in cache.
+INFO root: Dataset suitesparse_matrix.Boeing/crystm03 found in cache.
+
+For parameters: jacobi_cg_inputs.Um/2cubes_sphere__rhs0
+INFO root: Dataset suitesparse_matrix.Um/2cubes_sphere__rhs0 found in cache.
+INFO root: Dataset suitesparse_matrix.Um/2cubes_sphere__rhs0 found in cache.
+
+
+asv: benchmark timed out (timeout 60s)
+
+·· ===================================================== =========
+                          dataset                                 
+   ----------------------------------------------------- ---------
+                  jacobi_cg_inputs.test_A0                  n/a   
+                  jacobi_cg_inputs.test_A1                  n/a   
+                  jacobi_cg_inputs.test_A2                  n/a   
+                  jacobi_cg_inputs.test_A3                  n/a   
+                  jacobi_cg_inputs.test_A4                  n/a   
+                  jacobi_cg_inputs.test_A5                  n/a   
+              jacobi_cg_inputs.Andrews/Andrews              n/a   
+              jacobi_cg_inputs.Andrianov/ins2               n/a   
+             jacobi_cg_inputs.Andrianov/net100              n/a   
+             jacobi_cg_inputs.Andrianov/net125              n/a   
+             jacobi_cg_inputs.Andrianov/net150              n/a   
+              jacobi_cg_inputs.Andrianov/net25              n/a   
+              jacobi_cg_inputs.Andrianov/net50              n/a   
+              jacobi_cg_inputs.Andrianov/net75              n/a   
+                jacobi_cg_inputs.Bai/bfwb398                n/a   
+                jacobi_cg_inputs.Bai/bfwb62                 n/a   
+                jacobi_cg_inputs.Bai/bfwb782                n/a   
+                jacobi_cg_inputs.Bai/dw256B                 n/a   
+                jacobi_cg_inputs.Bai/dwb512                 n/a   
+               jacobi_cg_inputs.Bai/mhd3200b                n/a   
+               jacobi_cg_inputs.Bai/mhd4800b                n/a   
+                jacobi_cg_inputs.Bai/mhdb416                n/a   
+               jacobi_cg_inputs.Bindel/ted_B                n/a   
+           jacobi_cg_inputs.Bindel/ted_B_unscaled           n/a   
+              jacobi_cg_inputs.Boeing/bcsstk34              n/a   
+              jacobi_cg_inputs.Boeing/bcsstm39              n/a   
+              jacobi_cg_inputs.Boeing/crystm01              n/a   
+              jacobi_cg_inputs.Boeing/crystm02              n/a   
+              jacobi_cg_inputs.Boeing/crystm03            3.64±0s 
+              jacobi_cg_inputs.Boeing/msc00726              n/a   
+         jacobi_cg_inputs.Botonakis/FEM_3D_thermal1         n/a   
+         jacobi_cg_inputs.Botonakis/FEM_3D_thermal2         n/a   
+          jacobi_cg_inputs.Botonakis/thermomech_TC          n/a   
+          jacobi_cg_inputs.Botonakis/thermomech_dM          n/a   
+        jacobi_cg_inputs.Bourchtein/atmosmodd__rhs1         n/a   
+        jacobi_cg_inputs.Bourchtein/atmosmodj__rhs1         n/a   
+        jacobi_cg_inputs.Bourchtein/atmosmodl__rhs1         n/a   
+        jacobi_cg_inputs.Bourchtein/atmosmodm__rhs1         n/a   
+            jacobi_cg_inputs.Brunetiere/thermal             n/a   
+             jacobi_cg_inputs.Cunningham/qa8fm              n/a   
+          jacobi_cg_inputs.FEMLAB/poisson2D__rhs0           n/a   
+              jacobi_cg_inputs.FEMLAB/problem1              n/a   
+                jacobi_cg_inputs.FIDAP/ex29                 n/a   
+                jacobi_cg_inputs.FIDAP/ex37                 n/a   
+                 jacobi_cg_inputs.FIDAP/ex5                 n/a   
+                 jacobi_cg_inputs.FIDAP/ex7                 n/a   
+          jacobi_cg_inputs.Freescale/circuit5M_dc           n/a   
+            jacobi_cg_inputs.GHS_psdef/jnlbrng1             n/a   
+            jacobi_cg_inputs.GHS_psdef/minsurfo             n/a   
+            jacobi_cg_inputs.GHS_psdef/obstclae             n/a   
+            jacobi_cg_inputs.GHS_psdef/wathen100            n/a   
+            jacobi_cg_inputs.GHS_psdef/wathen120            n/a   
+             jacobi_cg_inputs.Grund/poli__rhs0              n/a   
+             jacobi_cg_inputs.Guettel/TEM27623              n/a   
+                jacobi_cg_inputs.HB/bcspwr01                n/a   
+                jacobi_cg_inputs.HB/bcspwr02                n/a   
+                jacobi_cg_inputs.HB/bcsstk01                n/a   
+                jacobi_cg_inputs.HB/bcsstk02                n/a   
+                jacobi_cg_inputs.HB/bcsstk04                n/a   
+                jacobi_cg_inputs.HB/bcsstk08                n/a   
+                jacobi_cg_inputs.HB/bcsstk22                n/a   
+                jacobi_cg_inputs.HB/bcsstm02                n/a   
+                jacobi_cg_inputs.HB/bcsstm05                n/a   
+                jacobi_cg_inputs.HB/bcsstm06                n/a   
+                jacobi_cg_inputs.HB/bcsstm07                n/a   
+                jacobi_cg_inputs.HB/bcsstm08                n/a   
+                jacobi_cg_inputs.HB/bcsstm09                n/a   
+                jacobi_cg_inputs.HB/bcsstm11                n/a   
+                jacobi_cg_inputs.HB/bcsstm19                n/a   
+                jacobi_cg_inputs.HB/bcsstm20                n/a   
+                jacobi_cg_inputs.HB/bcsstm21                n/a   
+                jacobi_cg_inputs.HB/bcsstm22                n/a   
+                jacobi_cg_inputs.HB/bcsstm23                n/a   
+                jacobi_cg_inputs.HB/bcsstm24                n/a   
+                jacobi_cg_inputs.HB/bcsstm25                n/a   
+                jacobi_cg_inputs.HB/bcsstm26                n/a   
+                jacobi_cg_inputs.HB/can_144                 n/a   
+                 jacobi_cg_inputs.HB/can_24                 n/a   
+                 jacobi_cg_inputs.HB/can_61                 n/a   
+                 jacobi_cg_inputs.HB/can_62                 n/a   
+                 jacobi_cg_inputs.HB/can_73                 n/a   
+                 jacobi_cg_inputs.HB/can_96                 n/a   
+                 jacobi_cg_inputs.HB/dwt_59                 n/a   
+                 jacobi_cg_inputs.HB/dwt_66                 n/a   
+                 jacobi_cg_inputs.HB/dwt_72                 n/a   
+                jacobi_cg_inputs.HB/fs_541_1                n/a   
+                jacobi_cg_inputs.HB/gr_30_30                n/a   
+                jacobi_cg_inputs.HB/jpwh_991                n/a   
+                 jacobi_cg_inputs.HB/lap_25                 n/a   
+                 jacobi_cg_inputs.HB/lund_a                 n/a   
+                 jacobi_cg_inputs.HB/lund_b                 n/a   
+                  jacobi_cg_inputs.HB/nos4                  n/a   
+                  jacobi_cg_inputs.HB/nos6                  n/a   
+                  jacobi_cg_inputs.HB/nos7                  n/a   
+             jacobi_cg_inputs.HB/orani678__rhs1             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs10             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs11             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs12             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs14             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs15             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs16             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs17             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs18             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs19             n/a   
+             jacobi_cg_inputs.HB/orani678__rhs2             n/a   
+             jacobi_cg_inputs.HB/orani678__rhs3             n/a   
+             jacobi_cg_inputs.HB/orani678__rhs4             n/a   
+             jacobi_cg_inputs.HB/orani678__rhs5             n/a   
+             jacobi_cg_inputs.HB/orani678__rhs6             n/a   
+            jacobi_cg_inputs.HB/orani678__rhs62             n/a   
+             jacobi_cg_inputs.HB/orani678__rhs7             n/a   
+             jacobi_cg_inputs.HB/orani678__rhs8             n/a   
+                 jacobi_cg_inputs.HB/watt_1                 n/a   
+             jacobi_cg_inputs.Hamm/add32__rhs0              n/a   
+             jacobi_cg_inputs.Lourakis/bundle1              n/a   
+               jacobi_cg_inputs.MathWorks/Muu               n/a   
+           jacobi_cg_inputs.MathWorks/tomography            n/a   
+         jacobi_cg_inputs.MaxPlanck/shallow_water1          n/a   
+         jacobi_cg_inputs.MaxPlanck/shallow_water2          n/a   
+              jacobi_cg_inputs.Mulvey/finan512              n/a   
+            jacobi_cg_inputs.Nasa/nasa2146__rhs0            n/a   
+              jacobi_cg_inputs.Nemeth/nemeth02              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth03              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth04              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth05              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth06              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth07              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth08              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth09              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth10              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth11              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth12              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth13              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth16              n/a   
+              jacobi_cg_inputs.Nemeth/nemeth17              n/a   
+                jacobi_cg_inputs.Norris/fv1                 n/a   
+                jacobi_cg_inputs.Norris/fv2                 n/a   
+             jacobi_cg_inputs.Oberwolfach/LF10              n/a   
+             jacobi_cg_inputs.Oberwolfach/LFAT5             n/a   
+                jacobi_cg_inputs.PARSEC/Si2                 n/a   
+               jacobi_cg_inputs.Pothen/bodyy4               n/a   
+              jacobi_cg_inputs.Pothen/mesh1e1               n/a   
+              jacobi_cg_inputs.Pothen/mesh1em1              n/a   
+              jacobi_cg_inputs.Pothen/mesh1em6              n/a   
+              jacobi_cg_inputs.Pothen/mesh2e1               n/a   
+              jacobi_cg_inputs.Pothen/mesh2em5              n/a   
+              jacobi_cg_inputs.Pothen/mesh3e1               n/a   
+              jacobi_cg_inputs.Pothen/mesh3em5              n/a   
+              jacobi_cg_inputs.Pothen/sphere2               n/a   
+             jacobi_cg_inputs.Sandia/ASIC_100ks             n/a   
+             jacobi_cg_inputs.Sandia/ASIC_320ks             n/a   
+             jacobi_cg_inputs.Sandia/ASIC_680ks             n/a   
+        jacobi_cg_inputs.Schenk_AFE/af_shell3__rhs0         n/a   
+        jacobi_cg_inputs.Schenk_AFE/af_shell4__rhs0         n/a   
+        jacobi_cg_inputs.Schenk_AFE/af_shell7__rhs0         n/a   
+        jacobi_cg_inputs.Schenk_AFE/af_shell8__rhs0         n/a   
+          jacobi_cg_inputs.Um/2cubes_sphere__rhs0          failed 
+          jacobi_cg_inputs.VDOL/hangGlider_1__rhs0          n/a   
+    jacobi_cg_inputs.VDOL/tumorAntiAngiogenesis_1__rhs0     n/a   
+    jacobi_cg_inputs.VDOL/tumorAntiAngiogenesis_2__rhs0     n/a   
+                 jacobi_cg_inputs.VLSI/ss1                  n/a   
+   ===================================================== =========
+   For parameters: jacobi_cg_inputs.Boeing/crystm03
+   INFO root: Dataset suitesparse_matrix.Boeing/crystm03 found in cache.
+   INFO root: Dataset suitesparse_matrix.Boeing/crystm03 found in cache.
+   INFO root: Dataset suitesparse_matrix.Boeing/crystm03 found in cache.
+   
+   For parameters: jacobi_cg_inputs.Um/2cubes_sphere__rhs0
+   INFO root: Dataset suitesparse_matrix.Um/2cubes_sphere__rhs0 found in cache.
+   INFO root: Dataset suitesparse_matrix.Um/2cubes_sphere__rhs0 found in cache.
+   
+   
+   asv: benchmark timed out (timeout 60s)
+INFO:root:...hing.SubgraphMatching.time_subgraph_matching
+
+·· ...hing.SubgraphMatching.time_subgraph_matching[2026-09-10T18:04:27.455] error: *** JOB 13075534 ON atl1-1-02-007-24-1 CANCELLED AT 2026-09-10T18:04:27 DUE to SIGNAL Terminated ***
+---------------------------------------
+Begin Slurm Epilog: Sep-10-2026 18:04:29
+Job ID:        13075534
+Array Job ID:  13075438_4
+User ID:       wahrens6
+Account:       gts-wahrens6
+Job name:      saps-competition
+Resources:     cpu=24,mem=128G,node=1
+Rsrc Used:     cput=07:20:00,vmem=0,walltime=00:18:20,mem=82291484K,energy_used=0
+Partition:     cpu-small
+QOS:           inferno
+Nodes:         atl1-1-02-007-24-1
+---------------------------------------
