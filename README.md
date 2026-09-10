@@ -79,8 +79,9 @@ with `sbatch --mail-user=you@example.com scripts/run-competition.slurm`.
 
 The competition config selects the standard datasets and uses one timing round
 per benchmark, with ASV's normal repeated measurements. The wrapper submits a
-64-task array by default. Each task runs a deterministic set of the selected
-datasets. All competition outputs live in the run directory:
+256-task array by default, with a 90-minute time limit per task. Each task runs a
+deterministic set of the selected datasets. All competition outputs live in the
+run directory:
 
 ```text
 competition/run_<slurm-array-job-id>/
@@ -163,7 +164,7 @@ results for each environment. To continue a Slurm run, submit the same array sha
 and configuration with its existing run directory:
 
 ```bash
-sbatch --array=0-63 scripts/run-competition.slurm --resume competition/run_12345
+sbatch --array=0-255 scripts/run-competition.slurm --resume competition/run_12345
 ```
 
 Only missing or null results run again. Results are saved after each environment;
