@@ -19,6 +19,9 @@ from __future__ import annotations
 
 import numpy as np
 
+from binsparse import BinsparseTensor
+from binsparse.conversions import from_numpy, to_numpy
+
 from saps.benchmark import (
     Author,
     Benchmark,
@@ -30,7 +33,6 @@ from saps.benchmark import (
 )
 from saps.benchmarks.suitesparse import SuiteSparseDataset
 from saps.downloaders.suitesparse import load_lpnetlib_problem
-from saps_framework.binsparse_format import BinsparseFormat
 
 _STATUS_OPTIMAL = 0
 _STATUS_INFEASIBLE = 1
@@ -149,9 +151,7 @@ def _phase1(xp, A, b, max_iter, tol=1e-9):
     basis = xp.arange(n, n + m)
     Binv = xp.eye(m)
 
-    basis, Binv, xB, status, iters = _run_pivots(
-        xp, A, b, c, basis, Binv, max_iter
-    )
+    basis, Binv, xB, status, _ = _run_pivots(xp, A_aug, b, c_aug, basis, Binv, max_iter)
     if status == "continue":
         # Phase 1 ran out of iterations, so nothing has been learned about
         # feasibility yet. Falling through to the test below would report a
@@ -197,9 +197,7 @@ def _solve_standard_form(xp, A, b, c, max_iter=10_000):
     if p1status == "iteration_limit":
         return xp.zeros((n,)), _STATUS_ITERATION_LIMIT
 
-    basis, Binv, xB, status, iters = _run_pivots(
-        xp, A, b, c, basis, Binv, max_iter
-    )
+    basis, Binv, xB, status, iters = _run_pivots(xp, A, b, c, basis, Binv, max_iter)
 
     if status == "continue":
         return xp.zeros((n,)), _STATUS_ITERATION_LIMIT
@@ -557,14 +555,14 @@ class LinearProgrammingTestGenerator(Generator[LinearProgrammingDataset]):
             raise ValueError("LP test datasets must define A, b, c, and expected_x.")
         return DataInstance(
             inputs=[
-                BinsparseFormat.from_numpy(dataset.A),
-                BinsparseFormat.from_numpy(dataset.b),
-                BinsparseFormat.from_numpy(dataset.c),
+                from_numpy(dataset.A),
+                from_numpy(dataset.b),
+                from_numpy(dataset.c),
             ],
             meta={"max_iter": dataset.max_iter},
             ref_outputs=[
-                BinsparseFormat.from_numpy(dataset.expected_x),
-                BinsparseFormat.from_numpy(np.array([dataset.expected_status])),
+                from_numpy(dataset.expected_x),
+                from_numpy(np.array([dataset.expected_status])),
             ],
         )
 
@@ -875,15 +873,15 @@ class LPNetlibGenerator(Generator[LPNetlibDataset]):
             # The lpi_ problems are the infeasible members of the collection, so
             # the status is known ahead of the run even though no solution is.
             ref_outputs = [
-                BinsparseFormat.from_numpy(np.zeros(A_std.shape[1])),
-                BinsparseFormat.from_numpy(np.array([dataset.expected_status])),
+                from_numpy(np.zeros(A_std.shape[1])),
+                from_numpy(np.array([dataset.expected_status])),
             ]
 
         return DataInstance(
             inputs=[
-                BinsparseFormat.from_numpy(A_std),
-                BinsparseFormat.from_numpy(b_std),
-                BinsparseFormat.from_numpy(c_std),
+                from_numpy(A_std),
+                from_numpy(b_std),
+                from_numpy(c_std),
             ],
             meta={
                 **meta,
@@ -1021,7 +1019,7 @@ class LinearProgrammingBenchmark(Benchmark):
         two correct solvers often return
         different ones, so we would get false negatives.
         """
-        status = int(self._output[1].data["values"][0])
+        status = int(to_numpy(self._output[1])[0])
         if self._ref_meta.get("expect_feasible"):
             assert status != _STATUS_INFEASIBLE, (
                 f"LP {param.dataset.name} is one of the feasible Netlib problems"
@@ -1040,10 +1038,10 @@ class LinearProgrammingBenchmark(Benchmark):
             return
 
         A_bin, b_bin, c_bin = self._input
-        A = A_bin.data["values"].reshape(A_bin.data["shape"])
-        b = b_bin.data["values"].reshape(b_bin.data["shape"])
-        c = c_bin.data["values"].reshape(c_bin.data["shape"])
-        x = self._output[0].data["values"].reshape(self._output[0].data["shape"])
+        A = to_numpy(A_bin)
+        b = to_numpy(b_bin)
+        c = to_numpy(c_bin)
+        x = to_numpy(self._output[0])
 
         feasibility_tol = self._ref_meta.get("feasibility_tol", 1e-6)
         residual = float(np.max(np.abs(A @ x - b)))
@@ -1075,7 +1073,7 @@ class LinearProgrammingBenchmark(Benchmark):
 
     def check(self, param):
         for item in self._output:
-            assert isinstance(item, BinsparseFormat), (
+            assert isinstance(item, BinsparseTensor), (
                 "Output must be in binsparse format"
             )
         if self._ref_meta and self._ref_meta.get("check_solution"):
@@ -1083,15 +1081,11 @@ class LinearProgrammingBenchmark(Benchmark):
         if self._ref_outputs is None:
             return
 
-        x_actual = self._output[0].data["values"].reshape(self._output[0].data["shape"])
-        status_actual = int(self._output[1].data["values"][0])
+        x_actual = to_numpy(self._output[0])
+        status_actual = int(to_numpy(self._output[1])[0])
 
-        x_expected = (
-            self._ref_outputs[0]
-            .data["values"]
-            .reshape(self._ref_outputs[0].data["shape"])
-        )
-        status_expected = int(self._ref_outputs[1].data["values"][0])
+        x_expected = to_numpy(self._ref_outputs[0])
+        status_expected = int(to_numpy(self._ref_outputs[1])[0])
 
         assert status_actual == status_expected, (
             f"LP status mismatch for {param.dataset.name}:"
