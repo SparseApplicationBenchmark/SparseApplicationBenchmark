@@ -4,8 +4,8 @@
 #SBATCH --cpus-per-task=24
 #SBATCH --exclusive
 #SBATCH --mem=192G
-#SBATCH --time=1:00:00
-#SBATCH --array=0-31
+#SBATCH --time=12:00:00
+#SBATCH --array=0-63
 #SBATCH --output=competition-%A_%a.log
 
 set -euo pipefail
