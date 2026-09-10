@@ -455,9 +455,7 @@ def main() -> int:
     saps_config_data = _load_saps_config(args.config)
     _apply_config_args(parser, args, saps_config_data)
 
-    if args.rounds is not None and (
-        type(args.rounds) is not int or args.rounds < 1
-    ):
+    if args.rounds is not None and (type(args.rounds) is not int or args.rounds < 1):
         parser.error("--rounds must be a positive integer")
     if args.chunk_count < 1:
         parser.error("--chunk-count must be at least 1")
