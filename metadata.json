@@ -35,6 +35,7 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
                 "mathematics-of-computing",
                 "model-checking",
@@ -58,6 +59,7 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
                 "mathematics-of-computing",
                 "model-checking",
@@ -81,6 +83,7 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
                 "mathematics-of-computing",
                 "model-checking",
@@ -104,6 +107,7 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
                 "mathematics-of-computing",
                 "model-checking",
@@ -459,6 +463,7 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
                 "mathematics-of-computing",
                 "model-checking",
@@ -488,6 +493,7 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
                 "mathematics-of-computing",
                 "model-checking",
@@ -517,6 +523,7 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
                 "mathematics-of-computing",
                 "model-checking",
@@ -546,6 +553,7 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
                 "mathematics-of-computing",
                 "model-checking",
@@ -575,7 +583,9 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
+                "large-query",
                 "mathematics-of-computing",
                 "model-checking",
                 "probabilistic-inference-problems",
@@ -604,7 +614,9 @@
                 "trace"
               ],
               "tags": [
+                "dense",
                 "hardware",
+                "large-query",
                 "mathematics-of-computing",
                 "model-checking",
                 "probabilistic-inference-problems",
@@ -891,11 +903,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -914,11 +930,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -937,11 +957,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -960,11 +984,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -983,11 +1011,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -7932,7 +7964,11 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -7955,7 +7991,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -7978,7 +8017,11 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8001,7 +8044,11 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8024,7 +8071,11 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8047,7 +8098,11 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8070,7 +8125,11 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8093,7 +8152,11 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8471,7 +8534,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8494,7 +8560,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8517,7 +8586,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8540,7 +8612,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8563,7 +8638,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -8586,7 +8664,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
@@ -15423,6 +15504,9 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "index-ops",
+                "linalg-ops",
                 "test",
                 "trace"
               ],
@@ -15500,6 +15584,9 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "index-ops",
+                "linalg-ops",
                 "test",
                 "trace"
               ],
@@ -15577,6 +15664,9 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "index-ops",
+                "linalg-ops",
                 "test",
                 "trace"
               ],
@@ -15657,6 +15747,8 @@
                 "computing-methodologies",
                 "continuous-simulation",
                 "discretization",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "test",
@@ -15873,6 +15965,8 @@
                 "computing-methodologies",
                 "continuous-simulation",
                 "discretization",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "test",
@@ -16090,9 +16184,12 @@
                 "applied-computing",
                 "chemistry",
                 "computing-methodologies",
+                "dense",
+                "elementary-ops",
                 "physics",
                 "quantum-mechanic-simulation",
                 "standard",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -16214,12 +16311,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -16236,12 +16338,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -16258,12 +16365,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -16280,12 +16392,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -16302,12 +16419,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -16324,12 +16446,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             }
@@ -19610,12 +19737,18 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
                 "factorization-methods",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
+                "shape-ops",
+                "tensor",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -19651,12 +19784,19 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
                 "factorization-methods",
+                "fancy-ops",
+                "large-query",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
+                "shape-ops",
+                "tensor",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -19692,12 +19832,20 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
                 "factorization-methods",
+                "fancy-ops",
+                "high-dimensional",
+                "large-query",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
+                "shape-ops",
+                "tensor",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -20356,11 +20504,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20379,11 +20531,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20402,11 +20558,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20425,11 +20585,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20448,11 +20612,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20471,11 +20639,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20770,11 +20942,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20793,11 +20969,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20816,11 +20996,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20839,11 +21023,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20862,11 +21050,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -20885,11 +21077,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -21253,6 +21449,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "elementary-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -21276,6 +21474,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "elementary-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -21299,6 +21499,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "elementary-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -21322,6 +21524,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "elementary-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -21999,7 +22203,10 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematics-of-computing",
                 "neural-networks",
                 "test",
@@ -22025,7 +22232,10 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematics-of-computing",
                 "neural-networks",
                 "test",
@@ -22051,7 +22261,10 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematics-of-computing",
                 "neural-networks",
                 "test",
@@ -22077,7 +22290,10 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematics-of-computing",
                 "neural-networks",
                 "test",
@@ -22467,7 +22683,10 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematics-of-computing",
                 "neural-networks",
                 "test",
@@ -22495,7 +22714,10 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematics-of-computing",
                 "neural-networks",
                 "test",
@@ -22523,7 +22745,10 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematics-of-computing",
                 "neural-networks",
                 "test",
@@ -22551,7 +22776,10 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematics-of-computing",
                 "neural-networks",
                 "test",
@@ -22930,6 +23158,9 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
@@ -22952,6 +23183,9 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
@@ -22974,6 +23208,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
@@ -22996,6 +23234,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
@@ -23018,6 +23260,10 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
@@ -27652,10 +27898,17 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
                 "factorization-methods",
+                "fancy-ops",
+                "index-ops",
+                "large-query",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -27689,10 +27942,17 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
                 "factorization-methods",
+                "fancy-ops",
+                "index-ops",
+                "large-query",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -27728,10 +27988,18 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
                 "factorization-methods",
+                "fancy-ops",
+                "high-dimensional",
+                "index-ops",
+                "large-query",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -28503,12 +28771,16 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -28525,12 +28797,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -28547,12 +28824,16 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -28569,12 +28850,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -28591,12 +28877,16 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -28613,12 +28903,16 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -31833,12 +32127,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -31855,12 +32154,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -31877,12 +32181,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             }
@@ -33726,15 +34035,20 @@
                 "computing-methodologies",
                 "dimensionality-reduction",
                 "dimensionality-reduction-and-manifold-learning",
+                "fancy-ops",
+                "index-ops",
                 "information-retrieval",
                 "information-systems",
+                "linalg-ops",
                 "machine-learning-algorithms",
                 "mathematics-of-computing",
                 "nearest-neighbor-algorithms",
                 "recommender-systems",
+                "tensor",
                 "test",
                 "theory-of-computation",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             }
@@ -34114,6 +34428,8 @@
                 "computing-methodologies",
                 "continuous-simulation",
                 "discretization",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "test",
@@ -34505,12 +34821,16 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -34528,12 +34848,16 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -34551,12 +34875,16 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -34574,12 +34902,16 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -34597,12 +34929,16 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -34620,12 +34956,16 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -34643,12 +34983,16 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -34666,12 +35010,16 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -34689,12 +35037,16 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             }
@@ -35073,6 +35425,8 @@
                 "applied-computing",
                 "computational-photography",
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "image-processing",
                 "imaging",
                 "test",
@@ -35100,6 +35454,8 @@
                 "applied-computing",
                 "computational-photography",
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "image-processing",
                 "imaging",
                 "test",
@@ -35127,6 +35483,8 @@
                 "applied-computing",
                 "computational-photography",
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "image-processing",
                 "imaging",
                 "test",
@@ -35989,13 +36347,16 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -36012,13 +36373,16 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -36035,13 +36399,16 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             }
@@ -36323,6 +36690,8 @@
               "pretty_name": "MRI Sobel Edge test_sobel_zero_image",
               "suites": [],
               "tags": [
+                "fancy-ops",
+                "linalg-ops",
                 "test",
                 "trace"
               ],
@@ -36341,6 +36710,8 @@
               "pretty_name": "MRI Sobel Edge test_sobel_vertical_edge",
               "suites": [],
               "tags": [
+                "fancy-ops",
+                "linalg-ops",
                 "test",
                 "trace"
               ],
@@ -36359,6 +36730,8 @@
               "pretty_name": "MRI Sobel Edge test_sobel_horizontal_edge",
               "suites": [],
               "tags": [
+                "fancy-ops",
+                "linalg-ops",
                 "test",
                 "trace"
               ],
@@ -36377,6 +36750,8 @@
               "pretty_name": "MRI Sobel Edge test_sobel_generator_metadata",
               "suites": [],
               "tags": [
+                "fancy-ops",
+                "linalg-ops",
                 "test",
                 "trace"
               ],
@@ -36785,13 +37160,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -36808,13 +37187,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -36831,13 +37214,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -36854,13 +37241,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -36877,13 +37268,17 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "linalg-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             }
@@ -37195,10 +37590,14 @@
                 "applied-computing",
                 "computational-photography",
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "image-processing",
                 "imaging",
+                "shape-ops",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -37231,10 +37630,14 @@
                 "applied-computing",
                 "computational-photography",
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "image-processing",
                 "imaging",
+                "shape-ops",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -37267,10 +37670,14 @@
                 "applied-computing",
                 "computational-photography",
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "image-processing",
                 "imaging",
+                "shape-ops",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -37303,10 +37710,14 @@
                 "applied-computing",
                 "computational-photography",
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "image-processing",
                 "imaging",
+                "shape-ops",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             }
@@ -37706,12 +38117,17 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "hypersparse",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -37728,12 +38144,17 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "hypersparse",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -37750,12 +38171,17 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "hypersparse",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -37772,12 +38198,17 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "hypersparse",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -37794,12 +38225,17 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "hypersparse",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -37816,12 +38252,17 @@
                 "trace"
               ],
               "tags": [
+                "fancy-ops",
+                "hypersparse",
+                "index-ops",
+                "linalg-ops",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "numerical-analysis",
                 "solvers",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -40148,14 +40589,21 @@
                 "cluster-analysis",
                 "clustering-and-classification",
                 "computing-methodologies",
+                "dense",
                 "dimensionality-reduction",
                 "dimensionality-reduction-and-manifold-learning",
+                "fancy-ops",
+                "index-ops",
                 "information-systems",
+                "linalg-ops",
                 "machine-learning-algorithms",
                 "mathematics-of-computing",
                 "recommender-systems",
+                "shape-ops",
+                "tensor",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             },
@@ -40179,14 +40627,21 @@
                 "cluster-analysis",
                 "clustering-and-classification",
                 "computing-methodologies",
+                "dense",
                 "dimensionality-reduction",
                 "dimensionality-reduction-and-manifold-learning",
+                "fancy-ops",
+                "index-ops",
                 "information-systems",
+                "linalg-ops",
                 "machine-learning-algorithms",
                 "mathematics-of-computing",
                 "recommender-systems",
+                "shape-ops",
+                "tensor",
                 "test",
-                "trace"
+                "trace",
+                "transcendental-ops"
               ],
               "topics": []
             }
@@ -40474,9 +40929,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40503,9 +40961,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40532,9 +40993,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40561,9 +41025,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40590,9 +41057,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40619,9 +41089,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40648,9 +41121,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40677,9 +41153,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40706,9 +41185,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40735,9 +41217,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40764,9 +41249,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40793,9 +41281,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40822,9 +41313,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40851,9 +41345,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40880,9 +41377,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40909,9 +41409,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40938,9 +41441,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40967,9 +41473,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -40996,9 +41505,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -41025,9 +41537,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -41054,9 +41569,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -41083,9 +41601,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -41112,9 +41633,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -41141,9 +41665,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -41170,9 +41697,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -41203,9 +41733,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -41336,9 +41869,12 @@
               ],
               "tags": [
                 "computer-systems-organization",
+                "dense",
                 "hardware",
                 "quantum-computation",
                 "quantum-computing",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -41415,6 +41951,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -41438,6 +41976,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -41461,6 +42001,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -41484,6 +42026,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -41507,6 +42051,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -41530,6 +42076,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -42100,8 +42648,12 @@
               "t_max": 0.4,
               "tags": [
                 "differential-equations",
+                "fancy-ops",
+                "index-ops",
+                "linalg-ops",
                 "mathematics-of-computing",
                 "numerical-analysis",
+                "shape-ops",
                 "solvers",
                 "test",
                 "trace"
@@ -43113,6 +43665,7 @@
                 "trace"
               ],
               "tags": [
+                "dynamic-sparsity",
                 "test",
                 "trace"
               ],
@@ -43131,6 +43684,7 @@
                 "trace"
               ],
               "tags": [
+                "dynamic-sparsity",
                 "test",
                 "trace"
               ],
@@ -74739,7 +75293,13 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "game-tree-search",
+                "high-dimensional",
+                "index-ops",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -74759,7 +75319,13 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "game-tree-search",
+                "high-dimensional",
+                "index-ops",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -74779,7 +75345,13 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "game-tree-search",
+                "high-dimensional",
+                "index-ops",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -74799,7 +75371,13 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "game-tree-search",
+                "high-dimensional",
+                "index-ops",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -74819,7 +75397,13 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "game-tree-search",
+                "high-dimensional",
+                "index-ops",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -74839,7 +75423,13 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "game-tree-search",
+                "high-dimensional",
+                "index-ops",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -74859,7 +75449,13 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "game-tree-search",
+                "high-dimensional",
+                "index-ops",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -74879,7 +75475,13 @@
               ],
               "tags": [
                 "computing-methodologies",
+                "dense",
+                "fancy-ops",
                 "game-tree-search",
+                "high-dimensional",
+                "index-ops",
+                "shape-ops",
+                "tensor",
                 "test",
                 "trace"
               ],
@@ -75027,6 +75629,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -75050,6 +75654,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -75073,6 +75679,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -75096,6 +75704,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -75119,6 +75729,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -75339,11 +75951,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -75362,11 +75978,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -75385,11 +76005,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -75408,11 +76032,15 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "fancy-ops",
                 "graph-algorithms",
+                "index-ops",
                 "mathematical-software",
                 "mathematical-software-performance",
                 "mathematics-of-computing",
                 "paths-and-connectivity-problems",
+                "shape-ops",
                 "test",
                 "trace"
               ],
@@ -75628,6 +76256,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "elementary-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -75651,6 +76281,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "elementary-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -75674,6 +76306,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "elementary-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
@@ -75697,6 +76331,8 @@
                 "trace"
               ],
               "tags": [
+                "dense",
+                "elementary-ops",
                 "graph-algorithms",
                 "mathematical-software",
                 "mathematical-software-performance",
