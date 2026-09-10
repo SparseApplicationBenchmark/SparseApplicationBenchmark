@@ -2,29 +2,27 @@ from typing import Any, cast
 
 import numpy as np
 
+from binsparse import BinsparseTensor, COORMatrix
+from binsparse.conversions import from_numpy, to_numpy, to_scipy
+
 from saps.benchmark import (
     Author,
     Benchmark,
     Contributor,
     DataInstance,
+    Dataset,
     Generator,
     Ref,
 )
+from saps.benchmarks.ogb import OGBNodePropGenerator, fetch_ogb_nodeprop_dataset
 from saps.benchmarks.suitesparse import SuiteSparseDataset, fetch_suitesparse_matrix
-from saps_framework import BinsparseFormat
 
 
 def _from_binsparse(array):
-    if array.data["format"] == "dense":
-        return array.data["values"].reshape(array.data["shape"])
-    if array.data["format"] == "COO":
-        shape = array.data["shape"]
-        indices = tuple(array.data[f"indices_{dim}"] for dim in range(len(shape)))
-        values = array.data["values"]
-        dense = np.zeros(shape, dtype=values.dtype)
-        dense[indices] = values
-        return dense
-    raise ValueError(f"Unsupported format: {array.data['format']}")
+    try:
+        return to_numpy(array)
+    except TypeError:
+        return to_scipy(array).toarray()
 
 
 def _gcn_loss(adjacency, features, weights1, bias1, weights2, bias2, targets):
@@ -35,6 +33,35 @@ def _gcn_loss(adjacency, features, weights1, bias1, weights2, bias2, targets):
     predictions = z2 @ weights2 + bias2
     diff = predictions - targets
     return np.sum(diff * diff) / predictions.shape[0]
+
+
+def _targets_from_ogb_labels(labels: np.ndarray, num_outputs: int) -> np.ndarray:
+    labels = np.asarray(labels)
+    if labels.ndim == 1:
+        labels = labels.reshape(-1, 1)
+    if labels.ndim != 2:
+        raise ValueError("OGB labels must be a vector or matrix.")
+
+    if labels.shape[1] == num_outputs:
+        return np.nan_to_num(labels.astype(np.float32, copy=False))
+
+    if labels.shape[1] != 1:
+        raise ValueError(
+            f"Cannot convert OGB labels with shape {labels.shape} to "
+            f"{num_outputs} outputs."
+        )
+
+    flat_labels = labels[:, 0]
+    if num_outputs == 1:
+        return np.nan_to_num(flat_labels.astype(np.float32)).reshape(-1, 1)
+
+    targets = np.zeros((labels.shape[0], num_outputs), dtype=np.float32)
+    valid = np.isfinite(flat_labels)
+    label_ids = flat_labels[valid].astype(np.int64)
+    if np.any(label_ids < 0) or np.any(label_ids >= num_outputs):
+        raise ValueError("OGB labels contain class IDs outside num_outputs.")
+    targets[np.nonzero(valid)[0], label_ids] = 1.0
+    return targets
 
 
 class GCNTrainingDataset(SuiteSparseDataset):
@@ -89,6 +116,62 @@ class GCNTrainingDataset(SuiteSparseDataset):
         data["out_dim"] = self.out_dim
         data["num_iterations"] = self.num_iterations
         data["learning_rate"] = self.learning_rate
+        return data
+
+
+class OGBGCNTrainingDataset(Dataset):
+    """A full-graph GCN training dataset sourced from OGB."""
+
+    def __init__(
+        self,
+        name: str,
+        *,
+        source_name: str,
+        hidden_dim: int = 256,
+        num_iterations: int = 10,
+        learning_rate: float = 0.01,
+        description: str,
+        suites: list[str] | None = None,
+    ):
+        self._name = name
+        self.source_name = source_name
+        self.hidden_dim = hidden_dim
+        self.num_iterations = num_iterations
+        self.learning_rate = learning_rate
+        self._description = description
+        self._suites = suites or []
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def pretty_name(self) -> str:
+        return f"GCN Backward {self.source_name}"
+
+    @property
+    def description(self) -> str:
+        return self._description
+
+    @property
+    def suites(self) -> list[str]:
+        return self._suites
+
+    @property
+    def concepts(self) -> str:
+        return "<ccs2012></ccs2012>"
+
+    @property
+    def metadata(self) -> dict[str, Any]:
+        data = super().metadata
+        data.update(
+            {
+                "source_name": self.source_name,
+                "hidden_dim": self.hidden_dim,
+                "num_iterations": self.num_iterations,
+                "learning_rate": self.learning_rate,
+            }
+        )
         return data
 
 
@@ -286,14 +369,13 @@ class GCNTrainingTestGenerator(Generator[GCNTrainingDataset]):
 
         return DataInstance(
             inputs=[
-                BinsparseFormat.from_numpy(adjacency),
-                BinsparseFormat.from_numpy(adjacency.T),
-                BinsparseFormat.from_numpy(features),
-                BinsparseFormat.from_numpy(weights1),
-                BinsparseFormat.from_numpy(bias1),
-                BinsparseFormat.from_numpy(weights2),
-                BinsparseFormat.from_numpy(bias2),
-                BinsparseFormat.from_numpy(targets),
+                from_numpy(adjacency),
+                from_numpy(features),
+                from_numpy(weights1),
+                from_numpy(bias1),
+                from_numpy(weights2),
+                from_numpy(bias2),
+                from_numpy(targets),
             ],
             meta={
                 "num_iterations": dataset.num_iterations,
@@ -421,14 +503,6 @@ class GCNTrainingGenerator(Generator[GCNTrainingDataset]):
                 hidden_dim=4,
                 out_dim=1,
             ),
-            # GCNTrainingDataset(
-            #    "dg_gcn_road_2",
-            #    "Medium road network graph.",
-            #    "road_central",
-            #    feature_dim=4,
-            #    hidden_dim=8,
-            #    out_dim=1,
-            # ),
             GCNTrainingDataset(
                 "dg_gcn_molecular_1",
                 "Small molecular graph. - Email network.",
@@ -453,23 +527,6 @@ class GCNTrainingGenerator(Generator[GCNTrainingDataset]):
                 hidden_dim=32,
                 out_dim=1,
             ),
-            # GCNTrainingDataset(
-            #    "dg_gcn_large_2",
-            #    "Very large road network.",
-            #    "road_usa",
-            #    feature_dim=16,
-            #    hidden_dim=32,
-            #    out_dim=1,
-            # ),
-            GCNTrainingDataset(
-                "dg_gcn_bcsstk01",
-                "Original small structural engineering matrix"
-                " (for backward compatibility).",
-                "bcsstk01",
-                feature_dim=16,
-                hidden_dim=8,
-                out_dim=1,
-            ),
         ]
 
     @property
@@ -482,7 +539,7 @@ class GCNTrainingGenerator(Generator[GCNTrainingDataset]):
         out_dim = dataset.out_dim
 
         raw = fetch_suitesparse_matrix(dataset.source_name)
-        coo = BinsparseFormat.to_coo(raw.inputs[0])
+        coo = to_scipy(raw.inputs[0]).tocoo()
         rng = np.random.default_rng(0)
 
         # Create feature/weight arrays using the RNG (deterministic)
@@ -494,22 +551,25 @@ class GCNTrainingGenerator(Generator[GCNTrainingDataset]):
         bias2 = np.zeros((out_dim,), dtype=np.float32)
         targets = rng.standard_normal((n, out_dim), dtype=np.float32)
 
-        row, col = coo.data["indices_0"], coo.data["indices_1"]
-        shape = coo.data["shape"]
-        values_f32 = coo.data["values"].astype(np.float32, copy=False)
-        A_bin = BinsparseFormat.from_coo((row, col), values_f32, shape)
-        # Transpose of a COO matrix is its indices swapped; same values, shape reversed.
-        A_T_bin = BinsparseFormat.from_coo((col, row), values_f32, (shape[1], shape[0]))
-        features_b = BinsparseFormat.from_numpy(features)
-        weights1_b = BinsparseFormat.from_numpy(weights1)
-        bias1_b = BinsparseFormat.from_numpy(bias1)
-        weights2_b = BinsparseFormat.from_numpy(weights2)
-        bias2_b = BinsparseFormat.from_numpy(bias2)
-        targets_b = BinsparseFormat.from_numpy(targets)
+        row, col = coo.row, coo.col
+        shape = coo.shape
+        values_f32 = coo.data.astype(np.float32, copy=False)
+        A_bin = COORMatrix(
+            shape,
+            len(values_f32),
+            indices_0=row,
+            indices_1=col,
+            values=values_f32,
+        )
+        features_b = from_numpy(features)
+        weights1_b = from_numpy(weights1)
+        bias1_b = from_numpy(bias1)
+        weights2_b = from_numpy(weights2)
+        bias2_b = from_numpy(bias2)
+        targets_b = from_numpy(targets)
         return DataInstance(
             inputs=[
                 A_bin,
-                A_T_bin,
                 features_b,
                 weights1_b,
                 bias1_b,
@@ -521,6 +581,101 @@ class GCNTrainingGenerator(Generator[GCNTrainingDataset]):
                 "num_iterations": dataset.num_iterations,
                 "learning_rate": dataset.learning_rate,
             },
+        )
+
+
+class OGBGCNTrainingGenerator(Generator[OGBGCNTrainingDataset]):
+    @property
+    def name(self) -> str:
+        return "gcn_backward_ogb_inputs"
+
+    @property
+    def pretty_name(self) -> str:
+        return "Open Graph Benchmark GCN Backward Inputs"
+
+    @property
+    def description(self) -> str:
+        return "Loads full OGB node-property graphs for 2-layer GCN training."
+
+    @property
+    def suites(self) -> list[str]:
+        return []
+
+    @property
+    def concepts(self) -> str:
+        return "<ccs2012></ccs2012>"
+
+    @property
+    def authors(self) -> list[Contributor]:
+        return [Contributor("Tarun Devi", "tdevi3@gatech.edu")]
+
+    @property
+    def references(self) -> list[Ref]:
+        return GCNBackwardBenchmark().references
+
+    @property
+    def ai_disclosure(self) -> str:
+        return (
+            "No generative AI was used to construct the benchmark function itself. "
+            "Generative AI was used to help implement and audit OGB input plumbing, "
+            "tests, documentation, and debugging."
+        )
+
+    @property
+    def motivation(self) -> str:
+        return (
+            "Uses complete real-world node features, graph structure, and labels "
+            "from the Open Graph Benchmark for the GCN training loop. SAPS caching "
+            "is disabled for these benchmark-specific training tensors because the "
+            "shared OGB shell generator caches the prepared source graph."
+        )
+
+    @property
+    def cacheable(self) -> bool:
+        return False
+
+    @property
+    def datasets(self) -> list[OGBGCNTrainingDataset]:
+        return [
+            OGBGCNTrainingDataset(
+                dataset.name,
+                source_name=dataset.source_name,
+                description=dataset.description,
+                suites=["standard"],
+            )
+            for dataset in OGBNodePropGenerator().datasets
+        ]
+
+    def generate(self, dataset: OGBGCNTrainingDataset) -> DataInstance:
+        graph = fetch_ogb_nodeprop_dataset(dataset.source_name)
+        feature_dim = graph.num_features
+        out_dim = graph.num_outputs
+        hidden_dim = dataset.hidden_dim
+        targets = _targets_from_ogb_labels(graph.labels, out_dim)
+
+        rng = np.random.default_rng(0)
+        weights1 = rng.standard_normal((feature_dim, hidden_dim), dtype=np.float32)
+        weights2 = rng.standard_normal((hidden_dim, out_dim), dtype=np.float32)
+        meta = {
+            **graph.metadata,
+            "num_nodes": graph.num_nodes,
+            "num_raw_edges": graph.num_raw_edges,
+            "num_features": feature_dim,
+            "num_outputs": out_dim,
+            "num_iterations": dataset.num_iterations,
+            "learning_rate": dataset.learning_rate,
+        }
+        return DataInstance(
+            inputs=[
+                graph.adjacency,
+                from_numpy(graph.features),
+                from_numpy(weights1),
+                from_numpy(np.zeros(hidden_dim, dtype=np.float32)),
+                from_numpy(weights2),
+                from_numpy(np.zeros(out_dim, dtype=np.float32)),
+                from_numpy(targets),
+            ],
+            meta=meta,
         )
 
 
@@ -648,11 +803,15 @@ Each iteration:
 
     @property
     def generators(self):
-        return [GCNTrainingTestGenerator(), GCNTrainingGenerator()]
+        return [
+            GCNTrainingTestGenerator(),
+            GCNTrainingGenerator(),
+            OGBGCNTrainingGenerator(),
+        ]
 
     def check(self, param):
         for item in self._output:
-            assert isinstance(item, BinsparseFormat), (
+            assert isinstance(item, BinsparseTensor), (
                 "Output must be in binsparse format"
             )
 
@@ -669,7 +828,6 @@ Each iteration:
         if self._ref_meta.get("check_loss_reduction"):
             (
                 adjacency,
-                _adjacency_t,
                 features,
                 initial_w1,
                 initial_b1,
@@ -711,21 +869,19 @@ Each iteration:
     ----
     xp : array_api
         Array API module (e.g. numpy, cupy, torch)
-    adjacency_bench : BinsparseFormat
+    adjacency_bench : BinsparseTensor
         Sparse adjacency matrix A (N x N)
-    adjacency_T_bench : BinsparseFormat
-        Sparse transposed adjacency matrix A.T (N x N)
-    features_bench : BinsparseFormat
+    features_bench : BinsparseTensor
         Node feature matrix X (N x F)
-    weights1_bench : BinsparseFormat
+    weights1_bench : BinsparseTensor
         Initial weights for first GCN layer W1 (F x H)
-    bias1_bench : BinsparseFormat
+    bias1_bench : BinsparseTensor
         Initial bias for first GCN layer b1 (H,)
-    weights2_bench : BinsparseFormat
+    weights2_bench : BinsparseTensor
         Initial weights for second GCN layer W2 (H x O)
-    bias2_bench : BinsparseFormat
+    bias2_bench : BinsparseTensor
         Initial bias for second GCN layer b2 (O,)
-    targets_bench : BinsparseFormat
+    targets_bench : BinsparseTensor
         Target values T (N x O) for MSE loss
     num_iterations : int
         Number of training iterations (default 10)
@@ -739,9 +895,8 @@ Each iteration:
     """
 
     def benchmark(self, xp, data: list, meta: dict):
-        adjacency, adjacency_T, features, weights1, bias1, weights2, bias2, targets = (
-            data
-        )
+        adjacency, features, weights1, bias1, weights2, bias2, targets = data
+        adjacency_T = adjacency.T
         num_iterations = meta["num_iterations"]
         learning_rate = meta["learning_rate"]
 

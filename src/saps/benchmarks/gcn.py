@@ -2,16 +2,20 @@ from typing import Any, cast
 
 import numpy as np
 
+from binsparse import BinsparseTensor
+from binsparse.conversions import from_numpy, from_scipy, to_numpy, to_scipy
+
 from saps.benchmark import (
     Author,
     Benchmark,
     Contributor,
     DataInstance,
+    Dataset,
     Generator,
     Ref,
 )
+from saps.benchmarks.ogb import OGBNodePropGenerator, fetch_ogb_nodeprop_dataset
 from saps.benchmarks.suitesparse import SuiteSparseDataset, fetch_suitesparse_matrix
-from saps_framework import BinsparseFormat
 
 
 class GCNDataset(SuiteSparseDataset):
@@ -57,6 +61,56 @@ class GCNDataset(SuiteSparseDataset):
         data["feature_dim"] = self.feature_dim
         data["hidden_dim"] = self.hidden_dim
         data["out_dim"] = self.out_dim
+        return data
+
+
+class OGBGCNDataset(Dataset):
+    """A full-graph GCN inference dataset sourced from OGB."""
+
+    def __init__(
+        self,
+        name: str,
+        *,
+        source_name: str,
+        hidden_dim: int,
+        description: str,
+        suites: list[str] | None = None,
+    ):
+        self._name = name
+        self.source_name = source_name
+        self.hidden_dim = hidden_dim
+        self._description = description
+        self._suites = suites or []
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def pretty_name(self) -> str:
+        return f"GCN {self.source_name}"
+
+    @property
+    def description(self) -> str:
+        return self._description
+
+    @property
+    def suites(self) -> list[str]:
+        return self._suites
+
+    @property
+    def concepts(self) -> str:
+        return "<ccs2012></ccs2012>"
+
+    @property
+    def metadata(self) -> dict[str, Any]:
+        data = super().metadata
+        data.update(
+            {
+                "source_name": self.source_name,
+                "hidden_dim": self.hidden_dim,
+            }
+        )
         return data
 
 
@@ -175,11 +229,11 @@ class GCNTestGenerator(Generator[GCNDataset]):
         expected = dataset.expected
         expected = gcn_reference_np(*arrays) if expected is None else expected
 
-        inputs = [BinsparseFormat.from_numpy(item) for item in arrays]
+        inputs = [from_numpy(item) for item in arrays]
         return DataInstance(
             inputs=inputs,
             meta={},
-            ref_outputs=[BinsparseFormat.from_numpy(expected)],
+            ref_outputs=[from_numpy(expected)],
             ref_meta={"rtol": 1e-10},
         )
 
@@ -306,14 +360,6 @@ class GCNGenerator(Generator[GCNDataset]):
                 hidden_dim=4,
                 out_dim=1,
             ),
-            # GCNDataset( #TODO seems to be too big?
-            #    "dg_gcn_road_2",
-            #    "Medium road network graph.",
-            #    "road_central",
-            #    feature_dim=4,
-            #    hidden_dim=8,
-            #    out_dim=1,
-            # ),
             GCNDataset(
                 "dg_gcn_molecular_1",
                 "Small molecular graph. - Email network.",
@@ -338,14 +384,6 @@ class GCNGenerator(Generator[GCNDataset]):
                 hidden_dim=32,
                 out_dim=1,
             ),
-            # GCNDataset( # seems to be too big?
-            #    "dg_gcn_large_2",
-            #    "Very large road network.",
-            #    "road_usa",
-            #    feature_dim=16,
-            #    hidden_dim=32,
-            #    out_dim=1,
-            # ),
             GCNDataset(
                 "dg_gcn_bcsstk01",
                 "Original small structural engineering matrix"
@@ -363,7 +401,7 @@ class GCNGenerator(Generator[GCNDataset]):
         out_dim = dataset.out_dim
 
         raw = fetch_suitesparse_matrix(dataset.source_name)
-        coo = BinsparseFormat.to_coo(raw.inputs[0])
+        coo = to_scipy(raw.inputs[0]).tocoo()
         rng = np.random.default_rng(0)
 
         # Create feature/weight arrays using the RNG (deterministic)
@@ -374,19 +412,106 @@ class GCNGenerator(Generator[GCNDataset]):
         weights2 = rng.standard_normal((hidden_dim, out_dim), dtype=np.float32)
         bias2 = np.zeros((out_dim,), dtype=np.float32)
 
-        A_bin = BinsparseFormat.from_coo(
-            (coo.data["indices_0"], coo.data["indices_1"]),
-            coo.data["values"].astype(np.float32, copy=False),
-            coo.data["shape"],
-        )
-        features_b = BinsparseFormat.from_numpy(features)
-        weights1_b = BinsparseFormat.from_numpy(weights1)
-        bias1_b = BinsparseFormat.from_numpy(bias1)
-        weights2_b = BinsparseFormat.from_numpy(weights2)
-        bias2_b = BinsparseFormat.from_numpy(bias2)
+        coo.data = coo.data.astype(np.float32, copy=False)
+        A_bin = from_scipy(coo)
+        features_b = from_numpy(features)
+        weights1_b = from_numpy(weights1)
+        bias1_b = from_numpy(bias1)
+        weights2_b = from_numpy(weights2)
+        bias2_b = from_numpy(bias2)
         return DataInstance(
             inputs=[A_bin, features_b, weights1_b, bias1_b, weights2_b, bias2_b],
             meta={},
+        )
+
+
+class OGBGCNGenerator(Generator[OGBGCNDataset]):
+    @property
+    def name(self) -> str:
+        return "gcn_ogb_inputs"
+
+    @property
+    def pretty_name(self) -> str:
+        return "Open Graph Benchmark GCN Inputs"
+
+    @property
+    def description(self) -> str:
+        return "Loads full OGB node-property graphs for 2-layer GCN inference."
+
+    @property
+    def suites(self) -> list[str]:
+        return []
+
+    @property
+    def concepts(self) -> str:
+        return "<ccs2012></ccs2012>"
+
+    @property
+    def authors(self) -> list[Contributor]:
+        return [Contributor("Tarun Devi", "tdevi3@gatech.edu")]
+
+    @property
+    def references(self) -> list[Ref]:
+        return GCNBenchmark().references
+
+    @property
+    def ai_disclosure(self) -> str:
+        return (
+            "No generative AI was used to construct the benchmark function itself. "
+            "Generative AI was used to help implement and audit the OGB downloader, "
+            "input generator, tests, documentation, and debugging."
+        )
+
+    @property
+    def motivation(self) -> str:
+        return (
+            "Uses complete real-world node features and graph structure from the "
+            "Open Graph Benchmark instead of synthesized GCN inputs. SAPS caching is "
+            "disabled because its JSON/hex representation would expand these very "
+            "large graphs substantially; OGB maintains the source-data cache instead."
+        )
+
+    @property
+    def cacheable(self) -> bool:
+        return False
+
+    @property
+    def datasets(self) -> list[OGBGCNDataset]:
+        return [
+            OGBGCNDataset(
+                dataset.name,
+                source_name=dataset.source_name,
+                hidden_dim=256,
+                description=dataset.description,
+                suites=["standard"],
+            )
+            for dataset in OGBNodePropGenerator().datasets
+        ]
+
+    def generate(self, dataset: OGBGCNDataset) -> DataInstance:
+        graph = fetch_ogb_nodeprop_dataset(dataset.source_name)
+        feature_dim = graph.num_features
+        out_dim = graph.num_outputs
+        rng = np.random.default_rng(0)
+        weights1 = rng.standard_normal(
+            (feature_dim, dataset.hidden_dim), dtype=np.float32
+        )
+        weights2 = rng.standard_normal((dataset.hidden_dim, out_dim), dtype=np.float32)
+        return DataInstance(
+            inputs=[
+                graph.adjacency,
+                from_numpy(graph.features),
+                from_numpy(weights1),
+                from_numpy(np.zeros(dataset.hidden_dim, dtype=np.float32)),
+                from_numpy(weights2),
+                from_numpy(np.zeros(out_dim, dtype=np.float32)),
+            ],
+            meta={
+                **graph.metadata,
+                "num_features": feature_dim,
+                "num_outputs": out_dim,
+                "hidden_dim": dataset.hidden_dim,
+            },
         )
 
 
@@ -467,14 +592,27 @@ class GCNBenchmark(Benchmark):
                 year=2020,
                 url="https://arxiv.org/abs/2005.00687",
             ),
+            Ref(
+                title=(
+                    "Semi-Supervised Classification with Graph Convolutional Networks"
+                ),
+                authors=[
+                    Author("Thomas N. Kipf"),
+                    Author("Max Welling"),
+                ],
+                journal="Arxiv",
+                volume="arXiv:1609.02907",
+                year=2016,
+                url="https://arxiv.org/abs/1609.02907",
+            ),
         ]
 
     @property
     def ai_disclosure(self) -> str:
         return (
             "No generative AI was used to construct the benchmark function itself."
-            " Generative AI might have been used to construct tests. This statement was"
-            " written by hand."
+            " Generative AI was used to help implement and audit OGB input plumbing,"
+            " tests, documentation, and debugging."
         )
 
     @property
@@ -493,23 +631,19 @@ class GCNBenchmark(Benchmark):
 
     @property
     def generators(self):
-        return [GCNTestGenerator(), GCNGenerator()]
+        return [GCNTestGenerator(), GCNGenerator(), OGBGCNGenerator()]
 
     def check(self, param):
         for item in self._output:
-            assert isinstance(item, BinsparseFormat), (
+            assert isinstance(item, BinsparseTensor), (
                 "Output must be in binsparse format"
             )
 
         if self._ref_outputs is None:
             return
 
-        result = self._output[0].data["values"].reshape(self._output[0].data["shape"])
-        expected = (
-            self._ref_outputs[0]
-            .data["values"]
-            .reshape(self._ref_outputs[0].data["shape"])
-        )
+        result = to_numpy(self._output[0])
+        expected = to_numpy(self._ref_outputs[0])
         np.testing.assert_allclose(
             result,
             expected,
@@ -522,22 +656,22 @@ class GCNBenchmark(Benchmark):
     ----
     xp : array_api
         Array API module (e.g. numpy, cupy, torch)
-    adjacency_bench : BinsparseFormat
+    adjacency_bench : BinsparseTensor
         Sparse adjacency matrix of the graph
-    features_bench : BinsparseFormat
+    features_bench : BinsparseTensor
         Node feature matrix
-    weights1_bench : BinsparseFormat
+    weights1_bench : BinsparseTensor
         Weights for first GCN layer
-    bias1_bench : BinsparseFormat
+    bias1_bench : BinsparseTensor
         Bias for first GCN layer
-    weights2_bench : BinsparseFormat
+    weights2_bench : BinsparseTensor
         Weights for second GCN layer
-    bias2_bench : BinsparseFormat
+    bias2_bench : BinsparseTensor
         Bias for second GCN layer
 
     Returns:
     -------
-    BinsparseFormat
+    BinsparseTensor
         Output node embeddings after 2-layer GCN
     """
 
