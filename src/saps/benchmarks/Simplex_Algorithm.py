@@ -68,6 +68,9 @@ def _onehot_rows(xp, basis, width):
     return xp.astype(idx[None, :] == basis[:, None], xp.float64)
 
 
+# Keeping the basis inverse as a product of elementary matrices, one per pivot, is
+# the product form of Dantzig and Orchard-Hays (1954): each iteration multiplies the
+# previous inverse by a single elementary matrix rather than inverting again.
 # INSPIRATION: same rank-one Binv update as Simplex.py lines 128-132, except theirs
 # reads Binv[:, l] where a unit vector belongs, so it only holds on the first pivot.
 def _eta_matrix(xp, m, d, leaving_row):
@@ -117,7 +120,9 @@ def _pivot(xp, A, b, c, basis, Binv, tol=1e-9):
     # Among the rows that tie for the smallest ratio, leave on the one with the
     # largest |d|. _eta_matrix divides by that entry, so a near-zero one
     # multiplies whatever rounding error Binv already carries by 1/d, and since
-    # Binv is only ever updated the error never washes back out.
+    # Binv is only ever updated the error never washes back out. Bartels and Golub
+    # (1969) make the same point about carrying an inverse instead of refactorizing,
+    # and take the other way out of it, which is to keep an LU factorization.
     tied = xp.abs(ratios - min_ratio) <= tol
     leaving_row = int(xp.argmax(xp.where(tied, xp.abs(d), -1.0)))
 
@@ -972,6 +977,37 @@ class LinearProgrammingBenchmark(Benchmark):
                 journal="GitHub repository",
                 city="",
                 year=2020,
+            ),
+            Ref(
+                title="The product form for the inverse in the simplex method",
+                authors=[
+                    Author("George B. Dantzig"),
+                    Author("Wm. Orchard-Hays"),
+                ],
+                journal="Mathematical Tables and Other Aids to Computation",
+                volume="8",
+                number="46",
+                pages="64-67",
+                year=1954,
+                url="https://doi.org/10.1090/S0025-5718-1954-0061469-8",
+                doi="10.1090/S0025-5718-1954-0061469-8",
+            ),
+            Ref(
+                title=(
+                    "The simplex method of linear programming using LU decomposition"
+                ),
+                authors=[
+                    Author("Richard H. Bartels"),
+                    Author("Gene H. Golub"),
+                ],
+                journal="Communications of the ACM",
+                publisher="Association for Computing Machinery (ACM)",
+                volume="12",
+                number="5",
+                pages="266-268",
+                year=1969,
+                url="https://doi.org/10.1145/362946.362974",
+                doi="10.1145/362946.362974",
             ),
         ]
 
