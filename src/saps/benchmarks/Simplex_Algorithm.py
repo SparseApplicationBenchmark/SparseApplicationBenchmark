@@ -149,7 +149,9 @@ def _phase1(xp, A, b, max_iter, tol=1e-9):
     basis = xp.arange(n, n + m)
     Binv = xp.eye(m)
 
-    basis, Binv, xB, status, _ = _run_pivots(xp, A_aug, b, c_aug, basis, Binv, max_iter)
+    basis, Binv, xB, status, iters = _run_pivots(
+        xp, A, b, c, basis, Binv, max_iter
+    )
     if status == "continue":
         # Phase 1 ran out of iterations, so nothing has been learned about
         # feasibility yet. Falling through to the test below would report a
