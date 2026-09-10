@@ -161,8 +161,9 @@ def test_resume_merges_results_per_environment_and_skips_completed_runs(
 
 
 @pytest.mark.parametrize("chunk_index", range(5))
+@pytest.mark.parametrize("cache_override", ["", "shared-cache"])
 def test_competition_selects_jl_datasets_without_machine_prompts(
-    runner, monkeypatch, tmp_path, chunk_index
+    runner, monkeypatch, tmp_path, chunk_index, cache_override
 ):
     import json
     import sys
@@ -170,6 +171,9 @@ def test_competition_selects_jl_datasets_without_machine_prompts(
     from saps.benchmarks.approx_nn import JLApproxNNGenerator
 
     root = Path(runner.__file__).resolve().parents[1]
+    monkeypatch.chdir(root)
+    monkeypatch.setenv("SAPS_CACHE_DIR", cache_override)
+    expected_cache = str(root / (cache_override or ".saps/outputs/cache"))
     metadata = json.loads((root / "metadata.json").read_text())["benchmarks"]
     benchmark = next(item for item in metadata if item["name"] == "jl_approx_nn")
     params = [
@@ -187,7 +191,9 @@ def test_competition_selects_jl_datasets_without_machine_prompts(
     )
 
     def get_environments(conf, *args):
+        assert conf.matrix["env_nobuild"]["SAPS_CACHE_DIR"] == [expected_cache]
         for include in conf.include:
+            assert include["env_nobuild"]["SAPS_CACHE_DIR"] == expected_cache
             # ASV runs setup in a temporary working directory.
             with monkeypatch.context() as worker:
                 worker.setenv(

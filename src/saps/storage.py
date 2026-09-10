@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 
 import h5py
 from binsparse import BinsparseTensor, HDF5BinsparseContainer
+from filelock import FileLock
 
 if TYPE_CHECKING:
     from saps.benchmark import DataInstance, Dataset, Generator
@@ -205,10 +206,19 @@ class StorageBackend(ABC):
                 f"Dataset {generator.name}.{dataset.name} not found in cache at "
                 f"{cache_path}"
             )
-            if self.download_file(prefix, cache_path):
-                assert digest == sha256_file(cache_path), (
-                    "Data integrity check failed: hash mismatch"
-                )
+            with FileLock(cache_path.with_suffix(".lock")):
+                # Another worker may have filled the cache while we waited.
+                if not cache_path.exists():
+                    with tempfile.TemporaryDirectory(
+                        prefix=".saps-", dir=cache_path.parent
+                    ) as staging:
+                        staging_path = Path(staging) / "data.bsp.h5"
+                        if self.download_file(prefix, staging_path):
+                            assert digest == sha256_file(staging_path), (
+                                "Data integrity check failed: hash mismatch"
+                            )
+                            staging_path.replace(cache_path)
+            if cache_path.exists():
                 return self.deserialize_data_from_file(cache_path)
             logging.error(
                 "Failed to download dataset "

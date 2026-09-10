@@ -83,12 +83,21 @@ competition/run_<slurm-array-job-id>/
     results/       # ASV measurements and saved diagnostics
     machine_files/
     env/
-    outputs/       # cached inputs
+    outputs/       # task-specific reports
   task_1/
   ...
   results.json     # combined measurements from all tasks and frameworks
   machines.json   # machine descriptions, indexed by ID
 ```
+
+Dataset inputs use the repository's shared `.saps/outputs/cache`, across runs,
+tasks, frameworks, uploads, and statistics tracing. Nodes using the same shared
+checkout reuse the same cache. Set `SAPS_CACHE_DIR` before launching the runner
+to use a different shared directory; it is independent of `--saps-dir` and chunk
+selection. Cache files are named by content hash, and downloads are verified
+before being published atomically. Concurrent requests for the same cache file
+wait on a file lock and reuse the first completed download; different datasets
+can download in parallel.
 
 Each finishing task refreshes the combined files with the results saved so far.
 To rebuild the highest-numbered Slurm run, run from the repository root:
@@ -186,7 +195,7 @@ The ASV fields SAPS supports directly are:
 - `environment_type`: ASV environment type for normal benchmark runs. The default is `"virtualenv"`. Use `"existing:same"` to run in the current Poetry environment, which is often easiest while developing a framework wrapper. Tracing and dataset caching always use the current environment; metadata generation runs directly in the environment used to invoke `bin/generate_metadata.py`.
 - `install_command`: ASV install command list. The default reinstalls the project into each ASV environment with `python -mpip install {build_dir} --force-reinstall`.
 - `pythons`: Python versions ASV should use when constructing environments.
-- `saps_dir`: Directory where SAPS writes runner-owned outputs such as machine files, cache, and HTML. The SAPS default is `.saps`.
+- `saps_dir`: Directory where SAPS writes runner-owned outputs such as machine files and HTML. The SAPS default is `.saps`; dataset inputs use a shared cache independently of this setting.
 - `env_dir`: Directory where ASV creates benchmark environments. The SAPS default is `.saps/results`.
 - `results_dir`: Directory where ASV writes benchmark results. The SAPS default is `.saps/outputs/results`.
 - `matrix`: ASV environment matrix. This is the main field most users customize.
@@ -229,7 +238,7 @@ Important `env_nobuild` entries:
 The runner owns these values and normally you should not set them in `saps.conf.json`:
 
 - `REMOTE_STORAGE_BACKEND` and `REMOTE_STORAGE_BUCKET`: set from `remote_storage_backend` / `remote_storage_bucket`, CLI flags, or built-in defaults.
-- `SAPS_CACHE_DIR`: set to `.saps/outputs/cache`.
+- `SAPS_CACHE_DIR`: uses the existing environment value, or defaults to `.saps/outputs/cache` under the repository root. Passed to workers as an absolute path shared across runs and tasks.
 - `SAPS_MANIFEST_PATH`: set to the repository `manifest.json`.
 - `SAPS_TAGGER_STATS_DIR` and `SAPS_STATISTICS_PATH`: set during `--trace-statistics`.
 - ASV `project`, `repo`, `branches`, `benchmark_dir`, and `html_dir`: derived from the repository and `.saps/outputs`.

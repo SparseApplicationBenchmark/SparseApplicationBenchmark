@@ -22,6 +22,7 @@ from asv.results import Results, get_filename
 from asv.runner import run_benchmarks
 
 from saps.storage import (
+    DEFAULT_CACHE_DIR,
     DEFAULT_REMOTE_STORAGE_BACKEND,
     DEFAULT_REMOTE_STORAGE_BUCKET,
     build_storage_backend,
@@ -507,7 +508,11 @@ def main() -> int:
     log_path = str(results_dir / "diagnostics.log")
     storage_backend = args.remote_storage_backend or DEFAULT_REMOTE_STORAGE_BACKEND
     storage_bucket = args.remote_storage_bucket or DEFAULT_REMOTE_STORAGE_BUCKET
-    cache_dir = str(outputs_dir / "cache")
+    cache_dir = str(
+        Path(os.environ.get("SAPS_CACHE_DIR") or repo_root / DEFAULT_CACHE_DIR)
+        .expanduser()
+        .resolve()
+    )
     persistent_metadata_path = Path(
         os.environ.get("SAPS_METADATA_PATH", str(repo_root / "metadata.json"))
     )
@@ -582,6 +587,7 @@ def main() -> int:
     conf = Config.from_json(asv_config_dict)
 
     log.info(f"Using SAPS outputs directory: {outputs_dir}")
+    log.info(f"Using SAPS dataset cache: {cache_dir}")
     log.info(f"Using SAPS machine files directory: {machine_files_dir}")
 
     # Determine timeout with hierarchy: CLI arg > config > 5 seconds default

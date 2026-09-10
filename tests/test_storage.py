@@ -2,7 +2,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from threading import Event
+from types import SimpleNamespace
+from unittest.mock import Mock
+
+import pytest
 
 import numpy as np
 import scipy.sparse as sp
@@ -11,7 +17,9 @@ import boto3
 import h5py
 from binsparse.conversions import from_numpy, from_scipy, to_numpy, to_scipy
 from botocore.exceptions import ClientError
+from filelock import FileLock
 
+import saps.storage
 from saps.benchmark import DataInstance
 from saps.storage import LocalStorageBackend, S3StorageBackend
 
@@ -119,3 +127,95 @@ def test_data_round_trips_through_binsparse_hdf5(tmp_path):
     assert restored.meta == data.meta
     assert restored.ref_meta == data.ref_meta
     assert digest == hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+@pytest.fixture
+def downloadable_dataset(tmp_path):
+    backend = LocalStorageBackend(
+        tmp_path / "remote", tmp_path / "manifest.json", tmp_path / "cache"
+    )
+    generator = SimpleNamespace(
+        name="example",
+        generate=Mock(side_effect=RuntimeError("Unexpected generation")),
+    )
+    dataset = SimpleNamespace(name="small", file="example.py", freshness="v1")
+    data = DataInstance(inputs=[from_numpy(np.arange(6))], meta={"source": "test"})
+    source = tmp_path / "source.bsp.h5"
+    digest = backend.serialize_data_to_file(data, source)
+    prefix = backend.prefix(generator, dataset, digest)
+    assert backend.upload_file(source, prefix)
+    backend.update_manifest(generator, dataset, digest)
+    return backend, generator, dataset, backend.cache_dir / prefix
+
+
+def test_concurrent_requests_download_once_and_reuse_shared_cache(
+    downloadable_dataset, monkeypatch
+):
+    backend, generator, dataset, cache_path = downloadable_dataset
+    download = backend.download_file
+    waiter_blocked = Event()
+
+    class ObservedFileLock(FileLock):
+        def _acquire(self):
+            super()._acquire()
+            if not self.is_locked:
+                waiter_blocked.set()
+
+    monkeypatch.setattr(saps.storage, "FileLock", ObservedFileLock)
+
+    def partial_download(prefix, path):
+        path.write_bytes(b"partial download")
+        assert not cache_path.exists()
+        assert waiter_blocked.wait(timeout=10)
+        return download(prefix, path)
+
+    download_calls = Mock(side_effect=partial_download)
+    monkeypatch.setattr(backend, "download_file", download_calls)
+    with ThreadPoolExecutor(max_workers=2) as workers:
+        futures = [
+            workers.submit(backend.retrieve_dataset, generator, dataset)
+            for _ in range(2)
+        ]
+        for future in futures:
+            assert np.array_equal(to_numpy(future.result().inputs[0]), np.arange(6))
+    assert download_calls.call_count == 1
+
+    next_run = LocalStorageBackend(
+        backend.base_path, backend.manifest_path, backend.cache_dir
+    )
+    monkeypatch.setattr(
+        next_run, "download_file", Mock(side_effect=AssertionError("Already cached"))
+    )
+    assert np.array_equal(
+        to_numpy(next_run.retrieve_dataset(generator, dataset).inputs[0]), np.arange(6)
+    )
+    generator.generate.assert_not_called()
+    assert not list(backend.cache_dir.rglob(".saps-*"))
+
+
+@pytest.mark.parametrize(
+    ("failure", "expected_error"),
+    [("checksum", AssertionError), ("interrupted", OSError), ("failed", RuntimeError)],
+)
+def test_failed_downloads_do_not_poison_shared_cache(
+    downloadable_dataset, monkeypatch, failure, expected_error
+):
+    backend, generator, dataset, cache_path = downloadable_dataset
+    download = backend.download_file
+
+    def broken_download(prefix, path):
+        path.write_bytes(b"partial download")
+        if failure == "interrupted":
+            raise OSError("Download interrupted")
+        return failure != "failed"
+
+    monkeypatch.setattr(backend, "download_file", broken_download)
+    with pytest.raises(expected_error):
+        backend.retrieve_dataset(generator, dataset)
+    assert not cache_path.exists()
+    assert not list(backend.cache_dir.rglob(".saps-*"))
+
+    monkeypatch.setattr(backend, "download_file", download)
+    assert np.array_equal(
+        to_numpy(backend.retrieve_dataset(generator, dataset).inputs[0]), np.arange(6)
+    )
