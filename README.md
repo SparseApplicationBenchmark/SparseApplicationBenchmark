@@ -72,6 +72,10 @@ Slurm stdout and stderr logs go to the directory where you submit the job:
 also preserves the directory where you invoked it for all three jobs' logs.
 You can submit the Slurm scripts from the repository root or any subdirectory.
 
+The competition script emails `ahrens@gatech.edu` when the array finishes or
+fails. Notifications cover the whole array. Override the recipient at submission
+with `sbatch --mail-user=you@example.com scripts/run-competition.slurm`.
+
 The competition config selects the standard datasets. The wrapper submits a
 64-task array by default. Each task runs a deterministic set of the selected
 datasets. All competition outputs live in the run directory:

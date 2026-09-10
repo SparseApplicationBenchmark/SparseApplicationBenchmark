@@ -8,6 +8,8 @@
 #SBATCH --time=12:00:00
 #SBATCH --array=0-63
 #SBATCH --output=competition-%A_%a.log
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=ahrens@gatech.edu
 
 set -euo pipefail
 
