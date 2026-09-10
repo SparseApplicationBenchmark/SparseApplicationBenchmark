@@ -407,8 +407,14 @@ class GCareGenerator(Generator[GCareDataset]):
     def generate(self, dataset: GCareDataset):
         raw_generator = GCareGraphGenerator()
         raw_dataset = next(
-            ds for ds in raw_generator.datasets if ds.name == dataset.subset_name
+            (ds for ds in raw_generator.datasets if ds.name == dataset.subset_name),
+            None,
         )
+        if raw_dataset is None:
+            raise ValueError(
+                f"Dataset {dataset.subset_name!r} is not listed in "
+                "GCareGraphGenerator.datasets."
+            )
         graph_problem = raw_generator.cached_generate(raw_dataset)
         inputs, meta = load_gcare_query(
             dataset.subset_name,

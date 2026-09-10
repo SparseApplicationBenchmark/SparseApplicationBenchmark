@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
+import os
+import tempfile
 from pathlib import Path
 from typing import Any
 
 import numpy as np
 
+from filelock import FileLock
 
-def _default_data_dir() -> Path:
-    # src/saps/downloaders/suitesparse.py -> parents[3] = repo root
-    return Path(__file__).resolve().parents[3] / "data" / "suitesparse"
+from saps.storage import DEFAULT_CACHE_DIR
 
 
 def download_suitesparse_matrix(
@@ -19,18 +20,26 @@ def download_suitesparse_matrix(
     """Download/extract a SuiteSparse matrix identified by ``group/name``.
 
     Returns ``(matrix_dir, matrix)``, where *matrix* is the ``ssgetpy`` search
-    result. Matrices are cached under ``data/suitesparse/`` (like the SNAP and
-    G-CARE downloaders cache under ``data/snap`` and ``data/gcare``) unless
-    *data_dir* overrides the location.
+    result. Matrices are cached under ``$SAPS_CACHE_DIR/suitesparse/group/name``
+    unless *data_dir* overrides the SuiteSparse cache root.
     """
     import ssgetpy
 
-    root = Path(data_dir) if data_dir is not None else _default_data_dir()
-    root.mkdir(parents=True, exist_ok=True)
-
     matrix = _find_suitesparse_matrix(ssgetpy, source_name)
-    path, _archive = matrix.download(destpath=str(root), extract=True)
-    return Path(path), matrix
+    root = (
+        Path(data_dir)
+        if data_dir is not None
+        else Path(os.environ.get("SAPS_CACHE_DIR") or DEFAULT_CACHE_DIR) / "suitesparse"
+    )
+    parent = root / matrix.group
+    parent.mkdir(parents=True, exist_ok=True)
+    matrix_dir = parent / matrix.name
+    with FileLock(parent / f"{matrix.name}.lock"):
+        if not matrix_dir.exists():
+            with tempfile.TemporaryDirectory(prefix=".saps-", dir=parent) as staging:
+                path, _archive = matrix.download(destpath=staging, extract=True)
+                Path(path).replace(matrix_dir)
+    return matrix_dir, matrix
 
 
 def _split_suitesparse_source_name(source_name: str) -> tuple[str, str]:

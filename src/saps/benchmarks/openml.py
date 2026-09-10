@@ -21,7 +21,6 @@ from saps.benchmark import (
 )
 from saps.storage import DEFAULT_CACHE_DIR
 
-
 #OpenML source downloads also persist under `scikit_learn_data/` inside the
 #shared cache. A file lock serializes scikit-learn fetches so concurrent runners
 #reuse completed downloads.
@@ -246,8 +245,13 @@ def fetch_openml_dataset(source_name: str) -> DataInstance:
     """Fetch (and cache) a prepared OpenML dataset via the shared shell."""
     raw_generator = OpenMLDatasetGenerator()
     raw_dataset = next(
-        dataset for dataset in raw_generator.datasets if dataset.name == source_name
+        (dataset for dataset in raw_generator.datasets if dataset.name == source_name),
+        None,
     )
+    if raw_dataset is None:
+        raise ValueError(
+            f"Dataset {source_name!r} is not listed in OpenMLDatasetGenerator.datasets."
+        )
     return raw_generator.cached_generate(raw_dataset)
 
 

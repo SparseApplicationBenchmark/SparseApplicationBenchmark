@@ -1,11 +1,16 @@
 import sys
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from threading import Event
 from types import SimpleNamespace
+from unittest.mock import Mock
 
 import pytest
 
 import numpy as np
 
 from binsparse.conversions import from_scipy
+from filelock import FileLock
 
 from saps.downloaders import suitesparse
 
@@ -13,7 +18,10 @@ from saps.downloaders import suitesparse
 class _FakeSuiteSparseMatrix(SimpleNamespace):
     def download(self, *, destpath, extract):
         self.download_args = {"destpath": destpath, "extract": extract}
-        return self.path, None
+        path = Path(destpath) / self.name
+        path.mkdir()
+        (path / f"{self.name}.mtx").write_text(f"{self.group}/{self.name}")
+        return path, None
 
 
 def test_download_and_read_matrix_returns_canonical_coo(monkeypatch, tmp_path):
@@ -81,7 +89,88 @@ def test_download_suitesparse_matrix_uses_exact_source_name(monkeypatch, tmp_pat
     )
 
     assert matrix is right
-    assert matrix_dir == right.path
+    assert matrix_dir == tmp_path / "DNVS/m_t1"
+    assert (matrix_dir / "m_t1.mtx").read_text() == "DNVS/m_t1"
+
+
+def test_suitesparse_downloads_share_cache_and_separate_groups(monkeypatch, tmp_path):
+    monkeypatch.setenv("SAPS_CACHE_DIR", str(tmp_path / "cache"))
+    matrices = [
+        _FakeSuiteSparseMatrix(group=group, name="same") for group in ("A", "B")
+    ]
+    monkeypatch.setitem(
+        sys.modules, "ssgetpy", SimpleNamespace(search=lambda **kwargs: matrices)
+    )
+    for matrix in matrices:
+        matrix.download = Mock(wraps=matrix.download)
+        for _ in range(2):
+            matrix_dir, _ = suitesparse.download_suitesparse_matrix(
+                f"{matrix.group}/same"
+            )
+            assert matrix_dir == tmp_path / "cache/suitesparse" / matrix.group / "same"
+            assert (matrix_dir / "same.mtx").read_text() == f"{matrix.group}/same"
+        matrix.download.assert_called_once()
+
+
+def test_concurrent_suitesparse_downloads_publish_once(monkeypatch, tmp_path):
+    matrix = _FakeSuiteSparseMatrix(group="test", name="small")
+    monkeypatch.setitem(
+        sys.modules, "ssgetpy", SimpleNamespace(search=lambda **kwargs: [matrix])
+    )
+    waiter_blocked = Event()
+    download = matrix.download
+    matrix_dir = tmp_path / "test/small"
+
+    class ObservedFileLock(FileLock):
+        def _acquire(self):
+            super()._acquire()
+            if not self.is_locked:
+                waiter_blocked.set()
+
+    def slow_download(**kwargs):
+        result = download(**kwargs)
+        assert not matrix_dir.exists()
+        assert waiter_blocked.wait(timeout=10)
+        return result
+
+    monkeypatch.setattr(suitesparse, "FileLock", ObservedFileLock)
+    matrix.download = Mock(side_effect=slow_download)
+    with ThreadPoolExecutor(max_workers=2) as workers:
+        futures = [
+            workers.submit(
+                suitesparse.download_suitesparse_matrix, "test/small", data_dir=tmp_path
+            )
+            for _ in range(2)
+        ]
+        for future in futures:
+            assert future.result()[0] == matrix_dir
+    matrix.download.assert_called_once()
+    assert (matrix_dir / "small.mtx").read_text() == "test/small"
+    assert not list(tmp_path.rglob(".saps-*"))
+
+
+def test_failed_suitesparse_extraction_can_be_retried(monkeypatch, tmp_path):
+    matrix = _FakeSuiteSparseMatrix(group="test", name="small")
+    monkeypatch.setitem(
+        sys.modules, "ssgetpy", SimpleNamespace(search=lambda **kwargs: [matrix])
+    )
+    download = matrix.download
+
+    def interrupted_download(**kwargs):
+        download(**kwargs)
+        raise OSError("Extraction interrupted")
+
+    monkeypatch.setattr(matrix, "download", interrupted_download)
+    with pytest.raises(OSError, match="Extraction interrupted"):
+        suitesparse.download_suitesparse_matrix("test/small", data_dir=tmp_path)
+    assert not (tmp_path / "test/small").exists()
+    assert not list(tmp_path.rglob(".saps-*"))
+
+    monkeypatch.setattr(matrix, "download", download)
+    matrix_dir, _ = suitesparse.download_suitesparse_matrix(
+        "test/small", data_dir=tmp_path
+    )
+    assert (matrix_dir / "small.mtx").read_text() == "test/small"
 
 
 def test_load_suitesparse_rhs_requires_index_for_multiple_rhs(tmp_path):

@@ -119,7 +119,13 @@ can download in parallel.
 Benchmark runs use the manifest's recorded digest without comparing source paths
 or freshness hashes against the benchmark environment. Freshness is checked by
 the dataset refresh/upload workflow. Downloaded files still have their checksums
-verified before entering the shared cache.
+verified before entering the shared cache. Missing manifest entries or unavailable
+prepared data fail setup with an instruction to run `--cache-datasets`; normal
+runs never regenerate cacheable inputs or write manifest metadata.
+
+SuiteSparse source downloads used during cache preparation also share this cache,
+under `suitesparse/<group>/<name>`. A lock and atomic publication let workers reuse
+one completed source download across its RHS selections.
 
 Each finishing task refreshes the combined files with the results saved so far.
 To rebuild the highest-numbered Slurm run, run from the repository root:
