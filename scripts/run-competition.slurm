@@ -5,7 +5,7 @@
 #SBATCH --exclusive
 #SBATCH --mem=128G
 #SBATCH --time=12:00:00
-#SBATCH --array=0-32
+#SBATCH --array=0-63
 #SBATCH --output=competition-%A_%a.log
 
 set -euo pipefail
