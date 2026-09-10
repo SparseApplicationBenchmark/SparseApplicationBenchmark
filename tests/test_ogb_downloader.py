@@ -151,6 +151,7 @@ def test_products_download_is_noninteractive_and_restores_callback(
     package: Any = ModuleType("ogb")
     nodeprop: Any = ModuleType("ogb.nodeproppred")
     dataset_module: Any = ModuleType("ogb.nodeproppred.dataset")
+
     def original_decide(url):
         pytest.fail("download prompted")
 
