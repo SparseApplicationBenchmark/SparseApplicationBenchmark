@@ -3,6 +3,7 @@
   "environment_type": "virtualenv",
   "install_command": ["in-dir={env_dir} python -mpip install {build_dir}"],
   "timeout": 60,
+  "rounds": 1,
   "resume": true,
   "metrics": ["time"],
   "tag": ["standard"],
