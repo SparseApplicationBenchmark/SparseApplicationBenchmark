@@ -152,21 +152,6 @@ class StorageBackend(ABC):
             encoding="utf-8",
         )
 
-    def check_manifest(self, generator: Generator, dataset: Dataset) -> str | None:
-        manifest = self._read_manifest()
-        dataset_key = f"{generator.name}.{dataset.name}"
-        if dataset_key not in manifest:
-            return None
-        record = manifest[dataset_key]
-        if {
-            key: record.get(key) for key in ("file", "freshness")
-        } != self._dataset_manifest_metadata(dataset):
-            logging.info(
-                f"Dataset {generator.name}.{dataset.name} manifest metadata is stale."
-            )
-            return None
-        return record["digest"]
-
     def upload_dataset(self, generator: Generator, dataset: Dataset) -> bool:
         work_log = logging.getLogger("saps.work")
         dataset_key = f"{generator.name}.{dataset.name}"
@@ -193,7 +178,9 @@ class StorageBackend(ABC):
         2. Remote Storage
         3. Generating it
         """
-        digest = self.check_manifest(generator, dataset)
+        # Benchmark runs trust the manifest; refresh commands validate freshness.
+        manifest = self._read_manifest()
+        digest = manifest.get(f"{generator.name}.{dataset.name}", {}).get("digest")
         if digest:
             prefix = self.prefix(generator, dataset, digest)
             cache_path = self.cache_dir / prefix

@@ -4,6 +4,7 @@
 #SBATCH --cpus-per-task=24
 #SBATCH --exclusive
 #SBATCH --mem=128G
+#SBATCH --tmp=50G
 #SBATCH --time=12:00:00
 #SBATCH --array=0-63
 #SBATCH --output=competition-%A_%a.log
@@ -38,12 +39,16 @@ if (( $# > 0 )); then
 fi
 run_name="${competition_run_root##*/}"
 competition_run_directory="$competition_run_root/task_$task_index"
+task_scratch="${TMPDIR:?Slurm must provide TMPDIR for task-local storage}/saps-competition-$job_id-$task_index"
+mkdir -p "$task_scratch"
+export PIP_CACHE_DIR="$task_scratch/pip-cache"
+export VIRTUALENV_OVERRIDE_APP_DATA="$task_scratch/virtualenv-cache"
 
 benchmark_args=(
   --resume
   --machine "$run_name-task-$task_index"
   --saps-dir "$competition_run_directory"
-  --env-dir "$competition_run_directory/env"
+  --env-dir "$task_scratch/env"
   --results-dir "$competition_run_directory/results"
   --remote-storage-backend "$REMOTE_STORAGE_BACKEND"
   --remote-storage-bucket "$REMOTE_STORAGE_BUCKET"

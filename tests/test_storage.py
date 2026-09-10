@@ -148,10 +148,58 @@ def downloadable_dataset(tmp_path):
     return backend, generator, dataset, backend.cache_dir / prefix
 
 
+@pytest.mark.parametrize("cached", [False, True])
+def test_retrieval_trusts_manifest_without_reading_dataset_metadata(
+    downloadable_dataset, monkeypatch, cached
+):
+    backend, generator, dataset, cache_path = downloadable_dataset
+    if cached:
+        backend.retrieve_dataset(generator, dataset)
+    manifest = backend.manifest_path.read_bytes()
+    dataset.file = "moved/example.py"
+    dataset.freshness = "different-environment"
+    metadata = Mock(side_effect=AssertionError("Unexpected metadata validation"))
+    monkeypatch.setattr(backend, "_dataset_manifest_metadata", metadata)
+    download = Mock(wraps=backend.download_file)
+    monkeypatch.setattr(backend, "download_file", download)
+
+    data = backend.retrieve_dataset(generator, dataset)
+
+    assert np.array_equal(to_numpy(data.inputs[0]), np.arange(6))
+    assert cache_path.exists()
+    assert download.call_count == (0 if cached else 1)
+    metadata.assert_not_called()
+    generator.generate.assert_not_called()
+    assert backend.manifest_path.read_bytes() == manifest
+
+
+def test_upload_refreshes_manifest_metadata_and_data(downloadable_dataset):
+    backend, generator, dataset, _ = downloadable_dataset
+    previous_manifest = json.loads(backend.manifest_path.read_text())
+    dataset.file = "moved/example.py"
+    dataset.freshness = "new-generator"
+    generator.generate.side_effect = None
+    generator.generate.return_value = DataInstance(
+        inputs=[from_numpy(np.arange(3))], meta={"source": "updated"}
+    )
+
+    assert backend.upload_dataset(generator, dataset)
+
+    record = json.loads(backend.manifest_path.read_text())["example.small"]
+    assert record["file"] == dataset.file
+    assert record["freshness"] == dataset.freshness
+    assert record["digest"] != previous_manifest["example.small"]["digest"]
+    generator.generate.assert_called_once_with(dataset)
+    assert np.array_equal(
+        to_numpy(backend.retrieve_dataset(generator, dataset).inputs[0]), np.arange(3)
+    )
+
+
 def test_concurrent_requests_download_once_and_reuse_shared_cache(
     downloadable_dataset, monkeypatch
 ):
     backend, generator, dataset, cache_path = downloadable_dataset
+    dataset.freshness = "different-environment"
     download = backend.download_file
     waiter_blocked = Event()
 

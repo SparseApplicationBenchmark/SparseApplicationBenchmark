@@ -68,7 +68,10 @@ def test_competition_resume_uses_original_task_directory(tmp_path):
     capture = (
         "import json, os, sys; "
         'f=open(os.environ["SAPS_TEST_COMMANDS"], "a"); '
-        'f.write(json.dumps(sys.argv[1:])+"\\n"); f.close()'
+        'f.write(json.dumps({"args": sys.argv[1:], '
+        '"pip_cache": os.environ["PIP_CACHE_DIR"], '
+        '"virtualenv_cache": os.environ["VIRTUALENV_OVERRIDE_APP_DATA"]})'
+        '+"\\n"); f.close()'
     )
     shell_env = tmp_path / "shell-env"
     shell_env.write_text(
@@ -86,6 +89,7 @@ def test_competition_resume_uses_original_task_directory(tmp_path):
         "SLURM_ARRAY_JOB_ID": "99999",
         "SLURM_ARRAY_TASK_ID": "2",
         "SLURM_ARRAY_TASK_COUNT": "5",
+        "TMPDIR": str(tmp_path / "local scratch"),
     }
     env.pop("SAPS_COMPETITION_ARGS", None)
     subprocess.run(
@@ -101,7 +105,14 @@ def test_competition_resume_uses_original_task_directory(tmp_path):
         capture_output=True,
         text=True,
     )
-    run, combine = [json.loads(line) for line in record.read_text().splitlines()]
+    calls = [json.loads(line) for line in record.read_text().splitlines()]
+    run, combine = [call["args"] for call in calls]
+    task_scratch = tmp_path / "local scratch" / "saps-competition-99999-2"
+    assert task_scratch.is_dir()
+    assert run[run.index("--env-dir") + 1] == str(task_scratch / "env")
+    for call in calls:
+        assert call["pip_cache"] == str(task_scratch / "pip-cache")
+        assert call["virtualenv_cache"] == str(task_scratch / "virtualenv-cache")
     task_directory = str(run_root.resolve() / "task_2")
     assert "--resume" in run
     assert run[run.index("--saps-dir") + 1] == task_directory
@@ -156,6 +167,7 @@ def test_slurm_submission_from_scripts_directory(tmp_path, script_name, commands
         "SLURM_ARRAY_TASK_COUNT": "5",
         "SAPS_TRACE_CHUNK_COUNT": "1",
         "SAPS_TRACE_OUTPUT_DIR": str(trace_dir),
+        "TMPDIR": str(tmp_path / "local scratch"),
     }
     env.pop("SAPS_REPO_DIRECTORY", None)
     env.pop("SAPS_COMPETITION_ARGS", None)

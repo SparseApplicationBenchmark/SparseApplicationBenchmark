@@ -567,7 +567,7 @@ def main() -> int:
         ),
         "install_command": saps_config_data.get(
             "install_command",
-            ["in-dir={env_dir} python -mpip install {build_dir} --force-reinstall"],
+            ["in-dir={env_dir} python -mpip install {build_dir}"],
         ),
         "benchmark_dir": str(repo_root / "src/saps/benchmarks"),
         "env_dir": str(env_dir),

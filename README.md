@@ -72,23 +72,33 @@ Slurm stdout and stderr logs go to the directory where you submit the job:
 also preserves the directory where you invoked it for all three jobs' logs.
 You can submit the Slurm scripts from the repository root or any subdirectory.
 
-The competition config selects the three JL projection datasets. The wrapper
-submits a 5-task array by default, so two tasks have no datasets. Each task runs a
-deterministic set of the selected datasets. All competition outputs live in the
-run directory:
+The competition config selects the standard datasets. The wrapper submits a
+64-task array by default. Each task runs a deterministic set of the selected
+datasets. All competition outputs live in the run directory:
 
 ```text
 competition/run_<slurm-array-job-id>/
   task_0/
     results/       # ASV measurements and saved diagnostics
     machine_files/
-    env/
     outputs/       # task-specific reports
   task_1/
   ...
   results.json     # combined measurements from all tasks and frameworks
   machines.json   # machine descriptions, indexed by ID
 ```
+
+Slurm benchmark environments and pip/virtualenv caches live under
+`$TMPDIR/saps-competition-<job-id>-<task-index>/` on the assigned node. The wrapper
+requests 50 GB of local temporary disk per node with `--tmp=50G`. These files are
+removed by Slurm when the job ends and rebuilt when resuming; saved results stay
+in the run directory. This avoids filling the shared scratch file-count quota
+with separate Python installations for every task. The existing Poetry
+environment is still used to launch the runner.
+
+Older runs may still have `task_*/env` directories on shared storage. Delete those
+environment directories only after their jobs have stopped; retain the result
+directories for resume. Updating the wrapper affects newly submitted jobs.
 
 Dataset inputs use the repository's shared `.saps/outputs/cache`, across runs,
 tasks, frameworks, uploads, and statistics tracing. Nodes using the same shared
@@ -98,6 +108,11 @@ selection. Cache files are named by content hash, and downloads are verified
 before being published atomically. Concurrent requests for the same cache file
 wait on a file lock and reuse the first completed download; different datasets
 can download in parallel.
+
+Benchmark runs use the manifest's recorded digest without comparing source paths
+or freshness hashes against the benchmark environment. Freshness is checked by
+the dataset refresh/upload workflow. Downloaded files still have their checksums
+verified before entering the shared cache.
 
 Each finishing task refreshes the combined files with the results saved so far.
 To rebuild the highest-numbered Slurm run, run from the repository root:
@@ -142,7 +157,7 @@ results for each environment. To continue a Slurm run, submit the same array sha
 and configuration with its existing run directory:
 
 ```bash
-sbatch --array=0-4 scripts/run-competition.slurm --resume competition/run_12345
+sbatch --array=0-63 scripts/run-competition.slurm --resume competition/run_12345
 ```
 
 Only missing or null results run again. Results are saved after each environment;
