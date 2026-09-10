@@ -76,7 +76,7 @@ def _eta_matrix(xp, m, d, leaving_row):
     return xp.eye(m) + xp.reshape(diff, (m, 1)) @ xp.reshape(e_col, (1, m))
 
 
-def _pivot(xp, A, b, c, basis, Binv, rule, tol=1e-9):
+def _pivot(xp, A, b, c, basis, Binv, tol=1e-9):
     m = A.shape[0]
     width = A.shape[1]
 
@@ -91,16 +91,14 @@ def _pivot(xp, A, b, c, basis, Binv, rule, tol=1e-9):
     y = Binv.T @ c_basis
     s = xp.where(basic_mask, xp.inf, c - A.T @ y)
 
-    # INSPIRATION: stop when no reduced cost is negative and otherwise take the first
-    # negative one, as in Simplex.py 70-74. Theirs compares against an exact 0.
+    # INSPIRATION: stop when no reduced cost is negative, as in Simplex.py 70-74.
+    # Theirs compares against an exact 0 and enters on the first negative column;
+    # this enters on the most negative one, which is Dantzig's rule
     improving = s < -tol
     if not bool(xp.any(improving)):
         return basis, Binv, xB, "optimal"
 
-    if rule == "bland":
-        entering = _first_true_index(xp, improving)
-    else:
-        entering = int(xp.argmin(xp.where(improving, s, xp.inf)))
+    entering = int(xp.argmin(xp.where(improving, s, xp.inf)))
 
     # INSPIRATION: direction Binv @ A[:, j] and the unbounded test from Simplex.py
     # 84-93. Theirs tests u[i] >= 0, which misses a column that is all zeros.
@@ -110,17 +108,16 @@ def _pivot(xp, A, b, c, basis, Binv, rule, tol=1e-9):
         return basis, Binv, xB, "unbounded"
 
     # INSPIRATION: minimum-ratio test from Simplex.py 97-105, with xp.inf standing in
-    # for their 1e9+7 sentinel. Note, I added the Bland tie-break.
+    # for their 1e9+7 sentinel. Note, I added the tie-break.
     ratios = xp.where(positive, xB / xp.where(positive, d, 1.0), xp.inf)
     min_ratio = xp.min(ratios)
 
-    if rule == "bland":
-        tied = xp.abs(ratios - min_ratio) <= tol
-        candidate_basis = xp.where(tied, basis, xp.asarray(width))
-        min_basis_val = xp.min(candidate_basis)
-        leaving_row = _first_true_index(xp, candidate_basis == min_basis_val)
-    else:
-        leaving_row = int(xp.argmin(ratios))
+    # Among the rows that tie for the smallest ratio, leave on the one with the
+    # largest |d|. _eta_matrix divides by that entry, so a near-zero one
+    # multiplies whatever rounding error Binv already carries by 1/d, and since
+    # Binv is only ever updated the error never washes back out.
+    tied = xp.abs(ratios - min_ratio) <= tol
+    leaving_row = int(xp.argmax(xp.where(tied, xp.abs(d), -1.0)))
 
     new_Binv = _eta_matrix(xp, m, d, leaving_row) @ Binv
     # INSPIRATION: swapping one basis index, which Simplex.py 135 does as C[l] = j.
@@ -130,19 +127,19 @@ def _pivot(xp, A, b, c, basis, Binv, rule, tol=1e-9):
     return new_basis, new_Binv, xB, "continue"
 
 
-def _run_pivots(xp, A, b, c, basis, Binv, rule, max_iter):
+def _run_pivots(xp, A, b, c, basis, Binv, max_iter):
     status = "continue"
     it = 0
     xB = Binv @ b
     # INSPIRATION: the pivot loop of Simplex.py 52. Bounded by max_iter here, and the
     # body returns a status rather than breaking, so both phases can reuse it.
     while status == "continue" and it < max_iter:
-        basis, Binv, xB, status = _pivot(xp, A, b, c, basis, Binv, rule)
+        basis, Binv, xB, status = _pivot(xp, A, b, c, basis, Binv)
         it += 1
     return basis, Binv, xB, status, it
 
 
-def _phase1(xp, A, b, rule, max_iter, tol=1e-9):
+def _phase1(xp, A, b, max_iter, tol=1e-9):
     m, n = A.shape
 
     # INSPIRATION: identity block, zeros-then-ones cost vector and starting basis as in
@@ -152,9 +149,12 @@ def _phase1(xp, A, b, rule, max_iter, tol=1e-9):
     basis = xp.arange(n, n + m)
     Binv = xp.eye(m)
 
-    basis, Binv, xB, _status, _ = _run_pivots(
-        xp, A_aug, b, c_aug, basis, Binv, rule, max_iter
-    )
+    basis, Binv, xB, status, _ = _run_pivots(xp, A_aug, b, c_aug, basis, Binv, max_iter)
+    if status == "continue":
+    # Phase 1 ran out of iterations, so nothing has been learned about
+    # feasibility yet. Falling through to the test below would report a
+    # budget that was too small as a property of the problem.
+        return None, None, "iteration_limit"
 
     onehot_basis = _onehot_rows(xp, basis, n + m)
     phase1_obj = xp.sum((onehot_basis @ c_aug) * xB)
@@ -179,7 +179,7 @@ def _phase1(xp, A, b, rule, max_iter, tol=1e-9):
     return basis, Binv, "ok"
 
 
-def _solve_standard_form(xp, A, b, c, rule="bland", max_iter=10_000):
+def _solve_standard_form(xp, A, b, c, max_iter=10_000):
     m, n = A.shape
 
     # INSPIRATION: forcing b >= 0 by flipping rows, like Simplex.py 171-173. Theirs
@@ -189,12 +189,14 @@ def _solve_standard_form(xp, A, b, c, rule="bland", max_iter=10_000):
     A = A * xp.reshape(sign, (m, 1))
     b = b * sign
 
-    basis, Binv, p1status = _phase1(xp, A, b, rule, max_iter)
+    basis, Binv, p1status = _phase1(xp, A, b, max_iter)
     if p1status == "infeasible":
         return xp.zeros((n,)), _STATUS_INFEASIBLE
+    if p1status == "iteration_limit":
+        return xp.zeros((n,)), _STATUS_ITERATION_LIMIT
 
     basis, Binv, xB, status, iters = _run_pivots(
-        xp, A, b, c, basis, Binv, rule, max_iter
+        xp, A, b, c, basis, Binv, max_iter
     )
 
     if status == "continue":
@@ -367,7 +369,6 @@ class LinearProgrammingDataset(Dataset):
         A: np.ndarray | None = None,
         b: np.ndarray | None = None,
         c: np.ndarray | None = None,
-        rule: str = "bland",
         max_iter: int = 10_000,
         expected_x: np.ndarray | None = None,
         expected_status: int = _STATUS_OPTIMAL,
@@ -379,7 +380,6 @@ class LinearProgrammingDataset(Dataset):
         self.A = A
         self.b = b
         self.c = c
-        self.rule = rule
         self.max_iter = max_iter
         self.expected_x = expected_x
         self.expected_status = expected_status
@@ -481,7 +481,7 @@ class LinearProgrammingTestGenerator(Generator[LinearProgrammingDataset]):
         )
 
         # 4. Degenerate tie: two identical constraints on x force a tie in
-        #    the ratio test, exercising Bland's rule tie-breaking.
+        #    the ratio test, using the leaving row tie-break.
         #    maximize x + y <=> minimize -x - y
         #    s.t. x <= 4, x <= 4, y <= 4, x, y >= 0
         #    optimum: x=4, y=4, answer=-8
@@ -559,7 +559,7 @@ class LinearProgrammingTestGenerator(Generator[LinearProgrammingDataset]):
                 BinsparseFormat.from_numpy(dataset.b),
                 BinsparseFormat.from_numpy(dataset.c),
             ],
-            meta={"rule": dataset.rule, "max_iter": dataset.max_iter},
+            meta={"max_iter": dataset.max_iter},
             ref_outputs=[
                 BinsparseFormat.from_numpy(dataset.expected_x),
                 BinsparseFormat.from_numpy(np.array([dataset.expected_status])),
@@ -708,36 +708,38 @@ LPNETLIB_PROBLEMS = [
     "lpi_woodinfe",
 ]
 
-_LPNETLIB_TRACTABLE = {
-    "lp_adlittle": "dantzig",
-    "lp_afiro": "dantzig",
-    "lp_beaconfd": "dantzig",
-    "lp_blend": "dantzig",
-    "lp_brandy": "dantzig",
-    "lp_e226": "dantzig",
-    "lp_israel": "dantzig",
-    "lp_kb2": "dantzig",
-    "lp_lotfi": "dantzig",
-    "lp_recipe": "bland",
-    "lp_sc105": "dantzig",
-    "lp_sc205": "dantzig",
-    "lp_sc50a": "dantzig",
-    "lp_sc50b": "dantzig",
-    "lp_scagr7": "dantzig",
-    "lp_share1b": "dantzig",
-    "lp_share2b": "dantzig",
-    "lp_stocfor1": "dantzig",
-    "lpi_bgprtr": "dantzig",
-    "lpi_box1": "dantzig",
-    "lpi_ex72a": "dantzig",
-    "lpi_ex73a": "dantzig",
-    "lpi_forest6": "dantzig",
-    "lpi_galenet": "dantzig",
-    "lpi_itest2": "dantzig",
-    "lpi_itest6": "dantzig",
-    "lpi_klein1": "bland",
-    "lpi_woodinfe": "dantzig",
-}
+# The members of LPNETLIB_PROBLEMS that this solver settles within its iteration
+# budget, measured by running them; the rest are listed but left untagged.
+_LPNETLIB_TRACTABLE = [
+    "lp_adlittle",
+    "lp_afiro",
+    "lp_beaconfd",
+    "lp_blend",
+    "lp_brandy",
+    "lp_e226",
+    "lp_israel",
+    "lp_kb2",
+    "lp_lotfi",
+    "lp_recipe",
+    "lp_sc105",
+    "lp_sc205",
+    "lp_sc50a",
+    "lp_sc50b",
+    "lp_scagr7",
+    "lp_share1b",
+    "lp_share2b",
+    "lp_stocfor1",
+    "lpi_bgprtr",
+    "lpi_box1",
+    "lpi_ex72a",
+    "lpi_ex73a",
+    "lpi_forest6",
+    "lpi_galenet",
+    "lpi_itest2",
+    "lpi_itest6",
+    "lpi_klein1",
+    "lpi_woodinfe",
+]
 
 
 class LPNetlibDataset(SuiteSparseDataset):
@@ -745,7 +747,6 @@ class LPNetlibDataset(SuiteSparseDataset):
         self,
         source_name: str,
         suites: list[str] | None = None,
-        rule: str = "dantzig",
         max_iter: int = 20_000,
         expected_status: int = _STATUS_OPTIMAL,
     ):
@@ -758,7 +759,6 @@ class LPNetlibDataset(SuiteSparseDataset):
             ),
             suites=suites,
         )
-        self.rule = rule
         self.max_iter = max_iter
         self.expected_status = expected_status
 
@@ -853,7 +853,6 @@ class LPNetlibGenerator(Generator[LPNetlibDataset]):
             LPNetlibDataset(
                 name,
                 suites=["standard"] if name in _LPNETLIB_TRACTABLE else [],
-                rule=_LPNETLIB_TRACTABLE.get(name, "dantzig"),
                 expected_status=(
                     _STATUS_INFEASIBLE if name.startswith("lpi_") else _STATUS_OPTIMAL
                 ),
@@ -886,7 +885,6 @@ class LPNetlibGenerator(Generator[LPNetlibDataset]):
             ],
             meta={
                 **meta,
-                "rule": dataset.rule,
                 "max_iter": dataset.max_iter,
                 "standard_form_shape": A_std.shape,
                 "objective_offset": offset,
@@ -1008,10 +1006,9 @@ class LinearProgrammingBenchmark(Benchmark):
 
     def benchmark(self, xp, data: list, meta: dict):
         A, b, c = data[0], data[1], data[2]
-        rule = meta.get("rule", "bland")
         max_iter = meta.get("max_iter", 10_000)
 
-        x, status_code = _solve_standard_form(xp, A, b, c, rule=rule, max_iter=max_iter)
+        x, status_code = _solve_standard_form(xp, A, b, c, max_iter=max_iter)
         status = xp.reshape(xp.asarray(status_code), (1,))
         return [x, status]
 
