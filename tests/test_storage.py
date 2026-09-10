@@ -195,6 +195,97 @@ def test_upload_refreshes_manifest_metadata_and_data(downloadable_dataset):
     )
 
 
+def test_missing_manifest_entry_does_not_generate_or_write_metadata(
+    downloadable_dataset, monkeypatch
+):
+    backend, generator, dataset, _ = downloadable_dataset
+    monkeypatch.delenv("SAPS_CACHE_DATASETS", raising=False)
+    backend.manifest_path.write_text("{}\n")
+    metadata = Mock(side_effect=AssertionError("Unexpected metadata access"))
+    download = Mock(side_effect=AssertionError("No manifest digest to download"))
+    monkeypatch.setattr(backend, "_dataset_manifest_metadata", metadata)
+    monkeypatch.setattr(backend, "download_file", download)
+
+    with pytest.raises(RuntimeError, match="example.small.*has no digest"):
+        backend.retrieve_dataset(generator, dataset)
+
+    generator.generate.assert_not_called()
+    metadata.assert_not_called()
+    download.assert_not_called()
+    assert backend.manifest_path.read_text() == "{}\n"
+
+
+def test_cache_preparation_can_prepare_a_missing_shell_dependency(
+    downloadable_dataset, monkeypatch
+):
+    backend, generator, dataset, _ = downloadable_dataset
+    monkeypatch.setenv("SAPS_CACHE_DATASETS", "1")
+    backend.manifest_path.write_text("{}\n")
+    generator.generate.side_effect = None
+    generator.generate.return_value = DataInstance(
+        inputs=[from_numpy(np.arange(3))], meta={"source": "dependency"}
+    )
+
+    data = backend.retrieve_dataset(generator, dataset)
+
+    assert np.array_equal(to_numpy(data.inputs[0]), np.arange(3))
+    generator.generate.assert_called_once_with(dataset)
+    record = json.loads(backend.manifest_path.read_text())["example.small"]
+    assert backend.file_exists(backend.prefix(generator, dataset, record["digest"]))
+
+
+def test_concurrent_manifest_updates_preserve_both_records(
+    downloadable_dataset, monkeypatch
+):
+    backend, generator, dataset, _ = downloadable_dataset
+    other = SimpleNamespace(name="other", file="other.py", freshness="v2")
+    waiter_blocked = Event()
+    read_manifest = backend._read_manifest
+
+    class ObservedFileLock(FileLock):
+        def _acquire(self):
+            super()._acquire()
+            if not self.is_locked:
+                waiter_blocked.set()
+
+    def read_while_another_writer_waits():
+        manifest = read_manifest()
+        assert waiter_blocked.wait(timeout=10)
+        return manifest
+
+    monkeypatch.setattr(saps.storage, "FileLock", ObservedFileLock)
+    monkeypatch.setattr(backend, "_read_manifest", read_while_another_writer_waits)
+    with ThreadPoolExecutor(max_workers=2) as workers:
+        futures = [
+            workers.submit(backend.update_manifest, generator, entry, digest)
+            for entry, digest in [(dataset, "updated"), (other, "other-digest")]
+        ]
+        for future in futures:
+            future.result()
+
+    manifest = read_manifest()
+    assert manifest["example.small"]["digest"] == "updated"
+    assert manifest["example.other"]["digest"] == "other-digest"
+
+
+def test_failed_manifest_publish_preserves_previous_document(
+    downloadable_dataset, monkeypatch
+):
+    backend, generator, dataset, _ = downloadable_dataset
+    previous_manifest = backend.manifest_path.read_bytes()
+
+    def failed_replace(source, destination):
+        assert backend.manifest_path.read_bytes() == previous_manifest
+        raise OSError("Publish interrupted")
+
+    monkeypatch.setattr(Path, "replace", failed_replace)
+    with pytest.raises(OSError, match="Publish interrupted"):
+        backend.update_manifest(generator, dataset, "updated")
+
+    assert backend.manifest_path.read_bytes() == previous_manifest
+    assert not list(backend.manifest_path.parent.glob(".saps-*"))
+
+
 def test_concurrent_requests_download_once_and_reuse_shared_cache(
     downloadable_dataset, monkeypatch
 ):
@@ -260,6 +351,7 @@ def test_failed_downloads_do_not_poison_shared_cache(
     monkeypatch.setattr(backend, "download_file", broken_download)
     with pytest.raises(expected_error):
         backend.retrieve_dataset(generator, dataset)
+    generator.generate.assert_not_called()
     assert not cache_path.exists()
     assert not list(backend.cache_dir.rglob(".saps-*"))
 

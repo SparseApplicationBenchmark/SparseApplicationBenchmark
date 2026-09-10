@@ -142,15 +142,22 @@ class StorageBackend(ABC):
     def update_manifest(
         self, generator: Generator, dataset: Dataset, digest: str
     ) -> None:
-        manifest = self._read_manifest()
-        manifest[f"{generator.name}.{dataset.name}"] = {
+        record = {
             "digest": digest,
             **self._dataset_manifest_metadata(dataset),
         }
-        self.manifest_path.write_text(
-            json.dumps(manifest, indent=2, sort_keys=True) + "\n",
-            encoding="utf-8",
-        )
+        with FileLock(self.manifest_path.with_suffix(".lock")):
+            manifest = self._read_manifest()
+            manifest[f"{generator.name}.{dataset.name}"] = record
+            with tempfile.TemporaryDirectory(
+                prefix=".saps-", dir=self.manifest_path.parent
+            ) as staging:
+                staging_path = Path(staging) / "manifest.json"
+                staging_path.write_text(
+                    json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+                    encoding="utf-8",
+                )
+                staging_path.replace(self.manifest_path)
 
     def upload_dataset(self, generator: Generator, dataset: Dataset) -> bool:
         work_log = logging.getLogger("saps.work")
@@ -173,11 +180,7 @@ class StorageBackend(ABC):
             raise
 
     def retrieve_dataset(self, generator: Generator, dataset: Dataset) -> DataInstance:
-        """Retrieve the dataset by, in order:
-        1. The cache
-        2. Remote Storage
-        3. Generating it
-        """
+        """Read prepared data from the cache or remote storage using the manifest."""
         # Benchmark runs trust the manifest; refresh commands validate freshness.
         manifest = self._read_manifest()
         digest = manifest.get(f"{generator.name}.{dataset.name}", {}).get("digest")
@@ -212,10 +215,21 @@ class StorageBackend(ABC):
                 f"{generator.name}.{dataset.name} from remote storage."
             )
 
-        data, digest, _ = self._generate_and_cache(generator, dataset)
-        self.update_manifest(generator, dataset, digest)
-        logging.info(f"Dataset {generator.name}.{dataset.name} regenerated.")
-        return data
+        # Cache preparation can encounter a shell dependency before the shell's
+        # own ASV entry. Ordinary benchmark runs never generate cacheable inputs.
+        if os.environ.get("SAPS_CACHE_DATASETS") and self.upload_dataset(
+            generator, dataset
+        ):
+            return self.retrieve_dataset(generator, dataset)
+        reason = (
+            "could not be downloaded from remote storage"
+            if digest
+            else f"has no digest in {self.manifest_path}"
+        )
+        raise RuntimeError(
+            f"Dataset {generator.name}.{dataset.name} {reason}. "
+            "Prepare it with --cache-datasets before benchmarking."
+        )
 
 
 class LocalStorageBackend(StorageBackend):
