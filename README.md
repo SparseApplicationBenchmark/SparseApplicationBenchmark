@@ -32,6 +32,7 @@ Useful runner options:
 - `--no-re REGEX`: exclude matching benchmark, generator, or dataset names.
 - `--metrics time peakmem`: collect one or both metrics.
 - `--quick`: run each selected benchmark once.
+- `--rounds 1`: use one timing round, retaining repeated measurements within it.
 - `--timeout 30`: set a per-benchmark timeout in seconds.
 - `--chunk-count N --chunk-index I`: split the selected parameter cases across
   multiple processes and isolate transient output under `chunk-I` directories.
@@ -76,7 +77,8 @@ The competition script emails `ahrens@gatech.edu` when the array finishes or
 fails. Notifications cover the whole array. Override the recipient at submission
 with `sbatch --mail-user=you@example.com scripts/run-competition.slurm`.
 
-The competition config selects the standard datasets. The wrapper submits a
+The competition config selects the standard datasets and uses one timing round
+per benchmark, with ASV's normal repeated measurements. The wrapper submits a
 64-task array by default. Each task runs a deterministic set of the selected
 datasets. All competition outputs live in the run directory:
 

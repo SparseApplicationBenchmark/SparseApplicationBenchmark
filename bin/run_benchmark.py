@@ -72,7 +72,11 @@ def _run_asv_benchmarks(
     print_results=False,
     launch_method=None,
     resume=False,
+    rounds=None,
 ):
+    extra_params = {"timeout": timeout}
+    if rounds is not None:
+        extra_params["rounds"] = rounds
     failed = 0
     for env in environments:
         params = dict(machine_params.__dict__)
@@ -107,7 +111,7 @@ def _run_asv_benchmarks(
             results=results,
             show_stderr=show_stderr,
             quick=quick,
-            extra_params={"timeout": timeout},
+            extra_params=extra_params,
             launch_method=launch_method,
         )
         failed += sum(
@@ -411,6 +415,12 @@ def main() -> int:
         help="Run each benchmark only once",
     )
     parser.add_argument(
+        "--rounds",
+        type=int,
+        default=None,
+        help="Timing rounds per benchmark; retains repeated samples within each round",
+    )
+    parser.add_argument(
         "-v",
         "--verbose",
         action="store_true",
@@ -445,6 +455,10 @@ def main() -> int:
     saps_config_data = _load_saps_config(args.config)
     _apply_config_args(parser, args, saps_config_data)
 
+    if args.rounds is not None and (
+        type(args.rounds) is not int or args.rounds < 1
+    ):
+        parser.error("--rounds must be a positive integer")
     if args.chunk_count < 1:
         parser.error("--chunk-count must be at least 1")
     if args.chunk_index < 0 or args.chunk_index >= args.chunk_count:
@@ -841,6 +855,7 @@ def main() -> int:
         results_dir=results_dir,
         print_results=True,
         resume=args.resume,
+        rounds=args.rounds,
     )
     return 0 if failed == 0 else 1
 
