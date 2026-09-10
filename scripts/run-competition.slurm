@@ -38,7 +38,6 @@ if (( $# > 0 )); then
 fi
 run_name="${competition_run_root##*/}"
 competition_run_directory="$competition_run_root/task_$task_index"
-combined_results="${competition_run_root%/*}/results_${run_name#run_}_task_$task_index.json"
 
 benchmark_args=(
   --resume
@@ -66,8 +65,7 @@ poetry run ./bin/run_benchmark.py \
 benchmark_status=$?
 set -e
 
-poetry run ./bin/combine_competition_results.py \
-  --run-directory "$competition_run_directory" \
-  --output "$combined_results"
+poetry run ./scripts/combine_competition_results.py \
+  --run-directory "$competition_run_root"
 
 exit "$benchmark_status"

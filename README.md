@@ -74,17 +74,59 @@ You can submit the Slurm scripts from the repository root or any subdirectory.
 
 The competition config selects the three JL projection datasets. The wrapper
 submits a 5-task array by default, so two tasks have no datasets. Each task runs a
-deterministic set of the selected datasets and writes ASV outputs under
-`competition/run_<slurm-array-job-id>/task_<task-index>/`. Per-task combined
-results are written to
-`competition/results_<slurm-array-job-id>_task_<task-index>.json`. To combine
-the entire array after all tasks have completed:
+deterministic set of the selected datasets. All competition outputs live in the
+run directory:
+
+```text
+competition/run_<slurm-array-job-id>/
+  task_0/
+    results/       # ASV measurements and saved diagnostics
+    machine_files/
+    env/
+    outputs/       # cached inputs
+  task_1/
+  ...
+  results.json     # combined measurements from all tasks and frameworks
+  machines.json   # machine descriptions, indexed by ID
+```
+
+Each finishing task refreshes the combined files with the results saved so far.
+To rebuild the highest-numbered Slurm run, run from the repository root:
 
 ```bash
-poetry run ./bin/combine_competition_results.py \
-  --run-directory competition/run_12345 \
-  --output competition/results_12345.json
+poetry run ./scripts/combine_competition_results.py
 ```
+
+The script also works from `scripts/` as `poetry run ./combine_competition_results.py`.
+To select an earlier run explicitly:
+
+```bash
+poetry run ./scripts/combine_competition_results.py \
+  --run-directory competition/run_12345
+```
+
+The combined JSON follows `metadata.json`'s
+`benchmarks → generators → datasets → results` hierarchy. Dataset names are
+matched using metadata's `asv_ids` and `asv_param` values, rather than parameter
+positions. Each result contains a metric, value, status, statistics, samples,
+and references to its framework, machine, source file, and diagnostics.
+Framework definitions, source information (including commit and environment),
+and diagnostics appear once in top-level tables. Machine references resolve
+through `machines.json`. Source file paths are relative to `run_directory`.
+Use `--metadata PATH` to combine against a different metadata file.
+
+Diagnostics retain ASV's `errcode`, `stderr`, parameter names, start time, and
+duration. ASV reports these per benchmark invocation, potentially covering
+multiple datasets; those results share a diagnostic reference. Resume preserves
+the diagnostics and machine attribution for retained measurements. Older ASV
+files can still be combined, but their missing diagnostics cannot be recovered;
+the machine listing uses whatever machine identity those files recorded.
+Unselected parameters are omitted; recorded skips appear with `status: "skipped"`.
+Non-finite values become JSON `null` rather than nonstandard `NaN` literals.
+
+Direct runs using `competition.config.json` write beneath
+`competition/run_local/task_0/`; combine those with
+`--run-directory competition/run_local`.
 
 Competition runs filter out dataset/metric entries that already have saved
 results for each environment. To continue a Slurm run, submit the same array shape

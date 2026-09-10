@@ -7,9 +7,9 @@
   "metrics": ["time"],
   "tag": [],
   "re": ["jl_projection_inputs"],
-  "saps_dir": "competition",
-  "env_dir": "competition/env",
-  "results_dir": "competition/results",
+  "saps_dir": "competition/run_local/task_0",
+  "env_dir": "competition/run_local/task_0/env",
+  "results_dir": "competition/run_local/task_0/results",
   "matrix": {},
   "exclude": [
     {

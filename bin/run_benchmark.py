@@ -2,10 +2,13 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import itertools
 import json
 import logging
 import os
 import re
+import tempfile
 from pathlib import Path
 
 from asv.benchmarks import Benchmarks
@@ -15,7 +18,7 @@ from asv.console import log
 from asv.environment import ExistingEnvironment, get_environments
 from asv.machine import Machine
 from asv.repo import get_repo
-from asv.results import Results
+from asv.results import Results, get_filename
 from asv.runner import run_benchmarks
 
 from saps.storage import (
@@ -115,8 +118,58 @@ def _run_asv_benchmarks(
                 json.dumps(format_results(results, benchmarks), indent=2, default=str)
             )
         if results_dir is not None:
-            results.save(results_dir)
+            _save_results(
+                results, results_dir, selected_benchmarks, machine_params, resume=resume
+            )
     return failed
+
+
+def _save_results(results, results_dir, benchmarks, machine_params, *, resume=False):
+    filename = get_filename(
+        results.params["machine"], results.commit_hash, results.env_name
+    )
+    path = Path(results_dir) / filename
+    previous = json.loads(path.read_text()) if resume and path.exists() else {}
+    details = previous.get("saps", {"machines": {}, "runs": []})
+    if previous and "saps" not in previous:
+        details["legacy_machine"] = {
+            key: value
+            for key, value in previous["params"].items()
+            if key != "python" and key not in previous.get("requirements", {})
+        }
+    machine = dict(machine_params.__dict__)
+    machine["machine"] = machine.pop("hostname", machine["machine"])
+    machine_id = hashlib.sha256(
+        json.dumps(machine, sort_keys=True).encode()
+    ).hexdigest()
+    details["machines"][machine_id] = machine
+    for name, benchmark in benchmarks.items():
+        parameters = list(itertools.product(*benchmark["params"]))
+        selected = benchmarks.benchmark_selection[name]
+        details["runs"].append(
+            {
+                "benchmark": name,
+                "version": benchmark.get("version"),
+                "parameters": [parameters[i] for i in selected]
+                if selected is not None
+                else parameters,
+                "machine": machine_id,
+                "errcode": results.errcode.get(name),
+                "stderr": results.stderr.get(name),
+                "started_at": results.started_at.get(name),
+                "duration_seconds": results.duration.get(name),
+            }
+        )
+    # Publish the ASV data and diagnostics together, so concurrent combiners never
+    # see a partially written result. Hidden staging directories are not combined.
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=".save-", dir=path.parent) as staging:
+        results.save(staging)
+        staged_path = Path(staging) / filename
+        document = json.loads(staged_path.read_text())
+        document["saps"] = details
+        staged_path.write_text(json.dumps(document) + "\n")
+        staged_path.replace(path)
 
 
 def _load_metadata(metadata_path: Path) -> list[dict]:
@@ -552,6 +605,7 @@ def main() -> int:
     # Read host details without ASV's interactive, shared machine registry.
     machine_params = Machine()
     machine_params.__dict__.update(Machine.get_defaults())
+    machine_params.hostname = machine_params.machine
     if args.machine is not None:
         machine_params.machine = args.machine
 

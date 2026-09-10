@@ -249,3 +249,48 @@ def test_competition_selects_jl_datasets_without_machine_prompts(
     )
     assert kwargs["machine_params"].machine == "run_12345-task-0"
     machine_load.assert_not_called()
+
+
+def test_saved_diagnostics_preserve_machines_across_resume(
+    runner, setup_resume, tmp_path
+):
+    import json
+
+    benchmark, benchmarks, new_results, record = setup_resume
+    name = benchmark["name"]
+    results = new_results()
+    record(results, benchmark, [1.0, None, float("nan")], [0, 1])
+    results.errcode[name] = 1
+    results.stderr[name] = "For parameters: b\nfailed setup"
+    benchmarks._benchmark_selection[name] = [0, 1]
+    runner._save_results(
+        results,
+        tmp_path,
+        benchmarks,
+        SimpleNamespace(machine="node", hostname="physical-a", cpu="cpu-a"),
+    )
+    resumed = new_results()
+    resumed.load_data(tmp_path)
+    record(resumed, benchmark, [None, 2.0, None], [1])
+    benchmarks._benchmark_selection[name] = [1]
+    runner._save_results(
+        resumed,
+        tmp_path,
+        benchmarks,
+        SimpleNamespace(machine="node", hostname="physical-b", cpu="cpu-b"),
+        resume=True,
+    )
+    (path,) = tmp_path.rglob("*.json")
+    document = json.loads(path.read_text())
+    first, second = document["saps"]["runs"]
+    assert first["errcode"] == 1
+    assert first["stderr"] == "For parameters: b\nfailed setup"
+    assert first["parameters"] == [["a"], ["b"]]
+    assert second["parameters"] == [["b"]]
+    assert second["errcode"] == 0
+    assert document["saps"]["machines"][first["machine"]]["machine"] == "physical-a"
+    assert document["saps"]["machines"][second["machine"]]["machine"] == "physical-b"
+    loaded = new_results()
+    loaded.load_data(tmp_path)
+    assert loaded.get_result_value(name, benchmark["params"])[:2] == [1.0, 2.0]
+    assert not list(tmp_path.rglob(".save-*"))

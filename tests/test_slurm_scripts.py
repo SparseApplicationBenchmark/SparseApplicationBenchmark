@@ -107,10 +107,9 @@ def test_competition_resume_uses_original_task_directory(tmp_path):
     assert run[run.index("--saps-dir") + 1] == task_directory
     assert run[run.index("--results-dir") + 1] == task_directory + "/results"
     assert run[run.index("--machine") + 1] == "run_12345-task-2"
-    assert combine[combine.index("--run-directory") + 1] == task_directory
-    assert combine[combine.index("--output") + 1] == str(
-        run_root.resolve().parent / "results_12345_task_2.json"
-    )
+    assert combine[:2] == ["run", "./scripts/combine_competition_results.py"]
+    assert combine[combine.index("--run-directory") + 1] == str(run_root.resolve())
+    assert "--output" not in combine
     for script in (ROOT / "scripts").glob("*.slurm"):
         text = script.read_text()
         assert "#SBATCH --output=" in text
@@ -168,4 +167,9 @@ def test_slurm_submission_from_scripts_directory(tmp_path, script_name, commands
         capture_output=True,
         text=True,
     )
-    assert record.read_text().splitlines() == [f"./bin/{name}" for name in commands]
+    assert record.read_text().splitlines() == [
+        f"./scripts/{name}"
+        if name == "combine_competition_results.py"
+        else f"./bin/{name}"
+        for name in commands
+    ]
