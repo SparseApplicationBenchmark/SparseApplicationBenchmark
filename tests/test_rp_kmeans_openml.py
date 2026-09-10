@@ -1,5 +1,8 @@
+from io import BytesIO
 from pathlib import Path
 from types import SimpleNamespace
+
+import pytest
 
 import numpy as np
 import scipy.sparse
@@ -50,24 +53,36 @@ def test_openml_shell_generator_scales_features_and_records_shape(monkeypatch):
     assert instance.meta["num_features"] == 2
 
 
-def test_fetch_openml_cache_busts_dataset_download_without_compression(monkeypatch):
+@pytest.mark.parametrize("cache_override", ["", "shared-cache"])
+def test_fetch_openml_reuses_shared_download_cache(
+    monkeypatch, tmp_path, cache_override
+):
     from sklearn.datasets import _openml
 
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("SAPS_CACHE_DIR", cache_override)
+    data_home = (
+        tmp_path / (cache_override or ".saps/outputs/cache") / "scikit_learn_data"
+    )
     urls = []
     headers = []
 
     def fake_download(url, *args, **kwargs):
-        urls.append(url)
-        request = _openml.Request(url)
-        request.add_header("Accept-encoding", "gzip")
-        _openml.urlopen(request)
+        return _openml._open_openml_url(url, str(data_home), n_retries=0)
 
     def fake_urlopen(request, *args, **kwargs):
+        urls.append(request.full_url)
         headers.append(dict(request.header_items()))
+        response = BytesIO(b"dataset contents")
+        response.info = dict
+        return response
 
     def fake_fetch_openml(**kwargs):
-        assert Path(kwargs["data_home"]).is_dir()
-        _openml._download_data_to_bunch("https://openml.org/data/v1/download/1")
+        assert Path(kwargs["data_home"]).resolve() == data_home
+        with _openml._download_data_to_bunch(
+            "https://openml.org/data/v1/download/1"
+        ) as response:
+            assert response.read() == b"dataset contents"
         return kwargs
 
     monkeypatch.setattr(_openml, "_download_data_to_bunch", fake_download)
@@ -75,9 +90,11 @@ def test_fetch_openml_cache_busts_dataset_download_without_compression(monkeypat
     monkeypatch.setattr(_openml, "fetch_openml", fake_fetch_openml)
 
     result = _fetch_openml(40927)
+    assert _fetch_openml(40927) == result
 
     assert result["data_id"] == 40927
-    assert not Path(result["data_home"]).exists()
+    assert Path(result["data_home"]).is_dir()
+    assert len(urls) == 1
     assert urls[0].startswith("https://openml.org/data/v1/download/1?nocache=")
     assert headers == [{"Accept-encoding": "identity"}]
     assert _openml._download_data_to_bunch is fake_download

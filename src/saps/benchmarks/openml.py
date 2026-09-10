@@ -1,12 +1,14 @@
 from __future__ import annotations
 
-from tempfile import TemporaryDirectory
+import os
+from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
 import numpy as np
 
 from binsparse.conversions import from_numpy, to_numpy
+from filelock import FileLock
 
 from saps.benchmark import (
     Author,
@@ -17,7 +19,12 @@ from saps.benchmark import (
     Ref,
     ShellBenchmark,
 )
+from saps.storage import DEFAULT_CACHE_DIR
 
+
+#OpenML source downloads also persist under `scikit_learn_data/` inside the
+#shared cache. A file lock serializes scikit-learn fetches so concurrent runners
+#reuse completed downloads.
 
 class OpenMLDataset(Dataset):
     """Base Dataset for benchmarks backed by an OpenML dense feature matrix."""
@@ -194,34 +201,39 @@ def _fetch_openml(data_id: int):
             "OpenML-backed benchmarks require scikit-learn to fetch datasets."
         ) from exc
 
-    original_download = _openml._download_data_to_bunch
-    original_urlopen = _openml.urlopen
+    data_home = (
+        Path(os.environ.get("SAPS_CACHE_DIR") or DEFAULT_CACHE_DIR)
+        / "scikit_learn_data"
+    )
+    data_home.mkdir(parents=True, exist_ok=True)
+    with FileLock(data_home / ".lock"):
+        original_download = _openml._download_data_to_bunch
+        original_urlopen = _openml.urlopen
 
-    def download_with_cache_buster(url: str, *args: Any, **kwargs: Any):
-        separator = "&" if "?" in url else "?"
-        return original_download(
-            f"{url}{separator}nocache={uuid4().hex}", *args, **kwargs
-        )
+        def download_with_cache_buster(url: str, *args: Any, **kwargs: Any):
+            separator = "&" if "?" in url else "?"
+            return original_download(
+                f"{url}{separator}nocache={uuid4().hex}", *args, **kwargs
+            )
 
-    def urlopen_without_compression(request: Any, *args: Any, **kwargs: Any):
-        if "nocache=" in request.full_url:
-            request.remove_header("Accept-encoding")
-            request.add_header("Accept-encoding", "identity")
-        return original_urlopen(request, *args, **kwargs)
+        def urlopen_without_compression(request: Any, *args: Any, **kwargs: Any):
+            if "nocache=" in request.full_url:
+                request.remove_header("Accept-encoding")
+                request.add_header("Accept-encoding", "identity")
+            return original_urlopen(request, *args, **kwargs)
 
-    _openml._download_data_to_bunch = download_with_cache_buster
-    _openml.urlopen = urlopen_without_compression
-    try:
-        with TemporaryDirectory() as data_home:
+        _openml._download_data_to_bunch = download_with_cache_buster
+        _openml.urlopen = urlopen_without_compression
+        try:
             return _openml.fetch_openml(
                 data_id=data_id,
-                data_home=data_home,
+                data_home=str(data_home),
                 as_frame=False,
                 parser="auto",
             )
-    finally:
-        _openml._download_data_to_bunch = original_download
-        _openml.urlopen = original_urlopen
+        finally:
+            _openml._download_data_to_bunch = original_download
+            _openml.urlopen = original_urlopen
 
 
 class OpenMLDatasetBenchmark(ShellBenchmark):
