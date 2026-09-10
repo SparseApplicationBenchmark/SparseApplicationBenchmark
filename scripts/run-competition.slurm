@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=saps-competition
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=24
 #SBATCH --exclusive
-#SBATCH --mem=128G
+#SBATCH --mem=192G
 #SBATCH --time=1:00:00
-#SBATCH --array=0-4
+#SBATCH --array=0-31
 #SBATCH --output=competition-%A_%a.log
 
 set -euo pipefail
