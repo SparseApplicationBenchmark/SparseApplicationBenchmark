@@ -38,8 +38,6 @@ submit_job() {
 upload_job_id=$(
   submit_job \
     -A "$account" \
-    -q embers \
-    -C amd \
     --output "$log_directory/upload-%j.log" \
     --chdir "$repo_directory" \
     --export=ALL,SAPS_REPO_DIRECTORY="$repo_directory" \
