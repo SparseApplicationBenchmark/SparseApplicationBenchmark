@@ -270,7 +270,9 @@ class SuiteSparseMatmulGenerator(Generator):
             "Generate real sparse matrices for squaring (A*A), the operation "
             "both classes of SpGEMM application reduce to: graph algorithms, "
             "where A*A gives two-hop neighbourhoods, and algebraic multigrid, "
-            "where SpGEMM forms the coarse-grid operator."
+            "where SpGEMM forms the coarse-grid operator. Buluc and Gilbert "
+            "motivate those two classes; the matrices themselves are selected "
+            "here rather than taken from that work."
         )
 
     @property
@@ -388,24 +390,7 @@ class UniformRandomMatmulGenerator(Generator):
 
     @property
     def references(self) -> list[Ref]:
-        return [
-            Ref(
-                title=(
-                    "Parallel Sparse Matrix-Matrix Multiplication and Indexing: "
-                    "Implementation and Experiments"
-                ),
-                authors=[
-                    Author("A. Buluç"),
-                    Author("J. R. Gilbert"),
-                ],
-                journal="SIAM Journal on Scientific Computing",
-                volume=34,
-                number=4,
-                pages="170-191",
-                year=2012,
-                doi="10.1137/110848244",
-            ),
-        ]
+        return []
 
     @property
     def ai_disclosure(self) -> str:
@@ -417,7 +402,10 @@ class UniformRandomMatmulGenerator(Generator):
 
     @property
     def motivation(self) -> str:
-        return ""
+        return (
+            "Generate pairs of uniform random sparse matrices for SpGEMM over a "
+            "range of densities. The density values are a synthetic sweep."
+        )
 
     @property
     def datasets(self) -> list[Dataset]:

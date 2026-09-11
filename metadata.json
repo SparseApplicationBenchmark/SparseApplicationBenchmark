@@ -48227,7 +48227,7 @@
       "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10002950.10003705</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003705.10011686</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software performance</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003714.10003715</concept_id>\n<concept_desc>Mathematics of computing~Numerical analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
       "description": "The multiplication of two matrices.C_ik = \\sum_k A_ij B_jk",
       "file": "src/saps/benchmarks/matmul.py",
-      "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+      "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to write the benchmark function itself. Generative AI was used to debug code. This statement was written by hand.",
@@ -48242,7 +48242,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Dense Matmul Input small.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "small",
               "pretty_name": "small",
               "suites": [
@@ -48265,7 +48265,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Dense Matmul Input medium.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "medium",
               "pretty_name": "medium",
               "suites": [
@@ -48288,7 +48288,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Dense Matmul Input large.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "large",
               "pretty_name": "large",
               "suites": [
@@ -48307,7 +48307,7 @@
           ],
           "description": "Dense input generator for matrix multiplication.",
           "file": "src/saps/benchmarks/matmul.py",
-          "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+          "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
           "motivation": "Generate dense matrices for matrix multiplication.",
           "name": "dense_matmul_generator",
           "pretty_name": "Dense Matmul Generator",
@@ -48338,7 +48338,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix email, squared to represent graph algorithms in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "email",
               "pretty_name": "email",
               "suites": [
@@ -48361,7 +48361,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix email-Eu-core, squared to represent graph algorithms in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "email-Eu-core",
               "pretty_name": "email-Eu-core",
               "suites": [
@@ -48384,7 +48384,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix ca-GrQc, squared to represent graph algorithms in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "ca-GrQc",
               "pretty_name": "ca-GrQc",
               "suites": [
@@ -48407,7 +48407,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix bcsstk09, squared to represent algebraic multigrid in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "bcsstk09",
               "pretty_name": "bcsstk09",
               "suites": [
@@ -48430,7 +48430,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix Chebyshev3, squared to represent algebraic multigrid in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "Chebyshev3",
               "pretty_name": "Chebyshev3",
               "suites": [
@@ -48453,7 +48453,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix CollegeMsg, squared to represent graph algorithms in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "CollegeMsg",
               "pretty_name": "CollegeMsg",
               "suites": [
@@ -48474,7 +48474,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix wiki-vote, squared to represent graph algorithms in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "wiki-vote",
               "pretty_name": "wiki-vote",
               "suites": [
@@ -48495,7 +48495,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix ca-HepPh, squared to represent graph algorithms in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "ca-HepPh",
               "pretty_name": "ca-HepPh",
               "suites": [
@@ -48516,7 +48516,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix Muu, squared to represent algebraic multigrid in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "Muu",
               "pretty_name": "Muu",
               "suites": [
@@ -48537,7 +48537,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix fv2, squared to represent algebraic multigrid in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "fv2",
               "pretty_name": "fv2",
               "suites": [
@@ -48558,7 +48558,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix Dubcova1, squared to represent algebraic multigrid in the matrix-matrix suite.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "Dubcova1",
               "pretty_name": "Dubcova1",
               "suites": [
@@ -48577,8 +48577,8 @@
           ],
           "description": "Sparse input generator for sparse matrix-matrix multiplication, drawing real matrices from the SuiteSparse Matrix Collection across the application classes that motivate SpGEMM.",
           "file": "src/saps/benchmarks/matmul.py",
-          "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
-          "motivation": "Generate real sparse matrices for squaring (A*A), the operation both classes of SpGEMM application reduce to: graph algorithms, where A*A gives two-hop neighbourhoods, and algebraic multigrid, where SpGEMM forms the coarse-grid operator.",
+          "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
+          "motivation": "Generate real sparse matrices for squaring (A*A), the operation both classes of SpGEMM application reduce to: graph algorithms, where A*A gives two-hop neighbourhoods, and algebraic multigrid, where SpGEMM forms the coarse-grid operator. Buluc and Gilbert motivate those two classes; the matrices themselves are selected here rather than taken from that work.",
           "name": "suitesparse_matmul_generator",
           "pretty_name": "Suite Sparse Matmul Generator",
           "references": [
@@ -48612,7 +48612,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-05.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "uniform-1e-05",
               "pretty_name": "uniform-1e-05",
               "suites": [
@@ -48635,7 +48635,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-04.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "uniform-1e-04",
               "pretty_name": "uniform-1e-04",
               "suites": [
@@ -48658,7 +48658,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-03.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "uniform-1e-03",
               "pretty_name": "uniform-1e-03",
               "suites": [
@@ -48681,7 +48681,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-02.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "uniform-1e-02",
               "pretty_name": "uniform-1e-02",
               "suites": [
@@ -48704,7 +48704,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-01.",
               "file": "src/saps/benchmarks/matmul.py",
-              "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
+              "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
               "name": "uniform-1e-01",
               "pretty_name": "uniform-1e-01",
               "suites": [
@@ -48723,13 +48723,11 @@
           ],
           "description": "Generates a pair of uniform random sparse matrices for sparse general matrix-matrix multiplication (SpGEMM) at a range of densities.",
           "file": "src/saps/benchmarks/matmul.py",
-          "freshness": "cc129a7fbe44f179efce5cf40221b21d5ae879bb02f6832cb8e6cae08b1e3919",
-          "motivation": "",
+          "freshness": "426bcd0076863a467703aeb21751a2c617464183a999d041dfed21e58e91063b",
+          "motivation": "Generate pairs of uniform random sparse matrices for SpGEMM over a range of densities. The density values are a synthetic sweep.",
           "name": "uniform_random_matmul_generator",
           "pretty_name": "Uniform Random Sparse Matmul Generator",
-          "references": [
-            "A. Bulu\u00e7, J. R. Gilbert. \"Parallel Sparse Matrix-Matrix Multiplication and Indexing: Implementation and Experiments\", SIAM Journal on Scientific Computing, Vol. 34, No. 4, pp. 170-191, 2012, DOI: 10.1137/110848244."
-          ],
+          "references": [],
           "suites": [
             "sparse"
           ],
@@ -48779,7 +48777,7 @@
       "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10002950.10003705</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003705.10011686</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software performance</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003714.10003715</concept_id>\n<concept_desc>Mathematics of computing~Numerical analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
       "description": "The multiplication of a matrix and a vector.C_i = \\sum_j A_ij B_j",
       "file": "src/saps/benchmarks/spmv.py",
-      "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+      "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to write the benchmark function itself. Generative AI was used to debug code. This statement was written by hand.",
@@ -48794,7 +48792,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Dense MatVec Input small.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "small",
               "pretty_name": "small",
               "suites": [
@@ -48817,7 +48815,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Dense MatVec Input medium.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "medium",
               "pretty_name": "medium",
               "suites": [
@@ -48840,7 +48838,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Dense MatVec Input large.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "large",
               "pretty_name": "large",
               "suites": [
@@ -48861,7 +48859,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Dense MatVec Input rectangular.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "rectangular",
               "pretty_name": "rectangular",
               "suites": [
@@ -48880,10 +48878,10 @@
               "topics": []
             }
           ],
-          "description": "Dense input generator for matrix multiplication.",
+          "description": "Dense input generator for matrix-vector multiplication.",
           "file": "src/saps/benchmarks/spmv.py",
-          "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
-          "motivation": "Generate dense matrices for matrix multiplication.",
+          "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
+          "motivation": "Generate dense matrices for matrix-vector multiplication.",
           "name": "dense_matvec_generator",
           "pretty_name": "Dense MatVec Generator",
           "references": [],
@@ -48913,7 +48911,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix gemat11, included to represent the 'power network problem sequence' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "gemat11",
               "pretty_name": "gemat11",
               "suites": [
@@ -48936,7 +48934,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix bayer02, included to represent the 'chemical process simulation problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "bayer02",
               "pretty_name": "bayer02",
               "suites": [
@@ -48959,7 +48957,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix bayer10, included to represent the 'chemical process simulation problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "bayer10",
               "pretty_name": "bayer10",
               "suites": [
@@ -48982,7 +48980,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix orani678, included to represent the 'economic problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "orani678",
               "pretty_name": "orani678",
               "suites": [
@@ -49005,7 +49003,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix rdist1, included to represent the 'chemical process simulation problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "rdist1",
               "pretty_name": "rdist1",
               "suites": [
@@ -49028,7 +49026,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix memplus, included to represent the 'circuit simulation problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "memplus",
               "pretty_name": "memplus",
               "suites": [
@@ -49051,7 +49049,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix wang4, included to represent the 'semiconductor device problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "wang4",
               "pretty_name": "wang4",
               "suites": [
@@ -49072,7 +49070,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix coater2, included to represent the 'computational fluid dynamics problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "coater2",
               "pretty_name": "coater2",
               "suites": [
@@ -49093,7 +49091,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix onetone2, included to represent the 'frequency-domain circuit simulation problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "onetone2",
               "pretty_name": "onetone2",
               "suites": [
@@ -49114,7 +49112,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix lhr10, included to represent the 'chemical process simulation problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "lhr10",
               "pretty_name": "lhr10",
               "suites": [
@@ -49135,7 +49133,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix vibrobox, included to represent the 'acoustics problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "vibrobox",
               "pretty_name": "vibrobox",
               "suites": [
@@ -49156,7 +49154,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix goodwin, included to represent the 'computational fluid dynamics problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "goodwin",
               "pretty_name": "goodwin",
               "suites": [
@@ -49177,7 +49175,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix pwt, included to represent the 'duplicate structural problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "pwt",
               "pretty_name": "pwt",
               "suites": [
@@ -49198,7 +49196,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix finan512, included to represent the 'economic problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "finan512",
               "pretty_name": "finan512",
               "suites": [
@@ -49219,7 +49217,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix crystk02, included to represent the 'materials problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "crystk02",
               "pretty_name": "crystk02",
               "suites": [
@@ -49240,7 +49238,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix rim, included to represent the 'computational fluid dynamics problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "rim",
               "pretty_name": "rim",
               "suites": [
@@ -49261,7 +49259,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix olafu, included to represent the 'structural problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "olafu",
               "pretty_name": "olafu",
               "suites": [
@@ -49282,7 +49280,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix ex11, included to represent the 'computational fluid dynamics problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "ex11",
               "pretty_name": "ex11",
               "suites": [
@@ -49303,7 +49301,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix raefsky4, included to represent the 'structural problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "raefsky4",
               "pretty_name": "raefsky4",
               "suites": [
@@ -49324,7 +49322,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix bcsstk35, included to represent the 'structural problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "bcsstk35",
               "pretty_name": "bcsstk35",
               "suites": [
@@ -49345,7 +49343,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix raefsky3, included to represent the 'computational fluid dynamics problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "raefsky3",
               "pretty_name": "raefsky3",
               "suites": [
@@ -49366,7 +49364,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix venkat01, included to represent the 'computational fluid dynamics problem sequence' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "venkat01",
               "pretty_name": "venkat01",
               "suites": [
@@ -49387,7 +49385,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix crystk03, included to represent the 'materials problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "crystk03",
               "pretty_name": "crystk03",
               "suites": [
@@ -49408,7 +49406,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix ct20stif, included to represent the 'structural problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "ct20stif",
               "pretty_name": "ct20stif",
               "suites": [
@@ -49429,7 +49427,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix nasasrb, included to represent the 'structural problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "nasasrb",
               "pretty_name": "nasasrb",
               "suites": [
@@ -49450,7 +49448,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SuiteSparse matrix 3dtube, included to represent the 'computational fluid dynamics problem' domain in the matrix-vector suite.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "3dtube",
               "pretty_name": "3dtube",
               "suites": [
@@ -49469,7 +49467,7 @@
           ],
           "description": "Sparse input generator for sparse matrix-vector multiplication, drawing real matrices from the SuiteSparse Matrix Collection across a range of application domains.",
           "file": "src/saps/benchmarks/spmv.py",
-          "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+          "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
           "motivation": "Generate real sparse matrices for matrix-vector multiplication, using the benchmark suite of Vuduc's SpMV autotuning study: 26 of its 28 matrices, spanning fluid dynamics, structural, materials, chemical process, economic, circuit and semiconductor problems. `bai` and `vavasis3` are omitted because SuiteSparse does not carry them under those names.",
           "name": "suitesparse_matvec_generator",
           "pretty_name": "Suite Sparse MatVec Generator",
@@ -49505,7 +49503,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-05.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "uniform-1e-05",
               "pretty_name": "uniform-1e-05",
               "suites": [
@@ -49528,7 +49526,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-04.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "uniform-1e-04",
               "pretty_name": "uniform-1e-04",
               "suites": [
@@ -49551,7 +49549,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-03.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "uniform-1e-03",
               "pretty_name": "uniform-1e-03",
               "suites": [
@@ -49574,7 +49572,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-02.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "uniform-1e-02",
               "pretty_name": "uniform-1e-02",
               "suites": [
@@ -49597,7 +49595,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random sparse matmul input uniform-1e-01.",
               "file": "src/saps/benchmarks/spmv.py",
-              "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
+              "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
               "name": "uniform-1e-01",
               "pretty_name": "uniform-1e-01",
               "suites": [
@@ -49618,13 +49616,11 @@
           ],
           "description": "Generates a pair of uniform random sparse matrices for sparse general matrix-matrix multiplication (SpGEMM) at a range of densities.",
           "file": "src/saps/benchmarks/spmv.py",
-          "freshness": "b10a1bf13849d8d0acfb32ba38d236b9c680bceb04c047214e98a8bbec74a8f0",
-          "motivation": "",
+          "freshness": "2ec85a79b7f2cd30860bb56cb36dd63d1861c0ab3168af3bd2aaef51f5261ece",
+          "motivation": "Generate uniform random sparse matrices for matrix-vector multiplication over a range of densities. The density values are just a synthetic sweep.",
           "name": "uniform_random_matvec_generator",
           "pretty_name": "Uniform Random Sparse MatVec Generator",
-          "references": [
-            "A. Bulu\u00e7, J. R. Gilbert. \"Parallel Sparse Matrix-Matrix Multiplication and Indexing: Implementation and Experiments\", SIAM Journal on Scientific Computing, Vol. 34, No. 4, pp. 170-191, 2012, DOI: 10.1137/110848244."
-          ],
+          "references": [],
           "suites": [
             "sparse"
           ],
@@ -53310,7 +53306,7 @@
       "concepts": "\n<ccs2012>\n<concept>\n<concept_id>10002950.10003705</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003705.10011686</concept_id>\n<concept_desc>Mathematics of computing~Mathematical software performance</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n<concept>\n<concept_id>10002950.10003714.10003715</concept_id>\n<concept_desc>Mathematics of computing~Numerical analysis</concept_desc>\n<concept_significance>500</concept_significance>\n</concept>\n</ccs2012>\n",
       "description": "The multiplication of two matrices.C_ik = \\sum_k A_ij B_jk",
       "file": "src/saps/benchmarks/sddmm.py",
-      "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+      "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
       "generators": [
         {
           "ai_disclosure": "No generative AI was used to write the benchmark function itself. Generative AI was used to debug code. Generative AI might be used for dataset collecting and parsing. This statement was written by hand.",
@@ -53325,7 +53321,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SDDMM over the nonzero pattern of SuiteSparse graph email-Eu-core with embedding width 128.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "email-Eu-core-128",
               "pretty_name": "email-Eu-core-128",
               "suites": [
@@ -53348,7 +53344,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SDDMM over the nonzero pattern of SuiteSparse graph email with embedding width 128.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "email-128",
               "pretty_name": "email-128",
               "suites": [
@@ -53371,7 +53367,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SDDMM over the nonzero pattern of SuiteSparse graph ca-GrQc with embedding width 128.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "ca-GrQc-128",
               "pretty_name": "ca-GrQc-128",
               "suites": [
@@ -53394,7 +53390,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SDDMM over the nonzero pattern of SuiteSparse graph wiki-vote with embedding width 128.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "wiki-vote-128",
               "pretty_name": "wiki-vote-128",
               "suites": [
@@ -53415,7 +53411,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "SDDMM over the nonzero pattern of SuiteSparse graph ca-HepPh with embedding width 128.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "ca-HepPh-128",
               "pretty_name": "ca-HepPh-128",
               "suites": [
@@ -53434,8 +53430,8 @@
           ],
           "description": "Input generator for SDDMM, sampling a dense product at the nonzero pattern of a real graph from the SuiteSparse Matrix Collection.",
           "file": "src/saps/benchmarks/sddmm.py",
-          "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
-          "motivation": "Generate matrices for sampled dense-dense matrix multiplication.",
+          "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
+          "motivation": "Generate real sparse matrices for SDDMM, sampling the dense product at the nonzero pattern of a graph. Bharadwaj et al. name graph neural networks with self-attention as one of SDDMM's two applications and run real matrices at an embedding width of 128, the value used here; their own matrices hold hundreds of millions of nonzeros, so the graphs themselves are selected here.",
           "name": "suitesparse_sddmm_generator",
           "pretty_name": "SuiteSparse SDDMM Generator",
           "references": [
@@ -53468,7 +53464,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random SDDMM input uniform-21-per-row.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "uniform-21-per-row",
               "pretty_name": "uniform-21-per-row",
               "suites": [
@@ -53491,7 +53487,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random SDDMM input uniform-43-per-row.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "uniform-43-per-row",
               "pretty_name": "uniform-43-per-row",
               "suites": [
@@ -53512,7 +53508,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random SDDMM input uniform-65-per-row.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "uniform-65-per-row",
               "pretty_name": "uniform-65-per-row",
               "suites": [
@@ -53533,7 +53529,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random SDDMM input uniform-85-per-row.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "uniform-85-per-row",
               "pretty_name": "uniform-85-per-row",
               "suites": [
@@ -53556,7 +53552,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random SDDMM input uniform-107-per-row.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "uniform-107-per-row",
               "pretty_name": "uniform-107-per-row",
               "suites": [
@@ -53577,7 +53573,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random SDDMM input uniform-128-per-row.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "uniform-128-per-row",
               "pretty_name": "uniform-128-per-row",
               "suites": [
@@ -53598,7 +53594,7 @@
               "concepts": "<ccs2012></ccs2012>",
               "description": "Uniform random SDDMM input uniform-149-per-row.",
               "file": "src/saps/benchmarks/sddmm.py",
-              "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+              "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
               "name": "uniform-149-per-row",
               "pretty_name": "uniform-149-per-row",
               "suites": [
@@ -53619,7 +53615,7 @@
           ],
           "description": "Generates SDDMM inputs with a uniform random sparse sampling matrix at a range of densities.",
           "file": "src/saps/benchmarks/sddmm.py",
-          "freshness": "fa877a615704bfb9cd83427e2bde9a859fd8b622ec950e57cae5cde6d385c4a9",
+          "freshness": "dba7b60d826cb2838fb30fbe9dd96d0d6336807cfdb45ab355cfd0ba5faff6fa",
           "motivation": "Generate Erdos-Renyi sampling matrices for SDDMM, the synthetic workload Bharadwaj et al. use, swept over their range of nonzeros per row so that row occupancy rather than matrix size varies.",
           "name": "uniform_random_sddmm_generator",
           "pretty_name": "Uniform Random SDDMM Generator",

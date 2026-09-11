@@ -144,7 +144,14 @@ class SDDMMSuiteSparseGenerator(Generator):
 
     @property
     def motivation(self) -> str:
-        return "Generate matrices for sampled dense-dense matrix multiplication."
+        return (
+            "Generate real sparse matrices for SDDMM, sampling the dense "
+            "product at the nonzero pattern of a graph. Bharadwaj et al. name "
+            "graph neural networks with self-attention as one of SDDMM's two "
+            "applications and run real matrices at an embedding width of 128, "
+            "the value used here; their own matrices hold hundreds of millions "
+            "of nonzeros, so the graphs themselves are selected here."
+        )
 
     @property
     def datasets(self) -> list[Dataset]:

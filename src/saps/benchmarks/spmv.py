@@ -65,7 +65,7 @@ class DenseMatVecGenerator(Generator):
 
     @property
     def description(self) -> str:
-        return "Dense input generator for matrix multiplication."
+        return "Dense input generator for matrix-vector multiplication."
 
     @property
     def suites(self) -> list[str]:
@@ -92,7 +92,7 @@ class DenseMatVecGenerator(Generator):
 
     @property
     def motivation(self) -> str:
-        return "Generate dense matrices for matrix multiplication."
+        return "Generate dense matrices for matrix-vector multiplication."
 
     @property
     def datasets(self) -> list[Dataset]:
@@ -402,24 +402,7 @@ class UniformRandomMatVecGenerator(Generator):
 
     @property
     def references(self) -> list[Ref]:
-        return [
-            Ref(
-                title=(
-                    "Parallel Sparse Matrix-Matrix Multiplication and Indexing: "
-                    "Implementation and Experiments"
-                ),
-                authors=[
-                    Author("A. Buluç"),
-                    Author("J. R. Gilbert"),
-                ],
-                journal="SIAM Journal on Scientific Computing",
-                volume=34,
-                number=4,
-                pages="170-191",
-                year=2012,
-                doi="10.1137/110848244",
-            ),
-        ]
+        return []
 
     @property
     def ai_disclosure(self) -> str:
@@ -430,7 +413,11 @@ class UniformRandomMatVecGenerator(Generator):
 
     @property
     def motivation(self) -> str:
-        return ""
+        return (
+            "Generate uniform random sparse matrices for matrix-vector "
+            "multiplication over a range of densities. The density values are "
+            "just a synthetic sweep."
+        )
 
     @property
     def datasets(self) -> list[Dataset]:
