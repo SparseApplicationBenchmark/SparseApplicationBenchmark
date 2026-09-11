@@ -9,9 +9,12 @@ from scipy import sparse as scipy_sparse
 
 from binsparse.conversions import from_numpy, to_numpy, to_scipy
 
+from frameworks.saps_numpy import NumpyFramework
+from saps.benchmark import DataInstance, Param
 from saps.benchmarks import ode
 from saps.benchmarks.ode import (
     SLICOTRK4,
+    SLICOTBackwardEuler,
     SLICOTDataset,
     SLICOTForwardEuler,
     SLICOTGenerator,
@@ -177,6 +180,38 @@ def test_slicot_rk4_is_parented_benchmark():
     generator_names = [generator.name for generator in SLICOTRK4().generators]
 
     assert generator_names == ["slicot_ode"]
+
+
+@pytest.mark.parametrize(
+    ("benchmark_cls", "expected_step"),
+    [(SLICOTForwardEuler, 0.0001), (SLICOTBackwardEuler, 0.0002), (SLICOTRK4, 0.01)],
+)
+def test_slicot_setup_uses_method_timestep_with_old_cached_data(
+    monkeypatch, benchmark_cls, expected_step
+):
+    dataset = SLICOTDataset("CDplayer", step=0.01)
+    generator = SLICOTGenerator()
+    problem = DataInstance(
+        inputs=[from_numpy(np.array([[-10.0]])), from_numpy(np.ones((1, 1)))],
+        meta={"span": (0, 0.1), "y0": [0.0], "step": 0.02, "input_value": 1.0},
+    )
+    monkeypatch.setattr(generator, "cached_generate", lambda _: problem)
+    monkeypatch.setattr(
+        generator, "generate", lambda _: pytest.fail("must reuse the cached matrices")
+    )
+    param = Param(generator, dataset)
+    benchmark = benchmark_cls()
+
+    benchmark.setup(param, xp=NumpyFramework())
+    benchmark.run(param)
+    benchmark.check(param)
+
+    assert benchmark._input is problem.inputs
+    assert benchmark._meta["step"] == expected_step
+    assert problem.meta["step"] == 0.02
+    assert dataset.metadata["step"] == 0.01
+    assert benchmark.metadata["step_multiplier"] * dataset.step == expected_step
+    np.testing.assert_allclose(np.diff(to_numpy(benchmark._output[0])), expected_step)
 
 
 @pytest.mark.parametrize("drop_imaginary", [False, True])

@@ -343,6 +343,7 @@ class SLICOTDataset(Dataset):
                 "source_inputs": self.problem.inputs,
                 "source_outputs": self.problem.outputs,
                 "assumed_E": "identity",
+                "step": self.step,
             }
         )
         return data
@@ -713,17 +714,19 @@ class SLICOTGenerator(Generator[SLICOTDataset]):
 
     @property
     def datasets(self) -> list[SLICOTDataset]:
+        # Base timesteps, scaled by each method's step_multiplier at setup.
+        # Validated over t_max=0.1 at the 0.05 absolute-error tolerance.
         return [
             SLICOTDataset("eady.mat", suites=["standard"]),
-            SLICOTDataset("CDplayer.mat", suites=["standard"]),
-            SLICOTDataset("fom.mat", suites=["standard"]),
-            SLICOTDataset("random.mat", suites=["standard"]),
-            SLICOTDataset("pde.mat", suites=["standard"]),
-            SLICOTDataset("heat-cont.mat", suites=["standard"]),
+            SLICOTDataset("CDplayer.mat", suites=["standard"], step=4e-5),
+            SLICOTDataset("fom.mat", suites=["standard"], step=0.001),
+            SLICOTDataset("random.mat", suites=["standard"], step=5e-5),
+            SLICOTDataset("pde.mat", suites=["standard"], step=0.001),
+            SLICOTDataset("heat-cont.mat", suites=["standard"], step=0.001),
             SLICOTDataset("Orr-Som.mat", suites=["standard"]),
             SLICOTDataset("iss.mat", suites=["standard"]),
             SLICOTDataset("build.mat", suites=["standard"]),
-            SLICOTDataset("beam.mat", suites=["standard"]),
+            SLICOTDataset("beam.mat", suites=["standard"], step=0.001),
         ]
 
     def generate(self, dataset: SLICOTDataset):
@@ -1178,6 +1181,18 @@ class BrusselatorRK4(_BrusselatorMixin, _RK4Base):
 
 
 class _SLICOTMixin:
+    step_multiplier = 1.0
+
+    @property
+    def metadata(self):
+        return {**super().metadata, "step_multiplier": self.step_multiplier}
+
+    def setup(self, param, **kwargs):
+        super().setup(param, **kwargs)
+        # Integration settings come from the current dataset definition, including
+        # when the matrices were cached with an older timestep.
+        self._meta = {**self._meta, "step": param.dataset.step * self.step_multiplier}
+
     @property
     def description(self):
         return "SLICOT identity-E linear model-reduction ODE."
@@ -1205,6 +1220,8 @@ class _SLICOTMixin:
 
 
 class SLICOTForwardEuler(_SLICOTMixin, _ForwardEulerBase):
+    step_multiplier = 0.01
+
     @property
     def name(self):
         return "slicot_forward_euler"
@@ -1215,6 +1232,8 @@ class SLICOTForwardEuler(_SLICOTMixin, _ForwardEulerBase):
 
 
 class SLICOTBackwardEuler(_SLICOTMixin, _BackwardEulerBase):
+    step_multiplier = 0.02
+
     @property
     def name(self):
         return "slicot_backward_euler"
