@@ -143,7 +143,7 @@ def test_prepare_ogb_nodeprop_dataset_accepts_boolean_inverse_edge_metadata():
 
 
 @pytest.mark.parametrize("fail", [False, True])
-def test_products_download_is_noninteractive_and_restores_callback(
+def test_products_download_is_noninteractive_and_restores_callbacks(
     monkeypatch, tmp_path, fail
 ):
     from saps.downloaders import ogb
@@ -158,13 +158,20 @@ def test_products_download_is_noninteractive_and_restores_callback(
     dataset_module.decide_download = original_decide
     sentinel = object()
 
+    def original_download(url, folder):
+        assert url == "https://example.org/products.zip"
+        assert folder == str(tmp_path)
+        if fail:
+            raise RuntimeError("download failed")
+        return sentinel
+
+    dataset_module.download_url = original_download
+
     def load_dataset(*, name, root):
         assert name == "ogbn-products"
         assert root == str(tmp_path)
         assert dataset_module.decide_download("https://example.org/products.zip")
-        if fail:
-            raise RuntimeError("download failed")
-        return sentinel
+        return dataset_module.download_url("http://example.org/products.zip", root)
 
     nodeprop.NodePropPredDataset = load_dataset
     nodeprop.dataset = dataset_module
@@ -182,3 +189,4 @@ def test_products_download_is_noninteractive_and_restores_callback(
             is sentinel
         )
     assert dataset_module.decide_download is original_decide
+    assert dataset_module.download_url is original_download

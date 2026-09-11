@@ -531,7 +531,11 @@ def main() -> int:
     persistent_statistics_path = Path(
         os.environ.get("SAPS_STATISTICS_PATH", str(repo_root / "statistics.json"))
     )
-    manifest_path = str(repo_root / "manifest.json")
+    manifest_path = str(
+        Path(os.environ.get("SAPS_MANIFEST_PATH") or repo_root / "manifest.json")
+        .expanduser()
+        .resolve()
+    )
     pythonpath = str(repo_root)
     os.environ["PYTHONPATH"] = pythonpath
     saps_env_nobuild = {

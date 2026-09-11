@@ -162,7 +162,7 @@ def test_resume_merges_results_per_environment_and_skips_completed_runs(
 
 @pytest.mark.parametrize("chunk_index", range(5))
 @pytest.mark.parametrize("cache_override", ["", "shared-cache"])
-def test_competition_selects_jl_datasets_without_machine_prompts(
+def test_competition_selects_standard_jl_datasets_without_machine_prompts(
     runner, monkeypatch, tmp_path, chunk_index, cache_override
 ):
     import json
@@ -248,9 +248,9 @@ def test_competition_selects_jl_datasets_without_machine_prompts(
     assert (
         actual
         == [
-            "jl_projection_inputs.small",
-            "jl_projection_inputs.medium",
-            "jl_projection_inputs.large",
+            "jl_approx_nn_openml.mnist",
+            "jl_approx_nn_openml.cifar10",
+            "jl_approx_nn_netflix.netflix",
         ][chunk_index::5]
     )
     assert kwargs["machine_params"].machine == "run_12345-task-0"
