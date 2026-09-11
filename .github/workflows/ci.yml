@@ -33,7 +33,12 @@ jobs:
         if: runner.os == 'Windows'
         uses: ilammy/msvc-dev-cmd@v1
       - name: Run tests
-        shell: ${{ runner.os == 'Windows' && 'pwsh' || 'bash -el {0}' }}
+        if: runner.os != 'Windows'
+        run: |
+          poetry run pytest --junit-xml=test-${{ matrix.os }}-Python-${{ matrix.python }}.xml
+      - name: Run tests (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
         run: |
           poetry run pytest --junit-xml=test-${{ matrix.os }}-Python-${{ matrix.python }}.xml
       - uses: codecov/codecov-action@v5
