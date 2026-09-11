@@ -81,8 +81,10 @@ def combine_results(run_directory: Path, metadata: dict) -> tuple[dict, dict]:
             framework_file = env_vars.get("SAPS_FRAMEWORK")
             if framework_file and env_vars.get("SAPS_REPO_ROOT"):
                 with suppress(ValueError):
-                    framework_file = str(
-                        Path(framework_file).relative_to(env_vars["SAPS_REPO_ROOT"])
+                    framework_file = (
+                        Path(framework_file)
+                        .relative_to(env_vars["SAPS_REPO_ROOT"])
+                        .as_posix()
                     )
             framework = _reference(
                 combined["frameworks"],

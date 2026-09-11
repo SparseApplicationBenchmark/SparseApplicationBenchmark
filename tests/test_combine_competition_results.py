@@ -4,7 +4,7 @@ import importlib.util
 import json
 import os
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 
 import pytest
 
@@ -78,7 +78,11 @@ def write_result(path, values, *, machine="node-a", details=None):
     return document
 
 
-def test_combine_maps_parameters_and_cross_references(combiner, metadata, tmp_path):
+@pytest.mark.parametrize("path_type", [PurePosixPath, PureWindowsPath])
+def test_combine_maps_parameters_and_cross_references(
+    combiner, metadata, tmp_path, monkeypatch, path_type
+):
+    monkeypatch.setattr(combiner, "Path", path_type)
     details = {
         "machines": {"a": {"machine": "node-a", "cpu": "test cpu"}},
         "runs": [

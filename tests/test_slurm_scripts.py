@@ -10,6 +10,10 @@ from pathlib import Path
 
 import pytest
 
+pytestmark = pytest.mark.skipif(
+    os.name != "posix", reason="Slurm scripts require a POSIX shell and filesystem"
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 
 

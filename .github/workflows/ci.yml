@@ -29,7 +29,11 @@ jobs:
       - name: Install package
         run: |
           poetry install --with test
+      - name: Set up MSVC
+        if: runner.os == 'Windows'
+        uses: ilammy/msvc-dev-cmd@v1
       - name: Run tests
+        shell: ${{ runner.os == 'Windows' && 'pwsh' || 'bash -el {0}' }}
         run: |
           poetry run pytest --junit-xml=test-${{ matrix.os }}-Python-${{ matrix.python }}.xml
       - uses: codecov/codecov-action@v5
