@@ -22,6 +22,8 @@ jobs:
       - name: Configure Poetry
         run: |
           if [[ "${{ runner.os }}" == "Windows" ]]; then
+            # Export a native Windows path so PowerShell can also find Poetry.
+            cygpath -w "$(dirname "$(command -v poetry)")" >> "$GITHUB_PATH"
             poetry env use python
           else
             poetry env use python${{ matrix.python }}
