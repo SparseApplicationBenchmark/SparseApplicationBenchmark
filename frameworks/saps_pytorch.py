@@ -7,7 +7,7 @@ from saps_framework import Framework
 from saps_framework.einsum import parse_einsum
 
 torch._dynamo.config.suppress_errors = True
-torch_xp.power = torch.pow
+torch_xp.power = torch.pow  # type: ignore[attr-defined]
 # Keep the Lark parser outside Dynamo; the parsed tensor operations remain traceable.
 _parse_einsum = torch.compiler.disable(parse_einsum)
 

@@ -77,7 +77,7 @@ def load_gcare_graph(
                 level=SparseLevel(len(shape), ElementLevel(values), indices),
             )
         bin_mats.append(tensor)
-    ground_truth = {}
+    ground_truth: dict[str, int] = {}
     for path in sorted((ground_truth_dir / dataset_name).rglob("*.txt")):
         ground_truth.setdefault(path.stem, int(path.read_text().strip().split()[0]))
     queries = {}
