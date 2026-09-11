@@ -1,6 +1,7 @@
 import numpy as np
+import scipy.sparse as sps
 
-from binsparse import BinsparseTensor
+from binsparse import BinsparseTensor, COORMatrix
 from binsparse.conversions import from_numpy, to_numpy, to_scipy
 
 from saps.benchmark import (
@@ -587,23 +588,26 @@ class BellmanFordGAPGenerator(Generator[BellmanFordDataset]):
 def _adjacency_to_distance(
     adjacency: BinsparseTensor, keep_weights=False
 ) -> BinsparseTensor:
-    shape = adjacency.shape
-    distances = np.full(shape, np.inf, dtype=float)
-    np.fill_diagonal(distances, 0.0)
-
     try:
-        values = to_numpy(adjacency)
-        distances[values.astype(bool)] = (
-            values[values.astype(bool)] if keep_weights else 1.0
-        )
+        edges = to_scipy(adjacency).tocoo(copy=True)
     except TypeError:
-        adjacency_coo = to_scipy(adjacency).tocoo()
-        distances[adjacency_coo.row, adjacency_coo.col] = (
-            adjacency_coo.data if keep_weights else 1.0
-        )
-
-    np.fill_diagonal(distances, 0.0)
-    return from_numpy(distances)
+        edges = sps.coo_array(to_numpy(adjacency))
+    edges.sum_duplicates()
+    nonzero = (edges.row != edges.col) & (edges.data != 0)
+    weights = edges.data[nonzero].astype(float)
+    if not keep_weights:
+        weights.fill(1.0)
+    diagonal = np.arange(min(edges.shape))
+    values = np.concatenate((weights, np.zeros(diagonal.size)))
+    return COORMatrix(
+        edges.shape,
+        values.size,
+        fill=True,
+        fill_value=np.inf,
+        indices_0=np.concatenate((edges.row[nonzero], diagonal)),
+        indices_1=np.concatenate((edges.col[nonzero], diagonal)),
+        values=values,
+    )
 
 
 class BellmanFordBenchmark(Benchmark):

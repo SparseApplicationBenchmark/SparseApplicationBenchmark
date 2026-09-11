@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+from types import SimpleNamespace
+
 import pytest
 
 import numpy as np
 from scipy import sparse as scipy_sparse
 
-from binsparse.conversions import to_numpy, to_scipy
+from binsparse.conversions import from_numpy, to_numpy, to_scipy
 
 from saps.benchmarks import ode
 from saps.benchmarks.ode import (
@@ -175,3 +177,65 @@ def test_slicot_rk4_is_parented_benchmark():
     generator_names = [generator.name for generator in SLICOTRK4().generators]
 
     assert generator_names == ["slicot_ode"]
+
+
+@pytest.mark.parametrize("drop_imaginary", [False, True])
+def test_slicot_check_preserves_complex_reference(drop_imaginary):
+    benchmark = SLICOTRK4()
+    data = [np.array([[-1.0 + 2.0j]]), np.array([[1.0]])]
+    benchmark._input = [from_numpy(item) for item in data]
+    benchmark._meta = {
+        "span": (0.0, 1.0),
+        "y0": [0.0],
+        "step": 0.01,
+        "input_value": 1.0,
+    }
+    time, states = benchmark.benchmark(None, data, benchmark._meta)
+    if drop_imaginary:
+        states = states.real
+    benchmark._output = [from_numpy(time), from_numpy(states)]
+
+    if drop_imaginary:
+        with pytest.raises(AssertionError, match="maximum absolute error"):
+            benchmark.check(None)
+    else:
+        benchmark.check(None)
+
+
+def test_slicot_check_still_rejects_unstable_steps():
+    benchmark = SLICOTForwardEuler()
+    data = [np.array([[-1000.0]]), np.array([[1.0]])]
+    benchmark._input = [from_numpy(item) for item in data]
+    benchmark._meta = {
+        "span": (0.0, 0.1),
+        "y0": [0.0],
+        "step": 0.01,
+        "input_value": 1.0,
+    }
+    benchmark._output = [
+        from_numpy(item) for item in benchmark.benchmark(None, data, benchmark._meta)
+    ]
+
+    with pytest.raises(AssertionError, match="exceeds tolerance 0.05 at step=0.01"):
+        benchmark.check(None)
+
+
+def test_slicot_check_reports_reference_failure(monkeypatch):
+    benchmark = SLICOTRK4()
+    benchmark._input = [from_numpy(np.eye(1)), from_numpy(np.ones((1, 1)))]
+    benchmark._meta = {
+        "span": (0.0, 0.1),
+        "y0": [0.0],
+        "step": 0.01,
+        "input_value": 1.0,
+    }
+    benchmark._output = [from_numpy(np.array([0.0])), from_numpy(np.zeros((1, 1)))]
+    monkeypatch.setattr(
+        "scipy.integrate.solve_ivp",
+        lambda *args, **kwargs: SimpleNamespace(success=False, message="test failure"),
+    )
+
+    with pytest.raises(
+        AssertionError, match="ODE reference integration failed: test failure"
+    ):
+        benchmark.check(None)

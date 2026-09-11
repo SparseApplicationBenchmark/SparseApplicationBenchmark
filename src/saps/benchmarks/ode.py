@@ -845,17 +845,30 @@ class _OdeBenchmarkBase(Benchmark, ABC):
 
         time = to_numpy(self._output[0])
         y_out = to_numpy(self._output[1])
+        assert np.all(np.isfinite(y_out)), (
+            f"Non-finite ODE output at step={self._meta['step']}"
+        )
         data = self._check_data()
         rhs = lambda t, y: self._dydt(t, list(y), data, self._meta)  # noqa: E731
-        ref = solve_ivp(
+        y0 = np.asarray(
+            self._meta["y0"],
+            dtype=np.result_type(y_out.dtype, *(item.dtype for item in data), float),
+        )
+        solution = solve_ivp(
             rhs,
             self._meta["span"],
-            self._meta["y0"],
+            y0,
             t_eval=time,
-        ).y.T
-        actual_y, ref_y = self._comparison_output(np.asarray(y_out), ref)
+            rtol=1e-8,
+            atol=1e-10,
+        )
+        assert solution.success, f"ODE reference integration failed: {solution.message}"
+        actual_y, ref_y = self._comparison_output(np.asarray(y_out), solution.y.T)
         error = np.max(np.abs(actual_y - ref_y))
-        assert error < self._error_tolerance()
+        assert error < self._error_tolerance(), (
+            f"ODE maximum absolute error {error:.6g} exceeds "
+            f"tolerance {self._error_tolerance()} at step={self._meta['step']}"
+        )
 
 
 class _ForwardEulerBase(_OdeBenchmarkBase):

@@ -123,6 +123,23 @@ verified before entering the shared cache. Missing manifest entries or unavailab
 prepared data fail setup with an instruction to run `--cache-datasets`; normal
 runs never regenerate cacheable inputs or write manifest metadata.
 
+Generators marked `cacheable = False` still assemble benchmark inputs during
+setup from their shared source datasets. Those transformations must preserve
+sparsity and use prepared data. The G-CARE downloader reads graph matrices,
+queries, and ground-truth counts. The shell generator wraps its returned arrays
+and metadata in a `DataInstance` for the storage backend to cache. The regular
+subgraph generator assembles each query from that cached input without calling
+the downloader or reading source files.
+Older G-CARE caches need a one-time refresh from the repository root:
+
+```bash
+poetry run ./bin/run_benchmark.py --cache-datasets --re '^subgraph_gcare_graph$'
+```
+
+Run this in the dataset-upload environment with its configured storage backend.
+The shell places G-CARE source files under the storage backend's cache directory
+in `gcare/`.
+
 SuiteSparse source downloads used during cache preparation also share this cache,
 under `suitesparse/<group>/<name>`. A lock and atomic publication let workers reuse
 one completed source download across its RHS selections.

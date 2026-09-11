@@ -428,7 +428,7 @@ class CPNFrosttGenerator(Generator[CPFrosttDataset]):
         raw = fetch_frostt_tensor(dataset.tensor_name)
         X = raw.inputs[0]
         rank = dataset.rank
-        dtype = to_numpy(X).dtype
+        dtype = np.result_type(X.level.level.values.dtype, np.float32)
         rng = np.random.default_rng(0)
 
         match dataset.n:
