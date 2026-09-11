@@ -148,9 +148,9 @@ def _matrix_with_overlap(coo, rng: np.random.Generator, overlap: float):
 # overlap in _ELEMENTWISE_OVERLAPS.
 # (matrix name, include in the correctness test suite)
 _ELEMENTWISE_MATRICES: list[tuple[str, bool]] = [
-    ("email-Eu-core", True),
-    ("ca-GrQc", True),
-    ("wiki-vote", False),
+    ("SNAP/email-Eu-core", True),
+    ("SNAP/ca-GrQc", True),
+    ("SNAP/wiki-Vote", False),
 ]
 
 
@@ -282,7 +282,7 @@ class SuiteSparseElementwiseGenerator(Generator):
     def datasets(self) -> list[Dataset]:
         return [
             SuiteSparseElementwiseDataset(
-                f"{matrix}-overlap-{int(overlap * 100)}",
+                f"{matrix.split('/')[-1]}-overlap-{int(overlap * 100)}",
                 matrix,
                 overlap=overlap,
                 suites=["sparse", "test"]

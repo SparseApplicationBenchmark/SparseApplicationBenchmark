@@ -64,11 +64,11 @@ SDDMM_EMBEDDING_WIDTH = 128
 # modest because the benchmark forms the dense A @ B product, which costs n**2.
 # (matrix name, include in the correctness test suite)
 _SDDMM_GRAPHS: list[tuple[str, bool]] = [
-    ("email-Eu-core", True),
-    ("email", True),
-    ("ca-GrQc", True),
-    ("wiki-vote", False),
-    ("ca-HepPh", False),
+    ("SNAP/email-Eu-core", True),
+    ("Arenas/email", True),
+    ("SNAP/ca-GrQc", True),
+    ("SNAP/wiki-Vote", False),
+    ("SNAP/ca-HepPh", False),
 ]
 
 
@@ -157,7 +157,7 @@ class SDDMMSuiteSparseGenerator(Generator):
     def datasets(self) -> list[Dataset]:
         return [
             SDDMMSuiteSparseDataset(
-                f"{matrix}-{SDDMM_EMBEDDING_WIDTH}",
+                f"{matrix.split('/')[-1]}-{SDDMM_EMBEDDING_WIDTH}",
                 SDDMM_EMBEDDING_WIDTH,
                 matrix,
                 suites=["sparse", "test"] if in_test_suite else ["sparse"],

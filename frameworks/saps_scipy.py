@@ -34,6 +34,12 @@ class ScipyLinalg:
             return spla.norm(x, **kwargs)
         return np.linalg.norm(x, **kwargs)
 
+    @staticmethod
+    def lstsq(a, b, rcond=None, **kwargs):
+        if rcond is not None:
+            kwargs["cond"] = rcond
+        return la.lstsq(a, b, **kwargs)
+
 
 class SciPyFramework(Framework):
     def __init__(self):
@@ -69,6 +75,8 @@ class SciPyFramework(Framework):
             return from_numpy(array)
         if isinstance(array, np.matrix):
             return from_numpy(np.array(array))
+        if np.isscalar(array):
+            return from_numpy(np.asarray(array))
         raise TypeError(f"Type {type(array)} is not a recognized SciPy/NumPy format.")
 
     def lazy(self, array):
@@ -78,8 +86,29 @@ class SciPyFramework(Framework):
         return array
 
     def einsum(self, prgm, **kwargs):
-        xp = self._array_namespace(*kwargs.values())
-        return einsum(xp, prgm, **kwargs)
+        return einsum(self, prgm, **kwargs)
+
+    def permute_dims(self, a, axes):
+        if sps.issparse(a):
+            return (
+                a if tuple(axes) == tuple(range(a.ndim)) else a.transpose(tuple(axes))
+            )
+        return compat_np.permute_dims(a, axes)
+
+    def expand_dims(self, a, axis):
+        if sps.issparse(a):
+            if not -a.ndim - 1 <= axis <= a.ndim:
+                raise IndexError(f"axis {axis} is out of bounds for expand_dims")
+            axis %= a.ndim + 1
+            return a.reshape(a.shape[:axis] + (1,) + a.shape[axis:])
+        return compat_np.expand_dims(a, axis=axis)
+
+    def multiply(self, x1, x2):
+        if sps.issparse(x1):
+            return x1.multiply(x2)
+        if sps.issparse(x2):
+            return x2.multiply(x1)
+        return compat_np.multiply(x1, x2)
 
     def diagonal(self, a, *args, **kwargs):
         if sps.issparse(a):
@@ -93,16 +122,11 @@ class SciPyFramework(Framework):
         xp = self._array_namespace(x1, x2)
         return xp.matmul(x1, x2, **kwargs)
 
-    # NumPy ufuncs (np.multiply, np.add, ...) treat a scipy sparse operand as a
+    # NumPy ufuncs (np.add, np.subtract, ...) treat a scipy sparse operand as a
     # 0-d object scalar and broadcast it, exploding memory. Scipy's operators are
     # correctly overloaded for sparse, so route through them when an operand is
     # sparse and fall back to the array-api namespace for dense inputs.
-
-    def multiply(self, x1, x2, /, **kwargs):
-        if sps.issparse(x1) or sps.issparse(x2):
-            return x1 * x2
-        xp = self._array_namespace(x1, x2)
-        return xp.multiply(x1, x2, **kwargs)
+    # `multiply` is defined above, using scipy's explicitly elementwise method.
 
     def add(self, x1, x2, /, **kwargs):
         if sps.issparse(x1) or sps.issparse(x2):

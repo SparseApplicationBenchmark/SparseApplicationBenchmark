@@ -166,17 +166,17 @@ class SuiteSparseMatmulDataset(Dataset):
 # densifies, making cost scale with n**3 rather than with nnz.
 # (matrix name, application class, include in the correctness test suite)
 _MATMUL_MATRICES: list[tuple[str, str, bool]] = [
-    ("email", "graph algorithms", True),
-    ("email-Eu-core", "graph algorithms", True),
-    ("ca-GrQc", "graph algorithms", True),
-    ("bcsstk09", "algebraic multigrid", True),
-    ("Chebyshev3", "algebraic multigrid", True),
-    ("CollegeMsg", "graph algorithms", False),
-    ("wiki-vote", "graph algorithms", False),
-    ("ca-HepPh", "graph algorithms", False),
-    ("Muu", "algebraic multigrid", False),
-    ("fv2", "algebraic multigrid", False),
-    ("Dubcova1", "algebraic multigrid", False),
+    ("Arenas/email", "graph algorithms", True),
+    ("SNAP/email-Eu-core", "graph algorithms", True),
+    ("SNAP/ca-GrQc", "graph algorithms", True),
+    ("HB/bcsstk09", "algebraic multigrid", True),
+    ("Muite/Chebyshev3", "algebraic multigrid", True),
+    ("SNAP/CollegeMsg", "graph algorithms", False),
+    ("SNAP/wiki-Vote", "graph algorithms", False),
+    ("SNAP/ca-HepPh", "graph algorithms", False),
+    ("MathWorks/Muu", "algebraic multigrid", False),
+    ("Norris/fv2", "algebraic multigrid", False),
+    ("UTEP/Dubcova1", "algebraic multigrid", False),
 ]
 
 
@@ -279,7 +279,7 @@ class SuiteSparseMatmulGenerator(Generator):
     def datasets(self) -> list[Dataset]:
         return [
             SuiteSparseMatmulDataset(
-                name,
+                name.split("/")[-1],
                 name,
                 name,
                 suites=["sparse", "test"] if in_test_suite else ["sparse"],
